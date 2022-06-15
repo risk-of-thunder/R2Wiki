@@ -32,11 +32,18 @@ jobs:
           cd ..
           rm -rf R2Wiki.wiki
           echo $current_commit_hash > $last_commit_hash_file
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add $last_commit_hash_file
           git commit -m "[GitHub Action] Update last R2Wiki commit hash"
           git add -A
           git commit -m "[GitHub Action] Update docs"
-          git push origin master
+          
+      - name: Save changes to repo
+        if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: MkDocs Deploy To GitHub Pages
         if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
