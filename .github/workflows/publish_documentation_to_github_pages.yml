@@ -39,7 +39,7 @@ jobs:
           git push origin master
           
       - name: MkDocs Deploy To GitHub Pages
-        if: steps.prepare-publish.outputs.should-publish-new-doc == "true"
+        if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
