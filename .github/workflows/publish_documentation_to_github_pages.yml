@@ -1,0 +1,47 @@
+name: Publish Documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Clone R2Wiki 
+        run: |
+          git clone https://github.com/risk-of-thunder/R2Wiki.wiki.git
+          
+      - name: Prepare for publishing
+        id: prepare-publish
+        run: |
+          cd R2Wiki.wiki
+          last_commit_hash_file="last_commit_hash.txt"
+          if [ ! -f  ]; echo 0 > last_commit_hash.txt; fi
+          current_commit_hash=$(bash -c 'git rev-parse HEAD')
+          last_commit_hash=$(cat $last_commit_hash_file)
+          if [ "$current_commit_hash" == "$last_commit_hash" ]; then echo "::set-output name=should-publish-new-doc::false" && exit 0; else echo "::set-output name=should-publish-new-doc::true"; fi
+          for file in *.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
+          cd ..
+          rm -rf R2Wiki.wiki
+          echo $current_commit_hash > $last_commit_hash_file
+          git add $last_commit_hash_file
+          git commit -m "[GitHub Action] Update last R2Wiki commit hash"
+          git add -A
+          git commit -m "[GitHub Action] Update docs"
+          git push origin master
+          
+      - name: MkDocs Deploy To GitHub Pages
+        if: steps.prepare-publish.outputs.should-publish-new-doc == "true"
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: mkdocs.yml
+          EXTRA_PACKAGES: build-base
