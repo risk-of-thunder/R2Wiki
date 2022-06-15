@@ -24,7 +24,7 @@ jobs:
         run: |
           cd R2Wiki.wiki
           last_commit_hash_file="last_commit_hash.txt"
-          if [ ! -f  ]; echo 0 > last_commit_hash.txt; fi
+          if [ ! -f $last_commit_hash_file ]; echo 0 > $last_commit_hash_file; fi
           current_commit_hash=$(bash -c 'git rev-parse HEAD')
           last_commit_hash=$(cat $last_commit_hash_file)
           if [ "$current_commit_hash" == "$last_commit_hash" ]; then echo "::set-output name=should-publish-new-doc::false" && exit 0; else echo "::set-output name=should-publish-new-doc::true"; fi
