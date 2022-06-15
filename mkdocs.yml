@@ -3,6 +3,6 @@ site_description: 'This wiki contains information and other resources to aid wit
 site_author: 'Risk of Rain 2 Modding Community'
 docs_dir: docs/
 repo_name: 'risk-of-thunder/R2Wiki'
-repo_url: 'risk-of-thunder/R2Wiki'
+repo_url: 'https://github.com/risk-of-thunder/R2Wiki'
 theme:
   name: 'material'
