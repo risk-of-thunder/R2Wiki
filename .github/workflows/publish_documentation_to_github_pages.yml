@@ -39,6 +39,8 @@ jobs:
           else
             echo "::set-output name=should-publish-new-doc::true";
             
+            rm -rf docs
+            
             cd R2Wiki.wiki
             for file in *_*.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
             for file in *.md; do mkdir -p "../docs/"; mv "$file" "../docs/$file"; done
