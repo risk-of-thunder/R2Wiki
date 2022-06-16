@@ -30,6 +30,8 @@ jobs:
           current_commit_hash=$(bash -c 'git rev-parse HEAD')
           last_commit_hash=$(cat $last_commit_hash_file)
           if [ "$current_commit_hash" == "$last_commit_hash" ]; then
+            echo $current_commit_hash
+            echo $last_commit_hash_file
             echo "::set-output name=should-publish-new-doc::false";
           else
             echo "::set-output name=should-publish-new-doc::true";
@@ -38,11 +40,17 @@ jobs:
             cd ..
             rm -rf R2Wiki.wiki
             echo $current_commit_hash > $last_commit_hash_file
+            echo "1111"
+            echo $last_commit_hash_file
+            echo "2222"
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
+            echo "3333"
             git add $last_commit_hash_file
+            echo "4444"
             git commit -m "[GitHub Action] Update last R2Wiki commit hash"
             git add -A
+            echo "5555"
             git commit -m "[GitHub Action] Update docs"
           fi
           
