@@ -2,7 +2,7 @@ site_name: Risk of Rain 2 Modding Wiki
 site_description: 'This wiki contains information and other resources to aid with modding Risk of Rain 2.'
 site_author: 'Risk of Rain 2 Modding Community'
 docs_dir: docs/
-repo_name: 'risk-of-thunder/R2Wiki'
-repo_url: 'https://github.com/risk-of-thunder/R2Wiki'
+repo_name: 'xiaoxiao921/R2Wiki'
+repo_url: 'https://github.com/xiaoxiao921/R2Wiki'
 theme:
   name: 'material'
