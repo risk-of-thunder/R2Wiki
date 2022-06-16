@@ -17,7 +17,7 @@ jobs:
       
       - name: Clone R2Wiki 
         run: |
-          git clone https://github.com/risk-of-thunder/R2Wiki.wiki.git
+          git clone https://github.com/xiaoxiao921/R2Wiki.wiki.git
           
       - name: Prepare for publishing
         id: prepare-publish
