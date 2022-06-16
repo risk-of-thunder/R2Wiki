@@ -1,2 +1,2 @@
-mkdocs-fix-github-wiki-url-plugin==0.1.15
+mkdocs-video==1.3.0
 mkdocs-ezlinks-plugin==0.1.14
