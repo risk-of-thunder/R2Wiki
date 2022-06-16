@@ -1,0 +1,1 @@
+mkdocs-github-wiki-edit-url==0.3
