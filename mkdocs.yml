@@ -5,6 +5,7 @@ docs_dir: docs/
 plugins:
   - search
   - ezlinks
+  - mkdocs-fix-github-wiki-url-plugin
 repo_name: 'xiaoxiao921/R2Wiki'
 repo_url: 'https://github.com/xiaoxiao921/R2Wiki/wiki'
 theme:
