@@ -1,1 +1,2 @@
 mkdocs-github-wiki-edit-url==0.3
+mkdocs-ezlinks-plugin==0.1.14
