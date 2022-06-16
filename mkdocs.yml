@@ -7,8 +7,8 @@ plugins:
   - ezlinks
   - mkdocs-video
   - mkdocs-fix-github-wiki-url-plugin
-repo_name: 'xiaoxiao921/R2Wiki'
-repo_url: 'https://github.com/xiaoxiao921/R2Wiki/wiki'
+repo_name: 'risk-of-thunder/R2Wiki'
+repo_url: 'https://github.com/risk-of-thunder/R2Wiki/wiki'
 theme:
   name: 'material'
   palette:
