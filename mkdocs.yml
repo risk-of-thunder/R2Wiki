@@ -1,0 +1,42 @@
+site_name: Risk of Rain 2 Modding Wiki
+site_description: 'This wiki contains information and other resources to aid with modding Risk of Rain 2.'
+site_author: 'Risk of Rain 2 Modding Community'
+docs_dir: docs/
+plugins:
+  - search
+  - ezlinks
+  - mkdocs-video
+  - mkdocs-fix-github-wiki-url-plugin
+repo_name: 'risk-of-thunder/R2Wiki'
+repo_url: 'https://github.com/risk-of-thunder/R2Wiki/wiki'
+theme:
+  name: 'material'
+  palette:
+    - scheme: default
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

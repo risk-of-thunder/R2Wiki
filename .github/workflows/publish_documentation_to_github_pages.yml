@@ -1,0 +1,76 @@
+name: Publish Documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Clone R2Wiki 
+        run: |
+          git clone https://github.com/risk-of-thunder/R2Wiki.wiki.git
+          
+      - name: Prepare for publishing
+        id: prepare-publish
+        run: |
+          last_commit_hash_file="last_commit_hash.txt"
+          
+          if [ ! -f $last_commit_hash_file ]; then
+            echo 0 > $last_commit_hash_file;
+          fi
+          
+          cd R2Wiki.wiki
+          current_commit_hash=$(bash -c 'git rev-parse HEAD')
+          cd ..
+          
+          last_commit_hash=$(cat $last_commit_hash_file)
+          
+          if [ "$current_commit_hash" == "$last_commit_hash" ]; then
+            echo "::set-output name=should-publish-new-doc::false";
+          else
+            echo "::set-output name=should-publish-new-doc::true";
+            
+            rm -rf docs
+            
+            cd R2Wiki.wiki
+            for file in *_*.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
+            for file in *.md; do mkdir -p "../docs/"; mv "$file" "../docs/$file"; done
+            
+            cd ..
+            rm -rf R2Wiki.wiki
+            
+            echo $current_commit_hash > $last_commit_hash_file
+          
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+          
+            git add $last_commit_hash_file
+            git commit -m "[GitHub Action] Update last R2Wiki commit hash"
+            
+            git add -A
+            git commit -m "[GitHub Action] Update docs"
+          fi
+          
+      - name: Save changes to repo
+        if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: MkDocs Deploy To GitHub Pages
+        if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: mkdocs.yml
+          EXTRA_PACKAGES: build-base
+          REQUIREMENTS: requirements.txt
