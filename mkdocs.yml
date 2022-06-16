@@ -11,11 +11,11 @@ repo_name: 'xiaoxiao921/R2Wiki'
 repo_url: 'https://github.com/xiaoxiao921/R2Wiki/wiki'
 theme:
   name: 'material'
+  font:
+    text: Montserrat
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.indexes
