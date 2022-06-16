@@ -24,20 +24,27 @@ jobs:
         run: |
           cd R2Wiki.wiki
           last_commit_hash_file="last_commit_hash.txt"
-          if [ ! -f $last_commit_hash_file ]; then echo 0 > $last_commit_hash_file; fi
+          if [ ! -f $last_commit_hash_file ]; then
+            echo 0 > $last_commit_hash_file;
+          fi
           current_commit_hash=$(bash -c 'git rev-parse HEAD')
           last_commit_hash=$(cat $last_commit_hash_file)
-          if [ "$current_commit_hash" == "$last_commit_hash" ]; then echo "::set-output name=should-publish-new-doc::false" && exit 0; else echo "::set-output name=should-publish-new-doc::true"; fi
-          for file in *.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
-          cd ..
-          rm -rf R2Wiki.wiki
-          echo $current_commit_hash > $last_commit_hash_file
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add $last_commit_hash_file
-          git commit -m "[GitHub Action] Update last R2Wiki commit hash"
-          git add -A
-          git commit -m "[GitHub Action] Update docs"
+          if [ "$current_commit_hash" == "$last_commit_hash" ]; then
+            echo "::set-output name=should-publish-new-doc::false";
+          else
+            echo "::set-output name=should-publish-new-doc::true";
+            for file in *_*.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
+            for file in *.md; do mkdir -p "../docs/"; mv "$file" "../docs/$file"; done
+            cd ..
+            rm -rf R2Wiki.wiki
+            echo $current_commit_hash > $last_commit_hash_file
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add $last_commit_hash_file
+            git commit -m "[GitHub Action] Update last R2Wiki commit hash"
+            git add -A
+            git commit -m "[GitHub Action] Update docs"
+          fi
           
       - name: Save changes to repo
         if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
