@@ -6,6 +6,7 @@ plugins:
   - search
   - ezlinks
   - mkdocs-video
+  - mkdocs-fix-github-wiki-url-plugin
 repo_name: 'xiaoxiao921/R2Wiki'
 repo_url: 'https://github.com/xiaoxiao921/R2Wiki/wiki'
 theme:
