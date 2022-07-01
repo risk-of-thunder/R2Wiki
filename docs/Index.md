@@ -1,7 +1,5 @@
 # Welcome to the Risk of Rain 2 Modding Wiki !
 
-https://risk-of-thunder.github.io/R2Wiki
-
 This place serves as a center for guides related to Risk of Rain 2 Modding.
 
 These guides help to teach concepts and should prove as a useful resource to modders.
