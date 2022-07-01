@@ -43,7 +43,7 @@ jobs:
             
             cd R2Wiki.wiki
             for file in *_*.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
-            for file in *.md; do mkdir -p "../docs/"; mv "$file" "../docs/$file"; done
+            for file in *.md; do mkdir -p "../docs/"; if [[ "$file" != "Home.md" ]]; then mv "$file" "../docs/$file"; fi; done
             
             cd ..
             rm -rf R2Wiki.wiki
@@ -68,7 +68,7 @@ jobs:
           
       - name: MkDocs Deploy To GitHub Pages
         if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: mkdocs.yml
