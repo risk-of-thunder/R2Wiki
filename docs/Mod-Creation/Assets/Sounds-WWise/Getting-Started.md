@@ -1,4 +1,4 @@
-# Sounds Two Yeah We Have Two Pages
+# Getting Started
 
 ## Requirements:
 * [Wwise v2019.2.12.7544](https://www.audiokinetic.com/download/) - MUST BE THIS EXACT SAME VERSION OR IT WILL NOT WORK

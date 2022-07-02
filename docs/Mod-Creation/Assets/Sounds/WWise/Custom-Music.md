@@ -1,4 +1,4 @@
-# Sounds
+# Custom Music
 
 - Setup WWise with that [tutorial](https://github.com/risk-of-thunder/R2Wiki/wiki/Wwise---Custom-Sounds)
 

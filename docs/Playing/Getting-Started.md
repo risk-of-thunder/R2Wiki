@@ -1,64 +1,8 @@
 # Getting Started
 
-## Foreword
-**If you do not like to read then skip to downloading the mod manager, you can always refer back to this if you're stuck**
+## Mod Manager
 
-Reading mod descriptions and doing research on issues is recommended if you want a pleasant modding experience. If you think you can skip doing these to save time now, you may end up spending time troubleshooting all because you missed something simple like single player only, not compatible with X, etc. 
-
-This guide assumes that you are familiar with basic Windows OS use such as the file and folder systems and with the file system of your own computer. It also assumes you know how to download and install programs and unzip archive files. 
-
-# Manual Installation - Not Recommended - Average user please skip to [Mod Manager Section](#Mod-Manager)
-
-## Installation
-
-Most mods require [BepInEx (The Modloader)](https://thunderstore.io/package/tristanmcpherson/R2API/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/) typically, both of which can be found on the [Thunderstore](https://thunderstore.io/). Some mods might require other mods or libraries to work which can be seen in the "This mod requires the following mods to function" section of [Thunderstore](https://thunderstore.io/) but we shall focus on these two for your manual installation.
-
-![image](https://user-images.githubusercontent.com/72328339/163709400-1f5b6523-c443-4777-863f-f0f515514455.png)
-
-
-### BepInEx
-
-1. Go to the [Thunderstore download page](https://thunderstore.io/package/ebkr/r2modman/).
-2. Click "Manual Download"
-3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2".
-3. Extract the contents of the downloaded .zip to the "Risk of Rain 2" folder.
-
-[If you are installing on Linux please use this guide.](https://github.com/risk-of-thunder/R2Wiki/wiki/Getting-BepInEx-Console-Working-on-Linux)
-
-### R2API
-
-1. Go to the [Thunderstore download page](https://thunderstore.io/package/tristanmcpherson/R2API/).
-2. Click "Manual Download"
-3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2\BepEx".
-3. Extract the contents of the downloaded .zip to the "BepInEx" folder.
-
-### Mod Installation & Updating
-
-**Installation**
-
-1. Firstly check the "This mod requires the following mods to function" section of the mods Thunderstore page and ensure you have all the required mods, if not then download those in addition to the mod.
-1. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2\BepEx\Plugins".
-2. Extract contents of the downloaded mods .zip to the "Plugins" folder (If the mod's README.md/Thunderstore page contains instructions for a different install location please install there instead).
-
-**Updating**
-
-For updating mods repeat the same process as Installation and overwrite the existing files.
-
-### Disabling Mods
-
-To disable a single mod you must remove the .dll from the Plugins folder.
-
-To disable all your mods rename the winhttp.dll in your Risk Of Rain 2 folder to winhttp.dll.dis. Should you want the mods back, you just rename the file back to winhttp.dll.
-
-[You can set up steam shortcuts to play both vanilla and modded by following this Guide!](https://github.com/risk-of-thunder/R2Wiki/wiki/Running-modded-and-unmodded-game-with-shortcuts).
-
-### Mod Configuration
-
-While some mods may have configuration in-game most have configuration files stored in "\BepInEx\config", You can alter the settings in these files with a text editor.
-
-# Mod Manager
-
-You can install mods [manually](https://github.com/risk-of-thunder/R2Wiki/wiki/FAQ----Everything-is-on-fire,-help!), but it will cause you and developers great pain in the long run so for the sake of everyone's sanity we implore you to use one. There are four managers that you can choose from currently. Three are for windows and one is for Linux. For now we will focus on [r2modman](https://thunderstore.io/package/ebkr/r2modman/) until the other managers are more feature complete and this guide can be generalized or expanded. 
+ There are four managers that you can choose from currently. Three are for windows and one is for Linux. For now we will focus on [r2modman](https://thunderstore.io/package/ebkr/r2modman/), if you use Overwolf, you can use [TMM](https://www.overwolf.com/app/Thunderstore-Thunderstore_Mod_Manager)
 
 ## R2MODMAN - Recommended
  
@@ -234,7 +178,61 @@ If issues persist and all the solutions fail:
 5. Continue as normal with installing mods.
 6. If everything is now working repeat steps 2-4, the cache should be fine now.
 
-# Reporting Bugs for Mods
+## Manual Installation - Not Recommended - Average user please use a [mod manager](#Mod-Manager)
+
+You can install mods manually but it will cause you and developers great pain in the long run so for the sake of everyone's sanity we implore you to use a mod manager instead.
+
+If you happen to get issues with mods while you are doing a manual install and that you request for help in the [modding discord](https://discord.gg/5MbXZvd), people will most likely to use a mod manager instead and come back only if you have issues while using one.
+
+This guide assumes that you are familiar with basic Windows OS use such as the file and folder systems and with the file system of your own computer. It also assumes you know how to download and install programs and unzip archive files.
+
+Most mods require [BepInEx (The Modloader)](https://thunderstore.io/package/bbepis/BepInExPack/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/) typically, both of which can be found on the [Thunderstore](https://thunderstore.io/).
+
+Some mods might require other mods or libraries to work which can be seen in the "This mod requires the following mods to function" section of [Thunderstore](https://thunderstore.io/) but we shall focus on these two for your manual installation.
+
+![image](https://user-images.githubusercontent.com/72328339/163709400-1f5b6523-c443-4777-863f-f0f515514455.png)
+
+### BepInEx
+
+1. Go to the [Thunderstore download page](https://thunderstore.io/package/ebkr/r2modman/).
+2. Click "Manual Download"
+3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2".
+3. Extract the contents of the downloaded .zip to the "Risk of Rain 2" folder.
+
+[If you are installing on Linux please use this guide.](https://github.com/risk-of-thunder/R2Wiki/wiki/Getting-BepInEx-Console-Working-on-Linux)
+
+### R2API
+
+1. Go to the [Thunderstore download page](https://thunderstore.io/package/tristanmcpherson/R2API/).
+2. Click "Manual Download"
+3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2\BepEx".
+3. Extract the contents of the downloaded .zip to the "BepInEx" folder.
+
+### Mod Installation & Updating
+
+**Installation**
+
+1. Firstly check the "This mod requires the following mods to function" section of the mods Thunderstore page and ensure you have all the required mods, if not then download those in addition to the mod.
+1. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2\BepEx\Plugins".
+2. Extract contents of the downloaded mods .zip to the "Plugins" folder (If the mod's README.md/Thunderstore page contains instructions for a different install location please install there instead).
+
+**Updating**
+
+For updating mods repeat the same process as Installation and overwrite the existing files.
+
+### Disabling Mods
+
+To disable a single mod you must remove the .dll from the Plugins folder.
+
+To disable all your mods rename the winhttp.dll in your Risk Of Rain 2 folder to winhttp.dll.dis. Should you want the mods back, you just rename the file back to winhttp.dll.
+
+[You can set up steam shortcuts to play both vanilla and modded by following this Guide!](https://risk-of-thunder.github.io/R2Wiki/Playing/Running-modded-and-unmodded-game-with-shortcuts/).
+
+### Mod Configuration
+
+While some mods may have configuration in-game most have configuration files stored in "\BepInEx\config", You can alter the settings in these files with any text editor.
+
+## Reporting Bugs for Mods
 
 **Before you do anything check the "Configuring Mods" section; Your mod(s) may have settings you can change to solve your problems**
 
