@@ -1,11 +1,11 @@
 # Getting Started
 
 ## Requirements:
-* [Wwise v2019.2.12.7544](https://www.audiokinetic.com/download/) - MUST BE THIS EXACT SAME VERSION OR IT WILL NOT WORK
-* Visual Studio
+* [Wwise v2019.2.12.7544](https://www.audiokinetic.com/download/)
+* An IDE (like Visual Studio 2022)
 * Audio files in .wav format (will not work in any other format, convert using audacity if needed)
-& R2API
-* NOTE: This tutorial will not showcase all the advanced features Wwise offers such as randomness, 3d audio, and other features. Only importing an audio and getting it to play via script.
+
+Note: This tutorial will not showcase all the advanced features Wwise offers such as randomness, 3d audio, and other features. Only importing an audio and getting it to play via script.
 
 ### Installing Wwise into a Unity Project
 
@@ -15,7 +15,7 @@ The Wwise Installer does not function well when trying to install to an existing
 
   1. Get Offline Installer from AudioKinetic
 https://www.audiokinetic.com/library/edge/?source=InstallGuide&id=working_with_offline_installers
-  2. Create new Unity Project with Unity Hub for Unity 2018.4.16
+  2. Create new Unity Project with Unity Hub for Unity 2019.4.26
   3. Close Unity
   4. Open the Wwise Launcher and navigate to the Unity Page
   5. Find the new project in the list, and click on the left drop down to select the option for Integrating with an Offline Installer
@@ -32,8 +32,10 @@ https://www.audiokinetic.com/library/edge/?source=InstallGuide&id=working_with_o
 15. Delete Packages/Risk of Rain 2/plugins/AkWaapiClient.dll if it exists (.dll will not be visible in the name in Unity)
 
 ### Process:
-[The Whole process in video format more indepth up to the coding part.](https://www.youtube.com/watch?v=K0r6fIu-Rxg) <--!DISCLAIMER! Dont actually make the game parameter "Volume_Master" or your sounds will go way too quiet with master slider. delete if you already made it but keep Volume_SFX.
-* Launch wwise v2018.1.10.6907 and create / open project.
+[The Whole process in video format more indepth up to the coding part.](https://www.youtube.com/watch?v=K0r6fIu-Rxg)
+
+PLEASE NOTE: Dont actually make the game parameter "Volume_Master" or your sounds will go way too quiet with master slider. delete if you already made it but keep Volume_SFX.
+* Launch wwise and create / open project.
 * To import a new audio, use Project > Import Audio Files > Select your audio file and hit import.
 After importing it should appear in the hierarchy as seen below.
 ![p1](https://i.imgur.com/z4LzA4Q.png)
@@ -47,16 +49,9 @@ After importing it should appear in the hierarchy as seen below.
 ![p2](https://i.imgur.com/izyvCeO.png)
 
 ## Playing your audioclips from script:
-* For this tutorial, im going to import my soundbank.bnk as an embedded resource in my mods .dll to make it easier. To do that simply copy your bnk from your soundbank output folder and paste it in your visual studio project. Now when you build your project your sounds will be embedded in your plugins dll.
-![p3](https://i.imgur.com/NN1MB1W.png)
-* Now you can register your SoundBank using the code below in your Init methods, such as Awake()
-![p4](https://i.imgur.com/aVaGaw1.png)
+[Check how to import a soundbank here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Loading-Assets/#loading-soundbanks)
 * Now to finally get a sound to play, just call
 AkSoundEngine.PostEvent( <Event Id>, <GameObject Source>);
 * To get your sounds event id, just locate the text file with the same name as your generated soundbank.bnk in your wwise projects output folder.
 
 ![p5](https://i.imgur.com/CGDqZDl.png)
-
-## Special Thanks:
-* Violet Chaolan - for teaching me everything i know about wwise and helping me to get sounds to play.
-* IDeathHD - for helping me to troubleshoot why my sounds werent playing properly in script.
