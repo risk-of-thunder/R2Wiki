@@ -135,7 +135,7 @@ Notably, this only works if the Host has this plugin installed, and any client w
    REM Then we navigate our script to the NetworkWeaver folder to make the follow up line less verbose.
    cd $(ProjectDir)\NetworkWeaver
    REM Unity.UNetWeaver.exe {path to Coremodule} {Path to Networking} {Path to output folder} {Path to the dll you want patched} {Path to all needed references for the to-be-patched dll}
-   Unity.UNetWeaver.exe "..\libs\UnityEngine.CoreModule.dll" "..\libs\UnityEngine.Networking.dll" "Patched/"  $(TargetFileName) "$(ProjectDir)\libs"
+   Unity.UNetWeaver.exe "..\libs\UnityEngine.CoreModule.dll" "..\libs\com.unity.multiplayer-hlapi.Runtime.dll" "Patched/"  $(TargetFileName) "$(ProjectDir)\libs"
    REM We store the prepatched dll disabled as a .prepatch so that you can check it if you want, but first we need to make sure that file doesn't exist already.
    IF EXIST $(TargetFileName).prepatch (
    DEL /F $(TargetFileName).prepatch
