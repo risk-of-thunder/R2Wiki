@@ -113,7 +113,7 @@ Notably, this only works if the Host has this plugin installed, and any client w
 
 1. **As a Patcher.**
 
-- Download the [archive](https://cdn.discordapp.com/attachments/562704639569428506/685606962712412200/UNetWeaver.zip) that contains the BepinEx Patcher UNet Weaver.
+- Download the [archive](https://cdn.discordapp.com/attachments/562704639569428506/1002952834616143922/UNetWeaver.zip) that contains the BepinEx Patcher UNet Weaver.
 - Extract it in your `Risk of Rain 2\BepInEx\patchers` folder.
 - If everything went correctly, your assembly will be patched when loading the game.
 - This automates the need of pointing the weaver towards the right libs, as they will all be loaded by BepInEx already.
