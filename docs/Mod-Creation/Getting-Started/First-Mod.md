@@ -42,18 +42,24 @@ Copy the `ExamplePlugin.dll` to your `Risk of Rain 2/BepInEx/plugins/` folder.
 
 ## Testing the mod
 
-If its your first time ever launching the game with the latest BepInEx Pack, you may noticed the BepInEx GUI has a console which is behind a dev check. 
+If its your first time ever launching the game with the latest BepInEx Pack, you may have notice the BepInEx GUI has a console, it has multiple features that could be useful to you:
 
-This is simply for gating the usage of the console only for mod developers.
+Pausing the game
 
-The answer to the Config question is `ConfigEntry` and the one about accessing various properties like damage or crit of a survivor is `CharacterBody`
+Copying / extracting some log entries by selecting them (you can drag) and pressing Ctrl+C
 
-The console is extremely useful for debugging your code alongside the Visual Studio debugger if you follow this [tutorial](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
+Filtering log entries by text or their log level
+
+Filtering by mod name
+
+The console overall is very useful for debugging your code alongside the Visual Studio debugger if you follow this [tutorial](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
 
 When logging stuff to the console, don't forget to use the dedicated `Log` class available in the boilerplate
 
 Once the game launched:
+
 - Go in singleplayer.
+
 - Press F2. Our custom item should be spawning.
 
 
