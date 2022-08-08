@@ -3,9 +3,12 @@
 This walk-through assumes you know how to make a mod and implement it using BepInEx, if not go to [First Mod](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation_Getting-Started_First-Mod)
 
 We will be creating a custom skill for the Commando, with as little fuss as possible
+
 ### Step 1: Creating Our SkillDef
+
 To begin your mod, copy and paste the code below, substituting for your own names where suitable.
-```cs
+
+```csharp
 using System;
 using BepInEx;
 using EntityStates;
@@ -84,10 +87,16 @@ namespace CustomSkillsTutorial
 ```
 
 ### Step 2: Coding Our Skill
-The actual code that governs the behavior of the skill exists in an entity state class. To create a new skill it needs to be inside a `public class` with its base class being `BaseState`; for this it must have `using RoR2`. The namespace of this class shouldn't be in EntityStates. 
+
+The actual code that governs the behavior of the skill exists in an entity state class.
+
+To create a new skill it needs to be inside a `public class` with its base class being `BaseState`; for this it must have `using RoR2`.
+
+The namespace of this class shouldn't be in EntityStates.
 
 Each skill class **must** contain the following methods
-```cs
+
+```csharp
 public override void OnEnter()
 {
     base.OnEnter();
@@ -109,26 +118,45 @@ public override InterruptPriority GetMinimumInterruptPriority()
 }
 ```
 
-`OnEnter()` is run once at the start of the skill. It **needs** to begin with `base.OnEnter()` after that you can add any code you like to the function an example being `Chat.AddMessage("IT'S ALIVE")` which shows "IT'S ALIVE" when it's called.
+`OnEnter()` is run once at the start of the skill.
+
+It **needs** to begin with `base.OnEnter()` after that you can add any code you like to the function an example being `Chat.AddMessage("IT'S ALIVE")` which shows "IT'S ALIVE" when it's called.
 
 `OnExit()` is run once at the end of the skill. It **needs** to end with `base.OnExit()` and before that you can add any code you like.
 
-`FixedUpdate()` is run (almost) every frame of the skill. Example usage of this would be to add a delay to an attack, or to count down the attack interval for multi-hit moves like Commando's Barrage or Merc's Eviscerate. This **needs** to begin with `base.FixedUpdate` and needs to contain a block of code which checks if the skill can end, otherwise the character will get stuck in the skill state. Almost all skills in the game have the following block of code, or something similar:
-```cs
+`FixedUpdate()` is run (almost) every frame of the skill.
+
+Example usage of this would be to add a delay to an attack, or to count down the attack interval for multi-hit moves like Commando's Barrage or Merc's Eviscerate.
+
+This **needs** to begin with `base.FixedUpdate` and needs to contain a block of code which checks if the skill can end, otherwise the character will get stuck in the skill state.
+
+Almost all skills in the game have the following block of code, or something similar:
+
+```csharp
 if (fixedAge >= this.totalDuration && isAuthority)
 {
     outer.SetNextStateToMain();
     return;
 }
 ```
+
 This requires a variable in the skill `float totalDuration`.
 
-`GetMinimumInterruptPriority()` controls which skills get a priority over others. When a skill is activated, if it has the same or higher priority than the priority returned by this method, it calls `OnExit()` in the canceled skill function and calls its own `OnEnter()`. Skills with lower priority do nothing while the skill is running. It is usually recommended that the `InterruptPriority` returned by this method be higher than the `InterruptPriority` defined in the `SkillDef`, otherwise a skill will be able to cancel itself on frame 1 as long as the button is held down. `GetMinimumInterruptPriority()` **needs** to contain `return InterruptPriority.yourpriority;`
+`GetMinimumInterruptPriority()` controls which skills get a priority over others.
+
+When a skill is activated, if it has the same or higher priority than the priority returned by this method, it calls `OnExit()` in the canceled skill function and calls its own `OnEnter()`.
+
+Skills with lower priority do nothing while the skill is running.
+
+It is usually recommended that the `InterruptPriority` returned by this method be higher than the `InterruptPriority` defined in the `SkillDef`, otherwise a skill will be able to cancel itself on frame 1 as long as the button is held down.
+
+`GetMinimumInterruptPriority()` **needs** to contain `return InterruptPriority.yourpriority;`
 
 For this tutorial, we will simply be firing a single bullet from Commando's right pistol.
 
 Our skill state class will look like this:
-```cs
+
+```csharp
 using EntityStates;
 using RoR2;
 using UnityEngine;
@@ -188,7 +216,7 @@ namespace CustomSkillsTutorial.MyEntityStates
                 }.Fire();
             }
         }
-        
+
         //This method runs once at the end
         //Here, we are doing nothing
         public override void OnExit()
@@ -216,12 +244,16 @@ namespace CustomSkillsTutorial.MyEntityStates
     }
 }
 ```
+
 After building the solution and putting the DLL in your plugins folder, the Commando should now have an additional alt primary skill.
 
 # Addendum
+
 ## Creating New Skill Families
+
 If you want to create a skill that does not fall into a survivor's existing skill families (primary, secondary, etc.), you can do so using the following code, inserted after you have added the `SkillDef` with the `ContentAddition` API.
-```cs
+
+```csharp
 //First we add a new GenericSkill component to the survivor's body prefab
 GenericSkill uniqueSkill = commandoBodyPrefab.AddComponent<GenericSkill>();
 uniqueSkill.skillName = commandoBodyPrefab.name + "UniqueSkill";

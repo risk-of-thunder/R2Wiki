@@ -13,24 +13,29 @@ If you are interested in the difference between rob's template and matarra's pro
 Another thing to note, rob uses a different method of asset bundle embedding than is used elsewhere on the wiki. If you are unfamiliar with loading from stream, then feel free to replace the entirety of the assets static class in robs template with the method that's on the wiki (just make sure to use the same variable names).
 
 ---
+
 ---
+
 **Old Page**
 Until someone add detailed explanation and examples, here is a link to an unfinished but already a very good concept on how to make a fully working custom character integrated into the game with a quick overview.
 
 https://github.com/MatarraNA/PlayableSephiroth
 The Github project can be split into 3 parts :
-- C# Code Solution - BepinEx Plugin where all the logic happens to integrate all the character parts into the game.
-- Unity Project with an assetbundle exporter (so that the BepinEx Plugin loads the character into the game) which contains : Character Model / Animations / SFX.
-- WWise Project for sounds.
+
+-   C# Code Solution - BepinEx Plugin where all the logic happens to integrate all the character parts into the game.
+-   Unity Project with an assetbundle exporter (so that the BepinEx Plugin loads the character into the game) which contains : Character Model / Animations / SFX.
+-   WWise Project for sounds.
 
 ---
+
 ---
+
 **Even Older page :**
 This page contains current knowledge on how custom characters can be added to the game, including assets and code.
 
 Page needs to be filled in at some point...!
 
-```cs
+```csharp
 using BepInEx;
 using R2API;
 using RoR2;
@@ -39,7 +44,7 @@ using System.Reflection;
 using UnityEngine;
 
 namespace name
-{    
+{
     [R2APISubmoduleDependency("SurvivorAPI")]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("com.new.skill", "newskill", "1.0.0")]

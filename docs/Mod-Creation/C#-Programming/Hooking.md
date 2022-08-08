@@ -10,13 +10,14 @@ Having an assembly reference to one of these `MMHOOK` files will add the `On` an
 
 There are two main type of hooks:
 
-- On Hooks means hooks which allow for adding code **before** and **after** the hooked method runs.
+-   On Hooks means hooks which allow for adding code **before** and **after** the hooked method runs.
 
-- IL Hooks means hooks that modify the original method [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)
+-   IL Hooks means hooks that modify the original method [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)
 
 A hook is defined once and most of the time is:
-- Enabled inside your `BaseUnityPlugin` `OnEnable` method.
-- Disabled inside your `BaseUnityPlugin` `OnDisable` method.
+
+-   Enabled inside your `BaseUnityPlugin` `OnEnable` method.
+-   Disabled inside your `BaseUnityPlugin` `OnDisable` method.
 
 On hooks will be executed every time the original method is called by the game.
 
@@ -26,7 +27,7 @@ This means that this hook is not bound to a specific instance of an object, but 
 
 A very basic On hook goes as follows:
 
-```cs
+```csharp
 // Somewhere in your BaseUnityPlugin class
 private void OnEnable()
 {
@@ -62,7 +63,7 @@ If we run our own code before the original, we can perform logic prior to callin
 
 Parameters can be intercepted prior to being passed to the games vanilla methods, for example, we could intercept the arguments passed to the PickupController, and instead of dropping lunar coins, we can now drop goat hoofs.
 
-```cs
+```csharp
 private static void PickupDropletController_CreatePickupDroplet(On.RoR2.PickupDropletController.orig_CreatePickupDroplet orig, PickupIndex pickupIndex, UnityEngine.Vector3 position, UnityEngine.Vector3 velocity)
 {
     if (pickupIndex == PickupCatalog.FindPickupIndex("LunarCoin.Coin0"))

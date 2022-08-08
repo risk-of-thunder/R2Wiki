@@ -1,50 +1,50 @@
 # Custom Music
 
-- Setup WWise with that [tutorial](https://github.com/risk-of-thunder/R2Wiki/wiki/Wwise---Custom-Sounds)
+-   Setup WWise with that [tutorial](https://github.com/risk-of-thunder/R2Wiki/wiki/Wwise---Custom-Sounds)
 
-- [Get the boilerplate music project for RoR2](https://cdn.discordapp.com/attachments/562704639569428506/885995425264463872/RoR2MusicTest.zip)
+-   [Get the boilerplate music project for RoR2](https://cdn.discordapp.com/attachments/562704639569428506/885995425264463872/RoR2MusicTest.zip)
 
-- Open it. Go to the SoundBanks tab, rename the soundbank to something unique and not shared by any other mods.
+-   Open it. Go to the SoundBanks tab, rename the soundbank to something unique and not shared by any other mods.
 
-  ![RenameTheBank](https://i.imgur.com/JimLxSy.png)
+    ![RenameTheBank](https://i.imgur.com/JimLxSy.png)
 
-- Rename the state group named `gameplaySongChoice2`
+-   Rename the state group named `gameplaySongChoice2`
 
-  ![RenameTheGameplaySongChoice](https://i.imgur.com/1PeFf27.png)
+    ![RenameTheGameplaySongChoice](https://i.imgur.com/1PeFf27.png)
 
-- Rename the 3 events Play_Music_System2, Pause_Music2 and Unpause_Music2 under the default work unit in the Event tab to something unique to your mod and not shared by any other mods.
+-   Rename the 3 events Play_Music_System2, Pause_Music2 and Unpause_Music2 under the default work unit in the Event tab to something unique to your mod and not shared by any other mods.
 
-  ![RenameTheEventNames](https://i.imgur.com/oJj1rvy.png)
+    ![RenameTheEventNames](https://i.imgur.com/oJj1rvy.png)
 
-- The boilerplate already has 2 songs setup across 3 different states that will be played as : 
+-   The boilerplate already has 2 songs setup across 3 different states that will be played as :
 
-  a boss track (in a stage), a gameplay track (in a stage) and the track that plays when in the logbook :
+    a boss track (in a stage), a gameplay track (in a stage) and the track that plays when in the logbook :
 
-  ![ShowTheSongs](https://i.imgur.com/yEWpK8X.png)
+    ![ShowTheSongs](https://i.imgur.com/yEWpK8X.png)
 
-  The .wav files are not shipped in the boilerplate, those will show as red, when importing your own tracks, make sure they are streamed.
+    The .wav files are not shipped in the boilerplate, those will show as red, when importing your own tracks, make sure they are streamed.
 
-  ![MakeSureSongsAreStreamed](https://i.imgur.com/8tqrAdN.png)
+    ![MakeSureSongsAreStreamed](https://i.imgur.com/8tqrAdN.png)
 
-- Once you are done setting up your states for your tracks, it's export time.
+-   Once you are done setting up your states for your tracks, it's export time.
 
-  Press F7, then Shift+F7 for generating the soundbank for current platform (Windows).
+    Press F7, then Shift+F7 for generating the soundbank for current platform (Windows).
 
-  You can then open the containing folder by right clicking the soundbank name in the tree list.
+    You can then open the containing folder by right clicking the soundbank name in the tree list.
 
-  You should end up with a folder similar to this
+    You should end up with a folder similar to this
 
-  ![SoundbankGeneratedFolder](https://i.imgur.com/uXKDems.png)
+    ![SoundbankGeneratedFolder](https://i.imgur.com/uXKDems.png)
 
-  Gather the state group ids, and the state ids from the Init.txt file for Unity / your plugin code.
+    Gather the state group ids, and the state ids from the Init.txt file for Unity / your plugin code.
 
-  What need to be packaged with your mod are the .bnk (soundbanks) files and the .wem (music) files
+    What need to be packaged with your mod are the .bnk (soundbanks) files and the .wem (music) files
 
-  Rename the Init.bnk file to something unique and not shared by another mods, I repeat, the file must be named differently than other Init bank files from the game / other music mods.
+    Rename the Init.bnk file to something unique and not shared by another mods, I repeat, the file must be named differently than other Init bank files from the game / other music mods.
 
-  For loading that bank into the game, have a code similar to this by using the R2API submodule SoundAPI
+    For loading that bank into the game, have a code similar to this by using the R2API submodule SoundAPI
 
-```cs
+```csharp
 // Above your BaseUnityPlugin class definition
 [BepInDependency(R2API.R2API.PluginGUID)]
 [R2APISubmoduleDependency(nameof(SoundAPI))]
