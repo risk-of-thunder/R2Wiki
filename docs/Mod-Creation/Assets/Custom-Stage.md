@@ -1,23 +1,33 @@
 # Custom Stage
 
 -   [Unity Version 2019.4.26](https://download.unity3d.com/download_unity/e0392c6b2363/Windows64EditorInstaller/UnitySetup64-2019.4.26f1.exe)
+
 -   Create a new project with the 3D template
+
 -   Add these lines in your `MyUnityProject/Packages/manifest.json` file
 
 ```json
 "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#1aeb51e18e41f65801f49f7ed290de5f54a90ebb",
 "riskofthunder-ror2importextensions": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",
 ```
+
 -   In the `ThunderKit Settings`:
+
     -   `Import Configuration`:
+
         -   `Assembly Identity Algorithm`: `Stabilized`
+
         -   `Import Project Settings`: `Everything`
+
     -   `ThunderKit Settings`:
+
         -   `Browse` to the game executable
+
         -   Click `Import`
+
 -   If you get a message box telling you to make a backup, click `No Thanks`
 
-    ![API Update Required Message Box](https://i.imgur.com/zROzKsY.png)
+![API Update Required Message Box](https://i.imgur.com/zROzKsY.png)
 
 -   Close the Unity Editor
 
