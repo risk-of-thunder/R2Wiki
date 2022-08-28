@@ -1,1 +1,0 @@
-This my custom items mod (Work in progress)
