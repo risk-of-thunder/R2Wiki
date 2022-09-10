@@ -40,7 +40,7 @@ The SceneInfo has two components: Scene Info (Script) and Classic Stage Info. Th
 
 #### Director
 The Director holds all the values to be given to the director while running a stage. It should hold a ``NetworkIdentity``, ``Director Core``, ``Scene Director``, and ``CombatDirector``. There can be more than one ``CombatDirector`` and most stages have two.  The Director is a pretty complex system so it won't be explained here. I (Jace) would suggest to reference other stages' directors when setting up your own director.
-- **Important Sidenote:** you will need to populate ``Teleporter Spawn Card`` with the teleporter ``InteractableSpawnCard``. The easiest way to do this is to take [Nuketown's](#nuketown) Addressables Asset script and populate it as seen in this image below.
+- **Important Sidenote:** you will need to populate ``Teleporter Spawn Card`` with the teleporter ``InteractableSpawnCard``. The easiest way to do this is to take [Nuketown's](#nuketown) ``Addressables Asset`` script and populate it as seen in this image below.
 
 ![](https://cdn.discordapp.com/attachments/829943783412072479/1017178274138443817/unknown.png)
 
@@ -56,7 +56,14 @@ The World doesn't contain any special components, but it contains your main geom
 
 ![](https://cdn.discordapp.com/attachments/829943783412072479/1017181673806377020/unknown.png)
 
+## Putting the stage together.
+
+This is the part where the stage is actually made. If you haven't already, have models/meshes already made for the basic layout of the stage. You can use Blender or install the ProBuilder 4.4.0 package for Unity. If you are installing ProBuilder, make sure to delete any ProBuilder dll files from your Risk of Rain 2 package you have imported. Putting the geometry together is fairly simple, but very time consuming, so come back to this guide when you have at least something.
+
+- **Important Sidenote:** I am once again urging you to grab the ``Addressable Asset`` and ``Addressable Asset on Children`` scripts from the [Nuketown](#nuketown) project. 
+
 -***This Page is still a WIP. I will finish it later -Jace***
+
 
 ## Nuketown
 
