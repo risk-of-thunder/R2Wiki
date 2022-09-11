@@ -194,7 +194,7 @@ Some mods might require other mods or libraries to work which can be seen in the
 
 ### BepInEx
 
-1. Go to the [Thunderstore download page](https://thunderstore.io/package/ebkr/r2modman/).
+1. Go to the [Thunderstore download page](https://thunderstore.io/package/bbepis/BepInExPack).
 2. Click "Manual Download"
 3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2".
 3. Extract the contents of the downloaded .zip to the "Risk of Rain 2" folder.

@@ -12,7 +12,7 @@
 
 - BepInEx is a tool that allow us to load the mods into the game.
 
-Follow the instructions [here](https://github.com/risk-of-thunder/R2Wiki/wiki/BepInEx#how-to-install).
+Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
 
 - You also need HookGenPatcher, it allow us to generate a dll assembly for hooking the game methods.
 
