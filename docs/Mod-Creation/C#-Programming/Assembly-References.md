@@ -20,7 +20,7 @@ But, here, we use [NuGet](https://docs.microsoft.com/en-us/nuget/) for most, if 
 There are multiple reasons we do that, its much easier for the mod dev:
 
 -   They only have to bump the version number of the assembly reference when a new game update comes.
--   They don't have to handle all the assembly **stripping / publicizing** themselves (more on that just below)
+-   They don't have to handle all the assembly **stripping / publicizing** themselves. (more on that just below)
 
 ### Stripping
 
