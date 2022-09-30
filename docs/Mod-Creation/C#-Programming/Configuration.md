@@ -169,7 +169,7 @@ Additionally `ConfigEntry`s have an event that triggers when they are changed, t
 
 ## A worked example
 
-The following example will build on top of [In depth First mod](https://github.com/risk-of-thunder/R2Wiki/wiki/%5BIn-depth%5D-First-mod)
+The following example will build on top of the [First mod](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Getting-Started/First-Mod/)
 
 After finishing that tutorial you should have code which looks similar to below:
 
