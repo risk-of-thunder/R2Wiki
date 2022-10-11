@@ -2,6 +2,9 @@
 
 This guide will cover the details of stage making and good practices to keep yourself organized. This guide will be assuming you already have a solid way to load a stage; if not, click [here](#nuketown) to learn how to download IDeath's Nuketown project to get a good reference on how everything works.
 
+### Video Version
+https://youtu.be/JX4eGSaGCHk
+
 ## Warning
 
 Let it be known that it is **heavily** suggested to use Thunderkit to build your stages. Making a stage requires heavy amounts of visual feedback and not using it will cripple your workflow. If you aren't familiar with Thunderkit, refer to [this page](https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_Thunderkit_Creating-Mods-with-Thunderkit). If you need more help, go to the Risk of Rain 2 Modding or Thunderkit Discord servers.
