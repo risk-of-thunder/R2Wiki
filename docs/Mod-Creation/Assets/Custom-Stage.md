@@ -1,9 +1,17 @@
 # Custom Stages
 
+-***This Page is still a WIP. I will finish it later. I just finished Part 2 of the videos I am making. The Zip of useful scripts I used and the FBL github is down below.***
+
 This guide will cover the details of stage making and good practices to keep yourself organized. This guide will be assuming you already have a solid way to load a stage; if not, click [here](#nuketown) to learn how to download IDeath's Nuketown project to get a good reference on how everything works.
 
 ### Video Version
-https://youtu.be/JX4eGSaGCHk
+
+Video playlist
+https://www.youtube.com/watch?v=JX4eGSaGCHk&list=PLCOIQPnp6wD1YV1P0MP4dWYsvzkq5P6_T
+
+[Zip of scripts](https://cdn.discordapp.com/attachments/1032031189546049569/1032031212077850764/FBLScripts.zip) showcased in videos
+
+Github page of the project showcased in the video: https://github.com/JaceDaDorito/Fogbound-Lagoon
 
 ## Warning
 
@@ -65,7 +73,7 @@ This is the part where the stage is actually made. If you haven't already, have 
 
 - **Important Sidenote:** I am once again urging you to grab the ``Addressable Asset`` and ``Addressable Asset on Children`` scripts from the [Nuketown](#nuketown) project. 
 
--***This Page is still a WIP. I will finish it later -Jace***
+
 
 
 ## Nuketown
