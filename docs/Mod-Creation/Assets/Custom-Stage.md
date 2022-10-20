@@ -7,6 +7,8 @@ This guide will cover the details of stage making and good practices to keep you
 ### Video Version
 
 Video playlist
+
+(Hey I am going to redo part 2, also I am currently investigating the Zip of scripts i linked below. Something is a bit off about one of the scripts. For now don't use InjectedAssetToggleSync because I don't think you need it anymore. I will keep you updated)
 https://www.youtube.com/watch?v=JX4eGSaGCHk&list=PLCOIQPnp6wD1YV1P0MP4dWYsvzkq5P6_T
 
 [Zip of scripts](https://cdn.discordapp.com/attachments/1032031189546049569/1032031212077850764/FBLScripts.zip) showcased in videos
