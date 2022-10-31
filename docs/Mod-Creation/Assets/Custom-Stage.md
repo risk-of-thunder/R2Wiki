@@ -6,9 +6,9 @@ This guide will cover the details of stage making and good practices to keep you
 
 ### Video Version
 
-Video playlist
 
-(Hey I am going to redo part 2, also some of the scripts I use have changed drastically and are a lot more useful. The zip has been removed for now)
+Hey I am going to redo both videos and combine them into one big video with a better structure. I am also going to make a more primitive example stage so people getting into making maps won't be intimidated by Fogbound Lagoon. FBL will be here though so if you want to borrow its scripts you can visit the github below and ask me any questions @JaceDaDorito on discord.
+
 https://www.youtube.com/watch?v=JX4eGSaGCHk&list=PLCOIQPnp6wD1YV1P0MP4dWYsvzkq5P6_T
 
 Github page of the project showcased in the video: https://github.com/JaceDaDorito/Fogbound-Lagoon
