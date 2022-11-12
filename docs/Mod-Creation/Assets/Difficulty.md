@@ -215,7 +215,7 @@ When running the mod now, make sure to have `Risk of Options` installed. In your
 ## How do I change the ambient level cap?
 
 
-Use the event Run.onRunSetRuleBookGlobal:
+Use the event `Run.onRunSetRuleBookGlobal`:
 ```csharp
 Run.onRunSetRuleBookGlobal += // *tab*
 ```
@@ -448,6 +448,8 @@ Again in our base, we want to use the `RecalculateStatsAPI` event:
 RecalculateStatsAPI.GetStatCoefficients += // *tab*
 ```
 
+**Remember to add `RecalculateStatsAPI` as a R2API Submodule Dependency!**
+
 In our generated method we check if the body exists, and its team. After that, we can start customizing, for example like so:
 ```csharp
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
@@ -491,7 +493,7 @@ namespace ExampleDifficultyMod
     [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency("com.rune580.riskofoptions")]
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [R2APISubmoduleDependency(nameof(LanguageAPI), nameof(DifficultyAPI))]
+    [R2APISubmoduleDependency(nameof(LanguageAPI), nameof(DifficultyAPI), nameof(RecalculateStatsAPI))]
     public class Main : BaseUnityPlugin
     {
         public const string PluginGUID = PluginAuthor + "." + PluginName;
