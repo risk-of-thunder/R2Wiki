@@ -18,9 +18,9 @@ One thing to keep in mind: Just like getting used to and learning any mod creati
 
 When it comes to getting started with ThunderKit, it is reccomended to check out 2 specific guides:
 
-The first is a [guide created by Twiner](http://www.youtube.com/watch?v=T9T38ImFdtg) (The creator of ThunderKit) himself, which goes over using ThunderKit and Rain of Stages for creating your own stages. Despite the focus on Rain of Stages, it is advised to view this guide regardless, as it shows how to install Unity, ThunderKit, and how to get started.
+The first is a [guide created by Heyimnoop](https://youtu.be/JI-erct5f4Y/) which goes over how to install thunderkit to your project and setup a basic mod, all the way to actually loading it
 
-[![Rain of Stages Introductory Tutorial](http://img.youtube.com/vi/T9T38ImFdtg/0.jpg)](http://www.youtube.com/watch?v=T9T38ImFdtg "Rain of Stages Introductory Tutorial")  
+[![Rain of Stages Introductory Tutorial](http://img.youtube.com/vi/JI-erct5f4Y/0.jpg)](https://youtu.be/JI-erct5f4Y/ "Setting up a basic mod in 15 minutes using thunderkit")  
 <sub>(Clicking the image above will redirect you to the guide)</sub>
 
 The second is a [guide created by Kevin](https://github.com/risk-of-thunder/R2Wiki/wiki/Creating-Mods-with-Thunderkit), which goes into detail on how to create a mod for Risk of Rain 2 with code, asset bundles, content packs, etc. The guide covers:

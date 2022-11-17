@@ -32,9 +32,8 @@ https://www.audiokinetic.com/library/edge/?source=InstallGuide&id=working_with_o
 15. Delete Packages/Risk of Rain 2/plugins/AkWaapiClient.dll if it exists (.dll will not be visible in the name in Unity)
 
 ### Process:
-[The Whole process in video format more indepth up to the coding part.](https://www.youtube.com/watch?v=K0r6fIu-Rxg)
+[The Whole process in video format up to the coding part.](https://www.youtube.com/watch?v=QtfYsdJFty4)
 
-PLEASE NOTE: Dont actually make the game parameter "Volume_Master" or your sounds will go way too quiet with master slider. delete if you already made it but keep Volume_SFX.
 * Launch wwise and create / open project.
 * To import a new audio, use Project > Import Audio Files > Select your audio file and hit import.
 After importing it should appear in the hierarchy as seen below.
