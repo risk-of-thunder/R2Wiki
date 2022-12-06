@@ -42,6 +42,10 @@ The Specular Strength controls how reflective that channel's texture is while th
 
 Bias controls how "dominating" each channel is. All the channels share the same mesh so a value needs to be given to each channel to tell them how much they can step on each other. The higher the bias, the more space that channel will take up. However, a difference in bias can be so big that a channel's texture may never be present, be careful!
 
+
+(Image doesnt exist rn hold on, you should get the point though)
+The first image shows terrain of Titanic Plains with its default settings. The second image shows the same terrain but with the Green Channel's bias set to half of what it was in the first image. Notice how the grass (the texture correlating to the green channel) is a lot more sparse on the terrain. The last image shows the same terrain with each channel's bias set to 0. Since each channel's bias is equal to each other, it shares more of the terrain compared to the second image. It is all about proportions. However, the next section will show you how to control the prevalence of each channel on the terrain.
+
 ---
 
 ### Vertex Colors
