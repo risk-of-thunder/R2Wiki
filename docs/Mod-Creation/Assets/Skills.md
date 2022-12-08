@@ -1,6 +1,6 @@
 # Skills
 
-This walk-through assumes you know how to make a mod and implement it using BepInEx, if not go to [First Mod](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation_Getting-Started_First-Mod)
+This walk-through assumes you know how to make a mod and implement it using BepInEx, if not go to [First Mod](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Getting-Started/First-Mod/)
 
 We will be creating a custom skill for the Commando, with as little fuss as possible
 
