@@ -1,18 +1,19 @@
+
 # Debugging Your Mods
 
 The microsoft documentation says:
 
 When you debug your app, it usually means that you are running your application with the debugger attached. When you do this, the debugger provides many ways to see what your code is doing while it runs. You can step through your code and look at the values stored in variables, you can set watches on variables to see when values change, you can examine the execution path of your code, see whether a branch of code is running, and so on. If this is the first time that you've tried to debug code, you might want to read [Debugging for absolute beginners](https://docs.microsoft.com/en-us/visualstudio/debugger/debugging-absolute-beginners?view=vs-2022) before going through this guide.
 
--------------
+Debugging an R2ModMan profile is possible now, for instructions, ignore steps 1 thru 3, and instead follow the steps 1 thru 3 of the R2ModMan section.
 
-- Note: r2modman setup is not currently supported
-- [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
-- [Install doorstop 4](https://cdn.discordapp.com/attachments/950162181427695627/950163300816125982/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
-- Drag and drop as follow into your Risk of Rain 2 game folder
+## General Setup
+1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
+2. [Install doorstop 4](https://cdn.discordapp.com/attachments/950162181427695627/950163300816125982/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
+3. Drag and drop as follow into your Risk of Rain 2 game folder
 ![qsdqsd](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
 It should replace a lot of files, press yes to all
-- Open the `doorstop_config.ini`
+4. Open the `doorstop_config.ini`
 You can set the config like this
 ```
 # If true, Mono debugger server will be enabled
@@ -31,6 +32,21 @@ debug_suspend=true
 This will make doorstop suspend the game on start, open a debugging server at port 55555, allowing you to attach any debugger of your liking, you can use either VS, dnSpy or Rider.
 
 Putting breakpoints inside game assemblies while using the Visual Studio Debugger is not possible currently, but works with dnSpy, please refer to the dnSpy section below on how to configure it.
+
+## R2ModMan Setup
+
+Debugging an R2ModMan setup is possible, it just requires a different aproach:
+1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
+2. [Install this custom version of doorstopV4](https://cdn.discordapp.com/attachments/850538397647110145/1062914386286608435/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
+3. - Drag and drop as follow into your R2ModMan profile folder
+![qsdqsd](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
+It should replace a lot of files, press yes to all
+
+Notice: Installing the custom version of Doorstop will cause the BepInEx GUI to not show up, it is recommended to modify 
+your ``BepInEx.cfg``'s ``Logging.Console``'s ``Enabled`` to true, and setting ``BepInEx.GUI.cfg``'s ``Settings``'s ``Enable BepInEx GUI`` to false
+
+Continue as normal, following step 4 of the manual installation
+
 
 ## Visual Studio 2022
 - Install [Visual Studio Tools for Unity](https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows)
