@@ -1,6 +1,6 @@
 # Using the RoR2CreateItemTemplate
 
-Link to Project Template. Just download the `RoR2CreateItemTemplate.zip`: [RoR2CreateItemTemplate](https://github.com/derslayr10/RoR2CreateItemTemplate)
+Link to Project Template. Just download the `RoR2Template - Item.zip`: [RoR2Template - Item.zip](https://github.com/derslayr10/RoR2GenericModTemplate/tree/main/BASIC%20TEMPLATES%20-%20READY%20FOR%20DOWNLOAD/Item%20Templates)
 
 This Visual Studio Project Template was made to help speed up the creation of items using KomradeSpectre's Aetherium Item Creation Tutorial. This is not a replacement for this tutorial, but should be used alongside the tutorial for ease of use.
 
