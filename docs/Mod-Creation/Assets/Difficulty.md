@@ -66,8 +66,9 @@ using UnityEngine;
 namespace ExampleDifficultyMod
 {
     [BepInDependency(R2API.R2API.PluginGUID)]
+    [BepInDependency(LanguageAPI.PluginGUID)]
+    [BepInDependency(DifficultyAPI.PluginGUID)]
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [R2APISubmoduleDependency(nameof(LanguageAPI), nameof(DifficultyAPI))]
     public class Main : BaseUnityPlugin
     {
         public const string PluginGUID = PluginAuthor + "." + PluginName;
@@ -337,17 +338,16 @@ It is important to **null check** things (obj.inventory here), as not every mast
 
 The code below is still in our team check.
 ```csharp
-var cmaster = obj.GetComponent<CharacterMaster>();
                 switch (obj.name)
                 {
                     case "LemurianMaster(Clone)":
-                        AISkillDriver LemurianShoot = (from x in cmaster.GetComponents<AISkillDriver>()
+                        AISkillDriver LemurianShoot = (from x in obj.GetComponents<AISkillDriver>()
                                                        where x.customName == "StrafeAndShoot"
                                                        select x).First();
                         LemurianShoot.minDistance = 10f;
                         LemurianShoot.maxDistance = 100f;
 
-                        AISkillDriver LemurianStrafe = (from x in cmaster.GetComponents<AISkillDriver>()
+                        AISkillDriver LemurianStrafe = (from x in obj.GetComponents<AISkillDriver>()
                                                         where x.customName == "StrafeIdley"
                                                         select x).First();
 
@@ -416,11 +416,9 @@ CharacterBody.onBodyAwakeGlobal += // *tab*
 
 This is done in a similar way to our AI/Master changes, where we can utilize a switch and check for the Object name:
 ```csharp
-        private void CharacterBody_onBodyAwakeGlobal(CharacterBody obj)
+        private void CharacterBody_onBodyAwakeGlobal(CharacterBody cb)
         {
-            var cb = obj.GetComponent<CharacterBody>();
-
-            switch (obj.name)
+            switch (cb.name)
             {
                 case "LemurianBody(Clone)":
                     cb.baseMoveSpeed = 25f;
@@ -448,7 +446,7 @@ Again in our base, we want to use the `RecalculateStatsAPI` event:
 RecalculateStatsAPI.GetStatCoefficients += // *tab*
 ```
 
-**Remember to add `RecalculateStatsAPI` as a R2API Submodule Dependency!**
+**Remember to add `RecalculateStatsAPI` as a BepInDependency!**
 
 In our generated method we check if the body exists, and its team. After that, we can start customizing, for example like so:
 ```csharp
@@ -468,7 +466,7 @@ In our generated method we check if the body exists, and its team. After that, w
         }
 ```
 
-This gives **+100% movement speed** to elite enemies and **+25%** to everyone else.
+This gives **+100% movement speed** to elite enemies and **+25%** to every other enemy that isn't an elite.
 
 Don't forget to remove our hooks in `Run.onRunDestroyGlobal`.
 
@@ -492,8 +490,10 @@ namespace ExampleDifficultyMod
 {
     [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency("com.rune580.riskofoptions")]
+    [BepInDependency(LanguageAPI.PluginGUID)]
+    [BepInDependency(DifficultyAPI.PluginGUID)]
+    [BepInDependency(RecalculateStatsAPI.PluginGUID)]
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [R2APISubmoduleDependency(nameof(LanguageAPI), nameof(DifficultyAPI), nameof(RecalculateStatsAPI))]
     public class Main : BaseUnityPlugin
     {
         public const string PluginGUID = PluginAuthor + "." + PluginName;
@@ -567,10 +567,8 @@ namespace ExampleDifficultyMod
             }
         }
 
-        private void CharacterBody_onBodyAwakeGlobal(CharacterBody obj)
+        private void CharacterBody_onBodyAwakeGlobal(CharacterBody cb)
         {
-            var cb = obj.GetComponent<CharacterBody>();
-
             switch (obj.name)
             {
                 case "LemurianBody(Clone)":
@@ -602,17 +600,16 @@ namespace ExampleDifficultyMod
                     ba.aimVectorMaxSpeed = 250f; // higher value is better aim
                 }
 
-                var cmaster = obj.GetComponent<CharacterMaster>();
                 switch (obj.name)
                 {
                     case "LemurianMaster(Clone)":
-                        AISkillDriver LemurianShoot = (from x in cmaster.GetComponents<AISkillDriver>()
+                        AISkillDriver LemurianShoot = (from x in obj.GetComponents<AISkillDriver>()
                                                        where x.customName == "StrafeAndShoot"
                                                        select x).First();
                         LemurianShoot.minDistance = 10f;
                         LemurianShoot.maxDistance = 100f;
 
-                        AISkillDriver LemurianStrafe = (from x in cmaster.GetComponents<AISkillDriver>()
+                        AISkillDriver LemurianStrafe = (from x in obj.GetComponents<AISkillDriver>()
                                                         where x.customName == "StrafeIdley"
                                                         select x).First();
 
