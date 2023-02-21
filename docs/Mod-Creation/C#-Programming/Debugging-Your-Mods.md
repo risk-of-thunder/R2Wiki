@@ -11,8 +11,9 @@ When you debug your app, it usually means that you are running your application 
 3. Drag and drop as follow into your Risk of Rain 2 game folder
 	* If  you want to debug an R2ModMan profile instead, drag and drop the contents of the Zip file into your r2modman profile
 
-![qsdqsd](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
+![Replace files](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
 It should replace a lot of files, press yes to all
+
 4. Open the `doorstop_config.ini`
 You can set the config like this
 ```
@@ -30,6 +31,8 @@ debug_address=127.0.0.1:55555
 debug_suspend=true
 ```
 This will make doorstop suspend the game on start, open a debugging server at port 55555, allowing you to attach any debugger of your liking, you can use either VS, dnSpy or Rider.
+
+5. Don't forget to put the .pdb file next to your plugin .dll, that's the file which contains the debug data
 
 Putting breakpoints inside game assemblies while using the Visual Studio Debugger is not possible currently, but works with dnSpy, please refer to the dnSpy section below on how to configure it.
 
