@@ -65,6 +65,9 @@ It should automatically breakpoint somewhere inside a BepInEx assembly, then you
 
 ## Rider
 
+**REQUIRED**:
+Your profile MUST have...
+
 Debugging with Rider requires slightly more setup, but will be fully functional using Rider's built-in debugger tool. Additionally, you will have a highly-configurable build-run-debug pipeline. The process is straightforward:
 - Build
 - Run
@@ -72,4 +75,6 @@ Debugging with Rider requires slightly more setup, but will be fully functional 
 
 ### Building with Rider
 As you know, by default, Rider outputs the build to project_root/bin/Debug directory. However, we will improve this to automatically our mod to our plugin directory.
-
+1. Get absolute path of your desired output location (see below)
+   1. For a r2modman profile (recommended), it should look something like ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE_NAME\BepInEx\plugins\YOUR_PLUGIN_NAME```
+   2. For direct 
