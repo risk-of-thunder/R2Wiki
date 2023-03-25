@@ -76,5 +76,28 @@ Debugging with Rider requires slightly more setup, but will be fully functional 
 ### Building with Rider
 As you know, by default, Rider outputs the build to project_root/bin/Debug directory. However, we will improve this to automatically our mod to our plugin directory.
 1. Get absolute path of your desired output location (see below)
-   1. For a r2modman profile (recommended), it should look something like ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE_NAME\BepInEx\plugins\YOUR_PLUGIN_NAME```
-   2. For direct 
+   1. For r2modman profiles (recommended), it should look something like ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE_NAME\BepInEx\plugins\YOUR_PLUGIN_NAME```
+   2. If you are NOT using r2modman, your path should look something like this: ```C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2\BepInEx\plugins```
+2. Open your ```PROJECT.csproj``` (If you can't find it, make sure you select "File System", as I've underlined in the blue at the top):
+![csproj_location.PNG](../../../media/bepinex/csproj_location.PNG)
+3. Add the following to the csproj file
+```cs
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <OutputPath>bin\Debug\</OutputPath>
+      <ProfilePluginPath>THE_PATH_YOU_COPIED_IN_STEP_1\</ProfilePluginPath> <!-- (Make sure you have a trailing slash!) -->
+    </PropertyGroup>
+        
+    <Target Name="PostBuildScript" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+        <ItemGroup>
+            <_CopyItems Include="$(TargetDir)*.*" />
+        </ItemGroup>
+        <Message Text="Copying files $(TargetDir) to $(ProfilePluginPath)" />
+        <Copy SourceFiles="@(_CopyItems)" DestinationFolder="$(ProfilePluginPath)" /> 
+    </Target>
+</Project> <-- (Make sure you paste within the Project tag like i'm showing here. Don't include this line)
+```
+We're all done with building! Feel free to give it a test by building your project and ensuring the build ends up in the right location.
+
+### Running with Rider
+We're going to piggyback on Rider's build in "Run and Debug" modes. 
+
