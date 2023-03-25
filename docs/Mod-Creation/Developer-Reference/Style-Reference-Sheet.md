@@ -22,6 +22,15 @@ And they looks like this:
 
 ![Style Reference Sheet](https://cdn.discordapp.com/attachments/567827235013132291/759798554566066206/unknown.png)
 
-This [link](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) showcases the Rich Text from TextMesh Pro, it shows every other form of customization available to the Developer and you are not limited to the preset Styles Hopoo created. 
+There are also a set of sprites that can be used inline with text. They are:
+* LunarCoin
+* CloudLeft
+* CloudRight
+* Skull
+* TP
+* WIP
+* VoidCoin
+
+This [link](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) showcases the Rich Text from TextMesh Pro, it shows every other form of customization available to the Developer and you are not limited to the preset Styles Hopoo created.
 
 You can also see live previews in your browser here: [https://xuerian.github.io/RoR2LanguageEditor/](https://xuerian.github.io/RoR2LanguageEditor/)
