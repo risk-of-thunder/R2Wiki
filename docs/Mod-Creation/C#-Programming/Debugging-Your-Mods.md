@@ -103,23 +103,21 @@ By the end of this section, you will be able to run Risk of Rain 2 using your r2
    4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [FAQ](#faq) or [Community discord](https://discord.gg/AvgCAUdmDS) with questions Here's how to get the info you need: 
       1. **r2modman profiles**: Launch r2modman and select the profile you modified during the General Setup and Building with Rider section, navigate to settings, and search for **Set launch parameters** (see photo below). Click on the search result and you should see something like this:
       ```cs
-      Some parameters are provided by default:
-      
       Modded:
-      --doorstop-enabled true --doorstop-target-assembly "C:\Users\lukem\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\core\BepInEx.Preloader.dll"
+      --doorstop-enabled true --doorstop-target-assembly "C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\core\BepInEx.Preloader.dll"
       
       Vanilla:
       doorstop-enabled false
       ```
-      2. Copy the text within the **Modded** category and paste that into the **Program arguments**, as shown in the picture below.
+      2. Copy the text within the **Modded** category of **your** r2modman and paste that into the **Program arguments**, as shown in the picture below.
 ![run_config.PNG](../../../media/rider/run_config.jpg)
 5. You now have **Standalone Player** properly configured. You'll know it works when clicking Rider's **Run** or **Debug** button against your **Standalone Player** configuration launches Risk of Rain directly using your r2modman profile. At this point, Rider is automatically building your mod, adding it to your custom r2modman profile, and launching for you.
 
 ### Connecting to the debugger
 By the end of this section, the debugger will be fully operational and seamlessly integrated with the previous sections.
 1. Open Rider's configuration editor again. Create each of the following Run/Debug configurations:
-   1. Mono Remote
-   2. Compound
+   1. ```Mono Remote```
+   2. ```Compound``
       ![mono_compound.jpg](../../../media/rider/mono_compound.jpg)
 2. Select **Mono Remote** and configure as follows:
    1. Host: ```127.0.0.1```
