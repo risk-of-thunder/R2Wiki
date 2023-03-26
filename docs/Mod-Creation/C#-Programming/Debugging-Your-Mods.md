@@ -129,6 +129,17 @@ Last but not least, the debugger part. This will be quick and easy.
 1. Open Rider's configuration editor again. Create each of the following Run/Debug configurations:
    1. Mono Remote
    2. Compound
+![mono_compound.jpg](../../../media/rider/mono_compound.jpg)
+2. Select **Mono Remote** and configure as follows:
+   1. Host: ```127.0.0.1```
+   2. Port: ```55555```
+![mono_options.jpg](../../../media/rider/mono_options.jpg)
+3. Select **Compound** and add the Mono debugger and Standalone player as shown in the photo below:
+![compound_options.jpg](../../../media/rider/compound_options.jpg)
+4. Save and exit, select the **Compound Run Configuration** as the run/debug target  as een below
+![selecting_debug_configuration.jpg](../../../media/rider/selecting_debug_configuration.jpg)
+5. Finally, make sure to select the **Mono** debug process to make use of the debugger as seen in the figure below, and set some breakpoints!!!
+![debugger_in_game.jpg](../../../media/rider/debugger_in_game.jpg)
 
 ## <a name="faq"><a/> FAQ
 
