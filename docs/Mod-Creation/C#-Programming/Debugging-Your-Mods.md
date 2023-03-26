@@ -5,11 +5,11 @@ The microsoft documentation says:
 
 When you debug your app, it usually means that you are running your application with the debugger attached. When you do this, the debugger provides many ways to see what your code is doing while it runs. You can step through your code and look at the values stored in variables, you can set watches on variables to see when values change, you can examine the execution path of your code, see whether a branch of code is running, and so on. If this is the first time that you've tried to debug code, you might want to read [Debugging for absolute beginners](https://docs.microsoft.com/en-us/visualstudio/debugger/debugging-absolute-beginners?view=vs-2022) before going through this guide.
 
-## <a name="general_setup"><a/> General Setup
+## [General Setup](#general-setup)
 1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
 2. [Install doorstop 4](https://cdn.discordapp.com/attachments/567836513078083584/1068586988673961984/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
 3. Drag and drop as follow into your Risk of Rain 2 game folder
-	* If  you want to debug an R2ModMan profile instead, drag and drop the contents of the Zip file into your r2modman profile
+	* If you want to debug an R2ModMan profile instead, drag and drop the contents of the Zip file into your r2modman profile. Refer to the [FAQ](#faq) to see more about debugging against a r2modman profile. 
 
 ![Replace files](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
 It should replace a lot of files, press yes to all
@@ -89,11 +89,11 @@ In this step, we are going to tell Rider to automatically copy our plugin build 
 ```
 We're all done with building! Feel free to give it a test by building your project and ensuring the build ends up in the right location.
 
-### Running with Rider <a name="running_with_rider"><a/>
+### Running with Rider
 By the end of this section, you will be able to run Risk of Rain 2 using your r2modman profile (or your non-r2modman alternative) and freshly built plugin by clicking the **Run** and **Debug** buttons built-in to Rider. 
 1. Open Rider's run configuration editor (see photo):
  ![rider_run_config.PNG](../../../media/rider/rider_run_config.jpg)
-2. For this next step, it is **critical** you have correctly completed the [General Setup](#a-namegeneralsetup-a-general-setup). Confirm this by launching your r2modman profile through r2modman. You'll know you're in the clear when your mods are loading without any issues.
+2. For this next step, it is **critical** you have correctly completed the [General Setup](#general-setup). Confirm this by launching your r2modman profile through r2modman. You'll know you're in the clear when your mods are loading without any issues.
 3. In this next photo, you're going to create a new Run/Debug configuration. Let's start with creating a standalone process for your game (Don't worry about the fields for it yet).
 ![standalone_option.PNG](../../../media/rider/standalone_option.jpg) <a name="bro"><a/>
 4. Now that you have a Standalone Player, let's get the fields filled out (Refer to photo below for reference through each step).
@@ -133,7 +133,7 @@ By the end of this section, the debugger will be fully operational and seamlessl
    ![debugger_in_game.jpg](../../../media/rider/debugger_in_game.jpg)
    Congrats!! You are now a more productive engineer!
 
-## <a name="faq"><a/> FAQ
+## [FAQ](#faq)
 * Why aren't any mods loading after installing doorstop 4 into my r2modman profile directory?
   1. This problem occurs with r2modman profiles, related to specific doorstop versions. Create a file in your r2modman's profile directory ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE\``` and create a file named ```.doorstop_version```. Open this file with any text editor and paste: ```4.0.0.0```
   2. This problem occurs when your BepInEx configuration files are misconfigured. Here's what you need:
