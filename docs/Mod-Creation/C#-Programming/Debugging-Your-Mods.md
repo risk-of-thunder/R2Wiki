@@ -117,7 +117,7 @@ By the end of this section, you will be able to run Risk of Rain 2 using your r2
 By the end of this section, the debugger will be fully operational and seamlessly integrated with the previous sections.
 1. Open Rider's configuration editor again. Create each of the following Run/Debug configurations:
    1. ```Mono Remote```
-   2. ```Compound``
+   2. ```Compound```
       ![mono_compound.jpg](../../../media/rider/mono_compound.jpg)
 2. Select **Mono Remote** and configure as follows:
    1. Host: ```127.0.0.1```
