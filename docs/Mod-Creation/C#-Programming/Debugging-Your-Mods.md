@@ -100,7 +100,7 @@ By the end of this section, you will be able to run Risk of Rain 2 using your r2
    1. (Refer to the circle on the left) Select your newly created **Standalone Player** run configuration. 
    2. Click on the **+** symbol below the **Before Launch** section of the configuration options and select **Build Project**. You'll know it's correct when you see that green hammer like I have at the middle of the screen.
    3. Set **Exe path** to ```C:/Program Files (x86)/Steam/steamapps/common/Risk of Rain 2/Risk of Rain 2.exe``` (or, wherever your Risk of Rain 2.exe file is located). In case you're wondering, this is the same executable that r2modman profiles execute, so it won't be different regardless of using an r2modman profile or not. Once you select this, **Working Directory** will automatically populate.
-   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [Community discord](https://discord.gg/AvgCAUdmDS) with questions Here's how to get the info you need: 
+   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [FAQ](#faq) or [Community discord](https://discord.gg/AvgCAUdmDS) with questions Here's how to get the info you need: 
       1. **r2modman profiles**: Launch r2modman and select the profile you modified during the General Setup and Building with Rider section, navigate to settings, and search for **Set launch parameters** (see photo below). Click on the search result and you should see something like this:
       ```cs
       Some parameters are provided by default:
