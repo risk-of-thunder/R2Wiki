@@ -71,7 +71,7 @@ In this step, we are going to tell Rider to automatically copy our plugin build 
 1. Get absolute path of your desired output location:
    1. For r2modman profiles (recommended), it should look something like ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE_NAME\BepInEx\plugins\YOUR_PLUGIN_NAME```
    2. If you are NOT using r2modman, your path should look something like this: ```C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2\BepInEx\plugins```
-2. Open your ```PROJECT.csproj``` and add the following to the file
+2. Open your ```PROJECT.csproj``` and add the following to the file, replacing the ```PluginProfilePath``` attribute with the path you retrieved in the previous step. Don't forget the slash at the end of the path.
 ```cs
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <OutputPath>bin\Debug\</OutputPath>
