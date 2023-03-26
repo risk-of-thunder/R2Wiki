@@ -64,14 +64,7 @@ Then, launch the game, attach with dnSpy through `Debug -> Start Debugging -> De
 It should automatically breakpoint somewhere inside a BepInEx assembly, then you'll be able to put any breakpoint in the game assemblies
 
 ## Rider
-
-**REQUIRED**:
-Your profile MUST have...
-
-Debugging with Rider requires slightly more setup, but will be fully functional using Rider's built-in debugger tool. Additionally, you will have a highly-configurable build-run-debug pipeline. The process is straightforward:
-- Build
-- Run
-- Connect to the debugger
+This optional section guides you through integrating the build->run->debug process into a single-click process using the Rider IDE. Visit the end of the section to see results.
 
 ### Building with Rider
 As you know, by default, Rider outputs the build to project_root/bin/Debug directory. However, we will improve this to automatically our mod to our plugin directory.
