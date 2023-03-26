@@ -67,13 +67,11 @@ It should automatically breakpoint somewhere inside a BepInEx assembly, then you
 This optional section guides you through integrating the build->run->debug process into a single-click process using the Rider IDE. Visit the end of the section to see results.
 
 ### Building with Rider
-As you know, by default, Rider outputs the build to project_root/bin/Debug directory. However, we will improve this to automatically our mod to our plugin directory.
-1. Get absolute path of your desired output location (see below)
+In this step, we are going to tell Rider to automatically copy our plugin build to our desired location after our build completes.
+1. Get absolute path of your desired output location:
    1. For r2modman profiles (recommended), it should look something like ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE_NAME\BepInEx\plugins\YOUR_PLUGIN_NAME```
    2. If you are NOT using r2modman, your path should look something like this: ```C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2\BepInEx\plugins```
-2. Open your ```PROJECT.csproj``` (If you can't find it, make sure you select "File System", as I've underlined in the blue at the top):
-![csproj_location.PNG](../../../media/bepinex/csproj_location.PNG)
-3. Add the following to the csproj file
+2. Open your ```PROJECT.csproj``` and add the following to the file
 ```cs
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <OutputPath>bin\Debug\</OutputPath>
