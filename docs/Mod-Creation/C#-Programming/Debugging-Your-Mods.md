@@ -136,5 +136,17 @@ By the end of this section, the debugger will be fully operational and seamlessl
 ## <a name="faq"><a/> FAQ
 * Why aren't any mods loading after installing doorstop 4 into my r2modman profile directory?
   1. This problem occurs with r2modman profiles, related to specific doorstop versions. Create a file in your r2modman's profile directory ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE\``` and create a file named ```.doorstop_version```. Open this file with any text editor and paste: ```4.0.0.0```
-  
+  2. This problem occurs when your BepInEx configuration files are misconfigured. Here's what you need:
+     1. From your profile directory, open the ```BepInEx\config\BepInEx.cfg``` file and update the following values if not updated already: 
+        1. ```[Logging.Console]```:  
+           * ```Enabled = true```
+        2. ```[Preloader.Entrypoint]```: 
+           * ```Assembly = RoR2.dll```
+           * ```Type = FlashWindow```
+     2. Now we're going to disable BepInEx's custom GUI since it isn't working properly with doorstop (we're switching to a normal terminal now). From the profile directory, open the ```BepInEx\config\BepInEx.cfg``` file and update the following:
+        1. ```[Settings]```
+           * ```Enable BepInEx GUI = false```
+     3. Do a ```Ctrl+F``` for the term ```launch parameters```. If you used this value anywhere while following the tutorials, it may need updating. 
+        
+      
 
