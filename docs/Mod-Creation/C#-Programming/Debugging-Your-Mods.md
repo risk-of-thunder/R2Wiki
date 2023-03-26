@@ -134,5 +134,7 @@ By the end of this section, the debugger will be fully operational and seamlessl
    Congrats!! You are now a more productive engineer!
 
 ## <a name="faq"><a/> FAQ
-
+* Why aren't any mods loading after installing doorstop 4 into my r2modman profile directory?
+  1. This problem occurs with r2modman profiles, related to specific doorstop versions. Create a file in your r2modman's profile directory ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE\``` and create a file named ```.doorstop_version```. Open this file with any text editor and paste: ```4.0.0.0```
+  
 
