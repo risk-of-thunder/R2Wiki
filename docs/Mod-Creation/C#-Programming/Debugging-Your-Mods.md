@@ -90,18 +90,18 @@ In this step, we are going to tell Rider to automatically copy our plugin build 
 We're all done with building! Feel free to give it a test by building your project and ensuring the build ends up in the right location.
 
 ### Running with Rider <a name="running_with_rider"><a/>
-We're going to piggyback on Rider's build in "Run and Debug" modes. By the end of this section, you will be able to run Risk of Rain using your r2modman profile (or your non-r2modman alternative) and freshly built plugin all in one click. 
+By the end of this section, you will be able to run Risk of Rain 2 using your r2modman profile (or your non-r2modman alternative) and freshly built plugin by clicking the **Run** and **Debug** buttons built-in to Rider. 
 1. Open Rider's run configuration editor (see photo):
  ![rider_run_config.PNG](../../../media/rider/rider_run_config.jpg)
 2. For this next step, it is **critical** you have correctly completed the [General Setup](#a-namegeneralsetup-a-general-setup). Confirm this by launching your r2modman profile through r2modman. You'll know you're in the clear when your mods are loading without any issues.
 3. In this next photo, you're going to create a new Run/Debug configuration. Let's start with creating a standalone process for your game (Don't worry about the fields for it yet).
 ![standalone_option.PNG](../../../media/rider/standalone_option.jpg) <a name="bro"><a/>
 4. Now that you have a Standalone Player, let's get the fields filled out (Refer to photo below for reference through each step).
-   1. (Refer to the circle on the right) Select your newly created **Standalone Player**
+   1. (Refer to the circle on the left) Select your newly created **Standalone Player** run configuration. 
    2. Click on the **+** symbol below the **Before Launch** section of the configuration options and select **Build Project**. You'll know it's correct when you see that green hammer like I have at the middle of the screen.
-   3. Set **Exe path** to ```C:/Program Files (x86)/Steam/steamapps/common/Risk of Rain 2/Risk of Rain 2.exe``` (or, wherever your Risk of Rain 2.exe file is located). In case you're wondering, this is the same executable that r2modman profiles execute, hence why the path is the same. Once you select this, **Working Directory** will automatically populate.
-   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [Community discord](https://discord.gg/AvgCAUdmDS) with questions. 
-      1. **r2modman profiles**: This will be quick and easy. Simply launch r2modman, navigate to settings, and search for **Set launch parameters** (see photo below). Click on the search result and you should see something like this:
+   3. Set **Exe path** to ```C:/Program Files (x86)/Steam/steamapps/common/Risk of Rain 2/Risk of Rain 2.exe``` (or, wherever your Risk of Rain 2.exe file is located). In case you're wondering, this is the same executable that r2modman profiles execute, so it won't be different regardless of using an r2modman profile or not. Once you select this, **Working Directory** will automatically populate.
+   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [Community discord](https://discord.gg/AvgCAUdmDS) with questions Here's how to get the info you need: 
+      1. **r2modman profiles**: Launch r2modman and select the profile you modified during the General Setup and Building with Rider section, navigate to settings, and search for **Set launch parameters** (see photo below). Click on the search result and you should see something like this:
       ```cs
       Some parameters are provided by default:
       
