@@ -5,7 +5,7 @@ The microsoft documentation says:
 
 When you debug your app, it usually means that you are running your application with the debugger attached. When you do this, the debugger provides many ways to see what your code is doing while it runs. You can step through your code and look at the values stored in variables, you can set watches on variables to see when values change, you can examine the execution path of your code, see whether a branch of code is running, and so on. If this is the first time that you've tried to debug code, you might want to read [Debugging for absolute beginners](https://docs.microsoft.com/en-us/visualstudio/debugger/debugging-absolute-beginners?view=vs-2022) before going through this guide.
 
-## General Setup
+## <a name="general_setup"><a/> General Setup
 1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
 2. [Install doorstop 4](https://cdn.discordapp.com/attachments/567836513078083584/1068586988673961984/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
 3. Drag and drop as follow into your Risk of Rain 2 game folder
@@ -71,7 +71,7 @@ Your profile MUST have...
 Debugging with Rider requires slightly more setup, but will be fully functional using Rider's built-in debugger tool. Additionally, you will have a highly-configurable build-run-debug pipeline. The process is straightforward:
 - Build
 - Run
-- Connect
+- Connect to the debugger
 
 ### Building with Rider
 As you know, by default, Rider outputs the build to project_root/bin/Debug directory. However, we will improve this to automatically our mod to our plugin directory.
@@ -99,5 +99,32 @@ As you know, by default, Rider outputs the build to project_root/bin/Debug direc
 We're all done with building! Feel free to give it a test by building your project and ensuring the build ends up in the right location.
 
 ### Running with Rider
-We're going to piggyback on Rider's build in "Run and Debug" modes. 
+We're going to piggyback on Rider's build in "Run and Debug" modes. By the end of this section, you will be able to run Risk of Rain using your r2modman profile (or your non-r2modman alternative) and freshly built plugin all in one click. 
+1. Open Rider's run configuration editor (see photo):
+![rider_run_config.PNG](../../../media/rider/rider_run_config.jpg)
+2. For this next step, it is **critical** you have correctly completed the [General Setup](#a-namegeneralsetup-a-general-setup). Confirm this by launching your r2modman profile through r2modman. You'll know you're in the clear when your mods are loading without any issues.
+3. In this next photo, you're going to create a new Run/Debug configuration. Let's start with creating a standalone process for your game (Don't worry about the fields for it yet).
+![standalone_option.PNG](../../../media/rider/standalone_option.jpg)
+4. Now that you have a Standalone Player, let's get the fields filled out (Refer to photo below for reference through each step).
+   1. (Refer to the circle on the right) Select your newly created **Standalone Player**
+   2. Click on the **+** symbol below the **Before Launch** section of the configuration options and select **Build Project**. You'll know it's correct when you see that green hammer like I have at the middle of the screen.
+   3. Set **Exe path** to ```C:/Program Files (x86)/Steam/steamapps/common/Risk of Rain 2/Risk of Rain 2.exe``` (or, wherever your Risk of Rain 2.exe file is located). In case you're wondering, this is the same executable that r2modman profiles execute, hence why the path is the same. Once you select this, **Working Directory** will automatically populate.
+   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [Community discord](DISCORD LINK) with questions. 
+      1. **r2modman profiles**: This will be quick and easy. Simply launch r2modman, navigate to settings, and search for **Set launch parameters** (see photo below). Click on the search result and you should see something like this:
+      ```cs
+      Some parameters are provided by default:
+      
+      Modded:
+      --doorstop-enabled true --doorstop-target-assembly "C:\Users\lukem\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\core\BepInEx.Preloader.dll"
+      
+      Vanilla:
+      doorstop-enabled false
+      ```
+      2. Copy the text within the **Modded** category and paste that into the **Program arguments**, as shown in the picture below.
+![run_config.PNG](../../../media/rider/run_config.jpg)
+5. You now have **Standalone Player** properly configured. You'll know it works when clicking Rider's **Run** or **Debug** button against your **Standalone Player** configuration launches Risk of Rain directly using your r2modman profile. At this point, Rider is automatically building your mod, adding it to your custom r2modman profile, and launching for you.
+
+
+## <a name="general_setup"><a/> FAQ
+
 
