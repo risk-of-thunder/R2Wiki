@@ -35,9 +35,9 @@ jobs:
           last_commit_hash=$(cat $last_commit_hash_file)
           
           if [ "$current_commit_hash" == "$last_commit_hash" ]; then
-            echo "::set-output name=should-publish-new-doc::false";
+            echo "should-publish-new-doc=false" >> $GITHUB_OUTPUT;
           else
-            echo "::set-output name=should-publish-new-doc::true";
+            echo "should-publish-new-doc=true" >> $GITHUB_OUTPUT;
             
             rm -rf docs
             
