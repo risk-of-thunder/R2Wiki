@@ -136,6 +136,3 @@ By the end of this section, the debugger will be fully operational and seamlessl
         1. ```[Settings]```
            * ```Enable BepInEx GUI = false```
      3. Do a ```Ctrl+F``` for the term ```launch parameters```. If you used this value anywhere while following the tutorials, it may need updating. 
-        
-      
-
