@@ -9,13 +9,13 @@ When you debug your app, it usually means that you are running your application 
 1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
 2. [Install doorstop 4](https://cdn.discordapp.com/attachments/567836513078083584/1068586988673961984/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
 3. Drag and drop as follow into your Risk of Rain 2 game folder
-	* If you want to debug an R2ModMan profile instead, drag and drop the contents of the Zip file into your r2modman profile. Refer to the [FAQ](#faq) to see more about debugging against a r2modman profile. 
+    * If you want to debug an R2ModMan profile instead, drag and drop the contents of the Zip file into your r2modman profile. Refer to the [FAQ](#faq) to see more about debugging against a r2modman profile.
 
 ![Replace files](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
 It should replace a lot of files, press yes to all
 
 4. Open the `doorstop_config.ini`
-You can set the config like this
+   You can set the config like this
 ```
 # If true, Mono debugger server will be enabled
 debug_enabled=true
@@ -89,40 +89,39 @@ We're all done with building! Feel free to give it a test by building your proje
 
 ### Running with Rider
 
-By the end of this section, you will be able to run Risk of Rain 2 using your r2modman profile (or your non-r2modman alternative) and freshly built plugin by clicking the **Run** and **Debug** buttons built-in to Rider. 
+By the end of this section, you will be able to run Risk of Rain 2 using your r2modman profile (or your non-r2modman alternative) and freshly built plugin by clicking the **Run** and **Debug** buttons built-in to Rider.
 
 1. Open Rider's run configuration editor (see photo):
-  ![rider_run_config.PNG](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/rider_run_config.jpg)
+
+   ![rider_run_config.PNG](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/rider_run_config.jpg)
 
 2. For this next step, it is **critical** you have correctly completed the [General Setup](#general-setup). Confirm this by launching your r2modman profile through r2modman. You'll know you're in the clear when your mods are loading without any issues.
 
-3. In this next photo, you're going to create a new Run/Debug configuration. Let's start with creating a standalone process for your game (Don't worry about the fields for it yet).
+3. Now that you have general setup completed, you're going to create a new Run/Debug configuration. Let's start with creating a standalone process for your game (Don't worry about the fields for it yet).
 
-  ![standalone_option.PNG](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/standalone_option.jpg)
+   ![standalone_option.PNG](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/standalone_option.jpg)
 
 4. Now that you have a Standalone Player, let's get the fields filled out (Refer to photo below for reference through each step).
 
-   1. (Refer to the circle on the left) Select your newly created **Standalone Player** run configuration. 
+   1. (Refer to the circle on the left) Select your newly created **Standalone Player** run configuration.
 
    2. Click on the **+** symbol below the **Before Launch** section of the configuration options and select **Build Project**. You'll know it's correct when you see that green hammer like I have at the middle of the screen.
 
    3. Set **Exe path** to ```C:/Program Files (x86)/Steam/steamapps/common/Risk of Rain 2/Risk of Rain 2.exe``` (or, wherever your Risk of Rain 2.exe file is located). In case you're wondering, this is the same executable that r2modman profiles execute, so it won't be different regardless of using an r2modman profile or not. Once you select this, **Working Directory** will automatically populate.
 
-   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [FAQ](#faq) or [Community discord](https://discord.gg/AvgCAUdmDS) with questions
-      Here's how to get the info you need: 
+   4. The last thing you need is **Program arguments**. It's important to note that incorrect arguments will result in your mods failing to load. Please reach out to the [FAQ](#faq) or [Community discord](https://discord.gg/AvgCAUdmDS) with questions. Here's how to get the info you need:
 
-      1. **r2modman profiles**: Launch r2modman and select the profile you modified during the General Setup and Building with Rider section, navigate to settings, and search for **Set launch parameters** (see photo below). Click on the search result and you should see something like this:
+      * **r2modman profiles**: Launch r2modman and select the profile you modified during the General Setup and Building with Rider section, navigate to settings, then search **Set launch parameters** and select it. These are the arguments `Risk of Rain.exe` receives to run your mod:
 
-      ```
-      Modded:
-      --doorstop-enabled true --doorstop-target-assembly "C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\core\BepInEx.Preloader.dll"
-      
-      Vanilla:
-      doorstop-enabled false
-      ```
+              Modded:
+              --doorstop-enabled true --doorstop-target-assembly "C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dev\BepInEx\core\BepInEx.Preloader.dll"
+            
+              Vanilla:
+              doorstop-enabled false
 
-      2. Copy the text within the **Modded** category of **your** r2modman and paste that into the **Program arguments**, as shown in the picture below.
-![run_config.PNG](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/run_config.jpg)
+        Copy the text within **Modded** and paste that into the **Program arguments**, as shown in the picture below:
+
+   ![run_config.PNG](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/run_config.jpg)
 
 5. You now have **Standalone Player** properly configured. You'll know it works when clicking Rider's **Run** or **Debug** button against your **Standalone Player** configuration launches Risk of Rain directly using your r2modman profile. At this point, Rider is automatically building your mod, adding it to your custom r2modman profile, and launching for you.
 
@@ -132,19 +131,19 @@ By the end of this section, the debugger will be fully operational and seamlessl
 
 1. Open Rider's configuration editor again. Create each of the following Run/Debug configurations:
 
-   1. ```Mono Remote```
+   * ```Mono Remote```
 
-   2. ```Compound```
+   * ```Compound```
 
-      ![mono_compound.jpg](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/mono_compound.jpg)
+   ![mono_compound.jpg](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/mono_compound.jpg)
 
 2. Select **Mono Remote** and configure as follows:
 
-   1. Host: ```127.0.0.1```
+   * Host: ```127.0.0.1```
 
-   2. Port: ```55555```
+   * Port: ```55555```
 
-      ![mono_options.jpg](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/mono_options.jpg)
+   ![mono_options.jpg](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/mono_options.jpg)
 
 3. Select **Compound** and add the Mono debugger and Standalone player as shown in the photo below:
 
@@ -158,32 +157,20 @@ By the end of this section, the debugger will be fully operational and seamlessl
 
    ![debugger_in_game.jpg](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/rider/debugger_in_game.jpg)
 
-   Congrats!! You are now a more productive engineer!
+Congrats!! You are now a more productive engineer!
 
 ## [FAQ](#faq)
 
 * Why aren't any mods loading after installing doorstop 4 into my r2modman profile directory?
-
-  1. This problem occurs with r2modman profiles, related to specific doorstop versions. Create a file in your r2modman's profile directory ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE\``` and create a file named ```.doorstop_version```. Open this file with any text editor and paste: ```4.0.0.0```
-
-  2. This problem occurs when your BepInEx configuration files are misconfigured. Here's what you need:
-
-     1. From your profile directory, open the ```BepInEx\config\BepInEx.cfg``` file and update the following values if not updated already: 
-
-        1. ```[Logging.Console]```:  
-
-           * ```Enabled = true```
-
-        2. ```[Preloader.Entrypoint]```: 
-
-           * ```Assembly = RoR2.dll```
-
-           * ```Type = FlashWindow```
-
-     2. Now we're going to disable BepInEx's custom GUI since it isn't working properly with doorstop (we're switching to a normal terminal now). From the profile directory, open the ```BepInEx\config\BepInEx.cfg``` file and update the following:
-
-        1. ```[Settings]```
-
-           * ```Enable BepInEx GUI = false```
-
-     3. Do a ```Ctrl+F``` for the term ```launch parameters```. If you used this value anywhere while following the tutorials, it may need updating. 
+   1. This problem occurs with r2modman profiles, related to specific doorstop versions. Create a file in your r2modman's profile directory ```C:\Users\YOUR_USER_NAME\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\YOUR_PROFILE\ ``` and create a file named ```.doorstop_version```. Open this file with any text editor and paste: ```4.0.0.0```
+   2. This problem occurs when your BepInEx configuration files are misconfigured. Here's what you need:
+      1. From your profile directory, open the ```BepInEx\config\BepInEx.cfg``` file and update the following values if not updated already:
+         * ```[Logging.Console]```:
+            * ```Enabled = true```
+         * ```[Preloader.Entrypoint]```:
+            * ```Assembly = RoR2.dll```
+            * ```Type = FlashWindow```
+      2. Now we're going to disable BepInEx's custom GUI since it isn't working properly with doorstop (we're switching to a normal terminal now). From the profile directory, open the ```BepInEx\config\BepInEx.cfg``` file and update the following:
+         * ```[Settings]```
+            * ```Enable BepInEx GUI = false```
+      3. Do a ```Ctrl+F``` for the term ```launch parameters```. If you used this value anywhere while following the tutorials, it may need updating. 
