@@ -57,7 +57,11 @@ private static void OnRoR2ApplicationAwake(On.RoR2.RoR2Application.orig_Awake or
 
 If not, it means its a static method, and that there is no `self` parameter which represent the instance of the class.
 
-If we run our own code before the original, we can perform logic prior to calling the original method, and even modify the parameters of the method before it is executed. Similarly, if we run our code after the original, the original will still perform its intended task, but will also execute our code right after. One problem that many people will find with this method, is that we are unable to modify the logic that exists within the method, without replacing it entirely. Failing to call `orig()` will result in the original/vanilla method never being executed and other mods also hooking that methow will not be called!
+If we run our own code before the original, we can perform logic prior to calling the original method, and even modify the parameters of the method before it is executed. Similarly, if we run our code after the original, the original will still perform its intended task, but will also execute our code right after. One problem that many people will find with this method, is that we are unable to modify the logic that exists within the method, without replacing it entirely.
+
+Failing to call `orig()` will result in the original/vanilla method never being executed and other mods also hooking that methow will not be called!
+
+For a beginner you basically never want to do this unless you have very good reasons. If what you want instead is modifiying *some* parts of the original method, you can do so using an IL Hook, a tutorial goes over them [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/IL-Hooking/)
 
 ## A little more advanced
 
@@ -75,12 +79,13 @@ private static void PickupDropletController_CreatePickupDroplet(On.RoR2.PickupDr
 }
 ```
 
-Replacing a large method in its entirety in order to modify a single line of logic would not be advised as it will create interoperability issues with other mods; for such scenario's something like an IL HOOK TODO FIXME LINK (https://github.com/risk-of-thunder/R2Wiki/wiki/Working-with-IL) would be advised.
+Replacing a large method in its entirety in order to modify a single line of logic would not be advised as it will create interoperability issues with other mods, for such scenario's something like an IL Hook is better.
 
 ## IL Hook
 
 IL Hook are more complicated, since you'll have to deal with the [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language).
-A full guide can be found here IL HOOK TODO FIXME LINK (https://github.com/risk-of-thunder/R2Wiki/wiki/Working-with-IL)
+
+A full guide can be found [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/IL-Hooking/)
 
 ## **Hook Chaining**
 

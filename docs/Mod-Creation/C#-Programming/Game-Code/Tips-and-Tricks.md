@@ -3,31 +3,31 @@
 ### Existing Methods
 RoR2.Util has a lot of existing helping methods such as CheckRoll, ApplySpread, QuaternionSafeLookRotation, and PlaySound. Consider taking a look there before making any existing methods.
 
-### Iterate through all players
-```C#
-for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
+### Iterate through all living entities
+```csharp
+foreach (var characterBody in CharactBody.readOnlyInstancesList)
 { 
-    //CharacterMaster.readOnlyInstancesList[i] is the player.
+    // characterBody is a living entity (like a monster, or a player / survivor body)
 }
 ```
-or
-```C#
+### PlayerCharacterMasterController are objects that hold information about a player that played during this run (still there even when the player get disconnected)
+```csharp
 var instances = PlayerCharacterMasterController.instances;
-foreach (PlayerCharacterMasterController playerCharacterMaster in instances)
+foreach (var playerCharacterMaster in PlayerCharacterMasterController.instances)
 {
     //You can get the master via playerCharacterMaster.master
     //and the body via playerCharacterMaster.master.GetBody()
 }
 ```
-### Get reference to local player
+### Get reference to local players (split-screen is a thing)
 
-```C#
-PlayerCharacterMasterController.instances[0].master
+```csharp
+var localPlayers = LocalUserManager.readOnlyLocalUsersList;
 ```
 
 ### GodMode for players
 
-```C#
+```csharp
 On.RoR2.HealthComponent.TakeDamage += (orig, self, damageInfo) => {
     var charComponent = self.GetComponent<CharacterBody>();
     if (charComponent != null && charComponent.isPlayerControlled)
@@ -39,7 +39,7 @@ On.RoR2.HealthComponent.TakeDamage += (orig, self, damageInfo) => {
 ```
 
 ### Toggle the mouse
-```C#
+```csharp
 using R2API.Utils;
 
 public int ToggleCursor()
@@ -50,19 +50,14 @@ public int ToggleCursor()
 }
 ```
 
-### Redirect the log output from the logfile to the game console
-```C#
-On.RoR2.RoR2Application.UnitySystemConsoleRedirector.Redirect += orig => { };
-```
-
 ### Broadcast chat message:
 
-```C#
+```csharp
 Chat.SendBroadcastChat(new SimpleChatMessage { baseToken = "<color=#e5eefc>{0}: {1}</color>",  paramTokens = new [] { "SOME_USERNAME_STRING", "SOME_TEXT_STRING" } })
 ```
 
 If you want to send something custom
 
-```C#
+```csharp
 Chat.SendBroadcastChat(new SimpleChatMessage { baseToken = "<color=#e5eefc>{0}</color>",  paramTokens = new [] { "SOME_TEXT_STRING" } })
 ```

@@ -64,46 +64,47 @@ Once the game launched:
 
 
 # To go further
+
+## Debugging your mods
+
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/
+
+## C# Assembly References (aka how C# .dll file dependencies work)
+
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/
+
+## Analysing / Reading the game code
+
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Code-Analysis/
+
+## How to load / modify any game assets
+
+Explaining the concept of prefabs:
+
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/
+
+Load game assets / prefabs:
+
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Addressables-Assets-Keys/
+
 ## Hooks
-A Hook is basically a piece of code that is executing when another specific targeted method is also gonna execute, with On.Hooks we can execute code right before or right after the original method is executing. We can also totally override a method this way by not calling the original method.
-For this example we will be using the Huntress's ArrowRain method.
 
-A very basic hook goes as follows:
-```c#
-On.[Function you want to edit] += (orig,self) =>
-{
-    // [The code you want to run]
-    orig(self);
-};
-```
-'orig' is the original function in the game, if you don't want to outright replace the function, you need to call orig(self) at the end of your function, or at the start if you want to have your code run after it!
+[For modifying the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/)
 
-'self' allows you to access member variables, with dnSpy, these are the variables you see at the very bottom of the file. `self` is the current instance of the object in the context of the method running.
+## Understanding Unity Principles
 
-So, our code will be 
-```c#
-public void Awake()
-{
-    On.EntityStates.Huntress.ArrowRain.OnEnter += (orig, self) =>
-    {
-        // [The code we want to run]
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/
 
-        // This will be printed in the console.
-        Log.LogInfo("You used Huntress's Arrow Rain!");
+https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/
 
-        // Call the original function (orig)
-        // on the object it's normally called on (self)
-        orig(self);
-    };
-}
-```
 
-## Not calling the original method
-
-Note that if you don't call the original method ( `orig(self);` ) the other mods hooking the same method won't be able to run, making our mod interoperability very bad. For a beginner you basically never want to do this unless you have very good reasons. If what you want instead is modifiying *some* parts of the original method, you can do so using an IL Hook, a tutorial goes over them [here](https://github.com/risk-of-thunder/R2Wiki/wiki/Working-with-IL)
 
 ## Github
 
-This step isn't strictly necessary but it is good practice to use source control and the most commonly used source control with C# in Visual Studio is git. You should be using this and synchronising your repository with github. To do this from Visual Studio follow these simple steps in this link: https://github.com/github/VisualStudio/blob/master/docs/getting-started/authenticating-to-github.md
+This step isn't strictly necessary but it is good practice to use source control and the most commonly used source control with C# in Visual Studio is git.
+
+You should be using this and synchronising your repository with github.
+
+To do this from Visual Studio follow these simple steps in this link: https://github.com/github/VisualStudio/blob/master/docs/getting-started/authenticating-to-github.md
 
 If you encounter any problem following this tutorial or have suggestions to make it better, feel free to edit the wiki page directly and drop a message in the [modding discord](https://discord.gg/5MbXZvd)

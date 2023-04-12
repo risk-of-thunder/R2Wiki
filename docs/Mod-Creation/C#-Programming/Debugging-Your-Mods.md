@@ -7,12 +7,6 @@ When you debug your app, it usually means that you are running your application 
 
 ## [General Setup](#general-setup)
 1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
-2. [Install doorstop 4](https://cdn.discordapp.com/attachments/567836513078083584/1068586988673961984/BepInEx_x64_5.4.19.0_Doorstop_4.zip)
-3. Drag and drop as follow into your Risk of Rain 2 game folder
-	* If you want to debug an R2ModMan profile instead, drag and drop the contents of the Zip file into your r2modman profile. Refer to the [FAQ](#faq) to see more about debugging against a r2modman profile. 
-
-![Replace files](https://cdn.discordapp.com/attachments/575431803523956746/950432823377023087/unknown.png)
-It should replace a lot of files, press yes to all
 
 4. Open the `doorstop_config.ini`
 You can set the config like this
@@ -35,8 +29,6 @@ This will make doorstop suspend the game on start, open a debugging server at po
 5. Don't forget to put the .pdb file next to your plugin .dll, that's the file which contains the debug data
 
 Putting breakpoints inside game assemblies while using the Visual Studio Debugger is not possible currently, but works with dnSpy, please refer to the dnSpy section below on how to configure it.
-
-*__Notice:__* using the custom Doorstop version can cause issues with the BepInEx GUI that's bundled in RoR2BepInExPack, it is recommended to go into BepInEx's config (``BepInEx\config\BepInEx.cfg``) and set the ``Logging.Console``'s ``Enabled`` config to ``true``, and setting BepInExGUI's config (``BepInEx\config\BepInEx.GUI.cfg``)'s ``Enable BepInEx GUI`` config to ``false``
 
 ## Visual Studio 2022
 - Install [Visual Studio Tools for Unity](https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows)
