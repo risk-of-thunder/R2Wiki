@@ -65,39 +65,29 @@ Once the game launched:
 
 # To go further
 
-## Debugging your mods
+## The sidebar is very useful for navigating the wiki (please navigate it through the [github io page](https://risk-of-thunder.github.io/R2Wiki))
 
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/
+## Must see pages:
 
-## C# Assembly References (aka how C# .dll file dependencies work)
+- ## [Debugging your mods](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
 
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/
+- ## [C# Assembly References (aka how C# .dll file dependencies work)](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/)
 
-## Analysing / Reading the game code
+- ## [Analysing / Reading the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Code-Analysis/)
 
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Code-Analysis/
+- ## How to load / modify any game assets
 
-## How to load / modify any game assets
+    - ### [Explaining the concept of prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/)
 
-Explaining the concept of prefabs:
+    - ### [Load game assets / prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Addressables-Assets-Keys/)
 
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/
-
-Load game assets / prefabs:
-
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Addressables-Assets-Keys/
-
-## Hooks
-
-[For modifying the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/)
+## [Hooks: For modifying the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/)
 
 ## Understanding Unity Principles
 
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/
+- ### [MonoBehaviour](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/)
 
-https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/
-
-
+- ### [Prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/)
 
 ## Github
 
