@@ -4,7 +4,7 @@ This guide goes through how to reference classes, fields, properties and methods
 
 ### PLEASE NOTE
 
-[If you just want to access private stuff in assemblies, you most likely want this instead](https://risk-of-thunder.github.io/R2Wiki/First-Mod/Mod_Creation_C%23-Programming_Assembly-References)
+[If you just want to access private stuff in assemblies, you most likely want this instead](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/)
 
 ## The basics
 

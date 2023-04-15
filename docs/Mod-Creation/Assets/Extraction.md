@@ -11,7 +11,7 @@ Getting the game YAML shaders from the game, which can then later be used on you
 - Open AssetRipper.exe
 - Configuration as follow 
 
-  ![image](https://user-images.githubusercontent.com/837334/176716190-ce742c30-276c-4055-8073-ce92d5b050fa.png)
+  ![image](https://cdn.discordapp.com/attachments/873741640198672404/1033447183871123558/unknown.png)
 
 - File -> Open File
 

@@ -1,10 +1,6 @@
 # MiniRpcLib
 
-## NOWADAYS ITS HIGHLY RECOMMENDED TO USE UNETWEAVER INSTEAD
-
-### AVAILABLE HERE
-
-## FIXME: LINK: https://github.com/risk-of-thunder/R2Wiki/wiki/Networking-with-Weaver:-The-Unity-Way
+## [NOWADAYS ITS HIGHLY RECOMMENDED TO USE UNETWEAVER INSTEAD](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Networking/UNet/)
 
 [MiniRpcLib](https://github.com/wildbook/R2Mods/blob/develop/) is a Remote Procedure Call Library implemented by [Wildbook](https://github.com/wildbook), for RoR2. Wildbook has created a [Demo/tutorial](https://github.com/wildbook/R2Mods/blob/develop/MiniRpcDemo/MiniRpcDemo.cs) so please do check this out first.
 

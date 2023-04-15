@@ -12,11 +12,11 @@
 ## Assembly Tools
 
 * [JustAssembly](https://www.telerik.com/justassembly) - find the differences between two DLLs
-* [Batch Assembly Stripper](https://github.com/risk-of-thunder/R2Wiki/wiki/Stripping-DLLs) - Strip CIL from Assemblies to prevent copyright infringement
+* [Assembly Stripper](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/#publicizing-stripping-assemblies-we-dont-already-cover) - Strip CIL from Assemblies to prevent copyright infringement
 
 ## Asset Tools
 * [Asset Ripper](https://github.com/AssetRipper/AssetRipper)
-* [Prefabs](https://github.com/risk-of-thunder/R2Wiki/wiki/Prefabs-and-reading-their-values) - way to get all the prefab script values
+* [Prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/) - way to get all the prefab script values
 
 ## Libraries
 

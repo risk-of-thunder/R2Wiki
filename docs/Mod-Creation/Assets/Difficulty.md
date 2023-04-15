@@ -1,4 +1,4 @@
-# A beginners guide to making Risk of Rain 2 modded difficulties.
+# Difficulty
 ![image](https://user-images.githubusercontent.com/68250081/201125347-7c9adc79-fc02-4760-af55-611aa070e8c5.png)
 
 We're going to be starting out with this nearly empty project. Make sure you already know the modding **basics** for this tutorial.
