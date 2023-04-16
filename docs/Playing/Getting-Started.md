@@ -4,6 +4,8 @@
 
  There are four managers that you can choose from currently. Three are for windows and one is for Linux. For now we will focus on [r2modman](https://thunderstore.io/package/ebkr/r2modman/), if you use Overwolf, you can use [TMM](https://www.overwolf.com/app/Thunderstore-Thunderstore_Mod_Manager)
 
+For linux based systems you can use either [r2modman](https://github.com/ebkr/r2modmanPlus/releases) or [r2mod_cli](https://thunderstore.io/package/Foldex/r2mod_cli/)
+
 ## R2MODMAN - Recommended
  
 ### Installation
@@ -199,7 +201,14 @@ Some mods might require other mods or libraries to work which can be seen in the
 3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2".
 3. Extract the contents of the downloaded .zip to the "Risk of Rain 2" folder.
 
-[If you are installing on Linux please use this guide.](https://github.com/risk-of-thunder/R2Wiki/wiki/Getting-BepInEx-Console-Working-on-Linux)
+If you are installing on Linux, the usage of a mod manager like [r2modman](https://github.com/ebkr/r2modmanPlus/releases) or [r2mod_cli](https://thunderstore.io/package/Foldex/r2mod_cli/) is **EXTREMELY** recommended as you need to modify a file so that doorstop (the software that makes BepInEx correctly initialize on game start) works properly.
+
+You'll need to locate the user registry file that proton use. The issue is that depending on your linux based system it might not be always the same location, this is why using a mod manager is better as it takes care of that completly, if you still somehow want to do that manually, you can use the following `find` command for trying to find it:
+```shell
+find / -type f -name "user.reg" -path "*/steamapps/compatdata/632360/pfx/*"
+```
+
+Once you found it, open it and look for the `[Software\\Wine\\DllOverrides]`, right under it, add the following line: `"winhttp"="native,builtin"`
 
 ### R2API
 
