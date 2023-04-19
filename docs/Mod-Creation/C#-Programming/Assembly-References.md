@@ -40,8 +40,8 @@ We just use some [magic .NET assembly reader / writer libraries](https://github.
 
 We'll use the [BepInEx nuget feed](https://nuget.bepinex.dev/packages/RiskOfRain2.GameLibs).
 
--   Put this [nuget.config](https://github.com/xiaoxiao921/R2Boilerplate/blob/master/nuget.config) file next to your .sln (Visual Studio solution file) file.
--   Then, in your .csproj (Visual Studio C# Project) file, [have these lines](https://github.com/xiaoxiao921/R2Boilerplate/blob/master/ExamplePlugin/ExamplePlugin.csproj#L15-L23)
+-   Put this [nuget.config](https://github.com/risk-of-thunder/R2Boilerplate/blob/master/nuget.config) file next to your .sln (Visual Studio Solution) file.
+-   Then, in your .csproj (Visual Studio C# Project) file, [have these lines](https://github.com/risk-of-thunder/R2Boilerplate/blob/master/ExamplePlugin/ExamplePlugin.csproj#L15-L23)
 
     This will make use of the BepInEx nuget feed and will handle all the necessary assembly references needed for modding RoR2.
     You'll also need to make sure you have a source file in your plugin that contains those lines:

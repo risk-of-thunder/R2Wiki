@@ -1,5 +1,6 @@
 # Items
-***A detailed tutorial on how to make custom items for Risk of Rain 2.***
+
+# [This tutorial is sadly heavily outdated, the defacto boilerplate explain how to make an item, but doesnt contains any 3d assets](https://github.com/risk-of-thunder/r2boilerplate)
 
 ## Table of Contents
 

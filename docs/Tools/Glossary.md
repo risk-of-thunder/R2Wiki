@@ -24,4 +24,4 @@
 
 ## Project Templates
 
-* [Example Plugin](https://github.com/xiaoxiao921/R2Boilerplate)
+* [Example Plugin](https://github.com/risk-of-thunder/R2Boilerplate)

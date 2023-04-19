@@ -24,7 +24,7 @@ Download and follow the instructions [here](https://thunderstore.io/package/tris
 
 ## Getting the boilerplate
 
-Download the boilerplate [from here](https://github.com/xiaoxiao921/R2Boilerplate/archive/master.zip).
+Download the boilerplate [from here](https://github.com/risk-of-thunder/R2Boilerplate/archive/master.zip).
 
 Extract it.
 
