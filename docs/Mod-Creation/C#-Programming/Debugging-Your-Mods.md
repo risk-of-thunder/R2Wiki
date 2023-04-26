@@ -12,17 +12,13 @@ When you debug your app, it usually means that you are running your application 
 You can set the config like this
 ```
 # If true, Mono debugger server will be enabled
-debug_enabled=true
-
-# When debug_enabled is true, this option specifies whether Doorstop should initialize the debugger server
-# If you experience crashes when starting the debugger on debug UnityPlayer builds, try setting this to false
-debug_start_server=true
+debug_enabled=false
 
 # When debug_enabled is true, specifies the address to use for the debugger server
 debug_address=127.0.0.1:55555
 
 # If true and debug_enabled is true, Mono debugger server will suspend the game execution until a debugger is attached
-debug_suspend=true
+debug_suspend=false
 ```
 This will make doorstop suspend the game on start, open a debugging server at port 55555, allowing you to attach any debugger of your liking, you can use either VS, dnSpy or Rider.
 
