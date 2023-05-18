@@ -14,13 +14,19 @@
 
 Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
 
-- You also need HookGenPatcher, it allow us to generate a dll assembly for hooking the game methods.
+- You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
 
 Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
 
-- You will most likely want R2API as a dependency of your mod too, it gives helper methods to quickly get custom additions into the game.
+- The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
 
-Download and follow the instructions [here](https://thunderstore.io/package/tristanmcpherson/R2API/).
+Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/).
+
+Download [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/).
+
+Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
+
+For installing them just drop the dll files into `BepInEx/plugins`
 
 ## Getting the boilerplate
 

@@ -12,7 +12,7 @@ Some mods may require a visual representation of data on screen for the user. Fo
 
 # How-to
 
-Assuming you've setup your coding environment (if not, please follow [this guide](https://github.com/risk-of-thunder/R2Wiki/wiki/%5BIn-depth%5D-First-mod)), let's get started.
+Assuming you've setup your coding environment (if not, please follow [this guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Getting-Started/First-Mod/)), let's get started.
 
 ## From a glance...
 
