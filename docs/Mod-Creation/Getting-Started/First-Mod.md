@@ -22,6 +22,12 @@ Download and follow the instructions [here](https://thunderstore.io/package/Risk
 
 Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/).
 
+R2API Core is a dependency of R2API Items and R2API Language.
+
+Download [R2API ContentManagement](https://thunderstore.io/package/RiskofThunder/R2API_ContentManagement/).
+
+R2API ContentManagement is a dependency of R2API Items.
+
 Download [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/).
 
 Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
