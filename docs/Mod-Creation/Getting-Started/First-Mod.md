@@ -56,17 +56,21 @@ Copy the `ExamplePlugin.dll` to your `Risk of Rain 2/BepInEx/plugins/` folder.
 
 If its your first time ever launching the game with the latest BepInEx Pack, you may have notice the BepInEx GUI has a console, it has multiple features that could be useful to you:
 
-Pausing the game
+- Pausing / Resuming the game process
 
-Copying / extracting some log entries by selecting them (you can drag) and pressing Ctrl+C
+- Copying / extracting some log entries by selecting them (you can drag) and pressing Ctrl+C
 
-Filtering log entries by text or their log level
+- Filtering log entries by text or their log level
 
-Filtering by mod name
+- Filtering by mod name
+
+- Can close the game and the GUI very quickly by pressing CTRL + F5 while the GUI is focused
+
+- [Full feature list available at](https://github.com/risk-of-thunder/BepInEx.GUI)
 
 The console overall is very useful for debugging your code alongside the Visual Studio debugger if you follow this [tutorial](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
 
-When logging stuff to the console, don't forget to use the dedicated `Log` class available in the boilerplate
+When logging stuff to the console, don't forget to use the dedicated `Log` class available in the boilerplate!
 
 Once the game launched:
 
