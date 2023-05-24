@@ -1,13 +1,13 @@
 # R2API.NetworkingAPI
 
 ## Step 1: Add Submodule Dependency
-Add an `R2APISubmoduleDependency` attribute to your `BaseUnityPlugin`. Add `nameof(NetworkingAPI)` as a parameter.
+Add a `[BepInDependency` attribute to your `BaseUnityPlugin`.
 ```c#
 // some usings...
 namespace MyNamespace.Something
 {
     // some other attributes...
-    [R2APISubmoduleDependency(nameof(NetworkingAPI), nameof(SomeOtherAPI), nameof(ThatYouCanAddAPI)]
+    [BepInDependency(NetworkingAPI.PluginGUID)]
     public class MyModPlugin : BaseUnityPlugin
     {
         // some code...
