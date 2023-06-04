@@ -154,8 +154,7 @@ This very bright UI hurts my eyes make it stop!
 ***
 
 ### Troubleshooting
-If you are facing any errors with r2modman check here.
-https://github.com/ebkr/r2modmanPlus/wiki/Why-aren%27t-my-mods-working%3F
+[If you are facing any errors with r2modman check here.](https://github.com/ebkr/r2modmanPlus/wiki/Why-aren%27t-my-mods-working%3F)
 
 **I have previously installed mods manually before using r2modman**
 
@@ -201,8 +200,7 @@ Some mods might require other mods or libraries to work which can be seen in the
 3. Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2".
 3. Extract the contents of the downloaded .zip to the "Risk of Rain 2" folder.
 
-<details>
-  <summary>Linux</summary>
+#### Linux
 
 If you are installing on Linux, the usage of a mod manager like [r2modman](https://github.com/ebkr/r2modmanPlus/releases) or [r2mod_cli](https://thunderstore.io/package/Foldex/r2mod_cli/) is **EXTREMELY** recommended as you need to modify a file so that doorstop (the software that makes BepInEx correctly initialize on game start) works properly.
 
