@@ -3,62 +3,52 @@
 ## What you need
 
 - Risk of Rain 2
-- <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16" target="_blank">Visual Studio Community</a>
+- <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16" target="_blank">Visual Studio 2022 Community</a>
 - Make sure that when installing Visual Studio that the **.NET desktop development** workload is ticked
 
-![netstandard2.0 visual studio installer](https://github.com/risk-of-thunder/R2Wiki/blob/master/media/netstandard2.0Framework.png?raw=true)
+![netstandard2.0 visual studio installer](https://cdn.discordapp.com/attachments/575431803523956746/1115689633586630728/image.png)
 
 ## Install BepInEx, HookGenPatcher and R2API
 
-- ### BepInEx is a tool that allow us to load the mods into the game.
+### BepInEx is a tool that allow us to load the mods into the game.
 
-  - R2modman
+- R2modman
 
-    - Download the BepInExPack from the Online tab
+  - Download the BepInExPack from the Online tab
 
-  - Manual Install
+- Manual Install
 
-    - Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
+  - Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
 
-- ### You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
+### You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
 
-  - R2modman
+- R2modman
 
-    - Download the HookGenPatcher from the Online tab
+  - Download the HookGenPatcher from the Online tab
 
-  - Manual Install
+- Manual Install
 
-    - Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
+  - Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
 
-- ## The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
+### The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
 
-  R2API Core is a dependency of R2API Items and R2API Language.
+- R2modman
 
-  R2API ContentManagement is a dependency of R2API Items.
+  - Download the R2API Items from the Online tab
 
-  - Installation
+  - Download the R2API Language from the Online tab
 
-    - R2modman
+- Manual Install
 
-      - Download the R2API Core from the Online tab
+  - Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/). (R2API Core is a dependency of R2API Items and R2API Language)
 
-      - Download the R2API ContentManagement from the Online tab
+  - Download [R2API ContentManagement](https://thunderstore.io/package/RiskofThunder/R2API_ContentManagement/). (R2API ContentManagement is a dependency of R2API Items)
 
-      - Download the R2API Items from the Online tab
+  - Download [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/).
 
-      - Download the R2API Language from the Online tab
+  - Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
 
-    - Manual Install
-
-      - Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/).
-
-      - Download [R2API ContentManagement](https://thunderstore.io/package/RiskofThunder/R2API_ContentManagement/).
-
-      - Download [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/).
-
-      - Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
-
-      For installing them just drop the dll files into `BepInEx/plugins`
+  For installing them just drop the dll files into `BepInEx/plugins`
 
 ## Getting the boilerplate
 
