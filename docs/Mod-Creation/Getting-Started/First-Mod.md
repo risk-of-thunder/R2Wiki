@@ -10,29 +10,55 @@
 
 ## Install BepInEx, HookGenPatcher and R2API
 
-- BepInEx is a tool that allow us to load the mods into the game.
+- ### BepInEx is a tool that allow us to load the mods into the game.
 
-Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
+  - R2modman
 
-- You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
+    - Download the BepInExPack from the Online tab
 
-Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
+  - Manual Install
 
-- The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
+    - Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
 
-Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/).
+- ### You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
 
-R2API Core is a dependency of R2API Items and R2API Language.
+  - R2modman
 
-Download [R2API ContentManagement](https://thunderstore.io/package/RiskofThunder/R2API_ContentManagement/).
+    - Download the HookGenPatcher from the Online tab
 
-R2API ContentManagement is a dependency of R2API Items.
+  - Manual Install
 
-Download [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/).
+    - Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
 
-Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
+- ## The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
 
-For installing them just drop the dll files into `BepInEx/plugins`
+  R2API Core is a dependency of R2API Items and R2API Language.
+
+  R2API ContentManagement is a dependency of R2API Items.
+
+  - Installation
+
+    - R2modman
+
+      - Download the R2API Core from the Online tab
+
+      - Download the R2API ContentManagement from the Online tab
+
+      - Download the R2API Items from the Online tab
+
+      - Download the R2API Language from the Online tab
+
+    - Manual Install
+
+      - Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/).
+
+      - Download [R2API ContentManagement](https://thunderstore.io/package/RiskofThunder/R2API_ContentManagement/).
+
+      - Download [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/).
+
+      - Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
+
+      For installing them just drop the dll files into `BepInEx/plugins`
 
 ## Getting the boilerplate
 
@@ -44,13 +70,19 @@ Extract it.
 
 Open the `.sln` solution file with Visual Studio. Now build the solution:
 
-![](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/bepinex/build_solution.png)
+![build solution in visual studio](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/bepinex/build_solution.png)
 
 ## Put the mod in the game
 
 Find the `ExamplePlugin\bin\Debug\netstandard2.0\ExamplePlugin.dll` on your own machine.
 
-Copy the `ExamplePlugin.dll` to your `Risk of Rain 2/BepInEx/plugins/` folder.
+- ### R2modman
+
+  - Copy the `ExamplePlugin.dll` to your `BepInEx/plugins/` folder. You can find the folder by opening r2modman, going to settings, and clicking Browse profile folder.
+
+- ### Manual install
+
+  - Copy the `ExamplePlugin.dll` to your `Game Folder/BepInEx/plugins/` folder.
 
 ## Testing the mod
 
@@ -111,6 +143,6 @@ This step isn't strictly necessary but it is good practice to use source control
 
 You should be using this and synchronising your repository with github.
 
-To do this from Visual Studio follow these simple steps in this link: https://github.com/github/VisualStudio/blob/master/docs/getting-started/authenticating-to-github.md
+[To do this from Visual Studio follow these simple steps](https://github.com/github/VisualStudio/blob/master/docs/getting-started/authenticating-to-github.md)
 
 If you encounter any problem following this tutorial or have suggestions to make it better, feel free to edit the wiki page directly and drop a message in the [modding discord](https://discord.gg/5MbXZvd)
