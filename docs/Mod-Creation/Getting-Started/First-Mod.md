@@ -22,23 +22,23 @@
 
 ### You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
 
-- R2modman
+- ### r2modman:
 
   - Download the HookGenPatcher from the Online tab
 
-- Manual Install
+- ### manual install:
 
   - Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
 
 ### The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
 
-- R2modman
+- ### r2modman:
 
   - Download the R2API Items from the Online tab
 
   - Download the R2API Language from the Online tab
 
-- Manual Install
+- ### manual install:
 
   - Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/). (R2API Core is a dependency of R2API Items and R2API Language)
 
@@ -66,11 +66,11 @@ Open the `.sln` solution file with Visual Studio. Now build the solution:
 
 Find the `ExamplePlugin\bin\Debug\netstandard2.0\ExamplePlugin.dll` on your own machine.
 
-- ### R2modman
+- ### r2modman:
 
   - Copy the `ExamplePlugin.dll` to your `BepInEx/plugins/` folder. You can find the folder by opening r2modman, going to settings, and clicking Browse profile folder.
 
-- ### Manual install
+- ### manual install:
 
   - Copy the `ExamplePlugin.dll` to your `Game Folder/BepInEx/plugins/` folder.
 

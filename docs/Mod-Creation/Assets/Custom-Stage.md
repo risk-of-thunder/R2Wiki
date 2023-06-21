@@ -1,6 +1,6 @@
 # Custom Stages
 
--***This Page is still a WIP. I will finish it later. I just finished Part 2 of the videos I am making. The Zip of useful scripts I used and the FBL github is down below.***
+-***This page will be redone. A lot of details were left out and some details aren't particularly accurate.***
 
 This guide will cover the details of stage making and good practices to keep yourself organized. This guide will be assuming you already have a solid way to load a stage; if not, click [here](#nuketown) to learn how to download IDeath's Nuketown project to get a good reference on how everything works.
 
