@@ -1,7 +1,7 @@
 # Custom Stages
 
 ***I AM REDOING THIS PAGE AS WE SPEAK!!!!***
-Please wait until the new tutorial is up. Do not watch the old videos I watched either. The new written tutorial will be up very soon. A video version may take a bit longer.
+Please wait until the new tutorial is up. Do not watch the old videos I put up either. The new written tutorial will be up very soon. A video version may take a bit longer.
 
 ## Warning
 
