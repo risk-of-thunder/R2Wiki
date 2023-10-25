@@ -31,8 +31,8 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 | 38    | skymeadow      | Sky Meadow         | Sprite Fields                           |      |                                |
 | 39    | snowyforest    | Siphoned Forest    | Ground Zero                             | SOTV |                                |
 | 41    | sulfurpools    | Sulfur Pools       | Pungent Spring                          | SOTV |                                |
-| 45    | voidstage      | Void Locus         | Cell IIIVIIIIIILVIIIVLVILIVLLLVVVILIVLI | SOTV |                                |
-| 46    | voidraid       | The Planetarium    | Cell V                                  | SOTV | DLC Final Boss                 |
+| 46    | voidstage      | Void Locus         | Cell IIIVIIIIIILVIIIVLVILIVLLLVVVILIVLI | SOTV |                                |
+| 45    | voidraid       | The Planetarium    | Cell V                                  | SOTV | DLC Final Boss                 |
 | 47    | wispgraveyard  | Scorched Acres     | Wisp Installation                       |      |                                |
 
 ### Hidden Realms (`Intermission`)
