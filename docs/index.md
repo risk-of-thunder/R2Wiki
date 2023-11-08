@@ -17,7 +17,7 @@ Please head to this [link](https://github.com/risk-of-thunder/R2Wiki/wiki/_new) 
 
 `Required-Category_Optional-Sub-Category_Page-Name`
 
-You should **always** put a category for your page !
+You should **always** put a category for your page!
 
 Here is how the page named `FirstFolder_This-is-folder2_This-is-the-file-name` looks in the sidebar once it gets added to the generated github pages website.
 
