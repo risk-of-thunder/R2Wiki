@@ -45,7 +45,7 @@ You can monitor or change the package versions by going to  the ``manfiest.json`
 
 ## Starting your Stage
 
-Your stage needs a set amount of rules to be declared in order to work as intended. This section will be in Unity specifically, if you want to start with code you can go [here](#creating-mod-framework-and-loading-your-stage). This section goes over the ``SceneDef`` Scriptable Object so make sure to cross reference here occassionally if you decide to start with code.
+Your stage needs a set amount of rules to be declared in order to work as intended. This section will be in Unity specifically, if you want to start with code you can go [here](#creating-mod-framework-and-loading-your-stage). This section goes over the ``SceneDef`` Scriptable Object so make sure to cross reference here occasionally if you decide to start with code.
 
 RoR2EditorKit also has a Stage Wizard that sets up your stage for you. To use it, right click in your Project field, then go ``RoR2EditorKit`` > ``Wizards`` > ``Stage``. Make sure a token prefix and Manifest is present in the RoR2EditorKit settings in the Thunderkit Settings tab. After generating the stage, make sure to still read through these upcoming sections to fully grasp what was generated. Make sure to also double check that your stage is accurate to that of the tutorial; the wizard is missing a few things as it was made with less known knowledge about stage making. This will be fixed soon.
 
@@ -53,12 +53,13 @@ RoR2EditorKit also has a Stage Wizard that sets up your stage for you. To use it
 A stage's ``SceneDef`` is an identifying Scriptable Object that holds a lot of the stage's basic behavior. In the ``SceneDef`` you can declare tokens, required expansions, logbook entry fields music, etc. This is similar to how the ``ItemDef`` scriptable object is populated. This also means you can create a ``SceneDef`` in code if desired. The ``SceneType`` field should be the first thing you figure out- all of which are listed below:
 
 - ``Menu`` are UI based scenes. (main menu, logbook)
-- ``Stage`` are stages that have time scaling and iterate on the stage counter. (Any stage in the loop like Titanic Plains, Void Fields, Void Locus)
+- ``Stage`` are stages that have time scaling and iterate on the stage counter. (Any stage in the loop like Titanic Plains, Void Locus)
 - ``Intermission`` are stages that stop time scaling and do not iterate on the stage counter. (Guilded Coast, Bazaar)
+- ``Timed Intermission`` are stages that are a mix of ``Stage`` and ``Intermission``. The stage has time scaling but does not iterate on the stage counter. Only applies to Void Fields. (Void Fields used to be a ``Stage`` before version ``1.2.4.4`` / CU 7.5)
 - ``Cutscene`` is self explanitory. (Intro Cutscene, Moon Ending Cutscene)
 - ``Invalid`` means it is no longer used. You probably shouldn't use this unless you are keeping a deprecated stage in the mod. (``moon``: the original moon stage)
 
-``Stage`` and ``Intermission`` are the only things going to be addressed in this tutorial.
+``Stage``, ``Intermission``, and ``Timed Intermission`` are the only things going to be addressed in this tutorial.
 
 ![image](https://github.com/risk-of-thunder/R2Wiki/assets/66852270/6507a6ed-d892-42e1-b10f-dc90440ffcdb)
 
@@ -72,7 +73,7 @@ The Other elements in the SceneDef are as follows:
 
 #### Classification
 - ``Is Offline Scene`` is checked if the scene can only show for individual clients. Usually reserved for menus. Do not check this since you are making a playable stage.
-- ``Stage Order``  indicates the stage's spot in the loop. This value is only used to order stages in the logbook by default, but if you are using R2API.Stages, it will also be used when registering the stage into the loop. Stages that aren't part of the loop have values outsid ethe range of 1-5.
+- ``Stage Order``  indicates the stage's spot in the loop. This value is only used to order stages in the logbook by default, but if you are using R2API.Stages, it will also be used when registering the stage into the loop. Stages that aren't part of the loop have values outside the range of 1-5.
 - ``Required Expansion`` is used to lock a stage to an expansion. If your stage is part of a larger mod and said mod has an expansion, you can put your mod's ExpansionDef to this field.
 #### User-Facing Name
 - ``Name Token`` is the token for the stage name. "Abyssal Depths" is correlated with ``dampcavesimple``'s name token: ``MAP_DAMPCAVE_TITLE``.
@@ -166,7 +167,7 @@ There may be minor clipping or inaccuracies when a player walks over the bridge 
 
 ![image](https://github.com/risk-of-thunder/R2Wiki/assets/66852270/3dd0fb7b-faad-4933-b120-3989e689cd2c)
 
-Regardless if your stage is a stage 1, is in a different part of the loop, or a hidden realm, **place spawn points**. Loop stages usually have four sets of four spawn points, making sixteen spawn points total. The reason why we place spawn points even if the stage isn't a stage 1 is to account for unpredictability: other mods most noteably. To place a spawn point, make an empty object and attatch the ``Spawn Point`` component to it. You will know it works because there will be a wireframe of the commando model. This is also a cheap way to get good size reference without importing a model.
+Regardless if your stage is a stage 1, is in a different part of the loop, or a hidden realm, **place spawn points**. Loop stages usually have four sets of four spawn points, making sixteen spawn points total. The reason why we place spawn points even if the stage isn't a stage 1 is to account for unpredictability: other mods most notably. To place a spawn point, make an empty object and attach the ``Spawn Point`` component to it. You will know it works because there will be a wireframe of the commando model. This is also a cheap way to get good size reference without importing a model.
 
 ![image-1](https://github.com/risk-of-thunder/R2Wiki/assets/66852270/478d4916-b592-4f5d-aaef-706f40aadd57)
 
@@ -226,7 +227,7 @@ public void AddSceneDef(){
     StageRegistration.RegisterSceneDefToLoop(ExampleModStageDef);
 }
 ```
-This pseudocode showcases some of R2API's stage utilities such as ``MakeBazaarSeerMaterial``, ``AddSceneDef``, and ``RegisterSceneDefToLoop``.
+This pseudo-code showcases some of R2API's stage utilities such as ``MakeBazaarSeerMaterial``, ``AddSceneDef``, and ``RegisterSceneDefToLoop``.
 - ``MakeBazaarMaterial`` returns a usable bazaar seer material using the texture passed into it.
 - ``AddSceneDef`` adds your SceneDef to your ContentPack.
 - ``RegisterSceneDefToLoop`` automatically adds your stage to the loop depending on your stage order. If your stage order is set to ``2`` like the example above, it will add your ``SceneDef`` to the appropriate ``SceneCollection`` (``sgStage2``) and set your ``Destinations Group`` to the next ``SceneCollection`` (``sgStage3``). If you are registering a stage 5, the ``Destinations Group`` will be set to ``sgStage1``.
@@ -255,7 +256,7 @@ By now your stage should be loadable- buggy but loadable. You should be able to 
 
 ## Introduction to Nodes
 
-Nodes and pathfinding are both important aspects to all stages. Even for stages without combat like the Bazaar, a nodegraph is still present, albiet a small one. Nodes are the backbone for player spawning, monster spawning, interactable placement, teleporter placement, pathfinding, gates, etc.
+Nodes and pathfinding are both important aspects to all stages. Even for stages without combat like the Bazaar, a nodegraph is still present, albeit a small one. Nodes are the backbone for player spawning, monster spawning, interactable placement, teleporter placement, pathfinding, gates, etc.
 
 There are three types of nodes: Ground, Air, and Rail. This tutorial will only be using Ground and Air nodes because Rail nodes have no presence in the game. Air and Ground nodes both dictate the spawning and navigation of aerial and ground bodies respectively. Ground nodes also dictate interactable and teleporter placement. Interactables placed manually into the scene such as Newt Statues, Preon Chest in Ralleypoint, and Froggy in Commencement are exempt from this rule and will be detailed later.
 
@@ -325,7 +326,7 @@ LoP also has a util to help speed up the creation of custom jump pads. When righ
 
 There are more parts to making a jump pad beyond these details; it is suggested to search "Geyser" in Thunderkit's Addressable Browser and inspect any of the jump pads listed to study how they are constructed.
 
-If you want to reuse the jump pads in game, LoP has the ``Instantiate Geyser Prefab`` component to allow you to instantiate any of the jump pads shown above. The Geyser type ``Fan`` has special attributes which will be covered [here](#gates-and-toggle-groups) as it is intertwined with gates and toggle groups. Do note that LoP does support the unused ``moon`` jump pads but not the newer ``moon2`` jump pads. The ``moon2`` jump pads have a unique condition to be activated hence why LoP doesn't support it- atleast at the moment. When instantiating this component, it will also instantiate a ``Jump Volume``. This Jump Volume's values will be copied over to the pad's Jump Volume at runtime. You can then edit this Jump Volume like normal. Beyond the normal ``Instantiate Addressable Prefab`` options, ``Instantiate Geyser Prefab`` has ``Conserve Sound String`` if you want to keep the sound effect of being launched on the original jump pad.
+If you want to reuse the jump pads in game, LoP has the ``Instantiate Geyser Prefab`` component to allow you to instantiate any of the jump pads shown above. The Geyser type ``Fan`` has special attributes which will be covered [here](#gates-and-toggle-groups) as it is intertwined with gates and toggle groups. Do note that LoP does support the unused ``moon`` jump pads but not the newer ``moon2`` jump pads. The ``moon2`` jump pads have a unique condition to be activated hence why LoP doesn't support it- at least at the moment. When instantiating this component, it will also instantiate a ``Jump Volume``. This Jump Volume's values will be copied over to the pad's Jump Volume at runtime. You can then edit this Jump Volume like normal. Beyond the normal ``Instantiate Addressable Prefab`` options, ``Instantiate Geyser Prefab`` has ``Conserve Sound String`` if you want to keep the sound effect of being launched on the original jump pad.
 
 ![image](https://github.com/risk-of-thunder/R2Wiki/assets/66852270/d012b7ad-7d9a-4412-96f9-32539e5026ae)
 
