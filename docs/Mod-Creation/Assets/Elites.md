@@ -1,7 +1,7 @@
 # Creating an Elite 
 
 ## Choosing colors for Elites
-The following is an excerpt taken from a conversation between Nebby and Buns on Risk of Rain 2 modcord. Original message chain starts here: https://discord.com/channels/562704639141740588/562704639569428506/1169002235368317000
+The following is an excerpt taken from a conversation between Nebby and Buns on Risk of Rain 2 modcord. Original message chain starts [here](https://discord.com/channels/562704639141740588/562704639569428506/1169002235368317000)
 
 
 Ideally this page gets updated to be more official.
@@ -10,9 +10,9 @@ Elite Ramps are just shaders
 ![image](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/e8620328-2d00-4ec9-87c6-8a3186f25a10)
 
 
-Shader wise, all a ramp in the game is doing is that transforms the RGBA of whatever diffuse texture into a grayscale texture
-![image (1)](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/96253e53-26ff-4126-809f-7513a9a17e82)
-and then uses the X&Y values as the UV for the ramp
+Shader wise, all a ramp in the game is doing is that transforms the RGBA of whatever diffuse texture into a grayscale texture and then uses the X&Y values as the UV for the ramp
+
+<img src="https://github.com/risk-of-thunder/R2Wiki/assets/15069763/96253e53-26ff-4126-809f-7513a9a17e82" alt="ramp example" width="512" height="512"/>
 
 as a result, what basically happens is:
 
@@ -24,21 +24,24 @@ Example elite ramp:
 ![texRampEliteVolatile](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/5c901966-b824-47f8-b6f1-d3825917e620)
 
 Elder Lemurian:
-![latest (1)](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/4171c84f-9699-4b7c-b472-87d563685de3)
+
+<img src="https://github.com/risk-of-thunder/R2Wiki/assets/15069763/4171c84f-9699-4b7c-b472-87d563685de3" alt="elder lemurian" width="512" height="512"/>
 
 Example Elite ramp + elder lemurian:
-![1f5686_eb7463f49d444b2e8c6dca0bec742f2bmv2](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/396f16fd-dfbc-4ab6-9082-98cef44c3475)
 
+<img src="https://github.com/risk-of-thunder/R2Wiki/assets/15069763/396f16fd-dfbc-4ab6-9082-98cef44c3475" alt="elder lemurian with elite ramp" width="512" height="512"/>
 
 notice how the darkest parts of the elder lemurian (forearms and lower legs) are colored blue while the more neutral colors are tinted orange
 and the lightest color, is tinted white-ish
 so yeah, the base color of the diffuse map is what determines the color picked on the ramp.
 
 another example using huntress' default skin and the color ramp above:
-![huntress](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/6a3f7ae8-c7ac-4c12-8840-8b50aac4b949)
+
+<img src="https://github.com/risk-of-thunder/R2Wiki/assets/15069763/6a3f7ae8-c7ac-4c12-8840-8b50aac4b949" alt="huntress" width="512" height="512"/>
 
 here's another one, leeching elites from Lost In Transit:
-![leechingleu](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/8bf6dfe4-641a-4388-be47-0482c7ed38ec)
+
+<img src="https://github.com/risk-of-thunder/R2Wiki/assets/15069763/8bf6dfe4-641a-4388-be47-0482c7ed38ec" alt="leeching elite" width="512" height="512"/>
 
 the leeching elite ramp shader:
 ![texRampEliteLeeching](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/53e8630c-bd74-44a3-a0f9-78a627a1648f)
@@ -48,10 +51,11 @@ Overall the most important thing on the ramp is knowing how to properly choose h
 
 ## Example Elite code
 
-The following code snippet is taken from Nuxlar's MoreElites mod. Repo can be found here: https://github.com/FocusedFault/MoreElites/tree/main
+The following code snippet is taken from Nuxlar's MoreElites mod. Repo can be found [here](https://github.com/FocusedFault/MoreElites/tree/main)
 
 Empowering Elite code:
-`using R2API;
+```
+using R2API;
 using RoR2;
 using System.Collections.Generic;
 using System.Linq;
@@ -201,4 +205,5 @@ namespace MoreElites
       LanguageAPI.Add("EQUIPMENT_AFFIX_EMPOWERING_NAME", "Empowering Aspect");
     }
   }
-}`
+}
+```
