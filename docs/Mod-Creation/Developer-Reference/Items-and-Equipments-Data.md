@@ -5,6 +5,7 @@ Last Updated: Survivors of the Void DLC Release
 To update this page:
 - [Script that automate the whole
 process](https://gist.github.com/xiaoxiao921/fc9739d53c4755318d998c879a7aa8e2)
+
 - [Use a converter to convert the MediaWiki output to MarkDown](https://alldocs.app/convert-mediawiki-markup-to-markdown)
 
 ## Items
