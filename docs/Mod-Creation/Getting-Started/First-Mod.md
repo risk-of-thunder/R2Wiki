@@ -10,7 +10,9 @@
 
 ## Install BepInEx, HookGenPatcher and R2API
 
-### BepInEx is a tool that allow us to load the mods into the game.
+### BepInEx
+
+BepInEx is a tool that allow us to load the mods into the game.
 
 - R2modman
 
@@ -20,25 +22,29 @@
 
   - Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
 
-### You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
+### HookGenPatcher
 
-- ### r2modman:
+You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
+
+- r2modman:
 
   - Download the HookGenPatcher from the Online tab
 
-- ### manual install:
+- Manual Install
 
   - Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
 
-### The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
+### R2API
 
-- ### r2modman:
+The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
+
+- r2modman:
 
   - Download the R2API Items from the Online tab
 
   - Download the R2API Language from the Online tab
 
-- ### manual install:
+- Manual Install
 
   - Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/). (R2API Core is a dependency of R2API Items and R2API Language)
 
@@ -48,7 +54,7 @@
 
   - Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
 
-  For installing them just drop the dll files into `BepInEx/plugins`
+For installing them just drop the dll files into `BepInEx/plugins`
 
 ## Getting the boilerplate
 
@@ -66,11 +72,11 @@ Open the `.sln` solution file with Visual Studio. Now build the solution:
 
 Find the `ExamplePlugin\bin\Debug\netstandard2.0\ExamplePlugin.dll` on your own machine.
 
-- ### r2modman:
+- r2modman:
 
   - Copy the `ExamplePlugin.dll` to your `BepInEx/plugins/` folder. You can find the folder by opening r2modman, going to settings, and clicking Browse profile folder.
 
-- ### manual install:
+- manual install:
 
   - Copy the `ExamplePlugin.dll` to your `Game Folder/BepInEx/plugins/` folder.
 
@@ -103,29 +109,29 @@ Once the game launched:
 
 # To go further
 
-## The sidebar is very useful for navigating the wiki (please navigate it through the [github io page](https://risk-of-thunder.github.io/R2Wiki))
+The sidebar is very useful for navigating the wiki (please navigate it through the [github io page](https://risk-of-thunder.github.io/R2Wiki))
 
-## Must see pages:
+Must see pages:
 
-- ## [Debugging your mods](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
+- [Debugging your mods](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
 
-- ## [C# Assembly References (aka how C# .dll file dependencies work)](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/)
+- [C# Assembly References (aka how C# .dll file dependencies work)](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Assembly-References/)
 
-- ## [Analysing / Reading the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Code-Analysis/)
+- [Analysing / Reading the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Code-Analysis/)
 
-- ## How to load / modify any game assets
+- How to load / modify any game assets
 
-    - ### [Explaining the concept of prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/)
+    - [Explaining the concept of prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/)
 
-    - ### [Load game assets / prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Addressables-Assets-Keys/)
+    - [Load game assets / prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Addressables-Assets-Keys/)
 
-## [Hooks: For modifying the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/)
+- [Hooks: For modifying the game code](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/)
 
-## Understanding Unity Principles
+- Understanding Unity Principles
 
-- ### [MonoBehaviour](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/)
+    - [MonoBehaviour](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/)
 
-- ### [Prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/)
+    - [Prefabs](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Prefabs/)
 
 ## Github
 

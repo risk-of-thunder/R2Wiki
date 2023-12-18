@@ -1,7 +1,7 @@
 # FAQ
 
 ## Foreword
-Hi there, and welcome to the faq page. Thank you for taking your time reading this. In here you will hopefully find answers to your questions. If you're still looking for an answer or further details on a specific question, please do not be afraid to ask in the [modding discord server]( https://discord.gg/5MbXZvd) in the channel #tech-support-read-faq.
+Hi there, and welcome to the faq page. Thank you for taking your time reading this. In here you will hopefully find answers to your questions. If you're still looking for an answer or further details on a specific question, please do not be afraid to ask in the [modding discord server]( https://discord.gg/5MbXZvd) in the channel [#tech-support](https://discord.com/channels/562704639141740588/562711077453037589).
 
 Before anything, please remember that the team running this Discord server and the mod developers are doing this in their free time and for free. Please be respectful :smile:
 
@@ -74,14 +74,14 @@ If the red text is along the lines of "Viewable not defined", you can ignore it.
      If the red text says "Missing dependencies for [NameOfMod] : -com.bepis.r2api", then you're missing R2API. Please install it by following the instructions above.
      If the red text says "FileNotFoundException : Could not load file or assembly 'mmhook ...", then you're missing a piece of R2API. You're probably missing the file in /BepInEx/monomod, which can be found in the R2API archive.
      If this doesn't fix most of your errors, try deleting your managed folder and verifying the game through steam.
-     Lastly, if there is still excessive red text you can drop a message in the [modding discord server]( https://discord.gg/5MbXZvd) in the channel #tech-support-read-faq.
+     Lastly, if there is still excessive red text you can drop a message in the [modding discord server]( https://discord.gg/5MbXZvd) in the channel [#tech-support](https://discord.com/channels/562704639141740588/562711077453037589).
 
 #### I'm locked behind the Steam UI!?
 Yeah , sadly we don't even know why that happens. Sometimes it goes away by itself and then comes back. You can still invite your friends through the lobby IDs though.
 
 #### "ModName" is throwing errors!
 Before taking the pitchforks out, make sure you have all the dependencies and that every file is in the right folder. The mod might also just be outdated due to an update from the base game.
-     If you're 100% sure you installed the mod properly, you can tag the mod creator in #tech-support-read-faq and report this error.
+     If you're 100% sure you installed the mod properly, you can tag the mod creator in [#tech-support](https://discord.com/channels/562704639141740588/562711077453037589) and report this error.
 
 #### Somehow all damage over time effects are way too OP
 You're probably using SeikoML compat layer, it's quite buggy and to be fair most mods that would require you to have this have bepinex equivalents , switch to those.
