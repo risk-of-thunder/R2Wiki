@@ -1,9 +1,9 @@
 # Merging Materials
 
-This guide you help you fellow dev get your model nicely textured in-game with no issues. 
+This guide you help you fellow developer get your model nicely textured in-game with no issues. 
 
 # Requirements
-I'm gonna need your patience, social security number, image editing software (preferably Photoshop because paint .NET sucks), bank account and Blender - preferably 2.8+.
+image editing software (this guide uses Photoshop) and Blender - preferably 2.8+.
 
 ## Getting Started
 I'm gonna assume you already have your model extracted from the game and imported in Blender. (Don't ask anyone for a guide for this, because it's a different method for each game).
