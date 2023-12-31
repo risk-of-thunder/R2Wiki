@@ -8,43 +8,47 @@
 
 ![netstandard2.0 visual studio installer](https://cdn.discordapp.com/attachments/575431803523956746/1115689633586630728/image.png)
 
+***
+
 ## Install BepInEx, HookGenPatcher and R2API
+
+It is recommended that you install these prerequisites using a mod manager (r2modman/thunderstore mod manager), and in a profile separate from the modded profile you play the game with. 
 
 ### BepInEx
 
-BepInEx is a tool that allow us to load the mods into the game.
+_BepInEx_ is a tool that allow us to load the mods into the game.
 
-- R2modman
+- **r2modman**
 
-  - Download the BepInExPack from the Online tab
+  - Download the [BepInExPack](https://thunderstore.io/package/bbepis/BepInExPack/) and click "install with mod manager"
 
-- Manual Install
+- **Manual Install**
 
   - Follow the instructions [here](https://risk-of-thunder.github.io/R2Wiki/Tools/BepInEx/).
 
 ### HookGenPatcher
 
-You also need HookGenPatcher, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
+You also need _HookGenPatcher_, it allow us to generate a dll assembly (Name is usually prefixed with `MMHOOK_`) for hooking the game methods.
 
-- r2modman:
+- **r2modman**:
 
-  - Download the HookGenPatcher from the Online tab
+  - Download the [HookGenPatcher](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/) and click "install with mod manager"
 
-- Manual Install
+- **Manual Install**
 
   - Download and follow the instructions [here](https://thunderstore.io/package/RiskofThunder/HookGenPatcher/).
 
 ### R2API
 
-The boilerplate mod uses some R2API modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
+The boilerplate mod uses some _R2API_ modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
 
-- r2modman:
+- **r2modman**:
 
-  - Download the R2API Items from the Online tab
+  - Download the [R2API Items](https://thunderstore.io/package/RiskofThunder/R2API_Items/) and click "install with mod manager"
 
-  - Download the R2API Language from the Online tab
+  - Download the [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/) and click "install with mod manager"
 
-- Manual Install
+- **Manual Install**
 
   - Download [R2API Core](https://thunderstore.io/package/RiskofThunder/R2API_Core/). (R2API Core is a dependency of R2API Items and R2API Language)
 
@@ -55,6 +59,8 @@ The boilerplate mod uses some R2API modules as dependencies, it provides helper 
   - Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
 
 For installing them just drop the dll files into `BepInEx/plugins`
+
+***
 
 ## Getting the boilerplate
 

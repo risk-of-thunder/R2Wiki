@@ -135,36 +135,37 @@ At first glance, the options in the import configuration may look intimidating. 
 
 ![](https://cdn.discordapp.com/attachments/575431803523956746/976884026512121986/unknown.png)
 
-1. Post Processing Unity Package Installer (RoR2ImportExtension):
+1. Post Processing Unity Package Installer (RoR2ImportExtension):  
 	Installs the PostProcessing package version 2.3.0 into the project, recommended to leave on if you're going to work with PostProcessing
-2. TextMeshPro Uninstaller (RoR2ImportExtension):
+2. TextMeshPro Uninstaller (RoR2ImportExtension):  
 	Removes the TMP package and allows the .dll version to come thru into the project, recommended to leave on as the one in RoR2 is slightly modified and not having it can cause instability
-3. Assembly Publicizer (RoR2ImportExtension):
+3. Assembly Publicizer (RoR2ImportExtension):  
 	Automatically publicizes the assemblies listed in "Assembly Names", these assemblies will be publicized with specific arguments using N-Strip, recommended to leave on
-4. Import Assemblies (Default): Imports the assemblies of the game into the project, the assembly identity algorithm will define what kind of GUIDs the assemblies will obtain, it is recommended to set this to "AssetRipper Compatibility".
-5. RoR2 LegacyResourceAPI Patcher (RoR2ImportExtension):
-	Patches the LegacyResourceAPI to increase stability, as its incredibly unstable normally since it can cause hangs and errors in the editor
-6. Import Project Settings (Default):
+4. Import Assemblies (Default):   
+	Imports the assemblies of the game into the project, the assembly identity algorithm will define what kind of GUIDs the assemblies will obtain, it is recommended to set this to "AssetRipper Compatibility".
+5. RoR2 LegacyResourceAPI Patcher (RoR2ImportExtension):  
+	DISABLE THIS! It was used to fix certain editor issues, but since the "meteor update" the patcher just results in a broken assembly. Since that update, using the existing LegacyResourceAPI seems to be free of those issues. This option will be removed in a future update.
+6. Import Project Settings (Default):  
 	Imports the game's project settings (such as nav mesh agents, layers, physics layers, tags, etc) into your project, recommended to leave on and choose "Everything"
-7. Create Game Package (Default):
+7. Create Game Package (Default):  
 	Creates a package.json file for the game's assemblies, recommended to leave on}
-8. Import Addressable Catalog (Default)
-Imports the Addressable Catalog into your project, very recommended, as it enables the Addressables functionality of ThunderKit
-9. Configure Addressable Graphics Settings (RoR2 Import Extension): 
+8. Import Addressable Catalog (Default):  
+	Imports the Addressable Catalog into your project, very recommended, as it enables the Addressables functionality of ThunderKit
+9. Configure Addressable Graphics Settings (RoR2 Import Extension):  
 	Shader related, recommended to leave on
-10. Ensure RoR2 Thunderstore Source (RoR2 Import Extension):
+10. Ensure RoR2 Thunderstore Source (RoR2 Import Extension):  
 	Creates a new Thunderstore Source and sets it's url to `https://thunderstore.io` , recommended to leave on
-11. Install BepInEx (RoR2 Import Extension):
+11. Install BepInEx (RoR2 Import Extension):  
 	Installs the latest BepInExPack into the project, recommended to leave on
-12. Install FixPluginTypesSerialization (RoR2 Import Extension):
+12. Install FixPluginTypesSerialization (RoR2 Import Extension):  
 	Installs FixPluginTypesSerialization into the project, recommended to leave on
-13. Install R2API (RoR2 Import Extension):
+13. Install R2API (RoR2 Import Extension):  
 	Installs the latest R2API into the project, recommended to leave on
-14. Install RoR2 Compatible Unity Multiplayer HLAPI (RoR2 Import Extension)
+14. Install RoR2 Compatible Unity Multiplayer HLAPI (RoR2 Import Extension):  
 	Installs the RoR2MultiplayerHLAPI, Extremely recommended to leave on, as the hlapi runtime dll ror2 comes with is modified and will cause issues in weaving the assemblies and assets
-15. Install RoR2EditorKit (RoR2 Import Extension):
+15. Install RoR2EditorKit (RoR2 Import Extension):  
 	Installs the latest RoR2EditorKit, recommended to leave on
-16. Get Bitness (Default):
+16. Get Bitness (Default):  
 	Sets wether the game is 32 or 64 bits, leave this on
 
 Once youre ready, click the "ThunderKit Settings" settings option, and hit browse to locate the game's Executable file,
