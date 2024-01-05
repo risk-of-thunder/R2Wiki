@@ -499,9 +499,9 @@ https://www.youtube.com/watch?v=hv2CUi2eeBY
 
 ## Visuals
 
-This tutorial may detail visuals later down the line but it isn't important to making your stage function. However, LoP has the ``ShaderSwap`` class where you can feed a material into ``ConvertShader`` and it will swap stubbed shaders for the real shader. However, this function assumes you are using an updated set of stubbed shaders, of which are not officially distributed publicly as of 11/1/2023. We are still discussing the best way to distribute them. At the moment, the only way you can get them is by joining the RoR2 Modding Discord and downloading them from one of the pins in the #development channel. It will be this one: 
+This tutorial may detail visuals later down the line but it isn't important to making your stage function. However, LoP has the ``ShaderSwap`` class where you can feed a material into ``ConvertShader`` and it will swap stubbed shaders for the real shader. You can get the stubbed shaders here:
 
-![image](https://github.com/risk-of-thunder/R2Wiki/assets/66852270/619a32a8-a6d6-46d1-b420-cbaedf183e3b)
+https://github.com/risk-of-thunder/RoR2StubbedShaders
 
 Other than that, study how the base game implements its visuals.
 
