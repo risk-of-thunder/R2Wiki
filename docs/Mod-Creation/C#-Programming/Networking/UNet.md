@@ -113,7 +113,7 @@ Notably, this only works if the Host has this plugin installed, and any client w
 
 1. **As a Patcher.**
 
-- Download the [archive](https://cdn.discordapp.com/attachments/562704639569428506/1002952834616143922/UNetWeaver.zip) that contains the BepinEx Patcher UNet Weaver.
+- Download the [archive](https://github.com/risk-of-thunder/R2Wiki/files/14428540/UNetWeaver.zip) that contains the BepinEx Patcher UNet Weaver.
 - Extract it in your `Risk of Rain 2\BepInEx\patchers` folder.
 - If everything went correctly, your assembly will be patched when loading the game.
 - This automates the need of pointing the weaver towards the right libs, as they will all be loaded by BepInEx already.
@@ -122,7 +122,7 @@ Notably, this only works if the Host has this plugin installed, and any client w
 
 2. **As a PostBuild-Event**
 
-- Download the [archive](https://cdn.discordapp.com/attachments/697919673664274563/697919946143039588/NetworkWeaver.zip) that contains the UnetWeaver executable.
+- Download the [archive](https://github.com/risk-of-thunder/R2Wiki/files/14428459/NetworkWeaver.zip) that contains the UnetWeaver executable.
 - You can set it up how you want, but for now we'll assume that you extracted it in a folder called `NetworkWeaver` in your project root and your libraries are there too in a `libs` folder.
 - In your project's properties, create the following postbuild event
   - `REM TEXT` is a comment. Batch is not the best for comments, but it'll keep it copypastable.
