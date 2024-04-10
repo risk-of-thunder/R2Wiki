@@ -15,45 +15,46 @@ While there are certainly a number of ways to create Artifacts, this guide uses 
 In Komrade's ItemModCreationBoilerplate, an artifact is composed of 2 key classes, the [ArtifactBase](https://github.com/KomradeSpectre/ItemModCreationBoilerplate/blob/master/ItemModCreationBoilerplate/Artifact/ArtifactBase.cs) and the [Artifact](https://github.com/KomradeSpectre/ItemModCreationBoilerplate/blob/master/ItemModCreationBoilerplate/Artifact/ExampleArtifact.cs) class itself. We will first walk thru ArtifactBase. Keep in mind that you need to have R2API in your references for this to work properly.
 
 ### Artifact Base
+```csharp
+using BepInEx.Configuration;
+using R2API;
+using RoR2;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
 
-    using BepInEx.Configuration;
-	using R2API;
-	using RoR2;
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-	using UnityEngine;
-	namespace YourNamespaceHere
+namespace YourNamespaceHere
+{
+	public abstract class ArtifactBase
 	{
-		public abstract class ArtifactBase
+		public abstract string ArtifactName { get; }
+		public abstract string ArtifactLangTokenName { get; }
+		public abstract string ArtifactDescription { get; }
+		public abstract Sprite ArtifactEnabledIcon { get; }
+		public abstract Sprite ArtifactDisabledIcon { get; }
+		public ArtifactDef ArtifactDef;
+		public bool ArtifactEnabled => RunArtifactManager.instance.IsArtifactEnabled(ArtifactDef);
+		public abstract void Init(ConfigFile config);
+		protected void CreateLang()
 		{
-			public abstract string ArtifactName { get; }
-			public abstract string ArtifactLangTokenName { get; }
-			public abstract string ArtifactDescription { get; }
-			public abstract Sprite ArtifactEnabledIcon { get; }
-			public abstract Sprite ArtifactDisabledIcon { get; }
-			public ArtifactDef ArtifactDef;
-			public bool ArtifactEnabled => RunArtifactManager.instance.IsArtifactEnabled(ArtifactDef);
-			public abstract void Init(ConfigFile config);
-			protected void CreateLang()
-			{
-				LanguageAPI.Add("ARTIFACT_" + ArtifactLangTokenName + "_NAME", ArtifactName);
-				LanguageAPI.Add("ARTIFACT_" + ArtifactLangTokenName + "_DESCRIPTION", ArtifactDescription);
-			}
-			protected void CreateArtifact()
-			{
-				ArtifactDef = ScriptableObject.CreateInstance<ArtifactDef>();
-				ArtifactDef.cachedName = "ARTIFACT_" + ArtifactLangTokenName;
-				ArtifactDef.nameToken = "ARTIFACT_" + ArtifactLangTokenName + "_NAME";
-				ArtifactDef.descriptionToken = "ARTIFACT_" + ArtifactLangTokenName + "_DESCRIPTION";
-				ArtifactDef.smallIconSelectedSprite = ArtifactEnabledIcon;
-				ArtifactDef.smallIconDeselectedSprite = ArtifactDisabledIcon;
-				ContentAddition.AddArtifactDef(ArtifactDef);
-			}
-			public abstract void Hooks();
+			LanguageAPI.Add("ARTIFACT_" + ArtifactLangTokenName + "_NAME", ArtifactName);
+			LanguageAPI.Add("ARTIFACT_" + ArtifactLangTokenName + "_DESCRIPTION", ArtifactDescription);
 		}
+		protected void CreateArtifact()
+		{
+			ArtifactDef = ScriptableObject.CreateInstance<ArtifactDef>();
+			ArtifactDef.cachedName = "ARTIFACT_" + ArtifactLangTokenName;
+			ArtifactDef.nameToken = "ARTIFACT_" + ArtifactLangTokenName + "_NAME";
+			ArtifactDef.descriptionToken = "ARTIFACT_" + ArtifactLangTokenName + "_DESCRIPTION";
+			ArtifactDef.smallIconSelectedSprite = ArtifactEnabledIcon;
+			ArtifactDef.smallIconDeselectedSprite = ArtifactDisabledIcon;
+			ContentAddition.AddArtifactDef(ArtifactDef);
+		}
+		public abstract void Hooks();
 	}
-
+}
+```
 Since this class is an **Abstract** class, it only works as a base. as such, just copy and paste this code snippet into an empty class file and create your artifact in another class that inherits from ArtifactBase.
 Bellow is a detailed walkthrough on each variable and the methods.
 
@@ -72,52 +73,53 @@ Hooks(): The hooks your artifact uses.
 Once you finish copying and Parting ArtifactBase, all thats left to do is create the class where you will fill in the information and the logic behind your Artifact. for this, we will take a look at ItemModCreationBoilerplate's [ExampleArtifact](https://github.com/KomradeSpectre/ItemModCreationBoilerplate/blob/master/ItemModCreationBoilerplate/Artifact/ExampleArtifact.cs)
 
 ### ExampleArtifact
-
-    using BepInEx.Configuration;
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-	using UnityEngine;
-	using UnityEngine.Networking;
-	using RoR2;
-	using static YourNameSpaceHere.BaseUnityPluginInheritedClass;
-	namespace YourNameSpaceHere
+```csharp
+using BepInEx.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+using UnityEngine.Networking;
+using RoR2;
+using static YourNameSpaceHere.BaseUnityPluginInheritedClass;
+namespace YourNameSpaceHere
+{
+	class ExampleArtifact : ArtifactBase
 	{
-		class ExampleArtifact : ArtifactBase
+		public static ConfigEntry<int> TimesToPrintMessageOnStart;
+		public override string ArtifactName => "Artifact of Example";
+		public override string ArtifactLangTokenName => "ARTIFACT_OF_EXAMPLE";
+		public override string ArtifactDescription => "When enabled, print a message to the chat at the start of the run.";
+		public override Sprite ArtifactEnabledIcon => MainAssets.LoadAsset<Sprite>("ExampleArtifactEnabledIcon.png");
+		public override Sprite ArtifactDisabledIcon => MainAssets.LoadAsset<Sprite>("ExampleArtifactDisabledIcon.png");
+		public override void Init(ConfigFile config)
 		{
-			public static ConfigEntry<int> TimesToPrintMessageOnStart;
-			public override string ArtifactName => "Artifact of Example";
-			public override string ArtifactLangTokenName => "ARTIFACT_OF_EXAMPLE";
-			public override string ArtifactDescription => "When enabled, print a message to the chat at the start of the run.";
-			public override Sprite ArtifactEnabledIcon => MainAssets.LoadAsset<Sprite>("ExampleArtifactEnabledIcon.png");
-			public override Sprite ArtifactDisabledIcon => MainAssets.LoadAsset<Sprite>("ExampleArtifactDisabledIcon.png");
-			public override void Init(ConfigFile config)
+			CreateConfig(config);
+			CreateLang();
+			CreateArtifact();
+			Hooks();
+		}
+		private void CreateConfig(ConfigFile config)
+		{
+			TimesToPrintMessageOnStart = config.Bind<int>("Artifact: " + ArtifactName, "Times to Print Message in Chat", 5, "How many times should a message be printed to the chat on run start?");
+		}
+		public override void Hooks()
+		{
+			Run.onRunStartGlobal += PrintMessageToChat;
+		}
+		private void PrintMessageToChat(Run run)
+		{
+			if(NetworkServer.active && ArtifactEnabled)
 			{
-				CreateConfig(config);
-				CreateLang();
-				CreateArtifact();
-				Hooks();
-			}
-			private void CreateConfig(ConfigFile config)
-			{
-				TimesToPrintMessageOnStart = config.Bind<int>("Artifact: " + ArtifactName, "Times to Print Message in Chat", 5, "How many times should a message be printed to the chat on run start?");
-			}
-			public override void Hooks()
-			{
-				Run.onRunStartGlobal += PrintMessageToChat;
-			}
-			private void PrintMessageToChat(Run run)
-			{
-				if(NetworkServer.active && ArtifactEnabled)
+				for(int i = 0; i < TimesToPrintMessageOnStart.Value; i++)
 				{
-					for(int i = 0; i < TimesToPrintMessageOnStart.Value; i++)
-					{
-						Chat.AddMessage("Example Artifact has been Enabled.");
-					}
+					Chat.AddMessage("Example Artifact has been Enabled.");
 				}
 			}
 		}
 	}
+}
+```
 
 Copy and paste the code snippet above and replace the values with that your Artifact needs.
 Keep in mind that for your ArtifactEnabled and Disabled icons you'll need to create an assetbundle for it, Assetbundles are outside of this tutorial's scope, but there is a wiki entry for them [here](https://github.com/KomradeSpectre/AetheriumMod/blob/rewrite-master/Tutorials/Item%20Mod%20Creation.md#creating-an-asset-bundle)
@@ -128,94 +130,96 @@ The final step of the process is Initializing your artifact, for this, ItemModCr
 
 You need to add this List to your main class first.
 
-    public  List<ArtifactBase> Artifacts  =  new  List<ArtifactBase>();
+```csharp
+public  List<ArtifactBase> Artifacts  =  new  List<ArtifactBase>();
+```
 
 The following snippet code goes in your Awake method in your BaseUnityPlugin inherited class.
-
-    var ArtifactTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ArtifactBase)));
-	foreach (var artifactType in ArtifactTypes)
+```csharp
+var ArtifactTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ArtifactBase)));
+foreach (var artifactType in ArtifactTypes)
+{
+	ArtifactBase artifact = (ArtifactBase)Activator.CreateInstance(artifactType);
+	if (ValidateArtifact(artifact, Artifacts))
 	{
-		ArtifactBase artifact = (ArtifactBase)Activator.CreateInstance(artifactType);
-		if (ValidateArtifact(artifact, Artifacts))
-		{
-			artifact.Init(Config);
-		}
+		artifact.Init(Config);
 	}
-
+}
+```
 The following method helps initializing the Artifact. this goes outside of your Awake method but still inside your BaseUnityPlugin inherited class.
-
-    public bool ValidateArtifact(ArtifactBase artifact, List<ArtifactBase> artifactList)
+```csharp
+public bool ValidateArtifact(ArtifactBase artifact, List<ArtifactBase> artifactList)
+{
+	var enabled = Config.Bind<bool>("Artifact: " + artifact.ArtifactName, "Enable Artifact?", true, "Should this artifact appear for selection?").Value;
+	if (enabled)
 	{
-		var enabled = Config.Bind<bool>("Artifact: " + artifact.ArtifactName, "Enable Artifact?", true, "Should this artifact appear for selection?").Value;
-		if (enabled)
-		{
-			artifactList.Add(artifact);
-		}
-		return enabled;
+		artifactList.Add(artifact);
 	}
-
+	return enabled;
+}
+```
 ## Artifact Creation in one class
 
 There are methods to create Artifacts using one class instead of using the great amount of structure that KomradeSpectre's ItemModCreationBoilerplate uses. for this, we will look at MonsterVariantsPlus, and how it creates it's Artifact of Variance artifact. it's Artifact class can be found [here](https://github.com/Nebby1999/MonsterVariantsPlus/blob/master/MonsterVariants%2B/SubClasses/Artifact.cs)
 
 ### Artifact Class
-
-	using RoR2;
-	using R2API;
-	using UnityEngine;
-	using MonsterVariants.Components;
-	using MonoMod.RuntimeDetour;
-	using System.Reflection;
-	using System;
-	namespace MonsterVariantsPlus.SubClasses
+```csharp
+using RoR2;
+using R2API;
+using UnityEngine;
+using MonsterVariants.Components;
+using MonoMod.RuntimeDetour;
+using System.Reflection;
+using System;
+namespace MonsterVariantsPlus.SubClasses
+{
+	public class Artifact
 	{
-		public class Artifact
+		public static ArtifactDef Variance = ScriptableObject.CreateInstance<ArtifactDef>();
+		public static void InitializeArtifact()
 		{
-			public static ArtifactDef Variance = ScriptableObject.CreateInstance<ArtifactDef>();
-			public static void InitializeArtifact()
+			Variance.nameToken = "Artifact of Variance";
+			if (ConfigLoader.ArtifactIncreasesRewards)
 			{
-				Variance.nameToken = "Artifact of Variance";
-				if (ConfigLoader.ArtifactIncreasesRewards)
-				{
-					Variance.descriptionToken = "All Variant's Spawn Rates & Rewards are Multiplied by " + ConfigLoader.SpawnRateMultiplier;
-				}
-				else
-				{
-					Variance.descriptionToken = "All Variant's Spawn Rates are Multiplied by " + ConfigLoader.SpawnRateMultiplier;
-				}
-				Variance.smallIconDeselectedSprite = AssetLoaderAndChecker.MainAssets.LoadAsset<Sprite>("Assets/Textures/Artifact/VarianceDisabled.png");
-				Variance.smallIconSelectedSprite = AssetLoaderAndChecker.MainAssets.LoadAsset<Sprite>("Assets/Textures/Artifact/VarianceEnabled.png");
-				ArtifactAPI.Add(Variance);
+				Variance.descriptionToken = "All Variant's Spawn Rates & Rewards are Multiplied by " + ConfigLoader.SpawnRateMultiplier;
 			}
-			public static void MonsterVariantAwakeHook(Action<VariantHandler> orig, VariantHandler self)
+			else
 			{
-				var origRate = self.spawnRate;
-				if (RunArtifactManager.instance.IsArtifactEnabled(Variance))
-				{
-					self.spawnRate *= ConfigLoader.SpawnRateMultiplier;
-					//Avoid potentially bad spawn rates
-					if(self.spawnRate < 0)
-					{
-						self.spawnRate = 0;
-					}
-					else if(self.spawnRate > 100)
-					{
-						self.spawnRate = 100;
-					}
-				}
-				orig(self);
-				self.spawnRate = origRate;
+				Variance.descriptionToken = "All Variant's Spawn Rates are Multiplied by " + ConfigLoader.SpawnRateMultiplier;
 			}
+			Variance.smallIconDeselectedSprite = AssetLoaderAndChecker.MainAssets.LoadAsset<Sprite>("Assets/Textures/Artifact/VarianceDisabled.png");
+			Variance.smallIconSelectedSprite = AssetLoaderAndChecker.MainAssets.LoadAsset<Sprite>("Assets/Textures/Artifact/VarianceEnabled.png");
+			ArtifactAPI.Add(Variance);
+		}
+		public static void MonsterVariantAwakeHook(Action<VariantHandler> orig, VariantHandler self)
+		{
+			var origRate = self.spawnRate;
+			if (RunArtifactManager.instance.IsArtifactEnabled(Variance))
+			{
+				self.spawnRate *= ConfigLoader.SpawnRateMultiplier;
+				//Avoid potentially bad spawn rates
+				if(self.spawnRate < 0)
+				{
+					self.spawnRate = 0;
+				}
+				else if(self.spawnRate > 100)
+				{
+					self.spawnRate = 100;
+				}
+			}
+			orig(self);
+			self.spawnRate = origRate;
 		}
 	}
-
+}
+```
 Most of the variables found in this clase are very similar to ArtifactBase's variables.
 One thing to note is the use of a Custom Hook, unless you know how to create it, you can simply use a normal Hook and initialize the hook inside InitializeArtifact()
 
 To have your mod load the Artifact, add this snippet of code to your BaseUnityPlugin inherited class.
-
-	Artifact.InitializeArtifact();
-
+```csharp
+Artifact.InitializeArtifact();
+```
 ## Artifact Creation using Thunderkit
 
 Creating an artifact using Thunderkit is not exactly difficult. It just requires you to know how Thunderkit works and how to develop with it.
@@ -266,34 +270,35 @@ However, Your artifact while existing in the game, it currently does nothing, th
 
 * Paste the following code snippet in your new class
 
+```csharp
+using RoR2;
+using R2API;
+using UnityEngine;
+using MonoMod.RuntimeDetour;
+using System.Reflection;
+using System;
 
-	    using RoR2;
-		using R2API;
-		using UnityEngine;
-		using MonoMod.RuntimeDetour;
-		using System.Reflection;
-		using System;
-		
-		namespace YourNamespaceHere
+namespace YourNamespaceHere
+{
+	public class ThunderkitMadeArtifact
+	{
+		public static ArtifactDef MyArtifactDef = ContentPackProvider.contentPack.artifactDefs.Find("YourArtifactDef");
+		public static void InitializeArtifact()
 		{
-		    public class ThunderkitMadeArtifact
-		    {
-		        public static ArtifactDef MyArtifactDef = ContentPackProvider.contentPack.artifactDefs.Find("YourArtifactDef");
-		        public static void InitializeArtifact()
-		        {
-		            Hooks();
-		        }
-		        public static void Hooks()
-		        {
-			          Run.onRunStartGlobal += MyArtifactEffect;
-		        }
-		        private void MyArtifactEffect(Run run)
-		        {
-				       if(NetowkServer.active && RunArtifactManager.instance.IsArtifactEnabled(MyArtifactDef)
-			          Chat.AddMessage("My Artifact has been enabled!"
-		        }
-		    }
+			Hooks();
 		}
+		public static void Hooks()
+		{
+			  Run.onRunStartGlobal += MyArtifactEffect;
+		}
+		private void MyArtifactEffect(Run run)
+		{
+			   if(NetowkServer.active && RunArtifactManager.instance.IsArtifactEnabled(MyArtifactDef)
+			  Chat.AddMessage("My Artifact has been enabled!"
+		}
+	}
+}
+```
 You can now modify your Hook and make your artifact do stuff when its enabled.
 
 Once you're finished with creating your artifact's effects, simply call the InitializeArtifact() method to initialize your artifact's effects.
@@ -323,12 +328,12 @@ Custom Artifact Compound (Artifact Compound for [Genetic Artifact](https://thund
 The ArtifactCode Scriptable Object greatly simplifies the creation of Codes, while normally you would make codes by using a Sha256HashAsset, and inputting complex ulong based values. ArtifactCode scriptable object creates these ulong values for you by reading thru the values inputted in 3 pairs of Vector3Int.
 
 Here is an example on how the Artifact of Commando code would be generated using ArtifactCode
-
-	artifactCode = ScriptableObject.CreateInstance<ArtifactCode>();
-    artifactCode.topRow = new Vector3Int(CompoundValues.Square, CompoundValues.Square, CompoundValues.Square);
-    artifactCode.middleRow = new Vector3Int(CompoundValues.Square, CompoundValues.Square, CompoundValues.Square);
-    artifactCode.bottomRow = new Vector3Int(CompoundValues.Triangle, CompoundValues.Triangle, CompoundValues.Triangle);
-
+```csharp
+artifactCode = ScriptableObject.CreateInstance<ArtifactCode>();
+artifactCode.topRow = new Vector3Int(CompoundValues.Square, CompoundValues.Square, CompoundValues.Square);
+artifactCode.middleRow = new Vector3Int(CompoundValues.Square, CompoundValues.Square, CompoundValues.Square);
+artifactCode.bottomRow = new Vector3Int(CompoundValues.Triangle, CompoundValues.Triangle, CompoundValues.Triangle);
+```
 Please note that each Vector3Int corresponds to a row in the Artifact tablet.
 
 As well, keep in mind that AddCode() requires you to pass your ArtifactDef as an argument.
@@ -339,26 +344,27 @@ The ArtifactCode scriptable object can also be created from the editor and be us
 
 ![](https://cdn.discordapp.com/attachments/575431803523956746/946772298050981998/a4b8e2098dbd0cc21e60e736c215340d.png)
 Implementing the code is as easy as grabbing the desired ArtifactDef & ArtifactCode from your assetBundle and registering the code.
-
-	var Def = Assets.LoadAsset<ArtifactDef>("ArtifactDef");
-	var Hash = Assets.LoadAsset<R2API.ArtifactCode>("Code");
-	R2API.ArtifactCodeAPI.AddCode(Def, Hash);
-
+```csharp
+var def = Assets.LoadAsset<ArtifactDef>("ArtifactDef");
+var hash = Assets.LoadAsset<R2API.ArtifactCode>("Code");
+R2API.ArtifactCodeAPI.AddCode(def, hash);
+```
 A list of the vanilla compound's Values can be found inside the ArtifactCodeAPI itself, under ArtifactCodeAPI.CompoundValues.
 
 ## ArtifactCompound
 Creating a custom artifact compound can be a good way to ensure nobody else uses the same code you just created, which allows modders to avoid having code conflicts alltogether.
 These are created using the ArtifactCompoundDef scriptable object, which is part of RoR2 code.
-
-	geneArtifactCompoundDef = ScriptableObject.CreateInstance<ArtifactCompoundDef>();
-	geneArtifactCompoundDef.modelPrefab = GeneticsArtifactPlugin.geneticAssetBundle.LoadAsset<GameObject>("Assets/Genetics/CompoundGene.prefab");
-	geneArtifactCompoundDef.value = 15;
-	ArtifactCodeAPI.AddCompound(geneArtifactCompoundDef);
-
+```csharp
+geneArtifactCompoundDef = ScriptableObject.CreateInstance<ArtifactCompoundDef>();
+geneArtifactCompoundDef.modelPrefab = GeneticsArtifactPlugin.geneticAssetBundle.LoadAsset<GameObject>("Assets/Genetics/CompoundGene.prefab");
+geneArtifactCompoundDef.value = 15;
+ArtifactCodeAPI.AddCompound(geneArtifactCompoundDef);
+```
 ### Thunderkit usage.
 Just like ArtifactCodes, you can easily create an ArtifactCompound using the Scriptable object and thunderkit's tools.
 
 ![](https://i.gyazo.com/b4b37a126fd9e2853701187eaa0d82c9.png)
-
-	var Compound = Assets.LoadAsset<ArtifactCompoundDef>("CompoundDef");
-	R2API.ArtifactCodeAPI.AddCompound(Compound);
+```csharp
+var Compound = Assets.LoadAsset<ArtifactCompoundDef>("CompoundDef");
+R2API.ArtifactCodeAPI.AddCompound(Compound);
+```
