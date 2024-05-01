@@ -1,8 +1,8 @@
 # Custom Music
 
--   Setup WWise with that [tutorial](https://github.com/risk-of-thunder/R2Wiki/wiki/Wwise---Custom-Sounds)
+-   Setup WWise with that [tutorial](https://www.youtube.com/watch?v=QtfYsdJFty4), note that version v2019.2.12.7544 is no longer available for download, you can get v2019.2.14.7616 as they are compatible.
 
--   [Get the boilerplate music project for RoR2](https://cdn.discordapp.com/attachments/562704639569428506/885995425264463872/RoR2MusicTest.zip)
+-   [Get the boilerplate music project for RoR2](https://github.com/viliger2/RoR2MusicTest)
 
 -   Open it. Go to the SoundBanks tab, rename the soundbank to something unique and not shared by any other mods.
 
@@ -81,3 +81,21 @@ d.SceneDefToTracks.Add(logBookScene, new List<SoundAPI.Music.MainAndBossTracks>(
 
 SoundAPI.Music.Add(d);
 ```
+
+### Explanation on "magic numbers":
+
+RoR2 comes with its own Init.txt file that can be found inside Risk of Rain 2_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows folder. What interests us the most are State Groups and States. If we loot at any game's MusicTrackDef with thunderkit we will see that most of them have two states - one that references the song itself and another references where the song is used
+
+![image](https://github.com/risk-of-thunder/R2Wiki/assets/53978306/e11b39f3-3589-4b3a-894f-3e6859832ef8)
+
+and while song reference can be pretty much anything, where it is used needs to match game's values so it can actually play. That's exactly what we did when we created CustomMusicTrackDef with two custom states, first pair of group and state ids reference our song, while second references needed game's music system. If we cross-reference second pair with game's Init.txt we discover that Group ID is State Group "Music_system" and State ID is Stats "Gameplay". There are 5 states in total
+
+* Gameplay  - 89505537
+* Bossfight - 580146960
+* None - 748895195
+* SecretLevel - 778026301
+* Menu - 2607556080
+
+by changing second StateId to any of those values we change where the song plays. 
+
+Also, you need to make sure whether new song is "main" track or "boss" track. Each SceneDef has two field for music - mainTrack and bossTrack. All main stages have both of those fields populated, however some other scenes (such as main menu, logbook, bazaar, etc) can only have mainTrack. And depending where it plays it needs to have correct State ID. For example, for main menu, logbook, lobby, etc. it needs to be Menu (2607556080), for stages it needs to be Gameplay (89505537), for teleporter events (those are "boss" tracks) - Bossfight (580146960). SecretLevel (778026301) is only used for bazaar as far as I know, every other "Hidden Realm" uses Gameplay for its main track.

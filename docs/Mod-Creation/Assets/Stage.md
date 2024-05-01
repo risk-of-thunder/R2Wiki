@@ -24,6 +24,7 @@ To find the scripting define symbols you need to go to ``Edit`` > ``Project Sett
 - **[RoR2EditorKit](https://github.com/risk-of-thunder/RoR2EditorKit)** - A package that currently hosts the node placer and an abundance of other Unity editor utilites.
 - **[R2API.Stages](https://thunderstore.io/package/RiskofThunder/R2API_Stages/)** - Not necessarily required but it is heavily urged to have your mod depend on this to make sure stages are implemented and balanced correctly, especially if you are making a variant.
 - **[R2API.Addressables](https://thunderstore.io/package/RiskofThunder/R2API_Addressables/)** and **[R2API.Director](https://thunderstore.io/package/RiskofThunder/R2API_Director/)** - Not required but it hosts the Monster / Interactable Pool Addressable Scriptable objects explained later in the tutorial. Feel free to make your own means of making pools.
+- **[R2API.Sound](https://thunderstore.io/package/RiskofThunder/R2API_Sound/)** - Not required but if you want to have custom music, it is required by this guide.
 - **[LocationsOfPrecipitation](https://github.com/JaceDaDorito/jace-locationsofprecipitation/tree/main) (AKA "LoP")** - Required to populate certain fields (like the teleporter) or use certain prefabs (like newt statues). However, if you made an alternative to this that is also completely fine.
 - Other usual Thunderkit project packages like **BepInEx** and **[RoR2MultiplayerHLAPI](https://thunderkit.thunderstore.io/package/RiskofThunder/RoR2MultiplayerHLAPI/)**.
 
@@ -483,6 +484,127 @@ After this, your DCCS and DP should be ready to be implemented into your scene. 
 
 With that, your stage should be fully functioning by now. However, there are still more topics to help improve your stages.
 
+## Music
+
+This section assumes that you use Jace's scripts for setting up the stage used in WaffleHouse. 
+
+Despite the fact that we use Thunderkit to create both assembly and asset bundles, we actually don't need to integrate Wwise into our project, since as of writing this section I've found no way to make `MusicTrackDefs` created in editor and filled with integrated Wwise to work. So instead we are going to do it in code.
+
+Forst thing first, follow this [guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Sounds/WWise/Custom-Music/) to get a Wwise project going. After generating soundbanks note State Group ID for your custom `gameplaySongChoice` and State IDs for your main and boss songs. 
+
+First we need to register our custom `Play_Music_System` to the game's `AkSoundEngine`.
+
+```
+private void Awake()
+{
+	...
+	On.RoR2.MusicController.Start += MusicController_Start;
+	...
+}
+
+private void MusicController_Start(On.RoR2.MusicController.orig_Start orig, MusicController self)
+{
+	orig(self);
+	AkSoundEngine.PostEvent("Play_Music_System2", self.gameObject);
+}	
+```
+
+This ensures that events are registered within the game and they will fire when needed.
+
+Next, we need to load soundbanks with the sound engine. 
+
+```
+internal const string SoundBankFileName = "WaffleHouseMusic.bnk";
+internal const string InitSoundBankFileName = "WaffleHouseInit.bnk";
+internal const string SoundbankFolder = "Soundbanks";
+
+public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+{
+	...
+	var musicFolderFullPath = Path.Combine(Path.GetDirectoryName(typeof(ContentProvider).Assembly.Location), SoundbankFolder);
+	var akResult = AkSoundEngine.AddBasePath(soundbanksFolderPath);
+	if (akResult == AKRESULT.AK_Success)
+	{
+		Log.Info($"Added bank base path : {soundbanksFolderPath}");
+	}
+	else
+	{
+		Log.Error(
+			$"Error adding base path : {soundbanksFolderPath} " +
+			$"Error code : {akResult}");
+	}
+
+	akResult = AkSoundEngine.LoadBank(InitSoundBankFileName, out var _);
+	if (akResult == AKRESULT.AK_Success)
+	{
+		Log.Info($"Added bank : {InitSoundBankFileName}");
+	}
+	else
+	{
+		Log.Error(
+			$"Error loading bank : {InitSoundBankFileName} " +
+			$"Error code : {akResult}");
+	}
+
+	akResult = AkSoundEngine.LoadBank(SoundBankFileName, out var _);
+	if (akResult == AKRESULT.AK_Success)
+	{
+		Log.Info($"Added bank : {SoundBankFileName}");
+	}
+	else
+	{
+		Log.Error(
+			$"Error loading bank : {SoundBankFileName} " +
+			$"Error code : {akResult}");
+	}
+	...
+}
+```
+
+And finally we need to fill `mainTrack` and `bossTrack` of our `StageDef`. We are gonna use `SoundAPI`'s `CustomMusicTrackDef` for that, since it allows us to just fill the ids and API will do the rest.
+
+```
+internal static IEnumerator LoadAssetBundlesAsync(AssetBundle scenesAssetBundle, AssetBundle assetsAssetBundle, IProgress<float> progress, ContentPack contentPack)
+{
+	...
+	var mainCustomTrack = ScriptableObject.CreateInstance<SoundAPI.Music.CustomMusicTrackDef>();
+	mainCustomTrack.cachedName = "WaffleHouseCustomMainMusic";
+	mainCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
+
+	var cstate1 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
+	cstate1.GroupId = 487602916U; // gathered from the MOD's Init bank txt file
+	cstate1.StateId = 145640315U; // gathered from the MOD's Init bank txt file
+	mainCustomTrack.CustomStates.Add(cstate1);
+	var cstate2 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
+	cstate2.GroupId = 792781730U; // gathered from the GAME's Init bank txt file
+	cstate2.StateId = 89505537U; // gathered from the GAME's Init bank txt file
+	mainCustomTrack.CustomStates.Add(cstate2);
+
+	WHSceneDef.mainTrack = mainCustomTrack;
+
+	var bossCustomTrack = ScriptableObject.CreateInstance<SoundAPI.Music.CustomMusicTrackDef>();
+	bossCustomTrack.cachedName = "WaffleHouseCustomBossMusic";
+	bossCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
+
+	var cstate11 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
+	cstate11.GroupId = 487602916U; // gathered from the MOD's Init bank txt file
+	cstate11.StateId = 3403129731U; // gathered from the MOD's Init bank txt file
+	bossCustomTrack.CustomStates.Add(cstate11);
+	var cstate12 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
+	cstate12.GroupId = 792781730U; // gathered from the GAME's Init bank txt file
+	cstate12.StateId = 580146960U; // gathered from the GAME's Init bank txt file
+	bossCustomTrack.CustomStates.Add(cstate12);
+
+	WHSceneDef.bossTrack = bossCustomTrack;
+	// Don't forget to comment loading and assigning of game's tracks if you have them!
+	...
+}
+
+```
+Note the second pair of ids, this [page](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Sounds/WWise/Custom-Music/) at the bottom gives an explanation of what those ids are and how to fill them appropriately for each track.
+
+After all this you should have custom music working within the game. 
+
 ## Optimization
 
 Optimization is **extremely** important to making your stage accessible to players. Currently, this topic isn't as fleshed out as I (JaceDaDorito) want it to be. Please, if you have any good information about stage optimization, message me @JaceDaDorito on discord and I will add it here. That being said, I will present what I know.
@@ -522,6 +644,7 @@ Line mentioned in screenshot:
 ## Credits
 
 - **JaceDaDorito** - Wrote this documentation, made LoP, made R2API.Stages, and lead person pushing for easier stage making.
+- **Viliger** - added music section, don't message Jace about it pls.
 - **IDeathHD** - Helped get this started with initial code and general advice.
 - **Nebby** - Helped create and clean code. Implemented a lot of the utilities detailed here into RoR2EditorKit and R2API.
 - **GrooveSalad** - Made initial addressable DCCS/DP implementation, made cleaner stubbed shaders, and gave a lot of advice.
