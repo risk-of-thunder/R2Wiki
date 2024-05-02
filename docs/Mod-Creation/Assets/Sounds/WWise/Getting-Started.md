@@ -35,8 +35,9 @@ https://www.audiokinetic.com/library/edge/?source=InstallGuide&id=working_with_o
 17. Delete Packages/Risk of Rain 2/plugins/AkWaapiClient.dll if it exists (.dll will not be visible in the name in Unity)
 
 However, there is a chance that your import will get stuck (as in stops progressing), it is caused by conflicts between Wwise and Thunderkit. To solve this do the following steps:
+
 * Delete both assembly definitions created on steps 9 and 10 and restart import process. Your best bet is to restore the backup that you surely made and start from step 11, ignoring 9 and 10 for now. 
-* After Thunderkit does its thing you will get error messaged described in steps 15 to 17. Ignore them for now.
+* After Thunderkit does its thing you will get error messages described in steps 15 to 17. Ignore them for now.
 * Go to Assets\Wwise and create Assembly Definition called Wwise, under Assembly Definition Reference add Unity.Timeline, click Apply. 
 * Go to Assets\Wwise\Editor, create Assembly Definition called WwiseEditor, under Assembly Definition References add Unity.Timeline and Wwise, under Platforms uncheck "Any Platform", click Deselect all and check "Editor" (**this is important, otherwise Thunderkit will attempt to compile editor scripts into assembly, resulting in errors**), click Apply. 
 * After this you will still get errors from steps 15 to 17, do those steps to fix the errors. You might need to restart the project after deleting dlls. 
