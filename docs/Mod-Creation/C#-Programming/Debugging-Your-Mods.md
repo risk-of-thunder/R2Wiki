@@ -28,7 +28,7 @@ Putting breakpoints inside game assemblies while using the Visual Studio Debugge
 
 ## Visual Studio 2022
 - Install [Visual Studio Tools for Unity](https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows)
-- Install [UnityModExtension](https://cdn.discordapp.com/attachments/562704639569428506/950162181285085194/UnityModExtension.vsix)
+- Install [UnityModExtension](https://github.com/xiaoxiao921/UnityModExtension/releases/download/v1.1.0/UnityModExtension.vsix)
 - Configure the Unity Mod Extension if needed by going in Tools -> Options
 
   ![image](https://user-images.githubusercontent.com/837334/176724832-37afd649-e982-49c3-aa9f-f47be219d093.png)
