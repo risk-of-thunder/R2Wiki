@@ -25,15 +25,16 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 | 24    | itgoolake      | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
 | 25    | itmoon         | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
 | 26    | itskymeadow    | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 32    | moon2          | Commencement       | Moon of Petrichor V                     |      |                                |
-| 35    | rootjungle     | Sundered Grove     | Dormant Locus                           |      |                                |
-| 37    | shipgraveyard  | Siren's Call       | Ship Graveyard                          |      |                                |
-| 38    | skymeadow      | Sky Meadow         | Sprite Fields                           |      |                                |
-| 39    | snowyforest    | Siphoned Forest    | Ground Zero                             | SOTV |                                |
-| 41    | sulfurpools    | Sulfur Pools       | Pungent Spring                          | SOTV |                                |
-| 46    | voidstage      | Void Locus         | Cell IIIVIIIIIILVIIIVLVILIVLLLVVVILIVLI | SOTV |                                |
-| 45    | voidraid       | The Planetarium    | Cell V                                  | SOTV | DLC Final Boss                 |
-| 47    | wispgraveyard  | Scorched Acres     | Wisp Installation                       |      |                                |
+| 27    | lakes          | Verdant Falls      | Ground Zero                             |      |                                |
+| 33    | moon2          | Commencement       | Moon of Petrichor V                     |      |                                |
+| 36    | rootjungle     | Sundered Grove     | Dormant Locus                           |      |                                |
+| 38    | shipgraveyard  | Siren's Call       | Ship Graveyard                          |      |                                |
+| 39    | skymeadow      | Sky Meadow         | Sprite Fields                           |      |                                |
+| 40    | snowyforest    | Siphoned Forest    | Ground Zero                             | SOTV |                                |
+| 42    | sulfurpools    | Sulfur Pools       | Pungent Spring                          | SOTV |                                |
+| 47    | voidstage      | Void Locus         | Cell IIIVIIIIIILVIIIVLVILIVLLLVVVILIVLI | SOTV |                                |
+| 46    | voidraid       | The Planetarium    | Cell V                                  | SOTV | DLC Final Boss                 |
+| 48    | wispgraveyard  | Scorched Acres     | Wisp Installation                       |      |                                |
 
 ### Hidden Realms (`Intermission`)
 
@@ -44,9 +45,9 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 | 5     | artifactworld | Hidden Realm: Bulwark's Ambry     |     |             |
 | 6     | bazaar        | Hidden Realm: Bazaar Between Time |     |             |
 | 14    | goldshores    | Hidden Realm: Gilded Coast        |     |             |
-| 27    | limbo         | Hidden Realm: A Moment, Whole     |     |             |
-| 33    | mysteryspace  | Hidden Realm: A Moment, Fractured |     |             |
-| 42    | testscene     |                                   |     | Unused.     |
+| 28    | limbo         | Hidden Realm: A Moment, Whole     |     |             |
+| 34    | mysteryspace  | Hidden Realm: A Moment, Fractured |     |             |
+| 43    | testscene     |                                   |     | Unused.     |
 
 ### Menu Stages (`Menu`)
 
@@ -60,11 +61,11 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 | 11    | eclipseworld       |      | _Eclipse_                                                                                                                                                                                                                                                                        |
 | 18    | infinitetowerworld | SOTV | _Simulacrum_                                                                                                                                                                                                                                                                     |
 | 19    | intro              |      | _Intro Cutscene_                                                                                                                                                                                                                                                                 |
-| 28    | loadingbasic       |      | _Loading Bar_                                                                                                                                                                                                                                                                    |
-| 29    | lobby              |      | _Character Selection_                                                                                                                                                                                                                                                            |
-| 30    | logbook            |      | _Logbook_                                                                                                                                                                                                                                                                        |
-| 40    | splash             |      | _HopooGames Splash Art_                                                                                                                                                                                                                                                          |
-| 43    | title              |      | _Main Menu_                                                                                                                                                                                                                                                                      |
+| 29    | loadingbasic       |      | _Loading Bar_                                                                                                                                                                                                                                                                    |
+| 30    | lobby              |      | _Character Selection_                                                                                                                                                                                                                                                            |
+| 31    | logbook            |      | _Logbook_                                                                                                                                                                                                                                                                        |
+| 41    | splash             |      | _HopooGames Splash Art_                                                                                                                                                                                                                                                          |
+| 44    | title              |      | _Main Menu_                                                                                                                                                                                                                                                                      |
 
 ### Cutscene
 
@@ -72,9 +73,9 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 
 | Index | Base Name      | Used | Description                                                                             |
 |-------|----------------|------|-----------------------------------------------------------------------------------------|
-| 34    | outro          | Yes  | Outro cutscene for main ending.                                                         |
-| 36    | satellitescene | No   | Used for Satellite ARG (?)                                                              |
-| 44    | voidoutro      | No   | Unused outro cutscene for DLC ending<br>[YouTube Preview](https://youtu.be/ArfnKisfApU) |
+| 35    | outro          | Yes  | Outro cutscene for main ending.                                                         |
+| 37    | satellitescene | No   | Used for Satellite ARG (?)                                                              |
+| 45    | voidoutro      | No   | Unused outro cutscene for DLC ending<br>[YouTube Preview](https://youtu.be/ArfnKisfApU) |
 
 ### Invalid
 
