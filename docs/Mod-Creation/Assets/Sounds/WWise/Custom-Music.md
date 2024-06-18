@@ -4,6 +4,8 @@
 
 -   [Get the boilerplate music project for RoR2](https://github.com/viliger2/RoR2MusicTest)
 
+- ## WARNING! Do not use boilerplate in released mods. Only use boilerplate as a reference point, always make new Wwise project for each mod. Otherwise collisions will occur and either yours or someone else's mod (who also used boilerplate without making new Wwise project) will not have music.
+ 
 -   Open it. Go to the SoundBanks tab, rename the soundbank to something unique and not shared by any other mods.
 
     ![RenameTheBank](https://i.imgur.com/JimLxSy.png)
@@ -69,12 +71,12 @@ mainlogBookTrackDef.cachedName = "customMusic";
 mainlogBookTrackDef.SoundBankName = d.SoundBankName;
 mainlogBookTrackDef.CustomStates = new();
 var cstate1 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-cstate1.GroupId = 1598298728U; // gathered from the Init bank txt file
-cstate1.StateId = 2326263800U; // gathered from the Init bank txt file
+cstate1.GroupId = 1598298728U; // Group ID, gathered from the Init bank txt file. Vanilla Group ID Music_menu
+cstate1.StateId = 2326263800U; // State ID, gathered from the Init bank txt file. Denote where the track will be played, in this case it uses the vanilla state Logbook2
 mainlogBookTrackDef.CustomStates.Add(cstate1);
 var cstate2 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-cstate2.GroupId = 792781730U; // gathered from the Init bank txt file
-cstate2.StateId = 2607556080U; // gathered from the Init bank txt file
+cstate2.GroupId = 792781730U; // gathered from the Init bank txt file. Vanilla Group ID Music_system
+cstate2.StateId = 2607556080U; // gathered from the Init bank txt file. Denote where the track will be played, in this case it uses the vanilla state Menu
 mainlogBookTrackDef.CustomStates.Add(cstate2);
 
 d.SceneDefToTracks.Add(logBookScene, new List<SoundAPI.Music.MainAndBossTracks>() { new SoundAPI.Music.MainAndBossTracks(mainlogBookTrackDef, null) });
