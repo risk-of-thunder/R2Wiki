@@ -1,0 +1,2318 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Thunderkit/ThunderKit%3A-Your-First-Project/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>ThunderKit: Your First Project - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#thunderkit-your-first-project" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ThunderKit: Your First Project
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome to the Risk of Rain 2 Modding Wiki !
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Mod Creation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mod Creation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mod Creation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-SotV/" class="md-nav__link">
+        Updating Your Mods for SotV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Assets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assets" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Character/" class="md-nav__link">
+        Character
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Difficulty/" class="md-nav__link">
+        Difficulty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Elites/" class="md-nav__link">
+        Creating an Elite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Extraction/" class="md-nav__link">
+        Extraction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Interactables/" class="md-nav__link">
+        Interactables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/" class="md-nav__link">
+        Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Loading-Assets/" class="md-nav__link">
+        Loading Assets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Merging-Materials/" class="md-nav__link">
+        Merging Materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skills/" class="md-nav__link">
+        Skills
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Stage/" class="md-nav__link">
+        Stages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Translation/" class="md-nav__link">
+        Translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/UI/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Void-Items/" class="md-nav__link">
+        Void Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_16" type="checkbox" id="__nav_2_2_16" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_16">
+          Items
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Items" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_16">
+          <span class="md-nav__icon md-icon"></span>
+          Items
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        Using the RoR2CreateItemTemplate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_17" type="checkbox" id="__nav_2_2_17" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_17">
+          Shaders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Shaders" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_17">
+          <span class="md-nav__icon md-icon"></span>
+          Shaders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        HG Triplanar Terrain Blend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        Working Shaders outside of an AssetRipper project
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_18" type="checkbox" id="__nav_2_2_18" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_18">
+          Skins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Skins" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Skins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/" class="md-nav__link">
+        Creating skin for vanilla characters with custom model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_19" type="checkbox" id="__nav_2_2_19" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_19">
+          Sounds
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sounds" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Sounds
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_19_1" type="checkbox" id="__nav_2_2_19_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_19_1">
+          WWise
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WWise" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_19_1">
+          <span class="md-nav__icon md-icon"></span>
+          WWise
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Custom-Music/" class="md-nav__link">
+        Custom Music
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          C# Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C# Programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          C# Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Assembly-References/" class="md-nav__link">
+        Assembly References
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Code-Analysis/" class="md-nav__link">
+        Code Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Console-Commands/" class="md-nav__link">
+        Console Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Debugging-Your-Mods/" class="md-nav__link">
+        Debugging Your Mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hooking/" class="md-nav__link">
+        Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/IContentPackProvider/" class="md-nav__link">
+        IContentPackProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/IL-Hooking/" class="md-nav__link">
+        IL Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        Mod Compatibility: Soft Dependency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Reflection-Crash-Course/" class="md-nav__link">
+        Reflection Crash Course
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Unity-and-MonoBehaviour/" class="md-nav__link">
+        Unity and MonoBehaviour
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_12" type="checkbox" id="__nav_2_3_12" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_12">
+          Game Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Game Code" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          Game Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        Common Components, Events and Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        Tips and Tricks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_13" type="checkbox" id="__nav_2_3_13" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_13">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_13">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/MiniRpcLib/" class="md-nav__link">
+        MiniRpcLib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        R2API.NetworkingAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        Server side and client side mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/UNet/" class="md-nav__link">
+        UNet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Developer Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Addressables-Assets-Keys/" class="md-nav__link">
+        Addressables Assets Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Items-and-Equipments-Data/" class="md-nav__link">
+        Items and Equipments Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Layers-and-collisions/" class="md-nav__link">
+        Layers and collisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Prefabs/" class="md-nav__link">
+        Prefabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Scene-Names/" class="md-nav__link">
+        Scene Names
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Style-Reference-Sheet/" class="md-nav__link">
+        Style Reference Sheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Wwise-Events/" class="md-nav__link">
+        Wwise event viewer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/First-Mod/" class="md-nav__link">
+        First Mod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        So you want to mod Risk of Rain 2?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          IDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IDE" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          IDE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio-Code/" class="md-nav__link">
+        Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_2" type="checkbox" id="__nav_2_6_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_2">
+          Visual Studio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Visual Studio" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Visual Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        Post Build Events
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Thunderkit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Thunderkit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Thunderkit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Creating-Mods-with-Thunderkit/" class="md-nav__link">
+        Creating Mods with Thunderkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ThunderKit: Your First Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ThunderKit: Your First Project
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    What you'll need
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-setting-up-the-repository" class="md-nav__link">
+    Step 0: Setting up the Repository
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 0: Setting up the Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitignore-modification" class="md-nav__link">
+    .gitignore modification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-05-wwise-integration" class="md-nav__link">
+    Step 0.5: Wwise Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-creating-the-project-installing-thunderkit" class="md-nav__link">
+    Step 1: Creating the project &amp; installing ThunderKit
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Creating the project &amp; installing ThunderKit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-the-right-version-for-you" class="md-nav__link">
+    Selecting the right version for you
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-installing-ror2importextensions" class="md-nav__link">
+    Step 2: Installing RoR2ImportExtensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-import-configuration-explained" class="md-nav__link">
+    Step 3: Import Configuration, Explained
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-the-thunderkit-package-manager" class="md-nav__link">
+    Step 4: The ThunderKit Package Manager
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        Upgrading your project to use R2API's Split Assemblies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using-Scripts-with-Assetbundles/" class="md-nav__link">
+        Using Scripts with Assetbundles
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Playing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Playing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Playing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        Running modded and unmodded game with shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/BepInEx/" class="md-nav__link">
+        BepInEx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    What you'll need
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-setting-up-the-repository" class="md-nav__link">
+    Step 0: Setting up the Repository
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 0: Setting up the Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitignore-modification" class="md-nav__link">
+    .gitignore modification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-05-wwise-integration" class="md-nav__link">
+    Step 0.5: Wwise Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-creating-the-project-installing-thunderkit" class="md-nav__link">
+    Step 1: Creating the project &amp; installing ThunderKit
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Creating the project &amp; installing ThunderKit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-the-right-version-for-you" class="md-nav__link">
+    Selecting the right version for you
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-installing-ror2importextensions" class="md-nav__link">
+    Step 2: Installing RoR2ImportExtensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-import-configuration-explained" class="md-nav__link">
+    Step 3: Import Configuration, Explained
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-the-thunderkit-package-manager" class="md-nav__link">
+    Step 4: The ThunderKit Package Manager
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_Thunderkit_ThunderKit%3A-Your-First-Project/_edit" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="thunderkit-your-first-project">ThunderKit: Your First Project</h1>
+<p>So, you want to begin a ThunderKit project but dont know what to do or where to start with? no problems, this guide will look into setting up your basic ThunderKit project. However, this guide will not cover the concepts of your mod's Manifest, Pipeline building, and so on</p>
+<p>(This guide uses TK 5.2.2 and RoR2ImporterExtensions 1.0.0)</p>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li><a href="https://download.unity3d.com/download_unity/e0392c6b2363/Windows64EditorInstaller/UnitySetup64-2019.4.26f1.exe">Unity Version 2019.4.26f1</a> (*)</li>
+<li><a href="https://unity.com/unity-hub">Unity Hub</a> (Extremely recommended)</li>
+<li><a href="https://git-scm.com">GIT</a></li>
+<li><a href="https://desktop.github.com">GithubDesktop</a> (Recommended for managing your projects, as its very beginner friendly)</li>
+<li>Basic unity knowledge
+(*) Specifically the version that's listed under the RiskOfRain2.exe's Details. RoR2ModCord's !unityversion command is always kept up to date</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ul>
+<li><a href="https://github.com/risk-of-thunder/R2Wiki/wiki/ThunderKit:-Your-First-Project#step-0-setting-up-the-repository">Step 0</a>: Setting up your Git repo (Completely optional, if youre not interested, skip to Step 1)</li>
+<li><a href="https://github.com/risk-of-thunder/R2Wiki/wiki/ThunderKit:-Your-First-Project#step-05-wwise-integration">Step 0.5</a>: Wwise Integration</li>
+<li><a href="https://github.com/risk-of-thunder/R2Wiki/wiki/ThunderKit:-Your-First-Project#step-1-creating-the-project--installing-thunderkit">Step 1</a>: Creating the project &amp; installing ThunderKit</li>
+<li><a href="https://github.com/risk-of-thunder/R2Wiki/wiki/ThunderKit:-Your-First-Project#step-2-installing-ror2importextensions">Step 2</a>: Installing RoR2ImportExtensions</li>
+<li><a href="https://github.com/risk-of-thunder/R2Wiki/wiki/ThunderKit:-Your-First-Project#step-3-import-configuration-explained">Step 3</a>: Import Configuration, Explained</li>
+<li><a href="https://github.com/risk-of-thunder/R2Wiki/wiki/ThunderKit:-Your-First-Project#step-4-the-thunderkit-package-manager">Step 4</a>: The ThunderKit Package Manager</li>
+</ul>
+<h2 id="step-0-setting-up-the-repository">Step 0: Setting up the Repository</h2>
+<p>Setting up your project's repository is not exactly the same as setting up a repository for a visual studio mod, this is due to the fact that unity contains a lot of files that are set up or created on a whim when the project is either first opened, or while its opened.
+This step uses GithubDesktop as it's guide, but you can use other desktop clients (Like GitKraken) or do pure GIT in the command line</p>
+<ul>
+<li>Begin by creating a new repository, go to File -&gt; New Repository</li>
+</ul>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976868775729176616/unknown.png" /></p>
+<ul>
+<li>A window like this will pop up, fill it with the necesary information such as the repository's name, description, the path where the local copy will be stored, etc.
+Note that we're using the Git ignore for Unity, this is important as it'll massively reduce the size of your repo in the internet by ignoring the files that unity creates on demand</li>
+</ul>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976872444642066472/unknown.png" /></p>
+<p>Once you hit "Create Repository", the repository will be created, you can then hit "publish repository" and it'll be published to github under your account.</p>
+<h3 id="gitignore-modification">.gitignore modification</h3>
+<p>It is recommended to modify the default .gitignore file that comes provided with the repository. This is a sub-guide on what to modify</p>
+<ul>
+<li>We will now setup the GitIgnore of the project. Open the file called ".gitignore" in the explorer with your preferred text editor. you can reach the .gitignore file by going into Repository -&gt; Show in Explorer</li>
+</ul>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976872707566211114/unknown.png" /></p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976873096181088256/unknown.png" /></p>
+<p>(The .gitignore format uses <code>#</code> as comments)
+* Once opened, you'll see something along the lines of this. begin by removing the first <code>/</code> of every gitignore entry.</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976874589995040848/unknown.png" /></p>
+<p>Since we're using ThunderKit to mod the game, it is recommended to append the following at the end of the .gitignore file</p>
+<div class="highlight"><pre><span></span><code>#RoR2 Packages Folder
+Packages/Risk of Rain 2
+#ThunderKit root folder &amp; Logs
+ThunderKit/
+Assets/ThunderKitSettings/Logs/
+</code></pre></div>
+<p>If you're going to use the Wwise integration, append this at the end of the .gitignore file</p>
+<div class="highlight"><pre><span></span><code>##-------##
+## wwise ##
+##-------##
+WwiseProject/.cache/
+WwiseProject/*.prof
+WwiseProject/*_WwiseProject.*.validationcache
+WwiseProject/*_WwiseProject.*.wsettings
+WwiseProject/**/*.akd
+Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+#notes:
+#1) if any other files go in Assets/Wwise/Editor/ProjectData/ besides AkWwiseProjectData.asset*,
+#then don&#39;t ignore Assets/Wwise/Editor/ProjectData.meta. If AkWwiseProjectData.asset is the only item in there,
+#then, it&#39;s OK to ignore this file.
+Assets/Wwise/Editor/ProjectData.meta
+Assets/Wwise/Deployment/Plugins/Mac/*
+#Integration zips
+WwiseUnityIntegration_Windows_Src.zip
+WwiseUnityIntegration_Mac_Src.zip
+</code></pre></div>
+<h2 id="step-05-wwise-integration">Step 0.5: Wwise Integration</h2>
+<p>The process of integrating Wwise into your unity project is very recommended, the process is not precisely simple, so a different guide will be created in the future.
+Assuming youre in the Risk of Rain 2 Modding Discord, click <a href="https://discord.com/channels/562704639141740588/697582823925743657/858129809786667028">here</a> for a text guide in the #map-creation channel</p>
+<h2 id="step-1-creating-the-project-installing-thunderkit">Step 1: Creating the project &amp; installing ThunderKit</h2>
+<p>Once you're ready to create the project, open UnityHub, go to Projects and click "New Project"</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976877905571373107/unknown.png" /></p>
+<p>Once the project creation wizard pops up, be sure to choose the editor version that matches the game! and in template,select the "3D" template</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976878098450645002/unknown.png" /></p>
+<p>(For people who followed step 0: notice how i'm creating the project <em>inside</em> the repository, this is important)
+Hit "Create Project" and wait for the editor to appear
+Once the editor appears and your project is finished intializing, its time to install ThunderKit!
+ 1. Go to Window -&gt; Package Manager</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976879397833441321/unknown.png" /></p>
+<ol>
+<li>On the upper left corner, hit the plus sign and click <code>Add package from git URL</code></li>
+</ol>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976879831109222410/unknown.png" /></p>
+<p>A field will appear where you need to input a git URL, go to <a href="https://github.com/PassivePicasso/ThunderKit">this repository</a></p>
+<h3 id="selecting-the-right-version-for-you">Selecting the right version for you</h3>
+<p>Here you have two options. You can either:
+ 1. Use the latest, bleeding edge build (https://github.com/PassivePicasso/ThunderKit.git) (not recommended)
+ 2.  Use the latest release (recommended)
+ If youre going to use the latest release, hover to the right side of the repository and hit the latest release, copy the link above and paste it in the field in the unity package manager, before hitting the "Enter" key, type a Hashtag then followed by the tagged version of your desire (IE: #5.2.1). hit "Add" and wait</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976881334595256431/unknown.png" /></p>
+<p>(note: at the time of writing, ThunderKit version 5.2.2 has not been released, this version (or greater) is required for the importing process to succeed and work properly. If youre reading this and 5.2.2 has not been released yet, just use the latest bleeding edge build)</p>
+<p>If everything goes smoothly, you should see the ThunderKit Settings window pop up.</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976881547649093652/unknown.png" /></p>
+<p>Youre now ready to start modding with ThunderKit, however, it is recommended that you install the RoR2 Import Extensions before importing the game to the project.</p>
+<h2 id="step-2-installing-ror2importextensions">Step 2: Installing RoR2ImportExtensions</h2>
+<p>The Risk of Rain 2 Import Extensions is a <code>ThunderKit Extension</code> that extends the import process to enable extremely simple import process and automates some small annoyances that come with setting up your project to work properly.</p>
+<p>It is recommended that you install it in the same manner as you installed ThunderKit, the RoR2 Import Extensions repository can be found <a href="https://github.com/risk-of-thunder/RoR2ImportExtensions">here</a></p>
+<h2 id="step-3-import-configuration-explained">Step 3: Import Configuration, Explained</h2>
+<p>With RoR2ImportExtensions installed, open the ThunderKitSettings window (Tools -&gt; ThunderKit -&gt; Settings), there's a setting called "Import Configuration", click it.</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976883106332147823/unknown.png" /></p>
+<p>Import configuration is a new feature introduced in ThunderKit 5.0.0 that allows the importing process of a game to be extensible, these extensions can be created by anyone and as such allows for complete customization and modification of how importing works. as a matter of fact, RoR2ImportExtensions adds 11 new import options to ensure your project is as stable as possible.</p>
+<p>At first glance, the options in the import configuration may look intimidating. This guide explains each one of them in mild detail, as knowing what each does is important</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976884026512121986/unknown.png" /></p>
+<ol>
+<li>Post Processing Unity Package Installer (RoR2ImportExtension):<br />
+    Installs the PostProcessing package version 2.3.0 into the project, recommended to leave on if you're going to work with PostProcessing</li>
+<li>TextMeshPro Uninstaller (RoR2ImportExtension):<br />
+    Removes the TMP package and allows the .dll version to come thru into the project, recommended to leave on as the one in RoR2 is slightly modified and not having it can cause instability</li>
+<li>Assembly Publicizer (RoR2ImportExtension):<br />
+    Automatically publicizes the assemblies listed in "Assembly Names", these assemblies will be publicized with specific arguments using N-Strip, recommended to leave on</li>
+<li>Import Assemblies (Default): <br />
+    Imports the assemblies of the game into the project, the assembly identity algorithm will define what kind of GUIDs the assemblies will obtain, it is recommended to set this to "AssetRipper Compatibility".</li>
+<li>RoR2 LegacyResourceAPI Patcher (RoR2ImportExtension):<br />
+    DISABLE THIS! It was used to fix certain editor issues, but since the "meteor update" the patcher just results in a broken assembly. Since that update, using the existing LegacyResourceAPI seems to be free of those issues. This option will be removed in a future update.</li>
+<li>Import Project Settings (Default):<br />
+    Imports the game's project settings (such as nav mesh agents, layers, physics layers, tags, etc) into your project, recommended to leave on and choose "Everything"</li>
+<li>Create Game Package (Default):<br />
+    Creates a package.json file for the game's assemblies, recommended to leave on}</li>
+<li>Import Addressable Catalog (Default):<br />
+    Imports the Addressable Catalog into your project, very recommended, as it enables the Addressables functionality of ThunderKit</li>
+<li>Configure Addressable Graphics Settings (RoR2 Import Extension):<br />
+    Shader related, recommended to leave on</li>
+<li>Ensure RoR2 Thunderstore Source (RoR2 Import Extension):<br />
+    Creates a new Thunderstore Source and sets it's url to <code>https://thunderstore.io</code> , recommended to leave on</li>
+<li>Install BepInEx (RoR2 Import Extension):<br />
+    Installs the latest BepInExPack into the project, recommended to leave on</li>
+<li>Install FixPluginTypesSerialization (RoR2 Import Extension):<br />
+    Installs FixPluginTypesSerialization into the project, recommended to leave on</li>
+<li>Install R2API (RoR2 Import Extension):<br />
+    Installs the latest R2API into the project, recommended to leave on</li>
+<li>Install RoR2 Compatible Unity Multiplayer HLAPI (RoR2 Import Extension):<br />
+    Installs the RoR2MultiplayerHLAPI, Extremely recommended to leave on, as the hlapi runtime dll ror2 comes with is modified and will cause issues in weaving the assemblies and assets</li>
+<li>Install RoR2EditorKit (RoR2 Import Extension):<br />
+    Installs the latest RoR2EditorKit, recommended to leave on</li>
+<li>Get Bitness (Default):<br />
+    Sets wether the game is 32 or 64 bits, leave this on</li>
+</ol>
+<p>Once youre ready, click the "ThunderKit Settings" settings option, and hit browse to locate the game's Executable file,</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976887827331694633/unknown.png" /></p>
+<p>Once ready, hit import! be patient as the import process may take a while</p>
+<p>While youre importing, you may come into this window telling you an API Update is required, ignore this and hit "No Thanks"</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976888385392230400/unknown.png" /></p>
+<h2 id="step-4-the-thunderkit-package-manager">Step 4: The ThunderKit Package Manager</h2>
+<p>ThunderKit comes with it's own PackageManager (Tools -&gt; ThunderKit -&gt; Packages). this package manager can be used to install more mods into your project (IE: installing Risk of Options to enable your mod to be configured with it).</p>
+<p>The package manager can be used to install both RoR2 Mods, and more ThunderKit extensions</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/575431803523956746/976889546056814662/unknown.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Getting-Started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting Started
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading your project to use R2API&#39;s Split Assemblies" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Upgrading your project to use R2API's Split Assemblies
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
