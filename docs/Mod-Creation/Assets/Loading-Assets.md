@@ -15,7 +15,7 @@ This guide covers a method for loading different resources (Such as Soundbanks, 
 
 The structure of your Plugin folder is one of the most important things to load your resources directly, For ease of loading stuff like Bundles, Banks and Language files, it is extremely recommended to leave all the resources you want to load directly on the same directory as your DLL, or on a folder that's in the same directory as your DLL.
 
-![](https://i.gyazo.com/7944daadc43378c1358bad5f6896bab8.png)
+![image](https://github.com/user-attachments/assets/edb2cf35-7f41-4f05-a391-573e13a535ec)
 
 ###### example folder structure of Starstorm2 nightly, all the assetbundles are in the assetbundles folder, all the language files are in languages, and the soundbank is in soundbanks.
 
@@ -94,27 +94,27 @@ public static class SoundBank
 
 	public static void Init()
 	{
-		var akResult = AkSoundEngine.AddBasePath(assetsFolderFullPath);
+		var akResult = AkSoundEngine.AddBasePath(SoundBankDirectory);
 		if (akResult == AKRESULT.AK_Success)
 		{
-			Log.Info($"Added bank base path : {assetsFolderFullPath}");
+			Log.Info($"Added bank base path : {SoundBankDirectory}");
 		}
 		else
 		{
 			Log.Error(
-				$"Error adding base path : {assetsFolderFullPath} " +
+				$"Error adding base path : {SoundBankDirectory} " +
 				$"Error code : {akResult}");
 		}
 
-		akResult = AkSoundEngine.LoadBank(SoundBankFileName, out _soundBankId);
+		akResult = AkSoundEngine.LoadBank(soundBankFileName, out _soundBankId);
 		if (akResult == AKRESULT.AK_Success)
 		{
-			Log.Info($"Added bank : {SoundBankFileName}");
+			Log.Info($"Added bank : {soundBankFileName}");
 		}
 		else
 		{
 			Log.Error(
-				$"Error loading bank : {SoundBankFileName} " +
+				$"Error loading bank : {soundBankFileName} " +
 				$"Error code : {akResult}");
 		}
 	}
@@ -128,7 +128,8 @@ Loading a soundBank with R2API is trivial, since you just need to put your sound
 ### Loading Language Files
 
 Loading LanguageFiles requires a special setup of the Languages folder, an example "Language Folder Tree" can be seen here.
-![](https://cdn.discordapp.com/attachments/575431803523956746/946545906658975744/LangTreeExample.png)
+
+![image](https://github.com/user-attachments/assets/47a9b67f-b23f-416d-86dd-38de50d11cc0)
 
 ###### Example language folder tree of starstorm, Notice how the root folder named Languages contains a set of subFolders, and each subFolder has the name of one of the Languages in ROR2, en is for English, es-419 for spanish, etc. While each of those subFolders has a .json file with the Language Tokens and strings.
 
