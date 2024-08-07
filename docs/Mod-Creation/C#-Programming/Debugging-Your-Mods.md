@@ -37,6 +37,8 @@ Putting breakpoints inside game assemblies while using the Visual Studio Debugge
 
   ![image](https://user-images.githubusercontent.com/837334/176724945-b1b7eb6c-b095-4058-9eb0-78b09d2ea25d.png)
 
+- If you want to attach to a currently running game instance or that the extension is not working, Press Debug -> Attach Unity Debugger -> Input IP -> Type `127.0.0.1:55555` (Make sure VSTU dropdown option is selected) -> OK
+
 ## dnSpy
 
 Make sure the `doorstop_config.ini` is setup like above, but with the `debug_suspend=false`, since having it as `true` doesn't seem to work with dnSpy
