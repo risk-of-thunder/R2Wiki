@@ -7,11 +7,14 @@ For Risk of Rain 2, most of the modders in the community use MonoMod and the `MM
 Those `MMHOOK` files are generated through one of the MonoMod tool called [MonoMod.RuntimeDetour.HookGen](https://github.com/MonoMod/MonoMod/blob/master/README-RuntimeDetour.md#using-hookgen).
 
 Or, if you have R2Modman installed with HookGenPatcher, you can have it generated:
+
 - Launch the game using R2Modman ("Start modded");
+
 - Find the file at `%appdata%\\r2modmanPlus-local\\RiskOfRain2\\profiles\\<YOUR_PROFILE>\\BepInEx\\plugins\\MMHOOK\\MMHOOK_RoR2.dll`.
 
 (If you use the default profile, simply replace `<YOUR_PROFILE>` with `Default`.)
 
+***
 
 Having an assembly reference to one of these `MMHOOK` files will add the `On` and `IL` namespaces into your C# project for you to use.
 
