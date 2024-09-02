@@ -6,7 +6,7 @@
 - <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16" target="_blank">Visual Studio 2022 Community</a>
 - Make sure that when installing Visual Studio that the **.NET desktop development** workload is ticked
 
-![netstandard2.0 visual studio installer](https://cdn.discordapp.com/attachments/575431803523956746/1115689633586630728/image.png)
+![netstandard2.0 visual studio installer](https://github.com/user-attachments/assets/7cfd1cf3-d3bd-4be7-abf1-493f05c31071)
 
 ***
 
@@ -100,7 +100,7 @@ If its your first time ever launching the game with the latest BepInEx Pack, you
 
 - Can close the game and the GUI very quickly by pressing CTRL + F5 while the GUI is focused
 
-- [Full feature list available at](https://github.com/risk-of-thunder/BepInEx.GUI)
+- [Full feature list available here](https://github.com/risk-of-thunder/BepInEx.GUI)
 
 The console overall is very useful for debugging your code alongside the Visual Studio debugger if you follow this [tutorial](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
 
