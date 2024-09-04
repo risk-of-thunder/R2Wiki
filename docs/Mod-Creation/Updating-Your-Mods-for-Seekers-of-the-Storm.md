@@ -1,11 +1,11 @@
 report on discord [here](https://discord.com/channels/562704639141740588/1279030064192950382) if you find anything else, please and thanks
 
-## before updating libraries
+## Before Updating Libraries
 there is a fucking `Assets.RoR2` namespace
 
 if you have a class named `Assets` (all henry survivors will), code attempting to call this class will be intercepted by that namespace. Before updating. Rename `Assets` class to  just `Asset` or `MyAssets` or something
 
-## update your projects
+## Update Your Projects
 - in visual studio, right click your csproj > properties > General > set Target Framework to 2.1 if it isn't already
 - I'm copypasting this to update my nuget libraries
 ```xml
@@ -21,18 +21,21 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
   - I had issues loading the soundbank through code, so I just cut that code and renamed my soundbank from .bnk to .sound and let r2api do it
 - if your weaver doesn't weave, make sure your post build is targeting the right destination (2.1 folder instead of 2.0) and throw [this dll](https://cdn.discordapp.com/attachments/1279030064192950382/1279663585189953577/netstandard.dll?ex=66d54315&is=66d3f195&hm=aabf2c9d2c7931a1fd4e044a960e0f755e2a3d0fd461c68453e9376855b3894d&) in your libs folder haha woops who put that there 
 
-## code changes
-- places that used `TemporaryOverlay` might need to be changed to `TemporaryOverlayInstance` instead
+## Code Changes
+- `TemporaryOverlay` changed to `TemporaryOverlayInstance`
+  - instead of `TemporaryOverlay overlay = someModelGameObject.AddComponent<TemporaryOverlay>();`
+    - `TemporaryOverlayInstance temporaryOverlayInstance = TemporaryOverlayManager.AddOverlay(someModelGameObject);`
+  - rest of the fields are generally the same, sans `AddToCharacerModel` being corrected
+  - instead of destroying the component, now do `if(temporaryOverlayInstance != null) temporaryOverlayInstance.Destroy()`
 - Achievements now give lunar coins. `RegisterAchievementAttribute` now has a field for lunar coin rewards
   - mastery skins give 10
   - some skill achievements give 3, some 5. check the game's achievements for more examples
   - On that, UnlockableAPI hasn't been updated to work with this. I believe it's ripperino for that. you should update your achievements to just use the registerachievementattribute. [Henry Tutorial](https://github.com/ArcPh1r3/HenryTutorial/wiki/Tutorial#6-unlockables-and-achievements) has a good way of doing this.
-- a lot of catalog.init functions have been changed to be coroutines returning `IEnumerator` intead of `void`. I'm not smart enough to summarize but there's discussion about it [here](https://discord.com/channels/562704639141740588/562704639569428506/1279478137004228650)
-  - long story short, `yield return Orig()`
+- a lot of catalog.init functions have been changed to be coroutines returning `IEnumerator` instead of `void`. `yield return Orig()` instead of just `return orig()`
 - `DamageType` changed to `DamageTypeCombo` (due to the addition of `DamageTypeExtended` which is just `DamageType` again cause they ran out of room for more damagetypes
   - This doesn't affect r2api damageapi. that should be working the same. if you are seeing issues with that, report them
 
-## character stuff
+## Character Stuff
 - some Effects and ProjectileGhosts are pooled now. 
   - if your projectiles aren't set up for this, I just did a `projectileController.ghostPrefab.AddComponent<VFXAttributes>().DoNotPool = true;` to avoid it for now
   - I would highly suggest looking into adding an `EffectManagerHelper` component to pool your effects. pool is cool. I will update this with more detail when I do it myself
@@ -44,12 +47,12 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
   - Either add an item display, or rely on the FixInvincibleMithrix mod.
   - hopefully I remove this section soon as gearbox fixes it
 
-## the dreaded deltatime
+## The Dreaded deltaTime
 you are verly likely going to be impacted by the framreate issues of the update/fixedupdate changes. There are a few things you can do to combat this.
 - in your entitystates, change any `fixedDeltaTime`s in your `FixedUpdate`s to be `deltaTime` instead.
 - if you have any custom `SkillDefs` with `OnFixedUpdate` code, do the same there
 
 If they end up reverting their changes and bringing these back to FixedUpdate, `deltaTime` will still return the same as `fixedDeltaTime`, so it should be good
 
-## misc
+## Misc
 - If your mod is translated, in addition to `es-ES` for Spanish (Spain), there is now `es-419` for Spanish (Mexico)
