@@ -10,44 +10,55 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 |-------|----------------|--------------------|-----------------------------------------|------|--------------------------------|
 | 3     | ancientloft    | Aphelian Sanctuary | Cleansing Center                        | SOTV |                                |
 | 4     | arena          | Void Fields        | Cosmic Prison                           |      | Used for the Void Fields event |
-| 7     | blackbeach     | Distant Roost      | Ground Zero                             |      |                                |
-| 8     | blackbeach2    | Distant Roost      | Ground Zero                             |      | 'blackbeach' variant           |
-| 10    | dampcavesimple | Abyssal Depths     | Tectonic Relics                         |      |                                |
-| 12    | foggyswamp     | Wetland Aspect     | Rehabilitation Zone                     |      |                                |
-| 13    | frozenwall     | Rallypoint Delta   | 'Contact Light' Survivor Camp           |      |                                |
-| 15    | golemplains    | Titanic Plains     | Ground Zero                             |      |                                |
-| 16    | golemplains2   | Titanic Plains     | Ground Zero                             |      | 'golemplains' variant          |
-| 17    | goolake        | Abandoned Aqueduct | Origin of Tar                           |      |                                |
-| 20    | itancientloft  | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 21    | itdampcave     | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 22    | itfrozenwall   | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 23    | itgolemplains  | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 24    | itgoolake      | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 25    | itmoon         | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 26    | itskymeadow    | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
-| 27    | lakes          | Verdant Falls      | Ground Zero                             |      |                                |
-| 33    | moon2          | Commencement       | Moon of Petrichor V                     |      |                                |
-| 36    | rootjungle     | Sundered Grove     | Dormant Locus                           |      |                                |
-| 38    | shipgraveyard  | Siren's Call       | Ship Graveyard                          |      |                                |
-| 39    | skymeadow      | Sky Meadow         | Sprite Fields                           |      |                                |
-| 40    | snowyforest    | Siphoned Forest    | Ground Zero                             | SOTV |                                |
-| 42    | sulfurpools    | Sulfur Pools       | Pungent Spring                          | SOTV |                                |
-| 47    | voidstage      | Void Locus         | Cell IIIVIIIIIILVIIIVLVILIVLLLVVVILIVLI | SOTV |                                |
-| 46    | voidraid       | The Planetarium    | Cell V                                  | SOTV | DLC Final Boss                 |
-| 48    | wispgraveyard  | Scorched Acres     | Wisp Installation                       |      |                                |
+| 10    | blackbeach     | Distant Roost      | Ground Zero                             |      |                                |
+| 11    | blackbeach2    | Distant Roost      | Ground Zero                             |      | 'blackbeach' variant           |
+| 13    | dampcavesimple | Abyssal Depths     | Tectonic Relics                         |      |                                |
+| 15    | foggyswamp     | Wetland Aspect     | Rehabilitation Zone                     |      |                                |
+| 16    | frozenwall     | Rallypoint Delta   | 'Contact Light' Survivor Camp           |      |                                |
+| 18    | golemplains    | Titanic Plains     | Ground Zero                             |      |                                |
+| 19    | golemplains2   | Titanic Plains     | Ground Zero                             |      | 'golemplains' variant          |
+| 20    | goolake        | Abandoned Aqueduct | Origin of Tar                           |      |                                |
+| 21    | habitat        | Treeborn Colony    | Path of the Protector                   | SOTS | Path of the Colossus Stage 3   |
+| 22    | habitatfall    | Golden Dieback     | March of the Fallen                     | SOTS | 'habitat' post-loop variant    |
+| 23    | helminthroost  | Helminth Hatchery  | A Brother's Respite                     | SOTS |                                |
+| 26    | itancientloft  | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 27    | itdampcave     | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 28    | itfrozenwall   | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 29    | itgolemplains  | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 30    | itgoolake      | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 31    | itmoon         | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 32    | itskymeadow    | The Simulacrum     | Threat Simulation                       | SOTV | Simulacrum stage               |
+| 33    | lakes          | Verdant Falls      | Ground Zero                             |      |                                |
+| 34    | lakesnight     | Viscous Falls      | Seeker's Setback                        | SOTS | 'lakes' post-loop variant      |
+| 35    | lemuriantemple | Reformed Altar     | Shadow of the Savior                    | SOTS | Path of the Colossus Stage 2   |
+| 40    | meridian       | Prime Meridian     | Relic of the False Son                  | SOTS | SOTS Final Boss                |
+| 42    | moon2          | Commencement       | Moon of Petrichor V                     |      |                                |
+| 45    | rootjungle     | Sundered Grove     | Dormant Locus                           |      |                                |
+| 47    | shipgraveyard  | Siren's Call       | Ship Graveyard                          |      |                                |
+| 48    | skymeadow      | Sky Meadow         | Sprite Fields                           |      |                                |
+| 49    | snowyforest    | Siphoned Forest    | Ground Zero                             | SOTV |                                |
+| 51    | sulfurpools    | Sulfur Pools       | Pungent Spring                          | SOTV |                                |
+| 52    | village        | Shattered Abodes   | Ground Zero                             | SOTS |                                |
+| 53    | villagenight   | Disturbed Impact   | Meter of the Restless                   | SOTS | 'village' post-loop variant    |
+| 57    | voidraid       | The Planetarium    | Cell V                                  | SOTV | SOTV Final Boss                |
+| 58    | voidstage      | Void Locus         | Cell IIIVIIIIIILVIIIVLVILIVLLLVVVILIVLI | SOTV |                                |
+| 59    | wispgraveyard  | Scorched Acres     | Wisp Installation                       |      |                                |
 
 ### Hidden Realms (`Intermission`)
 
 > None of the scenes have subtitles.
 
-| Index | Base Name     | English Title                     | DLC | Description |
-|-------|---------------|-----------------------------------|-----|-------------|
-| 5     | artifactworld | Hidden Realm: Bulwark's Ambry     |     |             |
-| 6     | bazaar        | Hidden Realm: Bazaar Between Time |     |             |
-| 14    | goldshores    | Hidden Realm: Gilded Coast        |     |             |
-| 28    | limbo         | Hidden Realm: A Moment, Whole     |     |             |
-| 34    | mysteryspace  | Hidden Realm: A Moment, Fractured |     |             |
-| 43    | testscene     |                                   |     | Unused.     |
+| Index | Base Name       | English Title                     | DLC  | Description                                      |
+|-------|-----------------|-----------------------------------|------|--------------------------------------------------|
+| 5     | artifactworld   | Hidden Realm: Bulwark's Ambry     |      |                                                  |
+| 6     | artifactworld01 | Hidden Realm: Bulwark's Ambry     | SOTS | ancientloft themed variant for 'artifactworld'   |
+| 7     | artifactworld02 | Hidden Realm: Bulwark's Ambry     | SOTS | goolake themed variant for 'artifactworld'       |
+| 8     | artifactworld03 | Hidden Realm: Bulwark's Ambry     | SOTS | wispgraveyard themed variant for 'artifactworld' |
+| 9     | bazaar          | Hidden Realm: Bazaar Between Time |      |                                                  |
+| 17    | goldshores      | Hidden Realm: Gilded Coast        |      |                                                  |
+| 36    | limbo           | Hidden Realm: A Moment, Whole     |      |                                                  |
+| 43    | mysteryspace    | Hidden Realm: A Moment, Fractured |      |                                                  |
+| 52    | testscene       |                                   |      | Unused.                                          |
 
 ### Menu Stages (`Menu`)
 
@@ -57,15 +68,15 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 |-------|--------------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 0     | PromoRailgunner    | ?    | Preview at the bottom of [Dev Thoughts#24](https://store.steampowered.com/news/app/632360/view/3123806106513798836)<br>[Direct Link](https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/33906904/ce390449b963359f701da60ba6382aa331525877.gif)<br>Unused. |
 | 1     | PromoVoidSurvivor  | ?    | Camera setup for [Dev Thoughts#25](https://store.steampowered.com/news/app/632360/view/3123809278001661759)<br>[Direct Link](https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/33906904/046f8e4e7c091dc7b974405847754259a52e4728.gif)<br>Unused.          |
-| 9     | crystalworld       |      | _Prismatic Trials_                                                                                                                                                                                                                                                               |
-| 11    | eclipseworld       |      | _Eclipse_                                                                                                                                                                                                                                                                        |
-| 18    | infinitetowerworld | SOTV | _Simulacrum_                                                                                                                                                                                                                                                                     |
-| 19    | intro              |      | _Intro Cutscene_                                                                                                                                                                                                                                                                 |
-| 29    | loadingbasic       |      | _Loading Bar_                                                                                                                                                                                                                                                                    |
-| 30    | lobby              |      | _Character Selection_                                                                                                                                                                                                                                                            |
-| 31    | logbook            |      | _Logbook_                                                                                                                                                                                                                                                                        |
-| 41    | splash             |      | _HopooGames Splash Art_                                                                                                                                                                                                                                                          |
-| 44    | title              |      | _Main Menu_                                                                                                                                                                                                                                                                      |
+| 12    | crystalworld       |      | _Prismatic Trials_                                                                                                                                                                                                                                                               |
+| 14    | eclipseworld       |      | _Eclipse_                                                                                                                                                                                                                                                                        |
+| 24    | infinitetowerworld | SOTV | _Simulacrum_                                                                                                                                                                                                                                                                     |
+| 25    | intro              |      | _Intro Cutscene_                                                                                                                                                                                                                                                                 |
+| 37    | loadingbasic       |      | _Loading Bar_                                                                                                                                                                                                                                                                    |
+| 38    | lobby              |      | _Character Selection_                                                                                                                                                                                                                                                            |
+| 39    | logbook            |      | _Logbook_                                                                                                                                                                                                                                                                        |
+| 50    | splash             |      | _HopooGames Splash Art_                                                                                                                                                                                                                                                          |
+| 53    | title              |      | _Main Menu_                                                                                                                                                                                                                                                                      |
 
 ### Cutscene
 
@@ -73,18 +84,18 @@ All scene names and their respective in-game English titles (from `SceneCatalog`
 
 | Index | Base Name      | Used | Description                                                                             |
 |-------|----------------|------|-----------------------------------------------------------------------------------------|
-| 35    | outro          | Yes  | Outro cutscene for main ending.                                                         |
-| 37    | satellitescene | No   | Used for Satellite ARG (?)                                                              |
-| 45    | voidoutro      | No   | Unused outro cutscene for DLC ending<br>[YouTube Preview](https://youtu.be/ArfnKisfApU) |
+| 44    | outro          | Yes  | Outro cutscene for main ending.                                                         |
+| 46    | satellitescene | No   | Used for Satellite ARG (?)                                                              |
+| 56    | voidoutro      | No   | Unused outro cutscene for DLC ending<br>[YouTube Preview](https://youtu.be/ArfnKisfApU) |
 
 ### Invalid
 
 > These are of the type "Invalid". They are unused in-game.
 
-| index   | Base Name | Used | Description                               |
-|---------|-----------|------|-------------------------------------------|
-| 3       | ai_test   | No   | Testing for pathfinding                   |
-| Invalid | moon      | No   | Previous version used for the final stage |
+| index | Base Name | Used | Description                               |
+|-------|-----------|------|-------------------------------------------|
+| 3     | ai_test   | No   | Testing for pathfinding                   |
+| 41    | moon      | No   | Previous version used for the final stage |
 
 ### Removed
 
