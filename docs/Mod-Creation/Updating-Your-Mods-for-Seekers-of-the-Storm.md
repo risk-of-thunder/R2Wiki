@@ -34,6 +34,8 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
 - a lot of catalog.init functions have been changed to be coroutines returning `IEnumerator` instead of `void`. do `yield return Orig()` instead of just `orig()`
 - `DamageType` changed to `DamageTypeCombo` (due to the addition of `DamageTypeExtended` which is just `DamageType` again cause they ran out of room for more damagetypes)
   - This doesn't affect r2api damageapi. that should be working the same. if you are seeing issues with that, report them
+- `BulletAttack.BulletHit` is pooled now. If, for whatever reason, you were instantiating any directly (with e.g. = default(BulletHit)), it'll now cause some weird NREs -- capable of, among other things, completely killing the BepInEx logger if you try to log it directly. 
+  - This needs to be replaced with BulletAttack.GetBulletHit(), and probably something to clear the pool manually later if you aren't doing stuff during existing BulletAttack code
 
 ## Character Stuff
 - some Effects and ProjectileGhosts are pooled now. 
