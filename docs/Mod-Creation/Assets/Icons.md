@@ -155,6 +155,7 @@ When you make your own try keeping a consistent color throughout the entirety of
 Because these icons have transparent and translucent background details, it may prove to be useful to have a dark background layer that you hide before exporting to the final product. These details are relatively simple, it can be some connected circles, 3 lines in a claw mark fashion, or in the example above an assortment of broken planets and moons.
 
 For the translucent layer of the background an Alpha value of around 63 -> 186 can work, this depends on the color you are choosing for your expansion.
+
 - Brighter colors such as yellows and blues you can get away with a higher Alpha closer to 186.
 - Reds and Greens are a bit bolder even when translucent and should be pushed closer to an Alpha of 63.
 - For reference the ```Survivors of the Void``` icon uses an Alpha of 61.
