@@ -3,8 +3,6 @@
 Last Updated: Seekers of the Storm DLC Release
 
 To update this page:
-- [Script that outputs as Mediawiki formatting](https://gist.github.com/xiaoxiao921/fc9739d53c4755318d998c879a7aa8e2)
-  - [Use a converter to convert the MediaWiki output to MarkDown](https://alldocs.app/convert-mediawiki-markup-to-markdown)
 - [Script that outputs as MarkDown formatting](https://gist.github.com/DestroyedClone/e7219428e5ce6022ab3fc2b80a6c12ca)
 
 ## Items
