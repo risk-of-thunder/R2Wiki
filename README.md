@@ -1,4 +1,4 @@
-# Welcome to the Risk of Rain 2 Modding Wiki !
+# Welcome to the Risk of Rain 2 Modding Wiki
 
 https://risk-of-thunder.github.io/R2Wiki
 
@@ -6,7 +6,7 @@ This place serves as a center for guides related to Risk of Rain 2 Modding.
 
 These guides help to teach concepts and should prove as a useful resource to modders.
 
-Please feel free to contribute to anything you think should be improved !
+Please feel free to contribute to anything you think should be improved!
 
 But before that, please read the paragraph below on how to contribute correctly.
 
@@ -19,7 +19,7 @@ Please head to this [link](https://github.com/risk-of-thunder/R2Wiki/wiki/_new) 
 
 `Required-Category_Optional-Sub-Category_Page-Name`
 
-You should **always** put a category for your page !
+You should **always** put a category for your page!
 
 Here is how the page named `FirstFolder_This-is-folder2_This-is-the-file-name` looks in the sidebar once it gets added to the generated github pages website.
 
