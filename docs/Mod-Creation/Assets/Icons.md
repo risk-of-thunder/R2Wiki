@@ -6,7 +6,8 @@ Making icons is really cool, and one of the easier things to do for Risk of Rain
 We'll go over stuff like
 - Skin Palette Icons
 - Ability Icons
-- Expansion icons
+- Expansion Icons
+- Artifact Icons
 - Eventually survivor lobby icons.
 
 ## Tools
@@ -159,6 +160,74 @@ For the translucent layer of the background an Alpha value of around 63 -> 186 c
 - Brighter colors such as yellows and blues you can get away with a higher Alpha closer to 186.
 - Reds and Greens are a bit bolder even when translucent and should be pushed closer to an Alpha of 63.
 - For reference the ```Survivors of the Void``` icon uses an Alpha of 61.
+
+## Artifact Icons
+These are similar to expansion icons, where they make use of both bold full-fledged colors and translucent colors but have details that can make them tricky to design. 
+
+Breakdown:
+- 64 x 64 canvas size
+- These icons do not take up the entire canvas
+- Enabled and Disabled versions
+- Borders with Translucent outlines
+> Having a dark background layer can help picture what the icon will look like in game. But it may alter the colors if you draw with the background on 
+
+If you already know how and just need color reference here are some resources:
+
+<img src="https://github.com/user-attachments/assets/0c51650a-5527-48e3-8ebf-8bd25e31d6fc" width="250">
+<img src="https://github.com/user-attachments/assets/3e6bc83e-32b9-4f3a-99b0-2dab6210c327" width="250">
+
+#### Disabled Icon Colors
+| Color | RGBA |
+|:-----:|:-----|
+| Grey             | `74, 60, 66, 255` |
+| Black            | `16, 18, 16, 244` |
+| Translucent Grey | `2, 0, 0, 62`     |
+
+##### Enabled Icon Colors
+| Color | RGBA |
+|:-----:|:-----|
+| Highlight Pink            | `245, 231, 245, 255 `|
+| Pink                      | `231, 199, 230, 255` |
+| Dark Pink                 | `216, 168, 216, 255` |
+| Translucent Dark Purple   | `66, 49, 122, 206`   |
+| Translucent Purple        | `14, 4, 96, 137`     |
+| Translucent Light Purple  | `14, 4, 96, 80`      |
+
+> It is also possible to get the Translucent Dark Purple by painting a Purple of (`72, 54, 133, 190`) on top of the Translucent Grey
+
+### Style Matching
+Something nice to try to do is style matching. This means making artifact icons that feel like they already are a part of the game. 
+
+Risk of Rain icons tend to stay very simple. Squares, circles, or adjacent shapes. There are those that get more complex (Devotion and Delusion) but simple is the goal (Evolution and Honor). If you decide/have an idea for an artifact's shape and design that does not match the style of Risk of Rain, still go ahead and make it. Having multiple versions of these icons can help you make minor or major changes in the future as you see fit.
+
+### Disabled Icons
+Try making an artifact icon by making the disabled version first. Why? Because by doing so we use fewer colors, can focus on the silhouette of the artifact more and can make changes more quickly without ripping our hair out over things we do and don't like about the design.
+
+When doing your borders and can control how pixel perfect your border is, remember that the border is a circle rather than a square fit around your shape.
+
+<img src="https://github.com/user-attachments/assets/72281ffb-a29f-4ce4-ba6a-32dad72bb44d" width="250">
+<img src="https://github.com/user-attachments/assets/3b153d69-3ace-4d3a-bfb0-fdeea50528a9" width="250">
+
+Example: Disabled Artifact of Glory
+
+> Reminder: The entire canvas is not used for the artifacts; the artifact just sits in the center of our canvas as much as it can.
+
+### Enabled Icons
+If you made the disabled version of your icon first, this gets to be pretty simple. Color replacement and then a few more borders.
+
+#### Color Evolution
+- Grey -> Pink
+- Black -> Dark Pink
+- Translucent Grey -> Translucent Dark Purple
+
+When handling overlapping shapes, you may have to manually add in the color transition rather than relying on an outline tool
+
+Example: Left - Enabled Artifact of Glory, Right - Enabled Artifact of War
+
+<img src="https://github.com/user-attachments/assets/773e506c-162c-4894-9218-10ccf4b1df32" width="250">
+<img src="https://github.com/user-attachments/assets/8c162163-9785-42e0-981f-61d436274ba6" width="250">
+
+> Note: In either of these artifacts, highlights are not involved. Your artifacts can have highlighting, but it is not a requirement.
 
 ## Survivor Profile Lobby Icons
 Coming soon...
