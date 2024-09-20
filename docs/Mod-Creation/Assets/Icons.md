@@ -14,9 +14,9 @@ We'll go over stuff like
 ### Free Software (Try these first)
 - [Photopea](https://www.photopea.com/)
 - [Gimp](https://www.gimp.org/downloads/)
+- [Aseprite](https://www.aseprite.org/), (Available on Steam but also has a github!)
 
 ### Paid Software
-- [Aseprite](https://www.aseprite.org/), (Also available on Steam, more so for pixel art but good if you have it)
 - [IcoFX](https://icofx.ro/)
 - [Photoshop](https://www.adobe.com/), (Honestly, only use this if you already have it. It costs a lot)
 
