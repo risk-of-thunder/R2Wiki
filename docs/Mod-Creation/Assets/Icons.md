@@ -26,7 +26,7 @@ Feel free to use any other software you find. To check if it will work, make sur
 - Choose colors in a variety of ways (RGBA, Hexadecimal etc.)
 > At a bare minimum color must be able to be chosen via RGBA value.
 
-Here is an [RGBA Image Color Picker](https://colorcodefinder.com/) That has been found to be useful.
+Here is an [RGBA Image Color Picker](https://colorcodefinder.com/) That has been found to be useful. (This website also has converters for RGBA to Hexadecimal etc.)
 
 ## Importing Icons to Unity
 It's really simple:
