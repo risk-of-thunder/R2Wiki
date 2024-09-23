@@ -1,5 +1,6 @@
 report on discord [here](https://discord.com/channels/562704639141740588/1279030064192950382) if you find anything else, please and thanks
 
+# General
 ## Before Updating Libraries
 there is a namespace that begins `Assets.RoR2`
 
@@ -43,9 +44,61 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
 - some Effects and ProjectileGhosts are pooled now. 
   - if your projectiles aren't set up for this, I just did a `projectileController.ghostPrefab.AddComponent<VFXAttributes>().DoNotPool = true;` to avoid it for now
   - I would highly suggest looking into adding an `EffectManagerHelper` component to pool your effects. pool is cool. I will update this with more detail when I do it myself
-- in `HenryMod.Modules.Prefabs`, change `characterModel.temporaryOverlays = new List<TemporaryOverlayInstance>();`
 - if you set up your `KinematicCharacterController` yourself, set the `playerCharacter` value to true for survivors.
   - Henry clones commando's body for his setup so you're likely not to need to
 
 ## Misc
 - If your mod is translated, in addition to `es-ES` for Spanish (Spain), there is now `es-419` for Spanish (Mexico)
+
+# How to upgrade a 2019.4 Thunderkit project to 2021.3.33
+
+1. Create a new branch for the upgrade process, you'll want this in case you fuck something up.
+2. Open your project on the 2019.4 version of unity
+3. Ensure no errors are present, push your commit to your new branch
+4. proceed to open your project on 2021.3  
+``If you get a message regarding the project having compilation errors and wanting to init the project in safe mode, do not enter safe mode, it disables thunderkit and we'll need it to reimport the game.``
+5. Once your project is open, close it and browse to your "Packages" folder on the project root
+6. Open your ``manifest.json`` file.
+7. Update any and all GIT dependencies on your project. bellow are the current latest versions of the common git projects used for modding  
+    - ThunderKit - 9.0.0 or Greater  
+    - Risk of thunder multiplayer HLAPI  
+    - 1.1.1 or Greater  
+    - RoR2EditorKit - 5.2.1 or Greater  
+    - RoR2ImportExtensions - 1.7.0  
+    - MSU - 2.0.0 or Greater (if used)
+8. On the same folder where the manifest.json is located, delete the packages-lock.json file.
+9. Once this is done, select every folder inside "Packages" and delete them, we're going to reimport the game.
+10. Open the Project, you may get prompted to initialize R2EK, up to you if you initialize it now or later.
+11. on your "ThunderKitSettings" folder, delete the following if present:
+      * MaterialEditorSettings
+      * R2EditorSettings
+      * RoR2EditorKitSettings
+      * ShaderDictionary
+12. Open your Thunderkit settings window, configure your import configuration and import.
+    * If using MSU, make sure that the WWise BlackLister is ENABLED, this will save us time for later
+
+13. Post import, if youre using WWIse, follow the following lettered steps, otherwise, skip to 14
+    a. If using the WWIse integration, you'll want to delete the WWise assemblies imported by the game, which are the following:
+
+          * Ak.Wwise.API.WAAPI
+          * AK.Wwise.Unity.API
+          * AK.Wwise.Unity.API.WwiseTypes
+          * AK.Wwise.Unity.MonoBehaviour
+          * AK.Wwise.Unity.Timeline
+          * Note: if you where using MSU and you had the wwise blacklister enabled, these assemblies where already ommited during import process.
+    b. Once you ensure only the WWise AssemblyDef and WWise Editor assembly defs are present, fix any and all compilation issues.
+    c. Once your project is free of compilation issues, travel to your mod's AssemblyDef, if the "useGuids" option on the assembly definition references is toggled, untoggle it.
+    d. Open your assemblyDef on a text editor, make sure the strings inside the "references" array has the following entries. do not remove "Wwise", as otherwise the integration step update will fail
+          * "Ak.Wwise.Api.WAAPI",
+          * "AK.Wwise.Unity.API",
+          * "AK.Wwise.Unity.API.WwiseTypes",
+          * "AK.Wwise.Unity.MonoBehaviour",
+          * "AK.Wwise.Unity.Timeline"
+    e. Once you've ensured no errors remain, close your project and open the wwise launcher.
+    f. ensure you have version ``2023.1.4.8496`` of Wwise installed.
+    g. on the "Recent unity projects" tab, locate your project, clik "Upgrade WWise in project"
+    h. Ensure the settings are correct, and then click "Upgrade" (or integrate, i forgot the exact word)
+    i. The wwise launcher will proceed to upgrade your project to 2023.1.4 version of wwise, this will also keep any script references to your project's assets. Its important that there where no compilation errors because otherwise WWise fails to integrate.
+    j. Once you finish integration, click the wwise icon shown on the image below
+    k. You'll be prompted to upgrade your wwise project to the specific version, proceed with the upgrade.
+14. once import is complete, you should be good to go. if you used the "LanguageTree" datum from R2EK, your manifest is going to have invalid entries in it. you can either remake your manifest or fix it yourself.
