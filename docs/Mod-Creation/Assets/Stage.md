@@ -605,6 +605,12 @@ Note the second pair of ids, this [page](https://risk-of-thunder.github.io/R2Wik
 
 After all this you should have custom music working within the game. 
 
+However, there might be an issue of custom music continuing to play after you switch stages. You can solve it my unchecking "Continue to play on Switch change" in Designer window for you Music Switch Container object.
+
+![image](https://github.com/user-attachments/assets/c86e329e-0d58-41b4-9460-b1064214b863)
+
+This will result in music taking a bit longer to come in with a weird fade in, while entering vanilla stage after custom stage will play a very small portion of previous vanilla stage before swaping to a new track. But it is better than having custom music stuck permanentely until you quit the run. You only need to do that if your custom music gets stuck, out of two custom stages that I (viliger) made, only for one of them music gets stuck, other one is fine.
+
 ## Optimization
 
 Optimization is **extremely** important to making your stage accessible to players. Currently, this topic isn't as fleshed out as I (JaceDaDorito) want it to be. Please, if you have any good information about stage optimization, message me @JaceDaDorito on discord and I will add it here. That being said, I will present what I know.
