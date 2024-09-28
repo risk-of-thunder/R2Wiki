@@ -4,7 +4,7 @@
 
 - Risk of Rain 2
 - <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16" target="_blank">Visual Studio 2022 Community</a>
-- Make sure that when installing Visual Studio that the **.NET desktop development** workload is ticked
+- Make sure that when installing Visual Studio that the **.NET desktop development** workload is ticked. In the case you already have VS installed you can get back to the window below by opening the Visual Studio Installer and clicking on the Modify button.
 
 ![netstandard2.0 visual studio installer](https://github.com/user-attachments/assets/7cfd1cf3-d3bd-4be7-abf1-493f05c31071)
 
@@ -58,7 +58,7 @@ The boilerplate mod uses some _R2API_ modules as dependencies, it provides helpe
 
   - Download [R2API Language](https://thunderstore.io/package/RiskofThunder/R2API_Language/).
 
-For installing them just drop the dll files into `BepInEx/plugins`
+Manual Install Only: For installing them just drop the dll files into `BepInEx/plugins`.
 
 ***
 
@@ -70,25 +70,29 @@ Extract it.
 
 ## Building the Boilerplate
 
-Open the `.sln` solution file with Visual Studio. Now build the solution:
+Open the `.sln` solution file with Visual Studio.
+
+Make sure the `Debug` Configuration is selected, there is two configuration available, `Debug` and `Release`, `Debug` will allow us to have .cs lines showing up in stack traces in the console log, which is incredibly helpful for figuring out programming mistakes.
+
+Now build the solution:
 
 ![build solution in visual studio](https://raw.githubusercontent.com/risk-of-thunder/R2Wiki/master/media/bepinex/build_solution.png)
 
 ## Put the mod in the game
 
-Find the `ExamplePlugin\bin\Debug\netstandard2.0\ExamplePlugin.dll` on your own machine.
+Find the `ExamplePlugin\bin\Debug\netstandard2.0\ExamplePlugin.dll` and `ExamplePlugin\bin\Debug\netstandard2.0\ExamplePlugin.pdb` on your own machine.
 
 - r2modman:
 
-  - Copy the `ExamplePlugin.dll` to your `BepInEx/plugins/` folder. You can find the folder by opening r2modman, going to settings, and clicking Browse profile folder.
+  - Copy the `ExamplePlugin.dll` and `ExamplePlugin.pdb` to your `BepInEx/plugins/` folder. You can find the folder by opening r2modman, going to settings, and clicking Browse profile folder.
 
 - manual install:
 
-  - Copy the `ExamplePlugin.dll` to your `Game Folder/BepInEx/plugins/` folder.
+  - Copy the `ExamplePlugin.dll` and `ExamplePlugin.pdb` to your `Game Folder/BepInEx/plugins/` folder.
 
 ## Testing the mod
 
-If its your first time ever launching the game with the latest BepInEx Pack, you may have notice the BepInEx GUI has a console, it has multiple features that could be useful to you:
+If it's your first time ever launching the game with the latest BepInEx Pack, you may have notice the BepInEx GUI has a console, it has multiple features that could be useful to you:
 
 - Pausing / Resuming the game process
 
