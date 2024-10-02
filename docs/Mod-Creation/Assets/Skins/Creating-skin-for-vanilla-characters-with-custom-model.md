@@ -1,87 +1,105 @@
 # Creating skin for vanilla characters with custom model
 
 This guide will go over the process for creating a mod that will add a skin with a custom model into `Risk of Rain 2`.
-We will be going over two different ways to create this mod. One will require little to no coding knowledge while the other will be the completely programmatic way.
+
+We will be going over two different ways to create this mod.
+
+One will require little to no coding knowledge while the other will be the completely programmatic way.
 
 These are the tools you'll need to make a skin:
+
 * Blender (2.9 or 3.X work, I personally use 2.93)
-* Unity 2019.4.26f1
+
+* [Unity](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Version)
+
 * Asset Studio GUI (See Ripping Assets)
 
 It is recommended that you be familiar with how to use Blender before attempting either method of creating skins. Unity Experience is also recommended, though not required.
 
 ### Video Tutorial
+
 There is an old video tutorial of KingEnderBrine's Skin Builder (the non-programmer path to creating skins), but a large portion of it it is now outdated.
 
 [The tutorial is located here](https://www.youtube.com/watch?v=NzrVKDw-vq4)
 
 The parts of the video tutorial that are still accurate are:
+
 * [Blender. Creating a skin model](https://www.youtube.com/watch?v=NzrVKDw-vq4&t=133s)
+
 * [Unity. Creating skin](https://www.youtube.com/watch?v=NzrVKDw-vq4&t=486s)
+
 * [VisualStudio. Optional code](https://www.youtube.com/watch?v=NzrVKDw-vq4&t=770s)
+
 * [Risk of Rain 2. Testing](https://www.youtube.com/watch?v=NzrVKDw-vq4&t=910s)
 
 You can likely supplement the missing portions of the video with this text tutorial, or use the video tutorial as a visual aid to help walk through parts of the text tutorial
 
 ### WARNING
+
 Before making a skin mod it is recommended to backup your profile. There were some cases where people's logbook was wiped out during the development process.
 
-***
+## Ripping Assets
 
-<details>
- <summary>Ripping Assets</summary>
-
-## Ripping assets
 First of all, you need to import a character asset from the game to Blender. You can read about how to do that [here](https://github.com/RuneFox237/RoR2SotVBlenderScripts/wiki/Ripping-Characters-for-skins-from-RoR2-Post-SotV).
-</details>
 
-***
+### Blender
 
-<details>
- <summary>Blender</summary>
-
-## Blender
 Once you've imported the ripped survivor to Blender, you create/import the model that you want to be a skin.
+
 If you're importing a model to create your skin you'll need to pose and scale it so that it matches as close to the survivor armature as possible.
+
 This is easy if your imported model has it's own skeleton, though more difficult if it does not.
 
-It is possible to move the survivor armature to match your imported model. But it is very likely to cause distortions in the final product. If you have to move the survivor armature. Try to only rotate the bones as this is the least likely to cause distortions compared to moving and scaling the bones.
+It is possible to move the survivor armature to match your imported model.
 
-![](https://cdn.discordapp.com/attachments/706089456855154778/742381045990817912/MatchMeshWithArmature.jpg)
+But it is very likely to cause distortions in the final product.
 
-When you have the armature and mesh matching as close as possible it's now time to parent the mesh to the armature. For our example we'll be doing this the simple way with automatic weights. Though if you have more blender experience, it is recommended to do this in the way that works for you.
-To automatically apply weights make sure you're in Object mode then select the mesh followed by the armature. Press ctrl+p and select 'with automatic weights'. If this worked correctly, you should be able to go to pose mode and move the bones around, the mesh should follow the bones.
+If you have to move the survivor armature.
 
-![](https://cdn.discordapp.com/attachments/706089456855154778/742381050600357989/AppliedWeights.jpg)
+Try to only rotate the bones as this is the least likely to cause distortions compared to moving and scaling the bones.
 
-Now we need to manage the materials and meshes of the model so that they will work in RoR2. RoR2's shader can only support one material per mesh, and each character only has a limited number of meshes. When possible try to merge all of your meshes into a single mesh. In order to merge meshes and materials, it is recommended to do this via blender addons like Material Combiner, or through third party programs like SubstancePainter + TextureSetCombiner.
+![image](https://github.com/user-attachments/assets/243be837-cc36-4ebc-8d4c-2e17fdbd589f)
 
-When you have your model finalized you can now export it to FBX, no special export options are needed. If you're using a blender version older than blender 3.0, you may be able to just drag the blend file into unity without exporting it to fbx.
+When you have the armature and mesh matching as close as possible it's now time to parent the mesh to the armature.
 
-</details>
+For our example we'll be doing this the simple way with automatic weights.
 
-***
+Though if you have more blender experience, it is recommended to do this in the way that works for you.
 
-This is where the guide diverges based on the whether or not you want to go the programming or non-programming route. Both routes require you to create a unity project though, so make a project using the unity version listed above(2019.4.26f1). This project can be used for not just your current skin mod, but any additional skin mods you want to make in the future.
+To automatically apply weights make sure you're in Object mode then select the mesh followed by the armature.
 
-***
+Press ctrl+p and select 'with automatic weights'.
 
-<details>
- <summary>KEB's Skin Builder (Non-programming Route)</summary>
+If this worked correctly, you should be able to go to pose mode and move the bones around, the mesh should follow the bones.
 
-![]()
+![image](https://github.com/user-attachments/assets/2d568ece-eae3-4c3d-a862-85649ec41237)
+
+Now we need to manage the materials and meshes of the model so that they will work in RoR2.
+
+RoR2's shader can only support one material per mesh, and each character only has a limited number of meshes.
+
+When possible try to merge all of your meshes into a single mesh.
+
+In order to merge meshes and materials, it is recommended to do this via blender addons like Material Combiner, or through third party programs like SubstancePainter + TextureSetCombiner.
+
+When you have your model finalized you can now export it to FBX, no special export options are needed.
+
+If you're using a blender version older than blender 3.0, you may be able to just drag the blend file into unity without exporting it to fbx.
+
+This is where the guide diverges based on the whether or not you want to go the programming or non-programming route.
+
+Both routes require you to create a unity project though, so make a project using the unity version listed above(2019.4.26f1). This project can be used for not just your current skin mod, but any additional skin mods you want to make in the future.
+
+## KEB's Skin Builder (Non-programming Route)
 
 This is the guide for making a skin mod using King EnderBrine's Skin Builder. This requires little to no programming knowledge in order to build the mod. 
 
-<details>
- <summary>Unity</summary>
+### Unity
 
-## Unity
-
-### Importing the package
+#### Importing the package
 After creating your unity project and opening it up. Go to Window->"Package Manager" on the toolbar at the top of the unity window. In the window that appears hit the "+" in the top left and select "Add package from Git URL".
 
-![](https://i.imgur.com/HIdQ9Ju.png)
+![HIdQ9Ju](https://github.com/user-attachments/assets/c90149f5-ca55-4208-a107-fd3c80f1b92f)
 
 Copy and Paste the link below into the field and hit 'add'
 
@@ -105,12 +123,9 @@ For each skin in your mod you're going to need to make a Skin Defenition. Right 
 You'll need to fill out all the fields of the SkinDef that you'll need for your skin. Descriptions of all the fields are located below.
 For all text fields, DO NOT start your text with a numerical number 0-9 i.e. (text numbers like one are fine though) or special characters(!, @, $, etc.) unless otherwise stated as this will cause errors in the build process. 
 
-<details>
-<summary>Parts of the SkinDefinition</summary>
+### Parts of the SkinDefinition
 
-![]()
-
-_**Mod Dependency**_: add this if your mod requires another mod also be installed for it to work correctly. i.e. if your skin mod is for a custom modded character. **Value** is the mod dependency that you can find by looking at the mod's thunderstore page. **Type ** can be either hard or soft. Hard means the mod in value is required, while soft means that the mod is not required but some functionality of your skin mod may require it.
+_**Mod Dependency**_: add this if your mod requires another mod also be installed for it to work correctly. i.e. if your skin mod is for a custom modded character. **Value** is the mod dependency that you can find by looking at the mod's thunderstore page. **Type** can be either hard or soft. Hard means the mod in value is required, while soft means that the mod is not required but some functionality of your skin mod may require it.
 
 _**Generate Enable Config**_: When Checked, this allows the mod to generate a config that allows the skins in the mod to be disabled/enabled
 
@@ -147,8 +162,6 @@ _**Minion Skin Replacements**_: This list is for replacing minions like the Engi
 
 _**Projectile Ghost Replacements**_: List used to replace the projectile ghosts of a character. TODO: add a tutorial on how to do this.
 
-</details>
-
 
 ### Skin Mod Info
 
@@ -157,10 +170,7 @@ Your mod will need a Mod Info in order for it to be created. Right Click in the 
 You'll need to fill out most of the fields of the ModInfo in order to build your mod. Descriptions of all the fields are located below.
 For all text fields, DO NOT start your text with a numerical number 0-9 i.e. (text numbers like one are fine though) or special characters(!, @, $, etc.) unless otherwise stated as this will cause errors in the build process. 
 
-<details>
-<summary>Parts of the Skin Mod Info</summary>
-
-![]()
+Parts of the Skin Mod Info
 
 _**Mod Name**_: The name of your mod
 
@@ -178,35 +188,27 @@ _**Regenerate Assembly Definition**_: This toggle when checked regenerates the a
 
 _**Build Button**_: Hit this when you want to build your mod. A progress bar pop-up may appear and Unity will likely freeze for a moment. If the mod builds with no errors then a separate windows explorer window will appear with your mod dll inside it. If there are errors an error sound will play and the window will not appear. Check the unity console for errors, fix them and try again.
 
-</details>
-
-</details>
-
-</details>
-
-***
-
-<details>
- <summary>Manual Programming route</summary>
+## Manual Programming route
 
 ## Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution
 
-## Unity
+### Unity
 First of all, you need to use the `2019.4.26f` version of Unity, otherwise, the game will not be able to load your Assetundle.
 
 Create a new Unity project, drag the Blender file into assets. Open the imported asset, select mesh, and press ctrl+d it will duplicate mesh into its asset, so you can build AssetBundle without excessive things from the Blender file. You can do the same thing with the material, or create new in Unity.
 Should be looking something like this
 
-![](https://cdn.discordapp.com/attachments/706089456855154778/742381037618855937/ImportIntoUnity.jpg)
+![image](https://github.com/user-attachments/assets/38945127-9a73-4b37-b93b-386f4e8369d9)
 
 Now install `AssetBundle Browser` package (In top panel: Window -> Package Manager), and open `AssetBundles` window (In top panel: Window -> AssetBundle Browser).
 Select what you need for AssetBundle and drag it to the AssetBundles window, create 1 AssetBundle
 
-![](https://cdn.discordapp.com/attachments/706089456855154778/742381029003886592/DragAndDropAssets.jpg)
+![image](https://github.com/user-attachments/assets/23253cd1-60ff-46eb-8b4e-02d26753cbee)
 
 Switch to the `Build` tab and press the build button. This will create AssetBundle in `{YourUnityProject}\AssetBundles\StandaloneWindows` folder.
 
 ## Visual studio
+
 Create/[use a boilerplate](https://github.com/risk-of-thunder/R2Wiki/wiki/Baby's-First-Mod) visual studio project.
 Drag and drop your AssetBundle file into the project.
 
@@ -221,10 +223,9 @@ I will provide the code snippet for how to add the skin with some commentaries.
 # Renderers
 In the example code, there is an array of renderers. The render indices for vanilla survivors can be seen [here](https://github.com/RuneFox237/RoR2SotVBlenderScripts/blob/main/RoR2_SotV%20Blender%20Scripts/SotVSurvivorRenderIndexes.txt)
 
-
 # Example code
 
-```
+```csharp
 using BepInEx;
 using R2API;
 using R2API.Utils;
@@ -361,19 +362,14 @@ namespace SkinTest
 
 ## Result
 
-![](https://cdn.discordapp.com/attachments/706089456855154778/742381034691231775/EndResult.jpg)
+![image](https://github.com/user-attachments/assets/1e40df06-748f-4cde-aa91-10d28f3f81a9)
 
 You can check out how it looks in motion: https://youtu.be/N5WPOxIErI0
-</details>
-
-***
-
-<details>
- <summary>Testing your mod</summary>
 
 ## Testing your mod
 
-Once you have a dll of your mod, you can drop it into your bepinex plugins folder and launch your modded RoR2. If everything is working, you should be able to select your skin in the character select screen.
+Once you have a dll of your mod, you can drop it into your bepinex plugins folder and launch your modded RoR2.
+
+If everything is working, you should be able to select your skin in the character select screen.
 
 TODO: Create a list of Common issues and solutions that appear when building skins.
-</details>
