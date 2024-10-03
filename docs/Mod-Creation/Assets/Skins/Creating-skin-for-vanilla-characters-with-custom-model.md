@@ -88,7 +88,7 @@ If you're using a blender version older than blender 3.0, you may be able to jus
 
 This is where the guide diverges based on the whether or not you want to go the programming or non-programming route.
 
-Both routes require you to create a unity project though, so make a project using the unity version listed above(2019.4.26f1). This project can be used for not just your current skin mod, but any additional skin mods you want to make in the future.
+Both routes require you to create a unity project though, so make a project using the unity version listed top of the page. This project can be used for not just your current skin mod, but any additional skin mods you want to make in the future.
 
 ## KEB's Skin Builder (Non-programming Route)
 
@@ -193,7 +193,7 @@ _**Build Button**_: Hit this when you want to build your mod. A progress bar pop
 ## Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution
 
 ### Unity
-First of all, you need to use the `2019.4.26f` version of Unity, otherwise, the game will not be able to load your Assetundle.
+First of all, you need to use the right version of Unity (available top of the page), otherwise, the game will not be able to load your Assetundle.
 
 Create a new Unity project, drag the Blender file into assets. Open the imported asset, select mesh, and press ctrl+d it will duplicate mesh into its asset, so you can build AssetBundle without excessive things from the Blender file. You can do the same thing with the material, or create new in Unity.
 Should be looking something like this
