@@ -10,14 +10,14 @@ Generally when people say "component" they are talking about classes derived fro
 
 ### Constructor
 Generally, you shouldn't use constructors in classes derived from MonoBehaviour. If you need to initialize something, do it in Awake.
-https://ilkinulas.github.io/development/unity/2016/05/30/monobehaviour-constructor.html
+[https://ilkinulas.github.io/development/unity/2016/05/30/monobehaviour-constructor.html](https://ilkinulas.github.io/development/unity/2016/05/30/monobehaviour-constructor.html)
 
 ## MonoBehaviour Messages
 Every instance of MonoBehaviour has some special functions that are called by the engine at specific events.
-Here is the game loop: https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg
+[Here is the game loop.](https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg)
 
-All MonoBehaviour callbacks are described in unity documentation: [Check under "Messages" header](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html)
-But down below we'll talk about some of them.
+All MonoBehaviour callbacks are described in unity documentation: [Check under "Messages" header](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html)  
+Down below we'll talk about some of them.
 
 ### Awake
 Awake is the first thing that is called when a GameObject with this MonoBehaviour attached is created.
@@ -69,7 +69,7 @@ Avoid, same as Invoke.
 
 Starts an asynchronous process similar to a thread. Use this to repeat a function a specific number of times or Lerp a value without slowdown.
 
-interesting article about coroutine vs threading: https://gamedev.stackexchange.com/questions/143454/unity-coroutine-vs-threads
+[interesting article about coroutine vs threading](https://gamedev.stackexchange.com/questions/143454/unity-coroutine-vs-threads)
 
 ## Manipulating Components
 These functions are used to add, reference, and remove components of GameObjects. If your mod is done through code, you will likely have to wrangle with these a lot. 
@@ -103,5 +103,5 @@ Should be avoided even more than GetComponent
 Do not ever use this
 The power to find any object in a scene with a desired component sounds appealing, but it will iterate through every single object in the scene, searching through their components. It is a terrible performance killer and if you are caught using this you will be publicly shamed.
 
-# Using Scripts in Editor
-While you are free to manipulate them as much as you want through code, MonoBehaviour components were intended to use in editor. Refer to this article on how to do as such: https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Using-MonoBehaviour-Scripts-in-Editor/
+## Using Scripts in Editor
+While you are free to manipulate them as much as you want through code, MonoBehaviour components were intended to use in editor. Refer to [this article](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Using-MonoBehaviour-Scripts-in-Editor/) on how to do as such

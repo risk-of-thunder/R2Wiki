@@ -19,6 +19,10 @@ The structure of your Plugin folder is one of the most important things to load 
 
 ###### example folder structure of Starstorm2 nightly, all the assetbundles are in the assetbundles folder, all the language files are in languages, and the soundbank is in soundbanks.
 
+When going to make a .zip for thunderstore (or to import to r2modman locally), wrap these in a folder called "plugins" and have that folder next to your manifest.json and icon.png in the root of your zip.
+
+### File Location
+
 The easiest and safest way of getting the location of your DLL is thru your main plugin, via the Info property. To easily get access to the Info property, you can create a static field in your MainPlugin of type PluginInfo, and set it on Awake.
 
 ```csharp
@@ -32,7 +36,7 @@ public class MainClass : BaseUnityPlugin
 }
 ```
 
-### Loading AssetBundles
+## Loading AssetBundles
 
 For loading the AssetBundle for your mod, you can use the following class as an example.
 
@@ -41,13 +45,13 @@ using UnityEngine;
 using System.IO;
 
 //Static class for ease of access
-public static class Assets
+public static class Asset
 {
-	//The mod's AssetBundle
+	//You will load the assetbundle and assign it to here.
 	public static AssetBundle mainBundle
 	//A constant of the AssetBundle's name.
 	public const string bundleName = "mybundle";
-	// Not necesary, but useful if you want to store the bundle on its own folder.
+	// Uncomment this if your assetbundle is in its own folder. Of course, make sure the name of the folder matches this.
 	// public const string assetBundleFolder = "AssetBundles";
 
 	//The direct path to your AssetBundle
@@ -55,9 +59,9 @@ public static class Assets
 	{
 		get
 		{
-			//This returns the path to your assetbundle assuming said bundle is on the same folder as your DLL. If you have your bundle in a folder, you can uncomment the statement below this one.
-			return Path.Combine(Path.GetDirectoryName(MainClass.PInfo.Location), myBundle);
-			//return Path.Combine(Path.GetDirectoryName(MainClass.PInfo.Location), assetBundleFolder, myBundle);
+			//This returns the path to your assetbundle assuming said bundle is on the same folder as your DLL. If you have your bundle in a folder, you can instead uncomment the statement below this one.
+			return Path.Combine(Path.GetDirectoryName(MainClass.PInfo.Location), bundleName);
+			//return Path.Combine(Path.GetDirectoryName(MainClass.PInfo.Location), assetBundleFolder, bundleName);
 		}
 	}
 
@@ -71,9 +75,9 @@ public static class Assets
 
 You can also load multiple assetBundles for your mod, but the loading of multiple bundles is outside of the scope of this guide.
 
-### Loading SoundBanks
+## Loading SoundBanks
 
-#### Loading SoundBanks from a folder
+### Loading SoundBanks from a folder
 
 ```csharp
 using System.IO;
@@ -121,11 +125,11 @@ public static class SoundBank
 }
 ```
 
-#### Loading Soundbanks with R2API
+### Loading Soundbanks with R2API
 
 Loading a soundBank with R2API is trivial, since you just need to put your soundBank file in the bepinex/plugins folder and change its extension from `.bnk` to `.sound`. R2API will load it
 
-### Loading Language Files
+## Loading Language Files
 
 Loading LanguageFiles requires a special setup of the Languages folder, an example "Language Folder Tree" can be seen here.
 
@@ -133,7 +137,7 @@ Loading LanguageFiles requires a special setup of the Languages folder, an examp
 
 ###### Example language folder tree of starstorm, Notice how the root folder named Languages contains a set of subFolders, and each subFolder has the name of one of the Languages in ROR2, en is for English, es-419 for spanish, etc. While each of those subFolders has a .json file with the Language Tokens and strings.
 
-#### Loading Language Files with RoR2's Language system
+### Loading Language Files with RoR2's Language system
 
 Loading your language files with a delegate within the game allows them to be loaded directly to ROR2's language systems, which means you're avoiding depending on LanguageAPI for loading tokens.
 Keep in mind this has to be before the Language system is initialized.
@@ -165,9 +169,9 @@ public static class Languages
 }
 ```
 
-#### Loading LanguageFiles with R2API
+### Loading LanguageFiles with R2API
 
-R2API automatically load any file with extension .language if it detects one in the bepinex/plugins folder
+R2API automatically loads any file with extension .language if it detects one in the bepinex/plugins folder
 [More details in this page](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Localization/)
 
 If you want to load language files manually instead, you can do something like this:

@@ -1,6 +1,7 @@
 MonoBehaviours are components that are attached to Unity GameObjects and perform various functions. See our article about them [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/), and see Unity documentation about them [here](https://docs.unity3d.com/Manual/ScriptingImportantClasses.html)
 
-MonoBehaviours are most commonly used in prefabs, created in the Unity Editor. From here, this article will assume you know how to create prefabs, attach scripts to them, and build those prefabs into assetbundles.
+MonoBehaviours are most commonly used in prefabs, created in the Unity Editor. From here, this article will assume you know how to create prefabs, attach scripts to them, and build those prefabs into assetbundles. See [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Loading-Assets/)
+to learn how to load those assetbundles into your mod.
 
 If you are creating and loading prefabs for use in your mod, you have the ability to attach any of the game's MonoBehaviours, and any custom MonoBehaviours that you want to write as well. Refer to the respective sections on how to do each.
 
@@ -17,7 +18,7 @@ Preferred if you are only using a few scripts
 
 1. Create a script with the same name and namespace as an existing RoR2 script
 2. fill this script out with any Serialized Fields in the script that you want to use in editor.
-    i. this includes any any `public` field, and any field with the `[SerializedField]` attribute
+    - this includes any any `public` field, and any field with the `[SerializedField]` attribute
 
 That's it. pretty simple, but this doesn't really scale. You will have to do this with *every* script you want to use in editor.  
 Consider the next option if you want to use many RoR2 scripts.
@@ -25,7 +26,7 @@ Consider the next option if you want to use many RoR2 scripts.
 ### Option 2: Importing all RoR2 scripts
 Preferred if you are using many RoR2 scripts, namely if you are creating projectiles.
 
-If you are currently creating your mod in code, and only using Unity to build assetbundles, you can use ThunderKit to import the RoR2 codebase into your unity project, and you will have access to all unity components.  
+If you are currently creating your mod in code, and only using Unity to build assetbundles, you can use ThunderKit to import the RoR2 codebase into your unity project, and you will have access to all unity components. After which, you can return to buliding your mod in code as before.
 
 This will take some setup, but if you are using components a lot, and if you want to work with projectiles, it is definitely worth it.
 
@@ -53,7 +54,8 @@ This works perfectly fine, but does not scale. It can easily become tedious to t
 Any MonoBehaviour in your mod code can be attached to a prefab in unity.
 
 1. Create a script with the same name and namespace as your MonoBehaviour class in your mod
-    i. You can likely just copy the whole code over, but if you can't, you only need the class name and any serialized fields you want to use in editor.
+    - You can likely just copy the whole code over, but if you can't, you only need the class name and any serialized fields you want to use in editor.
+    - this includes any any `public` field, and any field with the `[SerializedField]` attribute
 2. Put this script in a folder in your Unity project
 2. Right click and create an Assembly Definition in this folder, with the same name as the .csproj of your mod
 
@@ -65,7 +67,7 @@ Note: If your code runs into errors because it references other RoR2 code, you w
 You can just take your whole mod dll and slap it in your unity project.  
 To do this, you will need to use Thunderkit to add RoR2 and all other dependencies of your mod to your unity project.
 
-In my experience, this just ended up slowing down my development. The above process worked well for my purposes. If you are considering this option because you are using a ton of components, it may be time to pursue a thunderkit setup
+In my experience, this just ended up slowing down my development, compared to Option 1. If you are considering this option because you are using a ton of components, it may be time to pursue a thunderkit setup
 
 ### Option 3: Just Use Thunderkit
 If you are more unity-minded, Thunderkit is an mod creating workflow where everything is in editor.
