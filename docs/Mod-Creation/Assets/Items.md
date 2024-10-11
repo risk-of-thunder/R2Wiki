@@ -19,7 +19,7 @@ To add an item to the game, a mod maker will have to call the
 
 TODO: Ideally a dedicated page with a tutorial on how to create and export assets that can be linked from anywhere else would be better. For now keeping the item asset example here.
 ---
-Risk of Rain 2 uses Unity Version **2019.4.37**, so let's [download that and install it](https://download.unity3d.com/download_unity/019e31cfdb15/Windows64EditorInstaller/UnitySetup64-2019.4.37f1.exe).
+You can find the Unity version that Risk of Rain 2 uses [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Version/).
 I did an **.unitypackage** out of my Rampage mod, that you can [download here](https://github.com/xiaoxiao921/ItemLib/blob/master/AssetBundle%20Example%20Project.unitypackage), it'll serve as a base for this part.
 
 Launch the editor and create a new project.
