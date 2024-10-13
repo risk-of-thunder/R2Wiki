@@ -488,7 +488,7 @@ With that, your stage should be fully functioning by now. However, there are sti
 
 This section assumes that you use Jace's scripts for setting up the stage used in WaffleHouse. 
 
-Despite the fact that we use Thunderkit to create both assembly and asset bundles, we actually don't need to integrate Wwise into our project, since as of writing this section I've found no way to make `MusicTrackDefs` created in editor and filled with integrated Wwise to work. So instead we are going to do it in code.
+Despite the fact that we use Thunderkit to create both assembly and asset bundles, we actually don't need to integrate Wwise into our project. While we can make Wwise integration to work (and I've successfully done it pre SoTS) the problems arive when 1. you want to pass the project to someone else and it's a giant pain to integrate Wwise and 2. when DLC comes out and Unity version gets changed, you not only will have to fix your thunderkit integration, you will also have to fix your Wwise integration. So instead we are going to do it in code.
 
 Forst thing first, follow this [guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Sounds/WWise/Custom-Music/) to get a Wwise project going. After generating soundbanks note State Group ID for your custom `gameplaySongChoice` and State IDs for your main and boss songs. 
 
@@ -605,12 +605,31 @@ Note the second pair of ids, this [page](https://risk-of-thunder.github.io/R2Wik
 
 After all this you should have custom music working within the game. 
 
-However, there might be an issue of custom music continuing to play after you switch stages. You can solve it my unchecking "Continue to play on Switch change" in Designer window for you Music Switch Container object.
+If you want to get music state to change after you finish charging the teleporter, like how vanilla tracks have exit cues when you charge it and then it goes to silence, you can do this the following way:
 
-![image](https://github.com/user-attachments/assets/c86e329e-0d58-41b4-9460-b1064214b863)
+* Add new game sync called "bossStatus" and add two states to it: "alive" and "dead'.
 
-This will result in music taking a bit longer to come in with a weird fade in, while entering vanilla stage after custom stage will play a very small portion of previous vanilla stage before swaping to a new track. But it is better than having custom music stuck permanentely until you quit the run. You only need to do that if your custom music gets stuck, out of two custom stages that I (viliger) made, only for one of them music gets stuck, other one is fine.
+    ![image](https://github.com/user-attachments/assets/f9af5abe-6281-4857-be02-71d6b9cc3d02)
 
+* Select your BossSongChoice and in "Music Switch" tab add "bossStatus" as State Group.
+    
+    ![image](https://github.com/user-attachments/assets/c1511783-3e87-4294-ba39-342d17e8766a)
+
+* Now select your boss track in your gameplaySondChoice and select either alive or dead. Make sure both are highlighted, right click and select "Add Path". This will add your gameplaySondChoice state and bossStatus state as path in the table below. Do that for both alive and dead states, so you get the following result.
+
+    ![image](https://github.com/user-attachments/assets/8cb20aff-6219-486c-8139-2c5c6c25ddc7)
+
+* Now assign track for each of the paths. alive path will play during teleporter event, while its charging and dead will play after its fully charged. You should get it to look something like this.
+
+    ![image](https://github.com/user-attachments/assets/be7c45b5-9813-4eb0-808d-cd6fe76f8991)
+
+* If it fails to switch to dead state (or it happens after boss music makes a loop), read the next part.
+
+However, there might be an issue of custom music continuing to play after you switch stages. You can solve this by selecting your Music Switch Container, select Transitions tab, select the default transition that it has and below the list change "Exit source at" to "Immediate".
+
+![image](https://github.com/user-attachments/assets/245bfcc0-424f-46b8-89e4-9cdfcae3cde1)
+
+You can (and probably should) do this for both BossSongChoice and GameplaySongChoice containers.
 ## Optimization
 
 Optimization is **extremely** important to making your stage accessible to players. Currently, this topic isn't as fleshed out as I (JaceDaDorito) want it to be. Please, if you have any good information about stage optimization, message me @JaceDaDorito on discord and I will add it here. That being said, I will present what I know.
