@@ -230,35 +230,50 @@ internal class MyNetworkComponent : NetworkBehaviour
 
 2. **As a PostBuild-Event**
 
-- Download the [archive](https://github.com/risk-of-thunder/R2Wiki/files/14428459/NetworkWeaver.zip) that contains the UnetWeaver executable.
+- Download the [archive](https://github.com/user-attachments/files/17396610/NetworkWeaver.zip) that contains the UnetWeaver executable.
 - You can set it up how you want, but for now we'll assume that you extracted it in a folder called `NetworkWeaver` in your project root and your libraries are there too in a `libs` folder.
 - In your project's properties, create the following postbuild event
   - `REM TEXT` is a comment. Batch is not the best for comments, but it'll keep it copypastable.
   - The wiki also has the [Build Events](https://github.com/risk-of-thunder/R2Wiki/wiki/Build-Events) page for more information on these.
 
-   ```bat
-   REM First we copy the from the output folder to the NetworkWeaver folder.
-   REM We store the output from robocopy in a file called robocopy which we'll delete at the end of the file.
-   robocopy $(TargetDir) $(ProjectDir)\NetworkWeaver $(TargetFileName) > $(TargetDir)Robocopy
-   REM Then we navigate our script to the NetworkWeaver folder to make the follow up line less verbose.
-   cd $(ProjectDir)\NetworkWeaver
-   REM Unity.UNetWeaver.exe {path to Coremodule} {Path to Networking} {Path to output folder} {Path to the dll you want patched} {Path to all needed references for the to-be-patched dll}
-   Unity.UNetWeaver.exe "..\libs\UnityEngine.CoreModule.dll" "..\libs\com.unity.multiplayer-hlapi.Runtime.dll" "Patched/"  $(TargetFileName) "$(ProjectDir)\libs"
-   REM We store the prepatched dll disabled as a .prepatch so that you can check it if you want, but first we need to make sure that file doesn't exist already.
-   IF EXIST $(TargetFileName).prepatch (
-   DEL /F $(TargetFileName).prepatch
-   )
-   REM Then we rename the prepatched file to bla.dll.prepatch
-   ren $(TargetFileName) $(TargetFileName).prepatch
-   REM move our script to the Patched Folder
-   cd Patched
-   REM move from the current directory (.) to the projectDirectory and store the output once more to the Robocopy file.
-   robocopy . $(ProjectDir)  $(TargetFileName) > $(TargetDir)Robocopy
-   REM Remove the patched file from the Patched folder, because the Weaver won't run if the file already exists.
-   del  $(TargetFileName)
-   REM Delete the holder for all robocopy output.
-   del $(TargetDir)Robocopy
-   ```
+    ```bat
+    REM First we copy the from the output folder to the NetworkWeaver folder.
+    REM We store the output from robocopy in a file called robocopy which we'll delete at the end of the file.
+    robocopy "$(TargetDir) " "$(ProjectDir)NetworkWeaver" "$(TargetFileName)" > "$(TargetDir)Robocopy"
+    robocopy "$(TargetDir) " "$(ProjectDir)NetworkWeaver" "$(TargetName).pdb" > "$(TargetDir)Robocopy"
+
+    REM Then we navigate our script to the NetworkWeaver folder to make the follow up line less verbose.
+    cd "$(ProjectDir)\NetworkWeaver"
+
+    REM Unity.UNetWeaver.exe {path to Coremodule} {Path to Networking} {Path to output folder} {Path to the dll you want patched} {Path to all needed references for the to-be-patched dll}
+    Unity.UNetWeaver.exe "../libs/UnityEngine.CoreModule.dll" "../libs/com.unity.multiplayer-hlapi.Runtime.dll" "Patched/"  $(TargetFileName) "$(ProjectDir)/libs"
+
+    REM We store the prepatched dll disabled as a .prepatch so that you can check it if you want, but first we need to make sure that file doesn't exist already.
+    IF EXIST "$(TargetFileName).prepatch" (
+    DEL /F "$(TargetFileName).prepatch"
+    )
+    IF EXIST "$(TargetFileName).prepatch" (
+    DEL /F "$(TargetFile).pdb.prepatch"
+    )
+
+    REM Then we rename the prepatched file to bla.dll.prepatch
+    ren "$(TargetFileName)" "$(TargetFileName).prepatch"
+    ren "$(TargetName).pdb" "$(TargetName).pdb.prepatch"
+
+    REM move our script to the Patched Folder
+    cd Patched
+
+    REM move from the current directory (.) to the projectDirectory and store the output once more to the Robocopy file.
+    robocopy "." "$(ProjectDir) " "$(TargetFileName)" > "$(TargetDir)Robocopy"
+    robocopy "." "$(ProjectDir) " "$(TargetName).pdb" > "$(TargetDir)Robocopy"
+
+    REM Remove the patched file from the Patched folder, because the Weaver won't run if the file already exists.
+    del "$(TargetFileName)"
+    del "$(TargetName).pdb"
+
+    REM Delete the holder for all robocopy output.
+    del "$(TargetDir)Robocopy"
+    ```
 
 - If everything went correctly, your patched plugin.dll will be in your project root whenever you build. (So next to your .csproj file.)
 
