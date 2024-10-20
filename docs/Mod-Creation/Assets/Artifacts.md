@@ -293,8 +293,8 @@ namespace YourNamespaceHere
 		}
 		private void MyArtifactEffect(Run run)
 		{
-			   if(NetowkServer.active && RunArtifactManager.instance.IsArtifactEnabled(MyArtifactDef)
-			  Chat.AddMessage("My Artifact has been enabled!"
+			   if(NetworkServer.active && RunArtifactManager.instance.IsArtifactEnabled(MyArtifactDef))
+			  Chat.AddMessage("My Artifact has been enabled!")
 		}
 	}
 }
