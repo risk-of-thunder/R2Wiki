@@ -184,6 +184,9 @@ namespace MoreElites
       foreach (Renderer componentsInChild in AffixEmpoweringEquipment.pickupModelPrefab.GetComponentsInChildren<Renderer>())
         componentsInChild.material = empoweringMat;
       AffixEmpoweringEquipment.nameToken = "EQUIPMENT_AFFIX_EMPOWERING_NAME";
+      AffixEmpoweringEquipment.descriptionToken = "EQUIPMENT_AFFIX_EMPOWERING_DESC";
+      AffixEmpoweringEquipment.pickupToken = "EQUIPMENT_AFFIX_EMPOWERING_PICKUP";
+      AffixEmpoweringEquipment.loreToken = "EQUIPMENT_AFFIX_EMPOWERING_LORE";
       AffixEmpoweringEquipment.name = "AffixEmpowering";
     }
 
@@ -203,6 +206,9 @@ namespace MoreElites
     {
       LanguageAPI.Add("ELITE_MODIFIER_EMPOWERING", "Empowering {0}");
       LanguageAPI.Add("EQUIPMENT_AFFIX_EMPOWERING_NAME", "Empowering Aspect");
+      LanguageAPI.Add("EQUIPMENT_AFFIX_EMPOWERING_PICKUP", "Become an aspect of Empowering");
+      LanguageAPI.Add("EQUIPMENT_AFFIX_EMPOWERING_DESC", "Become an aspect of Empowering");
+      LanguageAPI.Add("EQUIPMENT_AFFIX_EMPOWERING_LORE", "Empowering Aspect Lore");
     }
   }
 }
