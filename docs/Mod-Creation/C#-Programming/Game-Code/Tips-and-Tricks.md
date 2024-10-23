@@ -5,7 +5,7 @@ RoR2.Util has a lot of existing helping methods such as CheckRoll, ApplySpread, 
 
 ### Iterate through all living entities
 ```csharp
-foreach (var characterBody in CharactBody.readOnlyInstancesList)
+foreach (var characterBody in CharacterBody.readOnlyInstancesList)
 { 
     // characterBody is a living entity (like a monster, or a player / survivor body)
 }
