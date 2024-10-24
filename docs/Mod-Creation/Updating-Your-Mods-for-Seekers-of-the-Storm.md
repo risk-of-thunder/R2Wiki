@@ -1,12 +1,12 @@
 report on discord [here](https://discord.com/channels/562704639141740588/1279030064192950382) if you find anything else, please and thanks
 
-# General
-## Before Updating Libraries
+## General
+### Before Updating Libraries
 there is a namespace that begins `Assets.RoR2`
 
 if you have a class named `Assets` (all henry survivors will), code attempting to call this class will be intercepted by that namespace. Before updating. Rename `Assets` class to  just `Asset` or `ModAssets` or something
 
-## Update Your Projects
+### Update Your Projects
 - in visual studio, right click your csproj > properties > General > set Target Framework to 2.1 if it isn't already
 - I'm copypasting this to update my nuget libraries
 ```xml
@@ -22,7 +22,7 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
   - I had issues loading the soundbank through code, so I just cut that code and renamed my soundbank from .bnk to .sound and let r2api do it
 - if your weaver doesn't weave, make sure your post build is targeting the right destination (2.1 folder instead of 2.0) and throw [this dll](https://cdn.discordapp.com/attachments/1279030064192950382/1279663585189953577/netstandard.dll?ex=66d54315&is=66d3f195&hm=aabf2c9d2c7931a1fd4e044a960e0f755e2a3d0fd461c68453e9376855b3894d&) in your libs folder haha woops who put that there 
 
-## Code Changes
+### Code Changes
 - `TemporaryOverlay` changed to `TemporaryOverlayInstance`
   - instead of `TemporaryOverlay overlay = someModelGameObject.AddComponent<TemporaryOverlay>();`
     - `TemporaryOverlayInstance temporaryOverlayInstance = TemporaryOverlayManager.AddOverlay(someModelGameObject);`
@@ -40,17 +40,17 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
 - function `GenericSkill.OnFixedUpdate` now has a `float deltaTime` parameter
 - `EntityStateCatalog.InstantiateState` now needs `ref` before the `SerializableEntityStateType` parameter
 
-## Character Stuff
+### Character Stuff
 - some Effects and ProjectileGhosts are pooled now. 
   - if your projectiles aren't set up for this, I just did a `projectileController.ghostPrefab.AddComponent<VFXAttributes>().DoNotPool = true;` to avoid it for now
   - I would highly suggest looking into adding an `EffectManagerHelper` component to pool your effects. pool is cool. I will update this with more detail when I do it myself
 - if you set up your `KinematicCharacterController` yourself, set the `playerCharacter` value to true for survivors.
   - Henry clones commando's body for his setup so you're likely not to need to
 
-## Misc
+### Misc
 - If your mod is translated, in addition to `es-ES` for Spanish (Spain), there is now `es-419` for Spanish (Mexico)
 
-# How to upgrade a 2019.4 Thunderkit project to 2021.3.33
+## How to upgrade a 2019.4 Thunderkit project to 2021.3.33
 
 1. Create a new branch for the upgrade process, you'll want this in case you fuck something up.
 2. Open your project on the 2019.4 version of unity
