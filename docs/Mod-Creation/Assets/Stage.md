@@ -8,13 +8,18 @@ There is also a bug in the latest version of ThunderKit:
 
 To find the scripting define symbols you need to go to ``Edit`` > ``Project Settings`` > ``Player`` and append ``RISKOFRAIN2`` to your Scripting Define Symbols.
 
+This page has been updated for SoTS! If there are any screenshots that were taken before SoTS, that means they still apply.
+
 ## Quick Terminology
 
 - **Scene** - The internal scene asset / what the player is seeing when the scene is loaded. Includes stages, cutscenes, and menus. (``golemplains``, ``golemplains2``, ``arena``, ``artifactworld``, ``crystalworld``, etc.)
 - **Stage** - A playable scene. All stages are scenes but not all scenes are stages. (``golemplains``, ``golemplains2``, ``arena``, ``artifactworld``, etc.)
 - **Locale** - The name assigned to a stage or a group of stages. (Titanic Plains, Void Fields, Bulwark's Ambry, etc.)
-- **Variant / "Alt"** - An alternate stage in a locale. (Titanic Plains having two different stages: ``golemplains`` and ``golemplains2``)
+- **Variant / Alt** - An alternate stage in a locale. (Titanic Plains having two different stages: ``golemplains`` and ``golemplains2``)
+- **"Night Stage"** / Post-Loop Alt - A alternate stage that appears post loop. 
 - **"Part of the Loop"** - Stages 1-5.
+- **Normal Progression** - The default teleporter progression without taking any other routes.
+- **Path of the Colossus** - The set of stages to get to Prime Meridian.
 
 ## Tools and References
 
@@ -68,7 +73,7 @@ If your stage is **completely new** and **not a variant**, the SceneDef name, Sc
 
 If your stage is a **variant**, the SceneDef name and Scene name should be the same but different from the original stage; ``Base Scene Name Override`` should be the same as the original stage. For example, my Scorched Acres variant could be ``slip_wispgraveyard2`` but the ``Base Scene Name Override`` should be ``wispgraveyard``.
 
-The reason why these rules exist is because the game identifies which scene to load by using the SceneDef and Scene names. The ``Base Scene Name Override`` field is important for the logbook and R2API.Stages's variant system- of which will be explained [here](#creating-mod-framework-and-loading-your-stage).
+The reason why these rules exist is because the game identifies which scene to load by using the SceneDef and Scene names. The ``Base Scene Name Override`` field is important for the logbook and how R2API.Stages catalogs stages- of which will be explained [here](#creating-mod-framework-and-loading-your-stage).
 
 The Other elements in the SceneDef are as follows:
 
@@ -90,13 +95,21 @@ The Other elements in the SceneDef are as follows:
 #### Music
 - ``Main Track`` indicates what music to play during normal play.
 - ``Boss Track`` indicates what music to play during the teleporter. If there is no teleporter, you don't need to populate this.
+#### Color
+- ``Environment Color`` is used for hardware light colors. (I couldn't find anything on this but thats what the Tooltip of the field says)
 #### Behavior
 - ``Suppress Player Entry`` is checked if the player doesn't spawn in the scene. Don't check this because you aren't making a cutscene.
 - ``Suppress Npc Entry`` is checked if npcs (like drones) don't spawn into the scene. This is checked in ``arena`` due to the fog.
 - ``Block Orbital Skills`` is checked if you  ~~hate Captain~~ want to turn off Captain's orbital skills in the stage. Usually used in Hidden Realms.
 - ``Valid For Random Selection`` is checked if you allow the stage to be used in a random stage order. Mark this accordingly in case someone wants to do modded Prismatic Trials runs or another modded gamemode.
+- ``Allows Items To Spawn Objects`` is checked if you want items like Shipping Request Forum to put objects into the stage. You do not need to check this if the SceneDef type is set to ``Stage``.
+#### Artifact
+- ``Need Skip Devotion Respawn`` is checked if you want to delay devotion lemurian spawning until there is a valid node graph. This applies for stages like ``moon2``.
 #### Destinations
 - ``Destination Group`` is the group of destinations after leaving the stage. ``dampcavesimple`` has the Stage 5 Scene Group (``sgStage5``) marked as its destination group.
+- ``Looped Destinations Group`` is a group of destinations after leaving the stage and when looped. ``dampcavesimple`` has the looped Stage 5 Scene Group (``loopSgStage5``) marked as its looped destinations group.
+- ``Should Update Scene Collection After Looping`` is checked if you want the stage to swap to the ``Looped Destinations Group`` after looping.
+- ``Looped Scene Def`` is the pairing looped SceneDef. ``village`` has ``villagenight`` as its looped scene def.
 - ``Destinations`` is deprecated.
 #### Portal Appearance
 - ``Preferred Portal Prefab`` is used by the portal dialer for the artifact teleporter (I could be wrong about this). You don't need to worry about this if you are making a normal stage.
@@ -225,17 +238,17 @@ public void AddSceneDef(){
     ExampleModStageDef.portalMaterial = StageRegistration.MakeBazaarSeerMaterial(YourLoadedPreviewTexture.texture);
 
     StageRegistration.AddSceneDef(ExampleModStageDef, ExampleModPluginInfo)
-    StageRegistration.RegisterSceneDefToLoop(ExampleModStageDef);
+    StageRegistration.RegisterSceneDefToNormalProgression(ExampleModStageDef);
 }
 ```
-This pseudo-code showcases some of R2API's stage utilities such as ``MakeBazaarSeerMaterial``, ``AddSceneDef``, and ``RegisterSceneDefToLoop``.
+This pseudo-code showcases some of R2API's stage utilities such as ``MakeBazaarSeerMaterial``, ``AddSceneDef``, and ``RegisterSceneDefToNormalProgression``.
 - ``MakeBazaarMaterial`` returns a usable bazaar seer material using the texture passed into it.
 - ``AddSceneDef`` adds your SceneDef to your ContentPack.
-- ``RegisterSceneDefToLoop`` automatically adds your stage to the loop depending on your stage order. If your stage order is set to ``2`` like the example above, it will add your ``SceneDef`` to the appropriate ``SceneCollection`` (``sgStage2``) and set your ``Destinations Group`` to the next ``SceneCollection`` (``sgStage3``). If you are registering a stage 5, the ``Destinations Group`` will be set to ``sgStage1``.
+- ``RegisterSceneDefToNormalProgression`` automatically adds your stage to the loop depending on your stage order. If your stage order is set to ``2`` like the example above, it will add your ``SceneDef`` to the appropriate ``SceneCollection`` (``sgStage2`` and ``loopSgStage2``) and set your ``Destinations Group`` to the next ``SceneCollection`` (``sgStage3`` and ``loopSgStage3``). If you are registering a stage 5, the ``Destinations Group`` will be set to ``sgStage1`` and ``loopSgStage3``. This method has extra parameters to support putting in a custom weight and setting the pre-loop/post-loop status of the stage.
 
-R2API.Stage's true power comes from its weight rebalancing system. If you register a stage with a ``Base Scene Name`` of ``wispgraveyard``, it will automatically be classified as a variant of "Scorched Acres" and rebalance the weights of all ``wispgraveyard`` variants to add up to 1. If there are two variants total, each variant will have a weight of 0.5; if there are three variants total, each variant will have a weight of 0.3334. This also applies to modded stages such as "Fogbound Lagoon" (``FBLScene``). This is to allow smooth implementation of stage variants without worry of modded variants. It is heavily encouraged to make your mod dependent on R2API.Stages if you are creating a variant.
+R2API.Stages catalogs all stages that get entered into the Normal Progression. At some point in the future there will be efforts into making alternate Path of the Colossus stages.
 
-Currently this system only applies to stages in the loop. At some point there will be a system to implement variants of stages such as ``moon2``, ``arena``, ``goldeshores``, etc. To see all internal stage names please look [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Scene-Names/).
+To see all internal stage names please look [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Scene-Names/).
 
 To assist in building the mod, LoP comes with standard Manifests, Pipelines, and PathReferences. Copy ``Manifest`` from ``LocationsOfPrecipitation/Editor/Manifest`` and fill it in appropriately. Every field can be explained under Thunderkit's documentation window under ``Tools`` > ``Thunderkit`` > ``Documentation``. Make sure your Scene asset and the rest of your mod's assets are in different bundles.
 
