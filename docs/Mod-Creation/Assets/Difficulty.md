@@ -660,7 +660,7 @@ namespace ExampleDifficultyMod
 
 
 I don't have the difficulty outline template unfortunately. [This tutorial's](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Items/) Unity section covers how to get an AssetBundle. However...
-* The correct unity version is currently `2019.4.26f1`, so you must install that.
+* The correct unity version that ror2 uses is [listed here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Version/), so you must install that.
 * We will be loading our AssetBundle differently for better performance.
 
 

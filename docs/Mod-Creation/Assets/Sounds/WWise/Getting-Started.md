@@ -1,8 +1,8 @@
 # Getting Started
 
 ## Requirements:
-* [Wwise v2019.2.12.7544](https://www.audiokinetic.com/download/) 
-	* NOTE: while SoTV version of RoR2 uses 2019.2.12.7544, Autokinetic removed the ability to download it (I've been told they do that from time to time) so instead you can download 2019.2.14.7616, they are compatible and the way you make sure if it is compatible or not is by checking what SchemaVersion and what SoundbankVersion you got in SoundbanksInfo.xml file after generating your soundbanks with Wwise. SoTV version of RoR2 uses SchemaVersion 12 and SoundbankVersion 135. You can find game's SoundbanksInfo.xml inside Risk of Rain 2_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows.
+* [Wwise v2023.1.4.8496](https://www.audiokinetic.com/download/) 
+	* NOTE: If the version is not available to download you can try getting the closest version available to the number listed above, you can make sure if it is compatible or not is by checking what SchemaVersion and what SoundbankVersion you got in SoundbanksInfo.xml file after generating your soundbanks with Wwise. SoTV (DLC 1) version of RoR2 uses SchemaVersion 12 and SoundbankVersion 135. You can find game's SoundbanksInfo.xml inside Risk of Rain 2_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows.
 * An IDE (like Visual Studio 2022)
 * Audio files in .wav format (will not work in any other format, convert using audacity if needed)
 
@@ -16,7 +16,7 @@ The Wwise Installer does not function well when trying to install to an existing
 
   1. Get Offline Installer from AudioKinetic
 https://www.audiokinetic.com/library/edge/?source=InstallGuide&id=working_with_offline_installers
-  2. Create new Unity Project with Unity Hub for Unity 2019.4.26
+  2. Create new Unity Project with Unity Hub for [Unity Version RoR2 uses](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Version/)
   3. Close Unity
   4. Open the Wwise Launcher and navigate to the Unity Page
   5. Find the new project in the list, and click on the left drop down to select the option for Integrating with an Offline Installer

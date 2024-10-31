@@ -4,7 +4,7 @@ So, you want to begin a ThunderKit project but dont know what to do or where to 
 (This guide uses TK 5.2.2 and RoR2ImporterExtensions 1.0.0)
 
 ## What you'll need
-* [Unity Version 2019.4.26f1](https://download.unity3d.com/download_unity/e0392c6b2363/Windows64EditorInstaller/UnitySetup64-2019.4.26f1.exe) (*)
+* [Unity Version RoR2 Uses](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Version/) (*)
 * [Unity Hub](https://unity.com/unity-hub) (Extremely recommended)
 * [GIT](https://git-scm.com)
 * [GithubDesktop](https://desktop.github.com) (Recommended for managing your projects, as its very beginner friendly)
