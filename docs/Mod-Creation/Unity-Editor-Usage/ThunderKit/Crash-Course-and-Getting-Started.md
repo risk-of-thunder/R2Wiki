@@ -318,10 +318,102 @@ Below is a table that has all of the default PathComponent types and a descripti
 
 ### Step 7: My first ThunderKit mod
 
-<details><summary>Coming Soon...</summary>
+<details><summary>Reveal</summary>
 <p>
 
-Coming Soon... (Nebby: 0:34 AM and i got classes tomorrow, this part will come soon i promise <3)
+Now that we have a very basic grasp of compossable objects, we will begin creating a very simple mod that adds an ItemDef which increases all out stat multipliers by .1
+
+This part of the project will utilize the unofficial editor extension "RoR2EditorKit", as it contains a wizard that will create basically all of the boilerplate for us. If you did not install RoR2EditorKit or you left it's import step disabled, you can manually install it using it's [github repository](https://github.com/risk-of-thunder/RoR2EditorKit/tree/main) the same way you installed ThunderKit and the Importer Extensions.
+
+1. Go to ``Tools/RoR2EditorKit/Wizards/Mod``, click it and the Mod creator wizard will open.
+
+![image](https://github.com/user-attachments/assets/706e6ac2-422a-4f23-9691-0eee5b49dd97)
+
+2. The window will open, in this window you can fill out your mod's metadata. You can also tick on the "Add R2API Assemblies" option to add all R2API assemblies to your mod. You can also add more Precompiled Assemblies by adding them using the Precompiled Assembly References list.
+
+![image](https://github.com/user-attachments/assets/7fd4383e-41bc-42fe-891b-fa16a23db15d)
+
+3. Once configured, hit Run Wizard. once it completes, close the wiszard and go to your newly created folder where your mod resides. If your classes are missing, reimport the mod's folder by right clicking it and selecting "Reimport"
+
+![image](https://github.com/user-attachments/assets/d053a27e-3bfc-4b46-b6b2-ef15c387199f)
+
+You may appreciate a couple of new files in the folder.
+
+| File/Folder Name | Description |
+|--|--|
+| Assets (folder) | A folder where your mod's assets are located, your mod's AssetBundle will be built from this folder. Keep in mind that as its a folder, any assets and sub-folders will be included to the final AssetBundle. |
+| CHANGELOG.md | A MarkDown file that represents your mod's ChangeLog, this is optional in the ZIP file we'll upload to thunderstore eventually. |
+| icon.png | Your mod's Icon, which will be used on thunderstore, make sure to update it because by default it'll just reuse RoR2EK's icon |
+| <ModName>.asmdef | This is your main mod's assembly definition, it's what tells unity to create a new CSProj for modifying and creating your assembly. Due to the wizard, it already has defined all the necesary assembly references. |
+| <ModName>ContentProvider.cs | This is your mod's IContentPackProvider class, this will be used to load your mod's content into the game (IE: Items, Bodies, Equipments, etc) |
+| <ModName>Main.cs | This is your mod's Main class that inherits from BaseUnityPlugin, it contains a simple singleton pattern to get access to its instance alongside logging methods. Due to the wizard, it already has defined all the necesary BepInDependencies for your mod. |
+| <ModName>Manifest.asset | This is your mod's Manifest asset configured to the bare minimum of datums, with all the required mod dependencies. It already defines your mod's assetbundle, your mod's assembly, files for the plugin and the Thunderstore URL|
+| README.md | This is your mod's README file, general information about what your mod does should be here. |
+
+4. To begin our item, we need to create both an ExpansionDef and an ItemDef, unlike the regular way of creating these using ``ScriptableObject.CreateInstance<T>()``, in ThunderKit we can create these ScriptableObjects as actual assets in our project. To do this, Right click the project window, and traverse to "Create", in there you can see further options, go to "RoR2" and you'll have access to all of RoR2's ScriptableObjects.
+
+(Do not actually use raw strings for the tokens, you can find guides regarding language elsewhere.)
+
+![image](https://github.com/user-attachments/assets/8ab041c3-1aa1-46b2-9810-927f284f898d)
+
+5. This is the bare minimum of assets for our item to work, now comes loading our assets in code to create our ContentPack, and then give actual behaviours to our item. Open your ContentProvider class. Inside ``LoadStaticContentAsync`` our mod is loading our AssetBundle, after the ``while`` loop, we need to load both our ExpansionDef and ItemDef. And afterwards, add it to our ContentPack.
+
+![image](https://github.com/user-attachments/assets/84ff6d25-f4c1-45ae-8b2c-95b397d4fd18)
+
+6. Now that we're adding our content to our ContentPack, we need to program the behaviour, inside ``FinalizeAsync`` we can run code that will be executed once all ContentPacks have been initialized. increasing stats with our item is done via R2API's RecalculateStatsAPI
+
+![image](https://github.com/user-attachments/assets/8c35e765-c47d-4192-9628-b50d7578f74c)
+
+7. Our item is done, now we need to build our mod. For building, we will utilize a Pipeline. Right click the project setting, and go to ``ThunderKit/Pipeline``
+
+![image](https://github.com/user-attachments/assets/2e2ec6c9-c59f-4390-b50b-4af6901bdeaf)
+
+8. We now need to add our pipeline jobs to our pipeline, remember that jobs are run sequentially, this is what I Personally recommend. You will also need to create a new Path reference which will be used to tell thunderkit where to copy our built mod.
+
+This is what our pipeline is doing:
+
+    I. Build and Stage the selected manifest (ours)'s Assemblies, using a Release flag and staging debug databases for logging purposes.
+    II. Build and Stage the selected manifest (ours)'s AssetBundles, utilizing no compression and building for Windows
+    III. Stage the selected manifest (ours)'s Files. (README, CHANGELOG, icon, etc)
+    IV. Stage the selected manifest (ours)'s manifest.json file
+    V. Copy all of the selected manifest (ours)'s file located within "ManifestPluginStaging" to "DeploymentFolder"
+
+![image](https://github.com/user-attachments/assets/bd2f48e7-5898-4c9c-9c06-bcf50cc082bd)
+
+9. Deployment folder in this case refers to a PathReference, its where ThunderKit will deploy our mod. this is what i usually do:
+
+Basically, this tells thunderkit to use the specified constant string (in this case, the path to my R2ModMan profile's plugins folder). And paste the files inside a folder that has our manifest's name.-
+
+![image](https://github.com/user-attachments/assets/3952b5d1-01d1-4bca-aec3-d7757db9f4ef)
+
+10. We are now ready to build our mod, select our pipeline and hit "Execute"
+
+![image](https://github.com/user-attachments/assets/0a57d447-5412-4cc8-8174-f78a5d5be98a)
+
+11. Our mod is built and has been staged into the plugins folder! download your dependencies and test it out!
+
+![image](https://github.com/user-attachments/assets/60b622ce-bbab-41e2-bb31-e6d6ee293fad)
+![image](https://github.com/user-attachments/assets/dffa328b-54a7-421d-9ea0-b082b6e93fc8)
+![image](https://github.com/user-attachments/assets/b801d49e-860f-4b56-9d62-834be371a7d0)
 
 </p>
 </details>
+
+### Other Tidbits
+
+* If youre an experience modder, the assembly setup with AssemblyDefinitions do not support Embedding resources, this is because unity takes full control of your project's Solution and CSProj files, and as such, embedding is functionally impossible. Which is why stuff like AssetBundles are loaded externally.
+
+* ThunderKit has relatively complete in-editor documentation, you can access it by using ``Tools/ThunderKit/Documentation``
+
+![image](https://github.com/user-attachments/assets/c1788b6b-64ed-463d-9635-58ff86f070d1)
+
+* Since we're working on the editor, we can easily create and setup custom components or ScriptableObjects, use this to your advantage. Keep in mind that unity will only recognize valid monobehaviours that have only 1 class inside the file and the file and class name share the same name.
+
+![image](https://github.com/user-attachments/assets/4bd0035b-f91f-4471-b0dc-5cf6d922121f)
+![image](https://github.com/user-attachments/assets/173f3e29-efe0-4237-9f82-508575a4ca2d)
+
+* If you end up with the need to create a custom ScriptableObject, you can create a custom one in code easily, you can also apply the ``CreateAssetMenu`` attribute to get a convenient menu for creating new instances of your ScriptableObject
+
+![image](https://github.com/user-attachments/assets/b128d114-0ee2-4d5f-8000-29c739d19030)
+![image](https://github.com/user-attachments/assets/852353ed-6322-4d20-8d19-fefeea1a85aa)
+![image](https://github.com/user-attachments/assets/92eeb417-910d-49ed-a312-6c218f54a77b)
