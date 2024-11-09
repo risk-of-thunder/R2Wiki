@@ -21,9 +21,6 @@ Note: Any version strings you may see on pictures are purely from the moment thi
 
 ### Step 1: Github Repository
 
-<details><summary>Reveal</summary>
-<p>
-
 This part of the guide asumes youre utilizing a GitGUI, such as [GithubDesktop](https://desktop.github.com/download/)
 
 1. Create and Initialize your repository
@@ -46,14 +43,7 @@ Should now look like the next image.
 
 We now have a very basic git repository for our mod using ThunderKit. Now we can proceed to create the project.
 
-</p>
-</details>
-
-
 ### Step 2: The unity project
-
-<details><summary>Reveal</summary>
-<p>
 
 1. Create a new unity project using the current version of unity. Make sure to utilize the Built In render pipeline option, as Risk of Rain 2 does not use neither the Universal or High Definition render pipelines.
 
@@ -63,13 +53,7 @@ We now have a very basic git repository for our mod using ThunderKit. Now we can
 
 ![image](https://github.com/user-attachments/assets/6dd94a49-1376-4b22-9862-a5425888d8c2)
 
-</p>
-</details>
-
 ### Step 3: Preparing the .gitignore for more entries
-
-<details><summary>Reveal</summary>
-<p>
 
 You may want to modify your gitignore further to contain the following entries. You can replace the substring `<PROJECT_NAME>` with your project's name
 
@@ -89,13 +73,7 @@ You may want to modify your gitignore further to contain the following entries. 
     !SS2-Project/Packages/packages-lock.json
     !SS2-Project/Packages/manifest.json
 
-</p>
-</details>
-
 ### Step 3.5: Installing the WWise integration. (Optional)
-
-<details><summary>Reveal</summary>
-<p>
 
 As you may already know, RoR2 utilizes Audiokinetic's Wwise as its audio engine. Integrating wwise into your unity project lets you utilize key Wwise components and features properly during your mod's development. Ask around in the modding discord server for the current wwise version. This step is optional and not mandatory for developing mods with thunderkit.
 
@@ -118,13 +96,7 @@ As you may already know, RoR2 utilizes Audiokinetic's Wwise as its audio engine.
 
 ![image](https://github.com/user-attachments/assets/11432da4-33c1-41e7-8055-4571b01d5514)
 
-</p>
-</details>
-
 ### Step 4: Installing ThunderKit
-
-<details><summary>Reveal</summary>
-<p>
 
 1. Open the unity project, go to ``Window/Package Manager`` to open the Unity Package Manager
 
@@ -148,13 +120,7 @@ For example, to download the version 9.1.0 of ThunderKit to your project, you mu
 
 ![image](https://github.com/user-attachments/assets/cefcc3f1-ae21-408f-9b99-e4e0afe023ed)
 
-</p>
-</details>
-
 ### Step 5: Importing the game and the RoR2 Import Extensions.
-
-<details><summary>Reveal</summary>
-<p>
 
 On a Thunderkit Context, we call a "Game Import" the process of importing the game's assemblies into our thunderkit project, this process is what allows us to utilize ThunderKit to the fullest by using the game's actual assemblies for development.
 
@@ -218,13 +184,8 @@ Here's an indepth table with what each step does.
 10. If you integrated wwise, you may notice some errors related to duplicate assemblies. You'll need to manually delete the following assemblies from the project:
 
     Packages/riskofrain2/plugins/AkSoundEngine.dll
-</p>
-</details>
 
 ### Step 6: Compossable Object Crashcourse
-
-<details><summary>Reveal</summary>
-<p>
 
 Before we start creating a simple mod, it is EXTREMELY important to understand the concept of Compossable Objects within ThunderKit.
 
@@ -313,13 +274,7 @@ Below is a table that has all of the default PathComponent types and a descripti
 | ThunderKit Root | Returns the main ThunderKit root folder, which is located in ``Project Root/ThunderKit`` |
 | Working Directory | Returns the main project's root folder. |
 
-</p>
-</details>
-
 ### Step 7: My first ThunderKit mod
-
-<details><summary>Reveal</summary>
-<p>
 
 Now that we have a very basic grasp of compossable objects, we will begin creating a very simple mod that adds an ItemDef which increases all out stat multipliers by .1
 
@@ -395,9 +350,6 @@ Basically, this tells thunderkit to use the specified constant string (in this c
 ![image](https://github.com/user-attachments/assets/60b622ce-bbab-41e2-bb31-e6d6ee293fad)
 ![image](https://github.com/user-attachments/assets/dffa328b-54a7-421d-9ea0-b082b6e93fc8)
 ![image](https://github.com/user-attachments/assets/b801d49e-860f-4b56-9d62-834be371a7d0)
-
-</p>
-</details>
 
 ### Other Tidbits
 
