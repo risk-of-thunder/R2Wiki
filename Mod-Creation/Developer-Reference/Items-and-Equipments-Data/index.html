@@ -1,0 +1,4258 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Developer-Reference/Items-and-Equipments-Data/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Items and Equipments Data - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#items-and-equipments-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Items and Equipments Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome to the Risk of Rain 2 Modding Wiki !
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Mod Creation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mod Creation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mod Creation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Version/" class="md-nav__link">
+        Unity Version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-Seekers-of-the-Storm/" class="md-nav__link">
+        Updating Your Mods for Seekers of the Storm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-SotV/" class="md-nav__link">
+        Updating Your Mods for SotV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Assets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assets" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Character/" class="md-nav__link">
+        Character
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Difficulty/" class="md-nav__link">
+        Difficulty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Elites/" class="md-nav__link">
+        Creating an Elite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Extraction/" class="md-nav__link">
+        Extraction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Icons/" class="md-nav__link">
+        Icons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Interactables/" class="md-nav__link">
+        Interactables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/" class="md-nav__link">
+        Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Loading-Assets/" class="md-nav__link">
+        Loading Assets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Merging-Materials/" class="md-nav__link">
+        Merging Materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skills/" class="md-nav__link">
+        Skills
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Stage/" class="md-nav__link">
+        Stages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Translation/" class="md-nav__link">
+        Translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/UI/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Void-Items/" class="md-nav__link">
+        Void Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_17" type="checkbox" id="__nav_2_4_17" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_17">
+          Items
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Items" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_17">
+          <span class="md-nav__icon md-icon"></span>
+          Items
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        Using the RoR2CreateItemTemplate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_18" type="checkbox" id="__nav_2_4_18" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_18">
+          Shaders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Shaders" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_18">
+          <span class="md-nav__icon md-icon"></span>
+          Shaders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        HG Triplanar Terrain Blend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        Working Shaders outside of an AssetRipper project
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_19" type="checkbox" id="__nav_2_4_19" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_19">
+          Skins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Skins" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_19">
+          <span class="md-nav__icon md-icon"></span>
+          Skins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/" class="md-nav__link">
+        Creating skin for vanilla characters with custom model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_20" type="checkbox" id="__nav_2_4_20" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_20">
+          Sounds
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sounds" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_20">
+          <span class="md-nav__icon md-icon"></span>
+          Sounds
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_20_1" type="checkbox" id="__nav_2_4_20_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_20_1">
+          WWise
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WWise" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_4_20_1">
+          <span class="md-nav__icon md-icon"></span>
+          WWise
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Custom-Music/" class="md-nav__link">
+        Custom Music
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          C# Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C# Programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          C# Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Assembly-References/" class="md-nav__link">
+        Assembly References
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Code-Analysis/" class="md-nav__link">
+        Code Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Console-Commands/" class="md-nav__link">
+        Console Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Debugging-Your-Mods/" class="md-nav__link">
+        Debugging Your Mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hooking/" class="md-nav__link">
+        Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hot-Reloading/" class="md-nav__link">
+        Hot Reloading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/IContentPackProvider/" class="md-nav__link">
+        IContentPackProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/IL-Hooking/" class="md-nav__link">
+        IL Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        Mod Compatibility: Soft Dependency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Reflection-Crash-Course/" class="md-nav__link">
+        Reflection Crash Course
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Unity-and-MonoBehaviour/" class="md-nav__link">
+        Unity and MonoBehaviour
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Using-MonoBehaviour-Scripts-in-Editor/" class="md-nav__link">
+        Using MonoBehaviour Scripts in Editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_14" type="checkbox" id="__nav_2_5_14" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_14">
+          Game Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Game Code" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_14">
+          <span class="md-nav__icon md-icon"></span>
+          Game Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        Common Components, Events and Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        Tips and Tricks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_15" type="checkbox" id="__nav_2_5_15" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_15">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_15">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/MiniRpcLib/" class="md-nav__link">
+        MiniRpcLib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        R2API.NetworkingAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        Server side and client side mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/UNet/" class="md-nav__link">
+        UNet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Developer Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Addressables-Assets-Keys/" class="md-nav__link">
+        Addressables Assets Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Items and Equipments Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Items and Equipments Data
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#items-and-equipments-data" class="md-nav__link">
+    Items and Equipments Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    Items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equipments" class="md-nav__link">
+    Equipments
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Layers-and-collisions/" class="md-nav__link">
+        Layers and collisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prefabs/" class="md-nav__link">
+        Prefabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scene-Names/" class="md-nav__link">
+        Scene Names
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Style-Reference-Sheet/" class="md-nav__link">
+        Style Reference Sheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wwise-Events/" class="md-nav__link">
+        Wwise event viewer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/First-Mod/" class="md-nav__link">
+        First Mod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        So you want to mod Risk of Rain 2?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          IDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IDE" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          IDE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio-Code/" class="md-nav__link">
+        Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8_2" type="checkbox" id="__nav_2_8_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_8_2">
+          Visual Studio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Visual Studio" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          Visual Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        Post Build Events
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/Testing-Multiplayer-Alone/" class="md-nav__link">
+        Testing Multiplayer Alone
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Thunderkit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Thunderkit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Thunderkit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Thunderkit/Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        Upgrading your project to use R2API's Split Assemblies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Thunderkit/Using-Scripts-with-Assetbundles/" class="md-nav__link">
+        Using Scripts with Assetbundles
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          Unity Editor Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unity Editor Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Unity Editor Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_1" type="checkbox" id="__nav_2_11_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_1">
+          ThunderKit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThunderKit" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          ThunderKit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/ThunderKit/Crash-Course-and-Getting-Started/" class="md-nav__link">
+        ThunderKit - Crash course and Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Playing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Playing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Playing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        Running modded and unmodded game with shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/BepInEx/" class="md-nav__link">
+        BepInEx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#items-and-equipments-data" class="md-nav__link">
+    Items and Equipments Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    Items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equipments" class="md-nav__link">
+    Equipments
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_Developer-Reference_Items-and-Equipments-Data/_edit" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Items and Equipments Data</h1>
+                
+                <h2 id="items-and-equipments-data">Items and Equipments Data</h2>
+<p>Last Updated: Seekers of the Storm DLC Release</p>
+<p>To update this page:
+- <a href="https://gist.github.com/DestroyedClone/e7219428e5ce6022ab3fc2b80a6c12ca">Script that outputs as MarkDown formatting</a></p>
+<h2 id="items">Items</h2>
+<table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Code Name</th>
+<th>Real Name</th>
+<th>Tier</th>
+<th>Tags</th>
+<th>DLC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Count</td>
+<td>AACannon</td>
+<td>ITEM_AACANNON_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>1</td>
+<td>AdaptiveArmor</td>
+<td>ITEM_ADAPTIVEARMOR_NAME</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AlienHead</td>
+<td>Alien Head</td>
+<td>Red</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ArmorPlate</td>
+<td>Repulsion Armor Plate</td>
+<td>White</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ArmorReductionOnHit</td>
+<td>Shattering Justice</td>
+<td>Red</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ArtifactKey</td>
+<td>Artifact Key</td>
+<td>Boss</td>
+<td>WorldUnique</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AttackSpeedAndMoveSpeed</td>
+<td>Mocha</td>
+<td>White</td>
+<td>Damage, Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>7</td>
+<td>AttackSpeedOnCrit</td>
+<td>Predatory Instincts</td>
+<td>Green</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>8</td>
+<td>AutoCastEquipment</td>
+<td>Gesture of the Drowned</td>
+<td>Lunar</td>
+<td>Utility, EquipmentRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Bandolier</td>
+<td>Bandolier</td>
+<td>Green</td>
+<td>Utility, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>10</td>
+<td>BarrierOnKill</td>
+<td>Topaz Brooch</td>
+<td>White</td>
+<td>Utility, Healing, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>11</td>
+<td>BarrierOnOverHeal</td>
+<td>Aegis</td>
+<td>Red</td>
+<td>Utility, Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Bear</td>
+<td>Tougher Times</td>
+<td>White</td>
+<td>Utility, BrotherBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>13</td>
+<td>BearVoid</td>
+<td>Safer Spaces</td>
+<td>Void White</td>
+<td>Utility, BrotherBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>14</td>
+<td>BeetleGland</td>
+<td>Queen's Gland</td>
+<td>Boss</td>
+<td>Utility, CannotCopy</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Behemoth</td>
+<td>Brilliant Behemoth</td>
+<td>Red</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>16</td>
+<td>BleedOnHit</td>
+<td>Tri-Tip Dagger</td>
+<td>White</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>17</td>
+<td>BleedOnHitAndExplode</td>
+<td>Shatterspleen</td>
+<td>Boss</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>18</td>
+<td>BleedOnHitVoid</td>
+<td>Needletick</td>
+<td>Void White</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>19</td>
+<td>BonusGoldPackOnKill</td>
+<td>Ghor's Tome</td>
+<td>Green</td>
+<td>Utility, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>20</td>
+<td>BoostAllStats</td>
+<td>Growth Nectar</td>
+<td>Red</td>
+<td>Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>21</td>
+<td>BoostAttackSpeed</td>
+<td>ITEM_BOOSTATTACKSPEED_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>22</td>
+<td>BoostDamage</td>
+<td>ITEM_BOOSTDAMAGE_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>23</td>
+<td>BoostEquipmentRecharge</td>
+<td>ITEM_BOOSTEQUIPMENTRECHARGE_NAME</td>
+<td>No Tier</td>
+<td>EquipmentRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>24</td>
+<td>BoostHp</td>
+<td>ITEM_BOOSTHP_NAME</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>25</td>
+<td>BossDamageBonus</td>
+<td>Armor-Piercing Rounds</td>
+<td>White</td>
+<td>Damage, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>26</td>
+<td>BounceNearby</td>
+<td>Sentient Meat Hook</td>
+<td>Red</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>27</td>
+<td>BurnNearby</td>
+<td>ITEM_BURNNEARBY_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>28</td>
+<td>CaptainDefenseMatrix</td>
+<td>Defensive Microbots</td>
+<td>Red</td>
+<td>Utility, WorldUnique, RebirthBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>29</td>
+<td>ChainLightning</td>
+<td>Ukulele</td>
+<td>Green</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>30</td>
+<td>ChainLightningVoid</td>
+<td>Polylute</td>
+<td>Void Green</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Clover</td>
+<td>57 Leaf Clover</td>
+<td>Red</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>32</td>
+<td>CloverVoid</td>
+<td>Benthic Bloom</td>
+<td>Void Red</td>
+<td>Utility, OnStageBeginEffect</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>33</td>
+<td>ConvertCritChanceToCritDamage</td>
+<td>ITEM_CONVERTCRITCHANCETOCRITDAMAGE_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>34</td>
+<td>CooldownOnCrit</td>
+<td>Wicked Ring</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>35</td>
+<td>CrippleWardOnLevel</td>
+<td>ITEM_CRIPPLEWARDONLEVEL_NAME</td>
+<td>No Tier</td>
+<td>Utility, CannotCopy</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>36</td>
+<td>CritDamage</td>
+<td>Laser Scope</td>
+<td>Red</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>37</td>
+<td>CritGlasses</td>
+<td>Lens-Maker's Glasses</td>
+<td>White</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>38</td>
+<td>CritGlassesVoid</td>
+<td>Lost Seer's Lenses</td>
+<td>Void White</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>39</td>
+<td>CritHeal</td>
+<td>ITEM_CRITHEAL_NAME</td>
+<td>No Tier</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Crowbar</td>
+<td>Crowbar</td>
+<td>White</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>41</td>
+<td>CutHp</td>
+<td>ITEM_CUTHP_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Dagger</td>
+<td>Ceremonial Dagger</td>
+<td>Red</td>
+<td>Damage, OnKillEffect, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>43</td>
+<td>DeathMark</td>
+<td>Death Mark</td>
+<td>Green</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>44</td>
+<td>DelayedDamage</td>
+<td>Warped Echo</td>
+<td>White</td>
+<td>Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>45</td>
+<td>DrizzlePlayerHelper</td>
+<td>ITEM_DRIZZLEPLAYERHELPER_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>46</td>
+<td>DroneWeapons</td>
+<td>Spare Drone Parts</td>
+<td>Red</td>
+<td>Damage, CannotCopy, AIBlacklist, BrotherBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>47</td>
+<td>DroneWeaponsBoost</td>
+<td>ITEM_DRONEWEAPONSBOOST_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>48</td>
+<td>DroneWeaponsDisplay1</td>
+<td>ITEM_DRONEWEAPONSDISPLAY1_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>49</td>
+<td>DroneWeaponsDisplay2</td>
+<td>ITEM_DRONEWEAPONSDISPLAY2_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>50</td>
+<td>ElementalRingVoid</td>
+<td>Singularity Band</td>
+<td>Void Green</td>
+<td>Damage, Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>51</td>
+<td>EmpowerAlways</td>
+<td>ITEM_EMPOWERALWAYS_NAME</td>
+<td>No Tier</td>
+<td>Utility, BrotherBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>52</td>
+<td>EnergizedOnEquipmentUse</td>
+<td>War Horn</td>
+<td>Green</td>
+<td>Damage, EquipmentRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>53</td>
+<td>EquipmentMagazine</td>
+<td>Fuel Cell</td>
+<td>Green</td>
+<td>Utility, EquipmentRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>54</td>
+<td>EquipmentMagazineVoid</td>
+<td>Lysate Cell</td>
+<td>Void Green</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>55</td>
+<td>ExecuteLowHealthElite</td>
+<td>Old Guillotine</td>
+<td>Green</td>
+<td>Damage, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>56</td>
+<td>ExplodeOnDeath</td>
+<td>Will-o'-the-wisp</td>
+<td>Green</td>
+<td>Damage, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>57</td>
+<td>ExplodeOnDeathVoid</td>
+<td>Voidsent Flame</td>
+<td>Void Green</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>58</td>
+<td>ExtraLife</td>
+<td>Dio's Best Friend</td>
+<td>Red</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>59</td>
+<td>ExtraLifeConsumed</td>
+<td>Dio's Best Friend (Consumed)</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>60</td>
+<td>ExtraLifeVoid</td>
+<td>Pluripotent Larva</td>
+<td>Void Red</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>61</td>
+<td>ExtraLifeVoidConsumed</td>
+<td>Pluripotent Larva (Consumed)</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>62</td>
+<td>ExtraShrineItem</td>
+<td>Chance Doll</td>
+<td>Green</td>
+<td>CannotDuplicate, Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>63</td>
+<td>ExtraStatsOnLevelUp</td>
+<td>Prayer Beads</td>
+<td>Green</td>
+<td>Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>64</td>
+<td>FallBoots</td>
+<td>H3AD-5T v2</td>
+<td>Red</td>
+<td>Utility, Damage, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Feather</td>
+<td>Hopoo Feather</td>
+<td>Green</td>
+<td>Utility, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>66</td>
+<td>FireRing</td>
+<td>Kjaro's Band</td>
+<td>Green</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>67</td>
+<td>FireballsOnHit</td>
+<td>Molten Perforator</td>
+<td>Boss</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Firework</td>
+<td>Bundle of Fireworks</td>
+<td>White</td>
+<td>Damage, AIBlacklist, InteractableRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>69</td>
+<td>FlatHealth</td>
+<td>Bison Steak</td>
+<td>White</td>
+<td>Healing, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>70</td>
+<td>FocusConvergence</td>
+<td>Focused Convergence</td>
+<td>Lunar</td>
+<td>Utility, AIBlacklist, CannotCopy, HoldoutZoneRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>71</td>
+<td>FragileDamageBonus</td>
+<td>Delicate Watch</td>
+<td>White</td>
+<td>Damage, LowHealth</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>72</td>
+<td>FragileDamageBonusConsumed</td>
+<td>Delicate Watch (Broken)</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>73</td>
+<td>FreeChest</td>
+<td>Shipping Request Form</td>
+<td>Green</td>
+<td>Utility, OnStageBeginEffect, AIBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Ghost</td>
+<td>ITEM_GHOST_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>75</td>
+<td>GhostOnKill</td>
+<td>Happiest Mask</td>
+<td>Red</td>
+<td>Utility, Damage, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>76</td>
+<td>GoldOnHit</td>
+<td>Brittle Crown</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>77</td>
+<td>GoldOnHurt</td>
+<td>Roll of Pennies</td>
+<td>White</td>
+<td>Utility, AIBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>78</td>
+<td>GoldOnStageStart</td>
+<td>War Bonds</td>
+<td>Red</td>
+<td>Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>79</td>
+<td>GummyCloneIdentifier</td>
+<td>ITEM_GUMMYCLONEIDENTIFIER_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HalfAttackSpeedHalfCooldowns</td>
+<td>Light Flux Pauldron</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>81</td>
+<td>HalfSpeedDoubleHealth</td>
+<td>Stone Flux Pauldron</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>82</td>
+<td>HeadHunter</td>
+<td>Wake of Vultures</td>
+<td>Red</td>
+<td>Utility, Damage, AIBlacklist, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>83</td>
+<td>HealOnCrit</td>
+<td>Harvester's Scythe</td>
+<td>Green</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>84</td>
+<td>HealWhileSafe</td>
+<td>Cautious Slug</td>
+<td>White</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>85</td>
+<td>HealingPotion</td>
+<td>Power Elixir</td>
+<td>White</td>
+<td>Healing, LowHealth, AIBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>86</td>
+<td>HealingPotionConsumed</td>
+<td>Empty Bottle</td>
+<td>No Tier</td>
+<td>Healing</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>87</td>
+<td>HealthDecay</td>
+<td>ITEM_HEALTHDECAY_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Hoof</td>
+<td>Paul's Goat Hoof</td>
+<td>White</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>89</td>
+<td>IceRing</td>
+<td>Runald's Band</td>
+<td>Green</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Icicle</td>
+<td>Frost Relic</td>
+<td>Red</td>
+<td>Damage, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>91</td>
+<td>IgniteOnKill</td>
+<td>Gasoline</td>
+<td>White</td>
+<td>Damage, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>92</td>
+<td>ImmuneToDebuff</td>
+<td>Ben's Raincoat</td>
+<td>Red</td>
+<td>Utility, Healing</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>93</td>
+<td>IncreaseDamageOnMultiKill</td>
+<td>Chronic Expansion</td>
+<td>White</td>
+<td>Damage, OnKillEffect, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>94</td>
+<td>IncreaseHealing</td>
+<td>Rejuvenation Rack</td>
+<td>Red</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>95</td>
+<td>IncreasePrimaryDamage</td>
+<td>Luminous Shot</td>
+<td>Green</td>
+<td>Damage, Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Incubator</td>
+<td>Ancestral Incubator</td>
+<td>No Tier</td>
+<td>Utility, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Infusion</td>
+<td>Infusion</td>
+<td>Green</td>
+<td>Utility, Healing, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>98</td>
+<td>InvadingDoppelganger</td>
+<td>ITEM_INVADINGDOPPELGANGER_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>99</td>
+<td>JumpBoost</td>
+<td>Wax Quail</td>
+<td>Green</td>
+<td>Utility, SprintRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>100</td>
+<td>KillEliteFrenzy</td>
+<td>Brainstalks</td>
+<td>Red</td>
+<td>Utility, AIBlacklist, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>101</td>
+<td>KnockBackHitEnemies</td>
+<td>Knockback Fin</td>
+<td>White</td>
+<td>Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Knurl</td>
+<td>Titanic Knurl</td>
+<td>Boss</td>
+<td>Utility, Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>103</td>
+<td>LaserTurbine</td>
+<td>Resonance Disc</td>
+<td>Red</td>
+<td>Damage, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>104</td>
+<td>LemurianHarness</td>
+<td>ITEM_LEMURIANHARNESS_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>105</td>
+<td>LevelBonus</td>
+<td>ITEM_LEVELBONUS_NAME</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>106</td>
+<td>LightningStrikeOnHit</td>
+<td>Charged Perforator</td>
+<td>Boss</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>107</td>
+<td>LowerHealthHigherDamage</td>
+<td>Bolstering Lantern</td>
+<td>White</td>
+<td>Utility, Damage, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>108</td>
+<td>LowerPricedChests</td>
+<td>Sale Star</td>
+<td>Green</td>
+<td>CannotDuplicate, Utility, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>109</td>
+<td>LowerPricedChestsConsumed</td>
+<td>Sale Star (Consumed)</td>
+<td>No Tier</td>
+<td>Utility, OnStageBeginEffect</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>110</td>
+<td>LunarBadLuck</td>
+<td>Purity</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>111</td>
+<td>LunarDagger</td>
+<td>Shaped Glass</td>
+<td>Lunar</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>112</td>
+<td>LunarPrimaryReplacement</td>
+<td>Visions of Heresy</td>
+<td>Lunar</td>
+<td>Damage, AIBlacklist, CannotSteal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>113</td>
+<td>LunarSecondaryReplacement</td>
+<td>Hooks of Heresy</td>
+<td>Lunar</td>
+<td>Damage, AIBlacklist, CannotSteal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>114</td>
+<td>LunarSpecialReplacement</td>
+<td>Essence of Heresy</td>
+<td>Lunar</td>
+<td>Damage, AIBlacklist, CannotSteal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>115</td>
+<td>LunarSun</td>
+<td>Egocentrism</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>116</td>
+<td>LunarTrinket</td>
+<td>Beads of Fealty</td>
+<td>Lunar</td>
+<td>ObliterationRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>117</td>
+<td>LunarUtilityReplacement</td>
+<td>Strides of Heresy</td>
+<td>Lunar</td>
+<td>Utility, AIBlacklist, CannotSteal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>118</td>
+<td>LunarWings</td>
+<td>Blessings of Terafirmae</td>
+<td>No Tier</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>119</td>
+<td>MageAttunement</td>
+<td>ITEM_MAGEATTUNEMENT_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Medkit</td>
+<td>Medkit</td>
+<td>White</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>121</td>
+<td>MeteorAttackOnHighDamage</td>
+<td>Runic Lens</td>
+<td>Red</td>
+<td>Damage, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>122</td>
+<td>MinHealthPercentage</td>
+<td></td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>123</td>
+<td>MinionLeash</td>
+<td>ITEM_MINIONLEASH_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>124</td>
+<td>MinorConstructOnKill</td>
+<td>Defense Nucleus</td>
+<td>Boss</td>
+<td>OnKillEffect</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>125</td>
+<td>Missile</td>
+<td>AtG Missile Mk. 1</td>
+<td>Green</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>126</td>
+<td>MissileVoid</td>
+<td>Plasma Shrimp</td>
+<td>Void Green</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>127</td>
+<td>MonsoonPlayerHelper</td>
+<td>ITEM_MONSOONPLAYERHELPER_NAME</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>128</td>
+<td>MonstersOnShrineUse</td>
+<td>Defiant Gouge</td>
+<td>Lunar</td>
+<td>Utility, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>129</td>
+<td>MoreMissile</td>
+<td>Pocket I.C.B.M.</td>
+<td>Red</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>130</td>
+<td>MoveSpeedOnKill</td>
+<td>Hunter's Harpoon</td>
+<td>Green</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>131</td>
+<td>Mushroom</td>
+<td>Bustling Fungus</td>
+<td>White</td>
+<td>Healing, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>132</td>
+<td>MushroomVoid</td>
+<td>Weeping Fungus</td>
+<td>Void White</td>
+<td>Healing</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>133</td>
+<td>NearbyDamageBonus</td>
+<td>Focus Crystal</td>
+<td>White</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>134</td>
+<td>NegateAttack</td>
+<td>Antler Shield</td>
+<td>White</td>
+<td>Utility, HalcyoniteShrine, AIBlacklist</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>135</td>
+<td>NovaOnHeal</td>
+<td>N'kuhana's Opinion</td>
+<td>Red</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>136</td>
+<td>NovaOnLowHealth</td>
+<td>Genesis Loop</td>
+<td>Boss</td>
+<td>Damage, LowHealth</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>137</td>
+<td>OnLevelUpFreeUnlock</td>
+<td>Longstanding Solitude</td>
+<td>Lunar</td>
+<td>HalcyoniteShrine, Utility, Damage</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>138</td>
+<td>OutOfCombatArmor</td>
+<td>Oddly-shaped Opal</td>
+<td>White</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>139</td>
+<td>ParentEgg</td>
+<td>Planula</td>
+<td>Boss</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>140</td>
+<td>Pearl</td>
+<td>Pearl</td>
+<td>Boss</td>
+<td>Utility, WorldUnique</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>141</td>
+<td>PermanentDebuffOnHit</td>
+<td>Symbiotic Scorpion</td>
+<td>Red</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>142</td>
+<td>PersonalShield</td>
+<td>Personal Shield Generator</td>
+<td>White</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Phasing</td>
+<td>Old War Stealthkit</td>
+<td>Green</td>
+<td>Utility, LowHealth</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>144</td>
+<td>Plant</td>
+<td>Interstellar Desk Plant</td>
+<td>Red</td>
+<td>Healing, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>145</td>
+<td>PlantOnHit</td>
+<td>ITEM_PLANTONHIT_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>146</td>
+<td>PlasmaCore</td>
+<td>ITEM_PLASMACORE_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>147</td>
+<td>PrimarySkillShuriken</td>
+<td>Shuriken</td>
+<td>Green</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>148</td>
+<td>RandomDamageZone</td>
+<td>Mercurial Rachis</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>149</td>
+<td>RandomEquipmentTrigger</td>
+<td>Bottled Chaos</td>
+<td>Red</td>
+<td>Utility, EquipmentRelated</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>150</td>
+<td>RandomlyLunar</td>
+<td>Eulogy Zero</td>
+<td>Lunar</td>
+<td>Utility, BrotherBlacklist</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>151</td>
+<td>RegeneratingScrap</td>
+<td>Regenerating Scrap</td>
+<td>Green</td>
+<td>Utility, PriorityScrap, CannotDuplicate, OnStageBeginEffect</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>152</td>
+<td>RegeneratingScrapConsumed</td>
+<td>Regenerating Scrap (Consumed)</td>
+<td>No Tier</td>
+<td>Utility, OnStageBeginEffect</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>153</td>
+<td>RepeatHeal</td>
+<td>Corpsebloom</td>
+<td>Lunar</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>154</td>
+<td>ResetChests</td>
+<td>Sonorous Whispers</td>
+<td>Red</td>
+<td>Utility, CannotDuplicate, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>155</td>
+<td>RoboBallBuddy</td>
+<td>Empathy Cores</td>
+<td>Boss</td>
+<td>Utility, CannotCopy</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>156</td>
+<td>ScrapGreen</td>
+<td>Item Scrap, Green</td>
+<td>Green</td>
+<td>WorldUnique, Scrap</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>157</td>
+<td>ScrapGreenSuppressed</td>
+<td>Strange Scrap, Green</td>
+<td>No Tier</td>
+<td>WorldUnique, Scrap</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>158</td>
+<td>ScrapRed</td>
+<td>Item Scrap, Red</td>
+<td>Red</td>
+<td>WorldUnique, Scrap</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>159</td>
+<td>ScrapRedSuppressed</td>
+<td>Strange Scrap, Red</td>
+<td>No Tier</td>
+<td>WorldUnique, Scrap</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>160</td>
+<td>ScrapWhite</td>
+<td>Item Scrap, White</td>
+<td>White</td>
+<td>WorldUnique, Scrap</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>161</td>
+<td>ScrapWhiteSuppressed</td>
+<td>Strange Scrap, White</td>
+<td>No Tier</td>
+<td>WorldUnique, Scrap</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>162</td>
+<td>ScrapYellow</td>
+<td>Item Scrap, Yellow</td>
+<td>Boss</td>
+<td>WorldUnique, Scrap</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>163</td>
+<td>SecondarySkillMagazine</td>
+<td>Backup Magazine</td>
+<td>White</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>164</td>
+<td>Seed</td>
+<td>Leeching Seed</td>
+<td>Green</td>
+<td>Healing</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>165</td>
+<td>ShieldOnly</td>
+<td>Transcendence</td>
+<td>Lunar</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>166</td>
+<td>ShinyPearl</td>
+<td>Irradiant Pearl</td>
+<td>Boss</td>
+<td>Damage, Healing, Utility, WorldUnique</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>167</td>
+<td>ShockNearby</td>
+<td>Unstable Tesla Coil</td>
+<td>Red</td>
+<td>Damage, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>168</td>
+<td>SiphonOnLowHealth</td>
+<td>Mired Urn</td>
+<td>Boss</td>
+<td>Healing, BrotherBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>169</td>
+<td>SkullCounter</td>
+<td>Skull Token</td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>170</td>
+<td>SlowOnHit</td>
+<td>Chronobauble</td>
+<td>Green</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>171</td>
+<td>SlowOnHitVoid</td>
+<td>Tentabauble</td>
+<td>Void Green</td>
+<td>Utility</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>172</td>
+<td>SprintArmor</td>
+<td>Rose Buckler</td>
+<td>Green</td>
+<td>Utility, SprintRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>173</td>
+<td>SprintBonus</td>
+<td>Energy Drink</td>
+<td>White</td>
+<td>Utility, SprintRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>174</td>
+<td>SprintOutOfCombat</td>
+<td>Red Whip</td>
+<td>Green</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>175</td>
+<td>SprintWisp</td>
+<td>Little Disciple</td>
+<td>Boss</td>
+<td>Damage, SprintRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>176</td>
+<td>Squid</td>
+<td>Squid Polyp</td>
+<td>Green</td>
+<td>Damage, AIBlacklist, InteractableRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>177</td>
+<td>StickyBomb</td>
+<td>Sticky Bomb</td>
+<td>White</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>178</td>
+<td>StrengthenBurn</td>
+<td>Ignition Tank</td>
+<td>Green</td>
+<td>Damage</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>179</td>
+<td>StunAndPierce</td>
+<td>Electric Boomerang</td>
+<td>Red</td>
+<td>Damage, HalcyoniteShrine</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>180</td>
+<td>StunChanceOnHit</td>
+<td>Stun Grenade</td>
+<td>White</td>
+<td>Utility, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>181</td>
+<td>Syringe</td>
+<td>Soldier's Syringe</td>
+<td>White</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>182</td>
+<td>TPHealingNova</td>
+<td>Lepton Daisy</td>
+<td>Green</td>
+<td>Healing, AIBlacklist, CannotCopy, HoldoutZoneRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>183</td>
+<td>Talisman</td>
+<td>Soulbound Catalyst</td>
+<td>Red</td>
+<td>Utility, OnKillEffect, EquipmentRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>184</td>
+<td>TeamSizeDamageBonus</td>
+<td></td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>185</td>
+<td>TeleportOnLowHealth</td>
+<td>Unstable Transmitter</td>
+<td>Green</td>
+<td>Utility, HalcyoniteShrine, LowHealth</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>186</td>
+<td>TeleportOnLowHealthConsumed</td>
+<td></td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>187</td>
+<td>TeleportWhenOob</td>
+<td></td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>188</td>
+<td>TempestOnKill</td>
+<td>ITEM_TEMPESTONKILL_NAME</td>
+<td>No Tier</td>
+<td>Utility, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>189</td>
+<td>Thorns</td>
+<td>Razorwire</td>
+<td>Green</td>
+<td>Damage, AIBlacklist</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>190</td>
+<td>TitanGoldDuringTP</td>
+<td>Halcyon Seed</td>
+<td>Boss</td>
+<td>Utility, WorldUnique, CannotSteal, CannotCopy, HoldoutZoneRelated</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>191</td>
+<td>TonicAffliction</td>
+<td>Tonic Affliction</td>
+<td>No Tier</td>
+<td>Cleansable</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>192</td>
+<td>Tooth</td>
+<td>Monster Tooth</td>
+<td>White</td>
+<td>Healing, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>193</td>
+<td>TreasureCache</td>
+<td>Rusted Key</td>
+<td>White</td>
+<td>Utility, AIBlacklist, OnStageBeginEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>194</td>
+<td>TreasureCacheVoid</td>
+<td>Encrusted Key</td>
+<td>Void White</td>
+<td>Utility, AIBlacklist, OnStageBeginEffect</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>195</td>
+<td>TriggerEnemyDebuffs</td>
+<td>Noxious Thorn</td>
+<td>Green</td>
+<td>HalcyoniteShrine, Utility, AIBlacklist</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>196</td>
+<td>UseAmbientLevel</td>
+<td></td>
+<td>No Tier</td>
+<td>CannotSteal, CannotCopy</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>197</td>
+<td>UtilitySkillMagazine</td>
+<td>Hardlight Afterburner</td>
+<td>Red</td>
+<td>Utility</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>198</td>
+<td>VoidMegaCrabItem</td>
+<td>Newly Hatched Zoea</td>
+<td>Void Boss</td>
+<td>Utility, CannotCopy</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>199</td>
+<td>VoidmanPassiveItem</td>
+<td></td>
+<td>No Tier</td>
+<td>No Tag</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>200</td>
+<td>WarCryOnCombat</td>
+<td>ITEM_WARCRYONCOMBAT_NAME</td>
+<td>No Tier</td>
+<td>Damage</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>201</td>
+<td>WarCryOnMultiKill</td>
+<td>Berzerker's Pauldron</td>
+<td>Green</td>
+<td>Damage, OnKillEffect</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>202</td>
+<td>WardOnLevel</td>
+<td>Warbanner</td>
+<td>White</td>
+<td>Utility, AIBlacklist, CannotCopy</td>
+<td>No DLC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="equipments">Equipments</h2>
+<table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Code Name</th>
+<th>Real Name</th>
+<th>Tier</th>
+<th>DLC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>BFG</td>
+<td>Preon Accumulator</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Blackhole</td>
+<td>Primordial Cube</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BossHunter</td>
+<td>Trophy Hunter's Tricorn</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BossHunterConsumed</td>
+<td>Trophy Hunter's Tricorn (Consumed)</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BurnNearby</td>
+<td>Helfire Tincture</td>
+<td>Lunar</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cleanse</td>
+<td>Blast Shower</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>6</td>
+<td>CommandMissile</td>
+<td>Disposable Missile Launcher</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CrippleWard</td>
+<td>Effigy of Grief</td>
+<td>Lunar</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CritOnUse</td>
+<td>Ocular HUD</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DeathProjectile</td>
+<td>Forgive Me Please</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DroneBackup</td>
+<td>The Back-up</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>11</td>
+<td>EliteAurelioniteEquipment</td>
+<td>Aurelionite's Blessing</td>
+<td>Normal</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>12</td>
+<td>EliteBeadEquipment</td>
+<td>His Spiteful Boon</td>
+<td>Normal</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>13</td>
+<td>EliteEarthEquipment</td>
+<td>His Reassurance</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>14</td>
+<td>EliteFireEquipment</td>
+<td>Ifrit's Distinction</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>15</td>
+<td>EliteGoldEquipment</td>
+<td>Coven of Gold</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>16</td>
+<td>EliteHauntedEquipment</td>
+<td>Spectral Circlet</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>17</td>
+<td>EliteIceEquipment</td>
+<td>Her Biting Embrace</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>18</td>
+<td>EliteLightningEquipment</td>
+<td>Silence Between Two Strikes</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>19</td>
+<td>EliteLunarEquipment</td>
+<td>Shared Design</td>
+<td>Lunar</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>20</td>
+<td>ElitePoisonEquipment</td>
+<td>N'kuhana's Retort</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>21</td>
+<td>EliteSecretSpeedEquipment</td>
+<td>Beyond the Limits</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>22</td>
+<td>EliteVoidEquipment</td>
+<td>EQUIPMENT_AFFIXVOID_NAME</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>23</td>
+<td>EliteYellowEquipment</td>
+<td></td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Enigma</td>
+<td>EQUIPMENT_ENIGMA_NAME</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>25</td>
+<td>FireBallDash</td>
+<td>Volcanic Egg</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Fruit</td>
+<td>Foreign Fruit</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>27</td>
+<td>GainArmor</td>
+<td>Jade Elephant</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Gateway</td>
+<td>Eccentric Vase</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>29</td>
+<td>GhostGun</td>
+<td>Reaper's Remorse</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>30</td>
+<td>GoldGat</td>
+<td>The Crowdfunder</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>31</td>
+<td>GummyClone</td>
+<td>Goobo Jr.</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>32</td>
+<td>HealAndRevive</td>
+<td>Seed of Life</td>
+<td>Normal</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>33</td>
+<td>HealAndReviveConsumed</td>
+<td>Seed of Life (Consumed)</td>
+<td>Normal</td>
+<td>Seekers of the Storm</td>
+</tr>
+<tr>
+<td>34</td>
+<td>IrradiatingLaser</td>
+<td>Overloading Excavator</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Jetpack</td>
+<td>Milky Chrysalis</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>36</td>
+<td>LifestealOnHit</td>
+<td>Super Massive Leech</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Lightning</td>
+<td>Royal Capacitor</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>38</td>
+<td>LunarPortalOnUse</td>
+<td>Elegy of Extinction</td>
+<td>Lunar</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>39</td>
+<td>LunarPotion</td>
+<td>EQUIPMENT_LUNARPOTION_NAME</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Meteor</td>
+<td>Glowing Meteorite</td>
+<td>Lunar</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Molotov</td>
+<td>Molotov (6-Pack)</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>42</td>
+<td>MultiShopCard</td>
+<td>Executive Card</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>43</td>
+<td>OrbOnUse</td>
+<td>EQUIPMENT_ORBONUSE_NAME</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+<tr>
+<td>44</td>
+<td>OrbitalLaser</td>
+<td>EQUIPMENT_ORBITALLASER_NAME</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>45</td>
+<td>PassiveHealing</td>
+<td>Gnarled Woodsprite</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>46</td>
+<td>QuestVolatileBattery</td>
+<td>Fuel Array</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Recycle</td>
+<td>Recycler</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Saw</td>
+<td>Sawmerang</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Scanner</td>
+<td>Radar Scanner</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>50</td>
+<td>SoulCorruptor</td>
+<td>EQUIPMENT_SOULCORRUPTOR_NAME</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>51</td>
+<td>SoulJar</td>
+<td>Jar of Souls</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>52</td>
+<td>TeamWarCry</td>
+<td>Gorag's Opus</td>
+<td>Normal</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Tonic</td>
+<td>Spinel Tonic</td>
+<td>Lunar</td>
+<td>No DLC</td>
+</tr>
+<tr>
+<td>54</td>
+<td>VendingMachine</td>
+<td>Remote Caffeinator</td>
+<td>Normal</td>
+<td>Survivors of the Void</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Addressables-Assets-Keys/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Addressables Assets Keys" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Addressables Assets Keys
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Layers-and-collisions/" class="md-footer__link md-footer__link--next" aria-label="Next: Layers and collisions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Layers and collisions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
