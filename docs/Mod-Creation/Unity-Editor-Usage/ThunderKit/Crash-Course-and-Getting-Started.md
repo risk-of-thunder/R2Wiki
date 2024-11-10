@@ -257,6 +257,7 @@ This in turn, represents this specific Path Reference, which will be used to con
 The creation of a Path from a Path Reference and its components is *Sequential*, meaning that the Path Component at index 0 will be the root path, then the next component will be combined with the previous component, so on and so forth.
 
 Below is a table that has all of the default PathComponent types and a description of them
+
 | Path Component Type | Description |
 |--|--|
 | Asset Reference | Marks that an asset's path should be part of the generated path. |
