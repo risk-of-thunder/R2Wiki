@@ -156,3 +156,51 @@ The resulting UI gives an inspector that separates the layout and look of the UI
 ![image](https://github.com/user-attachments/assets/da7caad0-ecbd-446c-9762-482614315d51)
 
 For an indepth explanation of the utilities provided by RoR2EditorKit, check [this]() wiki page.
+
+## Utilizing editor code within Runtime code
+
+You may stumble into the necesity of running Editor related code in a regular, runtime level MonoBehaviour or ScriptableObject. This scenario can be solved by utilizing conditional compilation using pre-processor directives.
+
+Take for example, this OnValidate method that needs to save the asset after its been modified by some user.
+
+    private void OnValidate()
+    {
+        if(someCondition)
+        {
+            _hidenInInspectorValue = 0.4f;
+            //Find a way to save the above change somehow
+        }
+    }
+
+To ensure proper saving of our modified asset, we can utilize ``EditorUtility.SetDirty``. To properly utilize this method without causing issues at build time we can encapsulate the statement inside an ``#if UNITY_EDITOR`` pre-processor, and fully qualify the type name ``EditorUtility``
+
+    private void OnValidate()
+    {
+        if(someCondition)
+        {
+            _hidenInInspectorValue = 0.4f;
+    #if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(this);
+    #endif
+        }
+    }
+
+Of course, it is worth mentioning that any code encapsulated by the ``#if UNITY_EDITOR`` statement will not be present in builds of your content.
+
+## IMGUI UI in Visual Elements
+
+Sometimes you may encounter the need to utilize IMGUI inside an UI created with Visual Elements. This can be due to some limitation of UIElements that hasnt been developed yet, or for ease of utilization of certain features such as dropdown menus.
+
+For situations like this, you can utilize the ``IMGUIContainer`` element, which is a special VisualElement that can be used to draw UI using IMGUI.
+
+    public void SetupElement(VisualElement rootElement)
+    {
+        rootElement.Add(new IMGUIContainer(MyIMGUIMethod);
+    }
+
+    private void MyIMGUIMethod()
+    {
+        EditorGUILayout.LabelField("This label was written using IMGUI!");
+    }
+
+Due to limitations, you cannot use Visual Elements in an IMGUI UI
