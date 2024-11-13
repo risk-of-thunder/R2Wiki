@@ -10,7 +10,7 @@ The language for these events is [Batch](https://en.wikipedia.org/wiki/Batch_fil
 
 > If you are running into issues due to macros being empty. Feel free to hop into the discord and ask Paddywan or ping Harb. We'll share your pain and hopefully be able to tell you how to remedy it.
 
-### Copy output DLL
+## Copy output DLL
 Most commonly used is the copy command to get your dll to where you want it.
 ```batch
 copy <something> <somewhere>
@@ -18,12 +18,14 @@ copy <something> <somewhere>
 copy /Y "$(TargetPath)" "$(SolutionPath)Builds\"
 ```
 Let's go over the arguments individually
-* `copy` signifies a copy instruction. It takes two arguments: what to copy and where to copy it to.
-* `/y` is a flag for the copy instruction to suppress the prompting if you want to overwrite the destination file.
-* `"$(TargetPath)"` is a macro to the output dll produced by building the project. See **macros** at the end of the page.
-* `"$(ProjectPath)Builds\"` is a folder named Builds right next to your `.sln` file. This is especially useful if you want to have folder containing all latest builds of your mods contained in your solution.
+- `copy` signifies a copy instruction. It takes two arguments: what to copy and where to copy it to.
+- `/y` is a flag for the copy instruction to suppress the prompting if you want to overwrite the destination file.
+- `"$(TargetPath)"` is a macro to the output dll produced by building the project. See **macros** at the end of the page.
+- `"$(ProjectPath)Builds\"` is a folder named Builds right next to your `.sln` file. This is especially useful if you want to have folder containing all latest builds of your mods contained in your solution.
 
-### External Programs
+Use `xcopy` to copy a folder if your mod requires multiple files.
+
+## External Programs
 If you have external files or programs you want to run, simply provide the absolute path to run it, followed by any arguments that you might need it.
 ```batch
 [program] arg1 arg2 etc
@@ -42,7 +44,18 @@ del temp.txt
 ```
 Afterwards you can use this variable in commands by using `%VARNAME%`, in the example's case, this would be `%COOLDLL%`.
 
-### Conditionals
+### UNetWeaver
+Possibly the most common example of an external program would be the use of Unity's UNetWeaver for networking. [See this page](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Networking/UNet/) to learn more.
+
+If you are using a .bat file, make sure you `call` it before you perform other post build actions in your IDE, or the post build will for some reason stop at the .bat
+```batch
+call weaver.bat
+
+copy /Y "$(TargetPath)" "$(SolutionPath)Builds\"
+rem the rest of your commands
+```
+
+## Conditionals
 Batch has `for, if` and probably more go google!
 Batch does not have conditional operators, but there are some implementations for `or` and `and`
 
@@ -64,7 +77,7 @@ if %a% == 1 (
 )
 ```
 
-# Macros
+## Macros
 * `$(OutDir)` is the folder to which your dll is outputted. This path ends in a `\`.
 * `$(ConfigurationName)` is the configuration under which you've chosen to build under. By default this is set to "Debug", and a "Release" configuration is available. **NOTE:** sometimes this does not work and you need to use `$(Configuration)` instead.
 * `$(ProjectName)` is the name of your project.
@@ -78,5 +91,3 @@ if %a% == 1 (
 * `$(SolutionPath)` is the absolute path to your solution file. Ending in `.sln`.
 * `$(SolutionName)` is your solution name, excluding the `.sln` part.
 * `$(TargetExt)`, `$(ProjectExt)`, and `$(SolutionExt)` will likely be `.dll`, `.csproj`, and `.sln` respectively.
-
- 
