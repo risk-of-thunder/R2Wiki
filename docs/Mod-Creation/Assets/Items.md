@@ -2,6 +2,18 @@
 
 This tutorial outlines the basic steps of how to create an item, use 3d assets, and implement its behaviour.
 
+---
+
+Warning: Some parts of this tutorial are outdated:
+
+- The CustomItem C# project.
+
+- The way of loading assets, outdated embedded assets technique instead of just putting files next to your bepinex plugin dll.
+
+- The way the assetbundle is made should be done through the Unity Official AssetBundle Browser or by using ThunderKit
+
+---
+
 The [boilerplate mod](https://github.com/risk-of-thunder/r2boilerplate) implements a very simple item, so using it as a reference point is useful.
 
 ## [ItemAPI](https://github.com/risk-of-thunder/R2API/tree/master/R2API.Items)
@@ -12,7 +24,9 @@ To add an item to the game, a mod maker will have to call the
 [ItemAPI.Add(CustomItem item)](https://github.com/risk-of-thunder/R2API/blob/master/R2API.Items/ItemAPI.cs#L88) or its equipement counterpart, [ItemAPI.Add(CustomEquipment item)](https://github.com/risk-of-thunder/R2API/blob/master/R2API.Items/ItemAPI.cs#L156) method. Once the method is called, a boolean will be returned by **ItemAPI** to indicate the successful registration of the Item/Equipment. Note that the actual item will be added at the initialisation of the relevant catalog at a later time and until then it will not have an `ItemIndex`/`EquipmentIndex` assigned.
 
 [CustomItem](https://github.com/risk-of-thunder/R2API/blob/master/R2API.Items/CustomItem.cs) / [CustomEquipment](https://github.com/risk-of-thunder/R2API/blob/master/R2API.Items/CustomEquipment.cs) is a class that holds 2 variables:
+
 - An `ItemDef` / `EquipmentDef`: These are classes from the game code, which basically hold all the needed informations for the game to define an item or an equipment, its name, its tier, the text that will show up when you look at its logbook entry, and so on. To create an instance of this class, use `ScriptableObject.CreateInstance<ItemDef>()`.
+
 - An array of `ItemDisplayRule`: This allows to define one rule, or multiple rules that will dictate where the item 3d model will show up on the survivors.
 
 ## [Unity assets](https://docs.unity3d.com/540/Documentation/Manual/BuildingAssetBundles.html)
@@ -30,7 +44,8 @@ Click on `Window` -> `PackageManager` and search for `AssetBundleBrowser` and in
 Let's start with the **Import/** folder.
 As you can see when going into the **Import/belt/** folder, a prefab called is already configured to be included in a future **exampleitemmod assetbundle** :
 
-![Highlight path and assetbundle name](https://i.imgur.com/6hCRT1n.png)
+![Highlight path and assetbundle name](https://github.com/user-attachments/assets/f3e99762-2615-4ac6-a688-f454dea75bef)
+
 Same goes for the icon located in the **Import/belt_icon/** folder : 
 
 ![can change the targeted assetbundle](https://i.imgur.com/nUJ8Cmo.png)
@@ -59,7 +74,7 @@ Now that we have our assetbundle, we can finally do the best part, the code. ;)
  - Properties of assetbundle
  - Select Embedded resource
  
-![embed resource](https://cdn.discordapp.com/attachments/575431803523956746/685275050542235713/unknown.png)
+![image](https://github.com/user-attachments/assets/d794be68-6363-4bad-89a0-07453cb7c0d2)
 
 Then, in the **`Assets.cs`** file, make sure that the namespace and the filename of the assetbundle is correctly set.
 ```csharp

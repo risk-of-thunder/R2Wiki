@@ -34,17 +34,18 @@ Chances are if you try to open this project in Unity (make sure you have the rig
 ## Version 0.3.4.0 and older:
 - Open AssetRipper.exe
 - Configuration as follow 
-
-  ![image](https://cdn.discordapp.com/attachments/873741640198672404/1033447183871123558/unknown.png)
+  
+  ![image](https://github.com/user-attachments/assets/889b481d-1d2f-4309-87c9-740791db0c02)
 
 - File -> Open File
 
-  ![image](https://user-images.githubusercontent.com/837334/176716836-28164064-8f18-4483-92cb-833e19f95631.png)
+  ![image](https://github.com/user-attachments/assets/43a37c9b-1c67-4306-94c6-ffaa760860b4)
 
 - Select game executable (Risk of Rain 2.exe)
 - Export -> Export all files
 
-  ![image](https://user-images.githubusercontent.com/837334/176716983-3d09deca-a0cb-4a47-8f30-46f83bfeda18.png)
+  ![image](https://github.com/user-attachments/assets/5f2d07e2-58ff-4d6d-9747-1cc9491ebe38)
+
 - Select an empty folder where the game will be extracted in.
 
 ### After Extracting

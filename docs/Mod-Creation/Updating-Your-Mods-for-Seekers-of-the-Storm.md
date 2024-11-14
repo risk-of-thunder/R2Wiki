@@ -20,7 +20,7 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
 - update your unity project to version 2021.3.33
 - update your wwise project to v2023.1.4.8496 and rebuild your soundbanks
   - I had issues loading the soundbank through code, so I just cut that code and renamed my soundbank from .bnk to .sound and let r2api do it
-- if your weaver doesn't weave, make sure your post build is targeting the right destination (2.1 folder instead of 2.0) and throw [this dll](https://cdn.discordapp.com/attachments/1279030064192950382/1279663585189953577/netstandard.dll?ex=66d54315&is=66d3f195&hm=aabf2c9d2c7931a1fd4e044a960e0f755e2a3d0fd461c68453e9376855b3894d&) in your libs folder haha woops who put that there 
+- if your weaver doesn't weave, make sure your post build is targeting the right destination (2.1 folder instead of 2.0) and throw [this dll](https://github.com/user-attachments/files/17725171/netstandard.zip) in your libs folder haha woops who put that there 
 
 ### Code Changes
 - `TemporaryOverlay` changed to `TemporaryOverlayInstance`

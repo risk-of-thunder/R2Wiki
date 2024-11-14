@@ -232,7 +232,7 @@ This guide assumes you already followed the steps in that page. and already have
 
 On your asset Bundle, you need to create an ArtifactDef. to do this, right click on the project folder, and go to Create -> RoR2 -> ArtifactDef.
 
-![](https://cdn.discordapp.com/attachments/850538397647110145/851206050103427072/b3d6d977d0c7f2841c62017832d4e26f.png)
+![image](https://github.com/user-attachments/assets/7d28cefc-1ae9-40f0-8f04-75fa7d5a740d)
 
 After creating your ArtifactDef, click it, in your inspector, you'll be able to change the settings of your Artifact to your heart's desires.
 
@@ -254,11 +254,11 @@ After creating your ArtifactDef, click it, in your inspector, you'll be able to 
 
 Note: Filling out UnlockableDef & Pickup Model Prefab is NOT necesary.
 
-![](https://cdn.discordapp.com/attachments/850538397647110145/851207413701017600/5b889b7e34f5041a2bdcff949749c2ab.png)
+![image](https://github.com/user-attachments/assets/51a6602b-f85b-46a2-80cc-e595e7fc0e36)
 
 Once you've filled out your ArtifactDef, add it to your SerializableContentPack.
 
-![](https://cdn.discordapp.com/attachments/850538397647110145/851207768643862528/97321fd379027d12f5823a36a7a28bfb.png)
+![image](https://github.com/user-attachments/assets/929846fc-6fe7-4c61-ad26-e0d6279fd24a)
 
 Congratulations, once you load your Thunderkit made mod, the game will load your Custom Artifact.
 
@@ -299,6 +299,7 @@ namespace YourNamespaceHere
 	}
 }
 ```
+
 You can now modify your Hook and make your artifact do stuff when its enabled.
 
 Once you're finished with creating your artifact's effects, simply call the InitializeArtifact() method to initialize your artifact's effects.
@@ -312,58 +313,72 @@ ArtifactCodeAPI, in a nutshell,  allows mod creators to add their own Artifact C
 ArtifactCodeAPI Allows the mod creator to:
 
 * Create custom Artifact Codes easily with the ArtifactCode scriptable object.
+
 * Create new Artifact Compounds.
 
 Custom Code 
 
-![](https://media.discordapp.net/attachments/562704639569428506/872532114711674900/unknown.png?width=1203&height=676)
-![](https://media.discordapp.net/attachments/562704639569428506/872532136236838922/unknown.png?width=1203&height=676)
+![image](https://github.com/user-attachments/assets/3669a10c-bbb6-47fc-ae21-a09913ff2c46)
+
+![image](https://github.com/user-attachments/assets/4818141b-3287-4bd4-9c6c-2404b86518b2)
 
 Custom Artifact Compound (Artifact Compound for [Genetic Artifact](https://thunderstore.io/package/Rico/GeneticArtifact/?utm_source=discord), made by Rico.)
 
-![](https://media.discordapp.net/attachments/567836513078083584/872905325643186236/unknown.png)
-
+![image](https://github.com/user-attachments/assets/365c0c3e-8c8c-4e10-9e93-4d1174cbed60)
 
 ## ArtifactCode scriptable object.
+
 The ArtifactCode Scriptable Object greatly simplifies the creation of Codes, while normally you would make codes by using a Sha256HashAsset, and inputting complex ulong based values. ArtifactCode scriptable object creates these ulong values for you by reading thru the values inputted in 3 pairs of Vector3Int.
 
 Here is an example on how the Artifact of Commando code would be generated using ArtifactCode
+
 ```csharp
 artifactCode = ScriptableObject.CreateInstance<ArtifactCode>();
 artifactCode.topRow = new Vector3Int(CompoundValues.Square, CompoundValues.Square, CompoundValues.Square);
 artifactCode.middleRow = new Vector3Int(CompoundValues.Square, CompoundValues.Square, CompoundValues.Square);
 artifactCode.bottomRow = new Vector3Int(CompoundValues.Triangle, CompoundValues.Triangle, CompoundValues.Triangle);
 ```
+
 Please note that each Vector3Int corresponds to a row in the Artifact tablet.
 
 As well, keep in mind that AddCode() requires you to pass your ArtifactDef as an argument.
 
 ### Thunderkit usage.
-The ArtifactCode scriptable object can also be created from the editor and be used in conjunction with Thunderkit. It can be found in the Create Asset Menu
-![](https://cdn.discordapp.com/attachments/567827235013132291/873231781753684009/unknown.png)
 
-![](https://cdn.discordapp.com/attachments/575431803523956746/946772298050981998/a4b8e2098dbd0cc21e60e736c215340d.png)
+The ArtifactCode scriptable object can also be created from the editor and be used in conjunction with Thunderkit. It can be found in the Create Asset Menu
+
+![image](https://github.com/user-attachments/assets/63fe9be6-6d4c-4493-9c1d-fcb6f68f05c6)
+
+![image](https://github.com/user-attachments/assets/e8df00ce-5bd5-406a-8670-07229829a676)
+
 Implementing the code is as easy as grabbing the desired ArtifactDef & ArtifactCode from your assetBundle and registering the code.
+
 ```csharp
 var def = Assets.LoadAsset<ArtifactDef>("ArtifactDef");
 var hash = Assets.LoadAsset<R2API.ArtifactCode>("Code");
 R2API.ArtifactCodeAPI.AddCode(def, hash);
 ```
+
 A list of the vanilla compound's Values can be found inside the ArtifactCodeAPI itself, under ArtifactCodeAPI.CompoundValues.
 
 ## ArtifactCompound
+
 Creating a custom artifact compound can be a good way to ensure nobody else uses the same code you just created, which allows modders to avoid having code conflicts alltogether.
+
 These are created using the ArtifactCompoundDef scriptable object, which is part of RoR2 code.
+
 ```csharp
 geneArtifactCompoundDef = ScriptableObject.CreateInstance<ArtifactCompoundDef>();
 geneArtifactCompoundDef.modelPrefab = GeneticsArtifactPlugin.geneticAssetBundle.LoadAsset<GameObject>("Assets/Genetics/CompoundGene.prefab");
 geneArtifactCompoundDef.value = 15;
 ArtifactCodeAPI.AddCompound(geneArtifactCompoundDef);
 ```
+
 ### Thunderkit usage.
 Just like ArtifactCodes, you can easily create an ArtifactCompound using the Scriptable object and thunderkit's tools.
 
-![](https://i.gyazo.com/b4b37a126fd9e2853701187eaa0d82c9.png)
+![image](https://github.com/user-attachments/assets/3aa72fbb-a4d6-47c3-aeb4-e4cadace07d6)
+
 ```csharp
 var Compound = Assets.LoadAsset<ArtifactCompoundDef>("CompoundDef");
 R2API.ArtifactCodeAPI.AddCompound(Compound);

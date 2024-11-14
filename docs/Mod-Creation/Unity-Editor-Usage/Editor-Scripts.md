@@ -155,7 +155,7 @@ The resulting UI gives an inspector that separates the layout and look of the UI
 
 ![image](https://github.com/user-attachments/assets/da7caad0-ecbd-446c-9762-482614315d51)
 
-For an indepth explanation of the utilities provided by RoR2EditorKit, check [this]() wiki page.
+For an indepth explanation of the utilities provided by RoR2EditorKit, check [this](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Editor-Usage/RoR2-Editor-Kit-Utilization/) wiki page.
 
 ## Utilizing editor code within Runtime code
 
