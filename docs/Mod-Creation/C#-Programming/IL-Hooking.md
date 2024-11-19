@@ -254,5 +254,5 @@ IL.RoR2.CameraRigController.Update += (il) => {
 ```
 
 Tips: 
-* Use `Debug.Log(il.ToString())` to see what your edit has done.  
-* 
+
+- Use `Debug.Log(il.ToString())` to see what your edit has done.  
