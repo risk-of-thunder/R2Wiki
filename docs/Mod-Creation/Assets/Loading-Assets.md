@@ -127,7 +127,7 @@ public static class SoundBank
 
 ### Loading Soundbanks with R2API
 
-Loading a soundBank with R2API is trivial, since you just need to put your soundBank file in the bepinex/plugins folder and change its extension from `.bnk` to `.sound`. R2API will load it. Note you need to add a reference to R2API.Sound if you do not already have it, or this will not work.
+Loading a soundbank with R2API doesn't require any code from the mod creator. You need to put your soundBank file in the bepinex/plugins folder and change its extension from `.bnk` to `.sound`. R2API.Sound module will load it. Note you need to add a reference to R2API.Sound in your thunderstore package manifest if you do not already have it!
 
 ## Loading Language Files
 
