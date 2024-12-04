@@ -63,7 +63,7 @@ If done correctly, you can now access any private, internal, or readonly types, 
 
 ## Publicizing / Stripping assemblies we don't already cover
 
-If you feel like a game assembly should really be added and maintened by the core dev of the RoR2 Modding community, please let us in the modding discord.
+If you feel like a game assembly should really be added and maintened by the core dev of the RoR2 Modding community, please let us know in the modding discord.
 
 If you want to publicize assemblies that we don't already cover on our NuGet packages and may a bit too obscure for general use, you can proceed as follow:
 
@@ -74,8 +74,6 @@ If you want to publicize assemblies that we don't already cover on our NuGet pac
     If you want to keep method bodies, add -n, but don't upload that dll on github or somewhere else if you do that
 -   Inside your plugin, create a new empty source file
 -   Add the following code to it:
-    using System.Security;
-    using System.Security.Permissions;
 
 ```csharp
 using System.Security;
