@@ -48,7 +48,7 @@ using System.IO;
 public static class Asset
 {
 	//You will load the assetbundle and assign it to here.
-	public static AssetBundle mainBundle
+	public static AssetBundle mainBundle;
 	//A constant of the AssetBundle's name.
 	public const string bundleName = "mybundle";
 	// Uncomment this if your assetbundle is in its own folder. Of course, make sure the name of the folder matches this.
