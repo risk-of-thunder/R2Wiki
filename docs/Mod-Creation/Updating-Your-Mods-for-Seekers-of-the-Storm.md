@@ -8,12 +8,13 @@ if you have a class named `Assets` (all henry survivors will), code attempting t
 
 ### Update Your Projects
 - in visual studio, right click your csproj > properties > General > set Target Framework to 2.1 if it isn't already
-- I'm copypasting this to update my nuget libraries
+- I'm copypasting this to update my nuget libraries  
+If you need to find the latest yourself, RiskOfRain2.GameLibs is [here](https://nuget.bepinex.dev/packages/RiskOfRain2.GameLibs) and MMHook is [here](https://www.nuget.org/packages/MMHOOK.RoR2).
 ```xml
         <PackageReference Include="BepInEx.Core" Version="5.*" />
-        <PackageReference Include="RiskOfRain2.GameLibs" Version="1.3.5-r.1" />
+        <PackageReference Include="RiskOfRain2.GameLibs" Version="1.3.6-r.0" />
         <PackageReference Include="UnityEngine.Modules" Version="2021.3.33" />
-        <PackageReference Include="MMHOOK.RoR2" Version="2024.9.5">
+        <PackageReference Include="MMHOOK.RoR2" Version="2024.12.10">
             <NoWarn>NU1701</NoWarn>
         </PackageReference>
 ```
