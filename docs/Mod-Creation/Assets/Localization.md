@@ -13,9 +13,9 @@ Rename .language file to proper name (keep the .language extension ! Otherwise R
 
 Current format for `.language` file is as follow:
 
-`strings` are for tokens that you want to appear on all languages you didnt explictly wrote tokens for.
+`strings` are for tokens that you want to appear on all languages you didn't explicitly write tokens for.
 
-You can then specify other languages, in the example below we do this for the french language and english.
+You can then specify other languages, in the example below we do this for the french language and English.
 
 Other languages name can be found in the `Risk of Rain 2\Risk of Rain 2_Data\StreamingAssets\Language` folder
 ```json
