@@ -230,4 +230,42 @@ Example: Left - Enabled Artifact of Glory, Right - Enabled Artifact of War
 > Note: In either of these artifacts, highlights are not involved. Your artifacts can have highlighting, but it is not a requirement.
 
 ## Survivor Profile Lobby Icons
-Coming soon...
+To start, download the [Body Icon Template](https://discord.com/channels/562704639141740588/565065765452120064/1309343902142304317) from the Risk of Rain 2 Modding Discord. It's also pinned in the #character-creation channel.
+
+This section will use GIMP, but should be possible in other software. As an example, we're going to use the blue Lemurian icon already present and add the signature blue outline other lobby icons have to the best of our ability. This process can be copied exactly for custom survivor icons, just follow the instructions in the Discord message to create your own icon to use.
+
+Open the .psd file using GIMP.
+
+First, you'll see the following prompt. Selecting either option is fine and is up to personal preference.
+
+<img src="https://github.com/user-attachments/assets/5e1ef5ff-696b-4c99-bca1-a3d2c85acf4c" width="400">
+
+Next, click here to show the Lemurian icon we'll be working with. You'll see an Eye icon appear once you do, and the image will be visible in the center.
+
+<img src="https://github.com/user-attachments/assets/1b315e78-4d94-43f6-9081-ce54ee2734b1" width="400">
+
+Click on Layer 10, then right click on the main image in the center and choose Layer > Layer to Image Size.
+
+On the left side, change the Active foreground color to the following:
+
+| Color | RGBA |
+|:-----:|:-----|
+| Light Sky Blue Outline | `146, 178, 236, 255 `|
+
+Press U to enable the Fuzzy Select tool, and set Threshold on the left to 255.
+
+<img src="https://github.com/user-attachments/assets/05b673ca-f28f-477c-baa4-f273c7cdbd82" width="200">
+
+Click anywhere on the Lemurian to select the entire thing, and it should now have a black and white dashed outline.
+
+Here's the process to create an outline that's the same every time.
+- Right click on the image, then choose Select > Grow, and grow the selection by 9 pixels.
+- Right click again, this time choosing Select > Border, setting it to the following:
+
+<img src="https://github.com/user-attachments/assets/13a565e1-31a9-4599-9cf2-aad37819d69f" width="400">
+
+- Select the Bucket Fill tool using Shift+B and click inside the selection. You should now have a nice outline around the lemurian!
+- Press Ctrl+Shift+E to open the export menu, and change the name to texSurvivorIcon.png or something similar.
+- Click Export, then Export again in the new popup, and you should now have a proper lobby icon!
+
+<img src="https://github.com/user-attachments/assets/374195e6-3149-4d43-8dd3-a257e1721c3b" width="300">
