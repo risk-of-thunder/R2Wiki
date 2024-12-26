@@ -285,6 +285,8 @@ This part of the project will utilize the unofficial editor extension "RoR2Edito
 
 ![image](https://github.com/user-attachments/assets/706e6ac2-422a-4f23-9691-0eee5b49dd97)
 
+* Note: If there is no option as described above, its because ThunderKit failed to import the game's version properly, to fix this, go to ``Packages\Risk of Rain 2`` and select it's ``package.json`` file. You may notice it's Version number is set to a very low value (0.0.1). Replace this value with a number thats higher than ``1.3.0``, and the RoR2 side of the editor kit will enable, this is done to avoid opening a project for the first time and finding a multitude of errors, which can intimidate newcomers
+
 2. The window will open, in this window you can fill out your mod's metadata. You can also tick on the "Add R2API Assemblies" option to add all R2API assemblies to your mod. You can also add more Precompiled Assemblies by adding them using the Precompiled Assembly References list.
 
 ![image](https://github.com/user-attachments/assets/7fd4383e-41bc-42fe-891b-fa16a23db15d)
