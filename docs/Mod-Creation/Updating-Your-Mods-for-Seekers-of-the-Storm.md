@@ -34,8 +34,9 @@ If you need to find the latest yourself, RiskOfRain2.GameLibs is [here](https://
   - some skill achievements give 3, some 5. check the game's achievements for more examples
   - On that, UnlockableAPI hasn't been updated to work with this. I believe it's ripperino for that. you should update your achievements to just use the registerachievementattribute. [Henry Tutorial](https://github.com/ArcPh1r3/HenryTutorial/wiki/Tutorial#6-unlockables-and-achievements) has a good way of doing this.
 - a lot of catalog.init functions have been changed to be coroutines returning `IEnumerator` instead of `void`. do `yield return Orig()` instead of just `orig()`
-- `DamageType` changed to `DamageTypeCombo` (due to the addition of `DamageTypeExtended` which is just `DamageType` again cause they ran out of room for more damagetypes)
-  - This doesn't affect r2api damageapi. that should be working the same. if you are seeing issues with that, report them
+- `DamageType` changed to `DamageTypeCombo` (due to the addition of `DamageTypeExtended` and `DamageSource`)
+  - All character's instances of damage from skills must be updated to include the proper `DamageSource`, or certain items like Breaching Fin will not work
+  - This doesn't affect r2api damageapi. That should be working the same. If you are seeing issues with that, report them.
 - `BulletAttack.BulletHit` is pooled now. If, for whatever reason, you were instantiating any directly (with e.g. = default(BulletHit)), it'll now cause some weird NREs -- capable of, among other things, completely killing the BepInEx logger if you try to log it directly. 
   - This needs to be replaced with BulletAttack.GetBulletHit(), and probably something to clear the pool manually later if you aren't doing stuff during existing BulletAttack code
 - function `GenericSkill.OnFixedUpdate` now has a `float deltaTime` parameter
