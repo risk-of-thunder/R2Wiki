@@ -25,7 +25,7 @@ This page has been updated for SoTS! If there are any screenshots that were take
 
 ### Modding / Editor tools
 
-- **[Thunderkit](https://github.com/PassivePicasso/ThunderKit)** - This tutorial uses thunderkit. You can make stages without Thunderkit but it is very different and very limited. If you are unaware of how to use Thunderkit, refer to [this page](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Thunderkit/Getting-Started/) or [this video](https://www.youtube.com/watch?v=JI-erct5f4Y). If you need further help, ask questions in the Risk of Rain 2 Modding or Thunderkit Discord Servers.
+- **[Thunderkit](https://github.com/PassivePicasso/ThunderKit)** - This tutorial uses thunderkit. You can make stages without Thunderkit but it is very different and very limited. If you are unaware of how to use Thunderkit, refer to [this page](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Thunderkit/Getting-Started/). If you need further help, ask questions in the Risk of Rain 2 Modding or Thunderkit Discord Servers.
 - **[RoR2EditorKit](https://github.com/risk-of-thunder/RoR2EditorKit)** - A package that currently hosts the node placer and an abundance of other Unity editor utilites.
 - **[R2API.Stages](https://thunderstore.io/package/RiskofThunder/R2API_Stages/)** - Not necessarily required but it is heavily urged to have your mod depend on this to make sure stages are implemented and balanced correctly, especially if you are making a variant.
 - **[R2API.Addressables](https://thunderstore.io/package/RiskofThunder/R2API_Addressables/)** and **[R2API.Director](https://thunderstore.io/package/RiskofThunder/R2API_Director/)** - Not required but it hosts the Monster / Interactable Pool Addressable Scriptable objects explained later in the tutorial. Feel free to make your own means of making pools.
@@ -189,7 +189,7 @@ Keep in mind if you load your stage without a nodegraph via ``next_stage`` or st
 
 ## Creating Mod Framework and Loading Your Stage
 
-Considering you already know how to [set up your BaseUnityPlugin and load assetbundles](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Thunderkit/Using-Scripts-with-Assetbundles/), creating the code for your stage is simple- that is until you make unique gimmicks for the stage such as the Abandoned Aqueduct door, Void Fields cells, or even a final boss.
+Considering you already know how to [set up your BaseUnityPlugin and load assetbundles](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Editor-Usage/ThunderKit/Crash-Course-and-Getting-Started/), creating the code for your stage is simple- that is until you make unique gimmicks for the stage such as the Abandoned Aqueduct door, Void Fields cells, or even a final boss.
 
 You can either load your SceneDef from your assetbundle as an asset or create a SceneDef at runtime like so:
 
@@ -286,7 +286,7 @@ While having one of your Node Groups selected, you can hover over your terrain a
 
 As you place your nodes, you will notice the green links between them. This indicates that they will have a link between them when they are baked: a core mechanism that powers pathfinding. Make sure to polish your node placements so they are properly spaced out and cover the land you want to be playable.
 
- **<p style='color:red'>Be wary of the ``Clear Nodes`` and ``Remove Node Excess`` buttons, both of these delete nodes.</p>** The ``Clear Nodes`` button removes all nodes under your Node Group; the ``Remove Node Excess`` button attempts to remove nodes that are overlapping each other too much.
+ **<p style='color:red'>Be wary of the ``Clear Nodes`` and ``Remove Unconnected Nodes`` buttons, both of these delete nodes.</p>** The ``Clear Nodes`` button removes all nodes under your Node Group; the ``Remove Unconnected Nodes`` removes nodes that are not connected to other nodes, which should sound fine, however if you do this before baking nodes or **after restarting the project without baking nodes again** it will remove all of your nodes.
 
 Each node has properties that allow different behaviors: ``Forbidden Hulls``, ``Flags``, and ``Gates``. Gates will be covered in its own section as it opens up for more creative use of nodes. The ``Forbidden Hulls`` defines what size of monsters are allowed to spawn on that node: ``Human`` (player sized monsters such as Lemurians and Wisps), ``Golem`` (bigger enemies from Golems to Titans), and ``Beetle Queen`` (huge enemies such as Beetle Queen and Grandparent). The ``Flags`` have miscellaneous behaviors such as ``Teleporter OK``, ``No Ceiling``, ``No Character Spawn``, ``No Chest Spawn``, and ``No Shrine Spawn``. The Hulls and Flags can be automatically generated via the ``Update No Ceiling Masks``, ``Update Teleporter Masks``, and ``Update Hull Masks`` buttons. You can also manually choose the flags and hulls you want via the Node Group or on the placed node. This opens up the ability for further polish as you can adjust teleporter spots or forbid chests and shrines from spawning on a jump pad- of which will be covered later.
 
