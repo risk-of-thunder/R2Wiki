@@ -10,6 +10,7 @@ Shortcut (please add shortcuts for your region if necessary):
 * UK/US = Ctrl + Alt + \`
 * DE = Ctrl + Alt + Ö
 * ES = Ctrl + Alt + Ñ
+* RU = Ctrl + Alt + Ё
 
 Many mods use console commands. Notably mods like [DebugToolkit](https://thunderstore.io/package/Harb/DebugToolkit/) are almost entirely console commands.
 
