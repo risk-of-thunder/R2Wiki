@@ -4,13 +4,7 @@ First things first, this wiki is expecting you to already know how to make your 
 
 This wiki will cover initializing the transformations for the void item you have created. This process remains the same whether you are managing your project from visual studio or creating items in thunderkit.
 
-## VoidItemAPI
-
-VoidItemAPI is a tool I have setup to easily create transformations for your item. You will not have to set the expansion def or do any hooking yourself. The only downside of using it is that it's yet another dependency you will have to set for your project and you will have to wait on me during updates. If you are interested, you can get the dll from thunderstore or from the github repo [here](https://github.com/khouryj/VoidItemAPI).
-
 ## Manual Initialization
-
-The sanest way of creating void items is to do it yourself and not rely on my garbage code to do it for you. So hopefully my explanation skills are greater than my programming skills.
 
 ### Setting the Item Tier
 
@@ -34,47 +28,20 @@ To set the expansion def, you can do this:
 YourItemDef.requiredExpansion = ExpansionCatalog.expansionDefs.FirstorDefault(def => def.nameToken == "DLC1_NAME")
 ```
 
-### Creating the transformation(s)
+## Creating the transformation(s)
 
-The first thing of note is that you need to be hooked onto ContagiousItemManager.Init, this will not work unless your code runs in this method and before their original method. If you are using mmhook to generate this hook, orig() needs to be called after your code runs. You can hook onto the event like this:
-```c#
-//In Awake
-On.RoR2.Items.ContagiousItemManager.Init += MethodNameHere;
+### ItemRelationshipProvider
 
-//Outside of Awake
-private void MethodNameHere(On.RoR2.Items.ContagiousItemManager.orig_Init orig)
-{
-    
-}
-```
-
-To create a transformation for your item, you are going to need some things. For the sake of example, let's just say I have a void item named Blue Whip, and I wanted to create a transformation that corrupts Red Whips (surprising). To do this, I need to create something called an ItemDef.Pair, like so:
+This is the scriptable object that will get added to your ContentPack. Simply create a new ItemRelationshipProvider and set the relationship type to the DLC1 contagious item type.
 
 ```c#
-private void MethodNameHere(On.RoR2.Items.ContagiousItemManager.orig_Init orig)
-{
-    ItemDef.Pair transformation = new ItemDef.Pair()
-    {
-        itemDef1 = RoR2Content.Items.SprintOutOfCombat,  //Item to be transformed
-        itemDef2 = BlueWhip                              //The void item
-    };
-
-}
+yourProvider.relationshipType = Addressables.LoadAssetAsync<ItemRelationshipType>("RoR2/DLC1/Common/ContagiousItem.asset").WaitForCompletion();
 ```
+You then want to populate the `ItemRelationshipProvider.relationships` array with the transformation pairs that you want to add. These `ItemDef.Pair` structs can contain custom or vanilla items, but neither of the items can be null! Keep in mind that using vanilla items requires you to load the addressable ItemDef object. Using `RoR2.RoR2Content.Items` or any similar static field **WILL NOT WORK!!**
 
-Once you have created your ItemDef.Pair, all you need to do is add it to the dictionary in the ItemCatalog. There is a method in HarmonyLib that does this easily for you. Also, do not forget to call orig()!
+The addressables can be found here https://xiaoxiao921.github.io/GithubActionCacheTest/assetPathsDump.html
 
-```c#
-private void MethodNameHere(On.RoR2.Items.ContagiousItemManager.orig_Init orig)
-{
-    ItemDef.Pair transformation = new ItemDef.Pair()
-    {
-        itemDef1 = RoR2Content.Items.SprintOutOfCombat,  //Item to be transformed
-        itemDef2 = BlueWhip                              //The void item
-    };
-    ItemCatalog.itemRelationships[DLC1Content.ItemRelationshipTypes.ContagiousItem] = ItemCatalog.itemRelationships[DLC1Content.ItemRelationshipTypes.ContagiousItem].AddToArray(transformation);
-    orig();
-}
-```
+![{D967968C-E50C-42AF-98FA-2A554585E290}](https://github.com/user-attachments/assets/b43fa930-2409-40a6-9923-b7e50b6b9111)
 
-With this setup, you have successfully initialized the transformation of your void item! Note: if you would like to setup multiple transformations for one void item, you can simply set up an array of ItemDef.Pair objects, and then use the `AddRangeToArray()` method to add your array to the dictionary in the ItemCatalog.
+You can either manage your own ContentPack and add it to the `ContentPack.itemRelationshipProviders` array or use `R2API.ContentAddition.AddItemRelationshipProvider`.
+
