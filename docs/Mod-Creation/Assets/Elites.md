@@ -17,7 +17,12 @@ Shader wise, all a ramp in the game is doing is that transforms the RGBA of what
 as a result, what basically happens is:
 
 >Lighter colors in the diffuse texture will use the colors on the right side of the ramp
+
 >Darker colors in the diffuse texture will use the colors on the left side of the ramp
+
+Important thing to remember is that when setting up import setting in Unity for ramp texture you need to untick "Generate Mip Maps" and "Wrap Mode" should be "Clamp". Otherwise it would use colours all over the place. Also don't forget about "Alpha is Transparency" if your ramp has transparency.
+
+![image](https://github.com/user-attachments/assets/78a5c54a-eca2-444f-a938-44922ff7f807)
 
 
 Example elite ramp:
