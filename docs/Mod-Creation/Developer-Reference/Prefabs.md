@@ -6,7 +6,7 @@ The Prefab Asset acts as a template from which you can create new Prefab instanc
 RoR2 isn't an exception and uses Prefabs to load most of its game objects, from bodies of all entities (classes, monsters...) to projectiles, skills, and so on.
 
 ## Prefab text dump
-[prefabs1.3.6.zip](https://github.com/user-attachments/files/18200287/prefabs1.3.6.zip)
+[prefabs1.3.7.zip](https://github.com/user-attachments/files/19089246/prefabs1.3.7.zip)
 
 ITS ACTUALLY A 7z FILE !!! Change extension from .zip to .7z and use 7zip or winrar for opening.
 
