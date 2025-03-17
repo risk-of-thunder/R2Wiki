@@ -219,16 +219,7 @@ internal class MyNetworkComponent : NetworkBehaviour
 
 ### How to patch
 
-1. **As a Patcher**
-
-- Download the [archive](https://github.com/risk-of-thunder/R2Wiki/files/14428540/UNetWeaver.zip) that contains the BepinEx Patcher UNet Weaver.
-- Extract it in your `Risk of Rain 2\BepInEx\patchers` folder.
-- If everything went correctly, your assembly will be patched when loading the game.
-- This automates the need of pointing the weaver towards the right libs, as they will all be loaded by BepInEx already.
-- Note that this is **run once** on your (the developer's) computer. After this you will have a patched plugin that you can distribute without the patcher.
-- Yes, this is essentially using Risk of Rain 2 as a plugin builder.
-
-2. **As a PostBuild-Event**
+**As a PostBuild-Event**
 
 - Download the [archive](https://github.com/user-attachments/files/17396610/NetworkWeaver.zip) that contains the UnetWeaver executable.
 - You can set it up how you want, but for now we'll assume that you extracted it in a folder called `NetworkWeaver` in your project root and your libraries are there too in a `libs` folder.
@@ -276,5 +267,14 @@ internal class MyNetworkComponent : NetworkBehaviour
     ```
 
 - If everything went correctly, your patched plugin.dll will be in your project root whenever you build. (So next to your .csproj file.)
+
+**As a Patcher**
+
+- Download the [archive](https://github.com/risk-of-thunder/R2Wiki/files/14428540/UNetWeaver.zip) that contains the BepinEx Patcher UNet Weaver.
+- Extract it in your `Risk of Rain 2\BepInEx\patchers` folder.
+- If everything went correctly, your assembly will be patched when loading the game.
+- This automates the need of pointing the weaver towards the right libs, as they will all be loaded by BepInEx already.
+- Note that this is **run once** on your (the developer's) computer. After this you will have a patched plugin that you can distribute without the patcher.
+- Yes, this is essentially using Risk of Rain 2 as a plugin builder.
 
 If you feel like it, you can see what the Weaver changed in your assembly by opening it with dnSpy and looking at the networking classes you had. New generated methods and fields should be in them.
