@@ -11,7 +11,7 @@ The folder and the .language file (both named "RENAME_ME_MOD_MAKER_BEFORE_RELEAS
 
 ## .language File Format
 
-`strings` determines the default translation, or the translation that the game falls back on if no other translation is specified. Other languages are specified using the first two letters of that languages name (French -> fr | English -> en), and a list of all supported languages can be found in the `Risk of Rain 2\Risk of Rain 2_Data\StreamingAssets\Language` folder.
+`strings` determines the default translation, or the translation that the game falls back on if no other translation is specified. Language identifiers are specified using the first two letters of that languages name (French -> fr | English -> en) and the capitalization does not matter so long as the correct id is used. A list of all supported languages can be found in the `Risk of Rain 2\Risk of Rain 2_Data\StreamingAssets\Language` folder.
 
 Example:
 ```json
