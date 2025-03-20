@@ -1,0 +1,2577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/IL-Hooking/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>IL Hooking - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#il-hooking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IL Hooking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome to the Risk of Rain 2 Modding Wiki !
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Mod Creation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mod Creation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mod Creation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Version/" class="md-nav__link">
+        Unity Version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Core-API-Changelog-1.3.7/" class="md-nav__link">
+        Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-Seekers-of-the-Storm/" class="md-nav__link">
+        Updating Your Mods for Seekers of the Storm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-SotV/" class="md-nav__link">
+        Updating Your Mods for SotV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Assets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assets" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Character/" class="md-nav__link">
+        Character
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Difficulty/" class="md-nav__link">
+        Difficulty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Elites/" class="md-nav__link">
+        Creating an Elite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Extraction/" class="md-nav__link">
+        Extraction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Icons/" class="md-nav__link">
+        Icons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Interactables/" class="md-nav__link">
+        Interactables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/" class="md-nav__link">
+        Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Loading-Assets/" class="md-nav__link">
+        Loading Assets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Merging-Materials/" class="md-nav__link">
+        Merging Materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skills/" class="md-nav__link">
+        Skills
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Stage/" class="md-nav__link">
+        Stages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Translation/" class="md-nav__link">
+        Translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/UI/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Void-Items/" class="md-nav__link">
+        Void Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_17" type="checkbox" id="__nav_2_5_17" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_17">
+          Items
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Items" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_17">
+          <span class="md-nav__icon md-icon"></span>
+          Items
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        Using the RoR2CreateItemTemplate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_18" type="checkbox" id="__nav_2_5_18" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_18">
+          Shaders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Shaders" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_18">
+          <span class="md-nav__icon md-icon"></span>
+          Shaders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        HG Triplanar Terrain Blend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        Working Shaders outside of an AssetRipper project
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_19" type="checkbox" id="__nav_2_5_19" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_19">
+          Skins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Skins" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_19">
+          <span class="md-nav__icon md-icon"></span>
+          Skins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/" class="md-nav__link">
+        Creating skin for vanilla characters with custom model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_20" type="checkbox" id="__nav_2_5_20" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_20">
+          Sounds
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sounds" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_20">
+          <span class="md-nav__icon md-icon"></span>
+          Sounds
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_20_1" type="checkbox" id="__nav_2_5_20_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_20_1">
+          WWise
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WWise" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_5_20_1">
+          <span class="md-nav__icon md-icon"></span>
+          WWise
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Custom-Music/" class="md-nav__link">
+        Custom Music
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          C# Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C# Programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          C# Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly-References/" class="md-nav__link">
+        Assembly References
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Code-Analysis/" class="md-nav__link">
+        Code Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Console-Commands/" class="md-nav__link">
+        Console Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Debugging-Your-Mods/" class="md-nav__link">
+        Debugging Your Mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hooking/" class="md-nav__link">
+        Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hot-Reloading/" class="md-nav__link">
+        Hot Reloading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IContentPackProvider/" class="md-nav__link">
+        IContentPackProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IL Hooking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IL Hooking
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cil" class="md-nav__link">
+    What is CIL?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is CIL?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-stack" class="md-nav__link">
+    What is a Stack?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ilcursor-basic-stack-manipulation" class="md-nav__link">
+    ILCursor &amp; basic stack manipulation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegates" class="md-nav__link">
+    Delegates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments-properties-fields-local-variables-values-private-readonly-subtypes" class="md-nav__link">
+    Arguments, Properties, Fields, Local Variables &amp; Values, Private, readonly, SubTypes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditionals-branches-iteration-labelsreturn-addresses" class="md-nav__link">
+    Conditionals, Branches, Iteration, &amp; Labels/Return addresses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-the-calling-method-from-the-delegate" class="md-nav__link">
+    Returning the calling method from the delegate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-jump-addresses" class="md-nav__link">
+    Remove() &amp; jump addresses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#original" class="md-nav__link">
+    Original:
+  </a>
+  
+    <nav class="md-nav" aria-label="Original:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-code-for-removing-the-strange-sensitivity-while-sprinting" class="md-nav__link">
+    Example code for removing the strange sensitivity while sprinting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-code-snippet-from-bepis" class="md-nav__link">
+    Example code snippet from Bepis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        Mod Compatibility: Soft Dependency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reflection-Crash-Course/" class="md-nav__link">
+        Reflection Crash Course
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unity-and-MonoBehaviour/" class="md-nav__link">
+        Unity and MonoBehaviour
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_13" type="checkbox" id="__nav_2_6_13" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_13">
+          Game Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Game Code" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_13">
+          <span class="md-nav__icon md-icon"></span>
+          Game Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        Common Components, Events and Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        Tips and Tricks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_14" type="checkbox" id="__nav_2_6_14" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_14">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_14">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/MiniRpcLib/" class="md-nav__link">
+        MiniRpcLib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        R2API.NetworkingAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        Server side and client side mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/UNet/" class="md-nav__link">
+        UNet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Developer Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Addressables-Assets-Keys/" class="md-nav__link">
+        Addressables Assets Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Items-and-Equipments-Data/" class="md-nav__link">
+        Items and Equipments Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Layers-and-collisions/" class="md-nav__link">
+        Layers and collisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Prefabs/" class="md-nav__link">
+        Prefabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Scene-Names/" class="md-nav__link">
+        Scene Names
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Sound-%E2%80%90-Wwise-Events/" class="md-nav__link">
+        Sound - Wwise Events
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Style-Reference-Sheet/" class="md-nav__link">
+        Style Reference Sheet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/First-Mod/" class="md-nav__link">
+        First Mod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        So you want to mod Risk of Rain 2?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          IDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IDE" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          IDE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio-Code/" class="md-nav__link">
+        Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_2" type="checkbox" id="__nav_2_9_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_2">
+          Visual Studio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Visual Studio" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Visual Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        Post Build Events
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/Testing-Multiplayer-Alone/" class="md-nav__link">
+        Testing Multiplayer Alone
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          ThunderKit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThunderKit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          ThunderKit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Crash-Course-and-Getting-Started/" class="md-nav__link">
+        ThunderKit - Crash course and Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        Upgrading your project to use R2API's Split Assemblies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Using-the-DOTS-framework-in-Modding/" class="md-nav__link">
+        Thunderkit - Using the DOTS framework in Modding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          Unity Editor Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unity Editor Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Unity Editor Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/Editor-Scripts/" class="md-nav__link">
+        Editor Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/RoR2-Editor-Kit-Utilization/" class="md-nav__link">
+        RoR2 Editor Kit Utilization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/Using-MonoBehaviour-Scripts-in-Editor/" class="md-nav__link">
+        Using MonoBehaviour Scripts in Editor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Playing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Playing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Playing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        Running modded and unmodded game with shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/BepInEx/" class="md-nav__link">
+        BepInEx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cil" class="md-nav__link">
+    What is CIL?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is CIL?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-stack" class="md-nav__link">
+    What is a Stack?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ilcursor-basic-stack-manipulation" class="md-nav__link">
+    ILCursor &amp; basic stack manipulation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegates" class="md-nav__link">
+    Delegates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments-properties-fields-local-variables-values-private-readonly-subtypes" class="md-nav__link">
+    Arguments, Properties, Fields, Local Variables &amp; Values, Private, readonly, SubTypes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditionals-branches-iteration-labelsreturn-addresses" class="md-nav__link">
+    Conditionals, Branches, Iteration, &amp; Labels/Return addresses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-the-calling-method-from-the-delegate" class="md-nav__link">
+    Returning the calling method from the delegate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-jump-addresses" class="md-nav__link">
+    Remove() &amp; jump addresses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#original" class="md-nav__link">
+    Original:
+  </a>
+  
+    <nav class="md-nav" aria-label="Original:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-code-for-removing-the-strange-sensitivity-while-sprinting" class="md-nav__link">
+    Example code for removing the strange sensitivity while sprinting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-code-snippet-from-bepis" class="md-nav__link">
+    Example code snippet from Bepis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_C%23-Programming_IL-Hooking/_edit" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="il-hooking">IL Hooking</h1>
+<h2 id="what-is-cil">What is CIL?</h2>
+<p>In short, <a href="https://en.wikipedia.org/wiki/Common_Intermediate_Language">CIL</a> is a stack based language that can manipulate arbitrary high level objects within a low level, stack based environment. CIL is a powerful tool which can provide access to restricted/protected areas of code, such as local variables within methods, private fields, private subtypes/objects, or allow the interception of readonly values. IL Hooks will allow you to manipulate method logic in ways that are not possible with On.Event hooks.</p>
+<h3 id="what-is-a-stack">What is a Stack?</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a> is used at a low/intermediate level to process data. As explained by Wikipedia, only the value at the very top of the stack can be popped from the stack. Given a list of IL instructions, the processor will iterate its way through the operations, emitting values to the stack, and executing operations upon the stack as and when the instruction is executed. At the point of termination(return), the stack must be empty, with no more instructions or values remaining. If this is not the case, the stack is said to be unbalanced and the process will terminate with the error <code>Invalid ILCode</code></p>
+<div class="highlight"><pre><span></span><code>ldc.i4.1 //pushes the int32(1) onto the stack
+ldc.i4.2 //pushes the int32(2) onto the stack
+ldc.i4.3 //pushes the int32(3) onto the stack
+add
+add
+ret //method return
+</code></pre></div>
+<p>In the above example, after the first 3 instructions, from bottom to top the stack contains <code>[1,2,3]</code>. When the first add operation is executed, first [3] and then [2] will be popped from the stack, added together to produce [5], which is then pushed onto the stack resulting in <code>[1,5]</code>. Finally, the second add will be executed, where [5] and [1] will be popped from the stack, added together, and the resulting stack will contain only <code>[6]</code>. The method will then return, passing the value 6 to the calling method. The method has finished executing, there are no more operations and the stack is now empty, thus the stack is balanced. If the stack is not balanced, or you perform an incorrect operation on the data at the top of the stack, the <code>ILCode</code> error will be produced.</p>
+<p>You can find out about specific <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.opcodes.add?view=netframework-4.8">OpCodes</a> from MSDN. Each opcode will explain how many parameters it pops from the stack, the ordering of the values, and the return type of the operation.</p>
+<h3 id="ilcursor-basic-stack-manipulation">ILCursor &amp; basic stack manipulation</h3>
+<p>The IL Cursor is an implementation by <a href="https://github.com/MonoMod/MonoMod">MonoMod</a> to facilitate traversal of the stack in a user friendly manner. <code>ILCursor</code> is a specific implementation by monomod, so you will not find any MSDN documentation on it.</p>
+<p>To begin, we will define a problem to solve. Lets say that we desire to modify the health fraction of the crowbar. Firstly, we must understand that damage is handled by <code>HealthComponent.TakeDamage</code>, and all damage interactions are serverside. TakeDamage instantly returns if run by a client.</p>
+<div class="highlight"><pre><span></span><code>    public void TakeDamage(DamageInfo damageInfo)
+    {
+        if (!NetworkServer.active)
+        {
+            Debug.LogWarning(&quot;[Server] function &#39;System.Void RoR2.HealthComponent::TakeDamage(RoR2.DamageInfo)&#39; called on client&quot;);
+            return;
+        }
+</code></pre></div>
+<p>Similarly, the relevant section of code from HealthComponent.TakeDamage() is:</p>
+<div class="highlight"><pre><span></span><code>if (this.combinedHealth &gt;= this.fullCombinedHealth * 0.9f)
+{
+    int itemCount2 = master2.inventory.GetItemCount(ItemIndex.Crowbar);
+    if (itemCount2 &gt; 0)
+    {
+        Util.PlaySound(&quot;Play_item_proc_crowbar&quot;, base.gameObject);
+        num *= 1.5f + 0.3f * (float)(itemCount2 - 1);
+        EffectManager.instance.SimpleImpactEffect(Resources.Load&lt;GameObject&gt;(&quot;Prefabs/Effects/ImpactEffects/ImpactCrowbar&quot;), damageInfo.position, -damageInfo.force, true);
+    }
+}
+</code></pre></div>
+<p>Clearly, we want to modify the 0.9f. If we right click the line with DnSpy, and edit IL, we can see the corresponding opcodes for this line:</p>
+<div class="highlight"><pre><span></span><code>175 01F1    ldarg.0
+176 01F2    call    instance float32 RoR2.HealthComponent::get_combinedHealth()
+177 01F7    ldarg.0
+178 01F8    call    instance float32 RoR2.HealthComponent::get_fullCombinedHealth()
+179 01FD    ldc.r4  0.9
+180 0202    mul
+181 0203    blt.un.s    216 (0266) ldarg.0
+</code></pre></div>
+<p>So at operation index 179 we want to replace that value, but how do we get there? Well, we could simply move the cursor to the 179'th instruction, however if another mod, or another update modifies any instruction prior to this, the modification will likely break the game. Therefore, we are going to move the cursor to some specific instructions that we match directly. The <code>ILCursor</code> will assist with this task, and we will require the following references:</p>
+<div class="highlight"><pre><span></span><code>using Mono.Cecil.Cil;
+using MonoMod.Cil;
+</code></pre></div>
+<p>Inside of Awake() we are going to define our hook location and an <code>ILCursor</code>. We will then use lambda chaining &amp; the monomod match methods to find specific instructions. <strong>The ILCursor's location is always placed between one instruction, and the next. Debug.Log(c) will output the two instructions either side of the cursor.</strong> The ILCursor location will bind before the first instruction that is matched, in this case the cursor will be ready to execute <code>Ldarg.0</code>. In order to reach our destination, we need to increment the cursor index by 4 to place ourselves before <code>Ldc.R4(0.9f)</code>. A common exception you will see is the <code>KeyNotFoundException</code> which will occur if one or more of your match operations does not hold true. It is likely that the operand specified for the match is incorrect, or in the case of <code>MatchCall</code>, you will likely want to use <code>MatchCallVirt</code>.</p>
+<div class="highlight"><pre><span></span><code>        IL.RoR2.HealthComponent.TakeDamage += (il) =&gt;
+        {
+            ILCursor c = new ILCursor(il);
+                c.GotoNext(
+                    x =&gt; x.MatchLdarg(0),
+                    x =&gt; x.MatchCallvirt&lt;HealthComponent&gt;(&quot;get_combinedHealth&quot;),
+                    x =&gt; x.MatchLdarg(0),
+                    x =&gt; x.MatchCallvirt&lt;HealthComponent&gt;(&quot;get_fullCombinedHealth&quot;),
+                    x =&gt; x.MatchLdcR4(0.9f)
+                    );
+                c.Index += 4;
+        }
+</code></pre></div>
+<p>In this example, lets say we just want to increase this to 80% health instead of 90%. We can simply:</p>
+<div class="highlight"><pre><span></span><code>c.Next.Operand = 0.8f;
+</code></pre></div>
+<h3 id="delegates">Delegates</h3>
+<p>Alternatively, perhaps we want a bit more complicated logic, but we don't want to go writing a ton of different opcodes, logic, and branches in order to accomplish the task. In such a scenario we can use a <code>Delegate</code>, which is a method that we can define via a lambda expression. For example instead of the above remove and emit, we could use something like the following:</p>
+<div class="highlight"><pre><span></span><code>c.Remove();
+c.Emit(OpCodes.Ldloc_1);
+c.EmitDelegate&lt;Func&lt;CharacterBody, float&gt;&gt;((cb) =&gt;
+{
+    if (cb.master.inventory)
+    {
+        int bars = cb.master.inventory.GetItemCount(ItemIndex.Crowbar);
+        if (bars &gt; 0)
+        {
+            return 1f - ((1f - 1f / (_crowbarScalar * (float)bars + 1f)) * _crowbarCap);
+        }
+    }
+    return 0.9f;
+});
+</code></pre></div>
+<p><code>Delegates</code> can either return a value, as defined by <code>Func&lt;T&gt;</code>, or they can return void, defined by <code>Action&lt;T&gt;</code>. In the Case of <code>Func&lt;T&gt;</code> the last type defined is the return type, in the above example the return type is a float. The delegate also takes a <code>CharacterBody</code> as a parameter, which is referred too by the arguement <code>cb</code>. </p>
+<blockquote>
+<p>EmitDelegate was designed to behave the same as call / callvirt, thus passing all args from stack onto the delegate just like if it was a normal method call
+thus, if you push A, B, C, your delegate should accept A, B, C in that order. It doesn't pop one by one, it "pops" the last N elements from the stack at once.
+https://discordapp.com/channels/562704639141740588/562704639569428506/604753431894294528</p>
+</blockquote>
+<p>At the cursor location there is currently no reference of a <code>CharacterBody</code> ontop of the stack, so if we want to refer to this object we need to put one there. The method body of <code>TakeDamage</code> defines the local Variable <code>characterBody</code> on line 380 of <code>HealthComponent</code>, so a reference to the attackers characterBody already exists within the method. As such, we can simply emit this local variable to the stack using <code>c.Emit(OpCodes.LdLoc1);</code>. We have removed the existing value, pushed the character body onto the stack, ready to be popped by our delegate which then performs its own method logic before returning a value which is then pushed back onto the stack ready to be manipulated by the original code/logic.</p>
+<p><strong>Output the result IL of a delegate</strong></p>
+<div class="highlight"><pre><span></span><code>var dmd = new DynamicMethodDefinition(method.Method);
+var il = dmd.GetILProcessor().Body.Instructions.ToList();
+</code></pre></div>
+<p>With thanks to Viseyth for finding the solution to this problem.</p>
+<h3 id="arguments-properties-fields-local-variables-values-private-readonly-subtypes">Arguments, Properties, Fields, Local Variables &amp; Values, Private, readonly, SubTypes</h3>
+<p><strong>Arguements</strong></p>
+<p>Methods are called with 0+ arguments, and we can refer to those arguments by the use of <code>c.Emit(OpCodes.Ldarg0);</code>, <code>c.Emit(OpCodes.Ldarg1);</code>, <code>c.Emit(OpCodes.Ldarg2);</code> and so on. Ldarg0 is a reference to the current object/(this). Ldarg1,2,3 would be the parameters passed to the method. For instance <code>(this).TakeDamage(Ldarg1,Ldarg2...)</code></p>
+<p>If we want to manipulate the object (this) via a delegate, we can simply emit Ldarg0 to the stack, and then call a delegate method which takes a parameter using this.Type.</p>
+<p><strong>Properties</strong>
+Properties are called like methods. For example if we want to return the this.fullHealth Property of the HealthComponent: </p>
+<div class="highlight"><pre><span></span><code>c.Emit(Opcodes.Ldarg0) //push this/HealthComponent onto the stack.
+c.Emit(OpCodes.Call, typeof(HealthComponent).GetMethod(&quot;get_fullHealth&quot;)); //call the get_fullHealth method of (this)
+</code></pre></div>
+<p><strong>Fields</strong>
+We can load a field reference onto the stack somewhat similarly by specifying the TypeInfo and calling the GetFieldCached method:</p>
+<div class="highlight"><pre><span></span><code>c.Emit(OpCodes.Ldarg0);
+c.Emit(OpCodes.Ldfld, typeof(HealthComponent).GetFieldCached(&quot;health&quot;);
+</code></pre></div>
+<p>First (this) is pushed to the stack, and then we load the field "health" from the TypeInfo defined by HealthComponent, which consumes (this) from the stack, and pushes the value of this.health field onto the stack. Similarly, if we want to store a value inside a field, we can use the OpCode Stfld, which will consume the value ontop of the stack and store it as the value of the field reference.</p>
+<p><strong>Local Variables</strong>
+Local Variables are manipulated with ldloc.# to load and stloc.# to store. Local variables are named incrementally with numbers, much like arguments are named. Local variables always refer to the current scope, and as such there is no need to emit ldarg.0 to the stack, as the variables only apply to this object anyway.</p>
+<div class="highlight"><pre><span></span><code>c.Emit(OpCodes.Ldloc_1);
+c.Emit(OpCodes.Ldloc_2);
+c.Emit(OpCodes.Add);
+c.Emit(OpCodes.Stloc_s, (byte)3);
+</code></pre></div>
+<p>The above would load the value of the first local variable onto the stack, then load the value of the second local variable onto the stack, add would then pop both values from the stack, and then push the result onto the stack. Stloc(2) would then pop the result from the stack, and store it in the third local variable.</p>
+<p><strong>Values</strong></p>
+<p>We can push values directly onto the stack, ready to be manipulated or store in other fields by emitting primitives such as integers and floats.</p>
+<div class="highlight"><pre><span></span><code>c.Emit(OpCodes.Ldc_I4, 1); //will push (int32)1 onto the stack.
+c.Emit(OpCodes.Ldc_R4, 2f); //will push (float32)2f onto the stack.
+c.Emit(OpCodes.Stloc_s, (byte)3); //will pop 2f from the stack and store it in the third local variable.
+c.Emit(OpCodes.Stloc_s, (byte)4); //will pop 1 from the stack and store it in the fourth local variable.
+</code></pre></div>
+<p><strong>Private fields</strong></p>
+<p>There are two methods we can use to refer to a private field. First, we can specify BindingFlags as a parameter:</p>
+<div class="highlight"><pre><span></span><code>c.Emit(OpCodes.Ldarg_0); 
+c.Emit(OpCodes.Ldfld, typeof(HealthComponent).GetField(&quot;increaseHealingCount&quot;, BindingFlags.Instance | BindingFlags.NonPublic));
+</code></pre></div>
+<p>Secondly, we can use the GetFieldCached method, which will not only be faster for any future references, but will also increase readability:</p>
+<div class="highlight"><pre><span></span><code>c.Emit(OpCodes.Ldarg_0); 
+c.Emit(OpCodes.Ldfld, typeof(HealthComponent).GetFieldCached(&quot;increaseHealingCount&quot;));
+</code></pre></div>
+<p><strong>Readonly</strong>
+please put some stuff here kthxbye</p>
+<p><strong>Subtypes</strong></p>
+<p>Subtypes can be referenced by using the GetNestedType/Cached method.</p>
+<div class="highlight"><pre><span></span><code>            c.Emit(OpCodes.Ldarg_0);
+            c.Emit(OpCodes.Ldfld, typeof(HealthComponent).GetNestedType(&quot;RepeatHealComponent&quot;, BindingFlags.Instance | BindingFlags.NonPublic).GetFieldCached(&quot;reserve&quot;)); //private field (this)HealthComponent/RepeatHealComponent.reserve
+            c.Emit(OpCodes.Ldfld, typeof(HealthComponent).GetNestedTypeCached(&quot;RepeatHealComponent&quot;).GetFieldCached(&quot;reserve&quot;)); //cached reference to private field (this)HealthComponent/RepeatHealComponent.reserve
+</code></pre></div>
+<h3 id="conditionals-branches-iteration-labelsreturn-addresses">Conditionals, Branches, Iteration, &amp; Labels/Return addresses</h3>
+<p>todo</p>
+<h3 id="returning-the-calling-method-from-the-delegate">Returning the calling method from the delegate</h3>
+<p>todo</p>
+<h3 id="remove-jump-addresses">Remove() &amp; jump addresses</h3>
+<p>It is important to note, that removing instructions can result in IndexOutOfBounds exception when an already existing instruction references the address of an instruction which has been removed. In such a scenario its best to use <code>cursor.Next.OpCode</code>/<code>.Operand</code> to replace the instruction with either the desired operation, branch, or NUL.</p>
+<p>todo</p>
+<h2 id="original">Original:</h2>
+<p>IL Instructions and what they do - https://en.wikipedia.org/wiki/List_of_CIL_instructions<br />
+If this is you're first time, I highly suggest reading this <a href="https://discordapp.com/channels/562704639141740588/562704639569428506/569809963845943311">impromptu tutorial</a> from 0x0ade  </p>
+<p>To get started, make sure your project is referencing MonoMod.Utils.dll and Mono.Cecil.dll<br />
+We can view C# translated to IL with dnSpy. Right click on what you want to edit and press <code>Edit IL Instructions</code></p>
+<h3 id="example-code-for-removing-the-strange-sensitivity-while-sprinting">Example code for removing the strange sensitivity while sprinting</h3>
+<p>What we want to edit is at line 413 of RoR2.CameraRigController
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>IL.RoR2.CameraRigController.Update += (il) =&gt; {
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    var c = new ILCursor(il);
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    //We use GotoNext to locate the code we want to edit
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    //Notice we can specify a block of instructions to match, rather than only a single instruction
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    //This is preferable as it is less likely to break something else because of an update
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    c.GotoNext(
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        x =&gt; x.MatchLdloc(4),      // num14 *= 0.5f;
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        x =&gt; x.MatchLdcR4(0.5f),   // 
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        x =&gt; x.MatchMul(),         // 
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        x =&gt; x.MatchStloc(4),      // 
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        x =&gt; x.MatchLdloc(5),      // num15 *= 0.5f;
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        x =&gt; x.MatchLdcR4(0.5f),   //
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        x =&gt; x.MatchMul(),         //
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        x =&gt; x.MatchStloc(5));     //
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    //When we GotoNext, the cursor is before the first instruction we match.
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    //So we remove the next 8 instructions
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    c.RemoveRange(8);
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>};
+</code></pre></div></p>
+<h3 id="example-code-snippet-from-bepis">Example code snippet from Bepis</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>        public void Awake()
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>        {
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>            IL.RoR2.CombatDirector.AttemptSpawnOnTarget += il =&gt;
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>            {
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>                var cursor = new ILCursor(il);
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>                cursor.GotoNext(x =&gt; x.MatchStloc(8));
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>                //at this point, the CharacterMaster component is already on the stack
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>                //we need to pass in the current instance onto the stack too, so we call `ldarg 0`, which is `this`
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>                cursor.Emit(OpCodes.Ldarg_0);
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>                cursor.EmitDelegate&lt;Func&lt;CharacterMaster, CombatDirector, CharacterMaster&gt;&gt;((component, director) =&gt;
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>                {
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>                    CharacterMaster characterMaster = component;
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>                    StartCoroutine(GiveRandomItems(characterMaster));
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>                    Chat.AddMessage(&quot;Ran EmitDelegate, Component is : &quot; + component.ToString());
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>                    return characterMaster;
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>                });
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>            };
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>        }  
+</code></pre></div>
+<p>Tips: </p>
+<ul>
+<li>Use <code>Debug.Log(il.ToString())</code> to see what your edit has done.  </li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../IContentPackProvider/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IContentPackProvider" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              IContentPackProvider
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Mod-Compatibility%3A-Soft-Dependency/" class="md-footer__link md-footer__link--next" aria-label="Next: Mod Compatibility: Soft Dependency" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Mod Compatibility: Soft Dependency
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
