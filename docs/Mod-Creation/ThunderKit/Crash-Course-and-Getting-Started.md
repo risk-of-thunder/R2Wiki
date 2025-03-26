@@ -308,6 +308,10 @@ You may appreciate a couple of new files in the folder.
 | <ModName>Manifest.asset | This is your mod's Manifest asset configured to the bare minimum of datums, with all the required mod dependencies. It already defines your mod's assetbundle, your mod's assembly, files for the plugin and the Thunderstore URL|
 | README.md | This is your mod's README file, general information about what your mod does should be here. |
 
+Note: To add new Precompiled Assemblies to your Assembly Definition, you can do so by adding new entries in this list:
+![image](https://github.com/user-attachments/assets/e57fc9aa-5693-47ea-9ad7-6e4b846bae80)
+
+
 4. To begin our item, we need to create both an ExpansionDef and an ItemDef, unlike the regular way of creating these using ``ScriptableObject.CreateInstance<T>()``, in ThunderKit we can create these ScriptableObjects as actual assets in our project. To do this, Right click the project window, and traverse to "Create", in there you can see further options, go to "RoR2" and you'll have access to all of RoR2's ScriptableObjects.
 
 (Do not actually use raw strings for the tokens, you can find guides regarding language elsewhere.)
