@@ -19,6 +19,7 @@ Most, if not all EntityStates for each of the DLC2 characters were changed to so
   - Removed `aimRequestStack` and `RemoveRequest`
 - RoR2.CharacterBody
   - Removed tamperedHeart-related fields. These are now handled by `ComputeTamperedHeartBonus`
+  - Removed `damageFromRecalculateStats`
 - RoR2.CharacterMaster
   - Removed `SEEKER_REVIVE_STATUS`, `seekerUsedRevive`, and `getSeekerUsedRevive`
 - RoR2.CharacterModel
@@ -27,6 +28,7 @@ Most, if not all EntityStates for each of the DLC2 characters were changed to so
   - Removed `CookingFlambe`
 - RoR2.SceneDef
   - Added `preventStageAdvanceCounter`. This seemingly just prevents a scene from bumping the stage counter. (Tooltip describing the field is wrong)
+  
 
 
 ## Chef
