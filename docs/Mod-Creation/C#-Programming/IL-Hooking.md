@@ -62,14 +62,20 @@ Inside of Awake() we are going to define our hook location and an `ILCursor`. We
             IL.RoR2.HealthComponent.TakeDamage += (il) =>
             {
                 ILCursor c = new ILCursor(il);
-                    c.GotoNext(
+                if (c.TryGotoNext(
                         x => x.MatchLdarg(0),
                         x => x.MatchCallvirt<HealthComponent>("get_combinedHealth"),
                         x => x.MatchLdarg(0),
                         x => x.MatchCallvirt<HealthComponent>("get_fullCombinedHealth"),
                         x => x.MatchLdcR4(0.9f)
-                        );
+                    ))
+                {
                     c.Index += 4;
+                }
+                else 
+                {
+                    Log.Error(il.Method.Name + " IL Hook failed!");
+                }
             }
 
 In this example, lets say we just want to increase this to 80% health instead of 90%. We can simply:
@@ -200,27 +206,34 @@ We can view C# translated to IL with dnSpy. Right click on what you want to edit
 ### Example code for removing the strange sensitivity while sprinting  
 What we want to edit is at line 413 of RoR2.CameraRigController
 ```
-IL.RoR2.CameraRigController.Update += (il) => {
+IL.RoR2.CameraRigController.Update += (il) => 
+{
     var c = new ILCursor(il);
 
     //We use GotoNext to locate the code we want to edit
     //Notice we can specify a block of instructions to match, rather than only a single instruction
     //This is preferable as it is less likely to break something else because of an update
 
-    c.GotoNext(
-        x => x.MatchLdloc(4),      // num14 *= 0.5f;
-        x => x.MatchLdcR4(0.5f),   // 
-        x => x.MatchMul(),         // 
-        x => x.MatchStloc(4),      // 
-        x => x.MatchLdloc(5),      // num15 *= 0.5f;
-        x => x.MatchLdcR4(0.5f),   //
-        x => x.MatchMul(),         //
-        x => x.MatchStloc(5));     //
-
-    //When we GotoNext, the cursor is before the first instruction we match.
-    //So we remove the next 8 instructions
-    c.RemoveRange(8);
-                
+    if (c.TryGotoNext(
+            x => x.MatchLdloc(4),      // num14 *= 0.5f;
+            x => x.MatchLdcR4(0.5f),   // 
+            x => x.MatchMul(),         // 
+            x => x.MatchStloc(4),      // 
+            x => x.MatchLdloc(5),      // num15 *= 0.5f;
+            x => x.MatchLdcR4(0.5f),   //
+            x => x.MatchMul(),         //
+            x => x.MatchStloc(5)       //
+        ))
+    {
+        //When we GotoNext, the cursor is before the first instruction we match.
+        //So we remove the next 8 instructions
+        c.RemoveRange(8);
+    }
+    else 
+    {
+        Log.Error(il.Method.Name + " IL Hook failed!");
+        Log.Error(il.ToString()); // Print out the method IL to help with debugging match fails
+    }
 };
 ```
 
@@ -233,8 +246,13 @@ IL.RoR2.CameraRigController.Update += (il) => {
             {
                 var cursor = new ILCursor(il);
 
-                cursor.GotoNext(x => x.MatchStloc(8));
-
+                if (!cursor.TryGotoNext(x => x.MatchStloc(8))) 
+                {
+                    // If our match fails, exit before making any modifications
+                    Log.Error(il.Method.Name + " IL Hook failed!");
+                    Log.Error(il.ToString());
+                    return;
+                }
 
                 //at this point, the CharacterMaster component is already on the stack
                 //we need to pass in the current instance onto the stack too, so we call `ldarg 0`, which is `this`
