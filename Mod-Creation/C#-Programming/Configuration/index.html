@@ -1,0 +1,2655 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Configuration/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Configuration - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome to the Risk of Rain 2 Modding Wiki !
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Mod Creation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mod Creation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mod Creation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Version/" class="md-nav__link">
+        Unity Version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Core-API-Changelog-1.3.7/" class="md-nav__link">
+        Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Core-API-Changelog-1.3.8/" class="md-nav__link">
+        Core API Changelog 1.3.8 - Seekers of the Storm 2.0 Phase 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-Seekers-of-the-Storm/" class="md-nav__link">
+        Updating Your Mods for Seekers of the Storm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods-for-SotV/" class="md-nav__link">
+        Updating Your Mods for SotV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Assets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assets" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Character/" class="md-nav__link">
+        Character
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Difficulty/" class="md-nav__link">
+        Difficulty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Elites/" class="md-nav__link">
+        Creating an Elite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Extraction/" class="md-nav__link">
+        Extraction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/GameModes/" class="md-nav__link">
+        Creating a Game Mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Icons/" class="md-nav__link">
+        Icons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Interactables/" class="md-nav__link">
+        Interactables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/" class="md-nav__link">
+        Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Loading-Assets/" class="md-nav__link">
+        Loading Assets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Merging-Materials/" class="md-nav__link">
+        Merging Materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skills/" class="md-nav__link">
+        Skills
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Stage/" class="md-nav__link">
+        Stages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Translation/" class="md-nav__link">
+        Translation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/UI/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Void-Items/" class="md-nav__link">
+        Void Items
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_18" type="checkbox" id="__nav_2_6_18" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_18">
+          Items
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Items" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_18">
+          <span class="md-nav__icon md-icon"></span>
+          Items
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        Using the RoR2CreateItemTemplate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_19" type="checkbox" id="__nav_2_6_19" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_19">
+          Shaders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Shaders" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_19">
+          <span class="md-nav__icon md-icon"></span>
+          Shaders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        HG Triplanar Terrain Blend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        Working Shaders outside of an AssetRipper project
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_20" type="checkbox" id="__nav_2_6_20" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_20">
+          Skins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Skins" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_20">
+          <span class="md-nav__icon md-icon"></span>
+          Skins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/" class="md-nav__link">
+        Creating skin for vanilla characters with custom model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_21" type="checkbox" id="__nav_2_6_21" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_21">
+          Sounds
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sounds" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_21">
+          <span class="md-nav__icon md-icon"></span>
+          Sounds
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_21_1" type="checkbox" id="__nav_2_6_21_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_21_1">
+          WWise
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WWise" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_6_21_1">
+          <span class="md-nav__icon md-icon"></span>
+          WWise
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Custom-Music/" class="md-nav__link">
+        Custom Music
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          C# Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C# Programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          C# Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly-References/" class="md-nav__link">
+        Assembly References
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Code-Analysis/" class="md-nav__link">
+        Code Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Configuration
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-the-configuration-file" class="md-nav__link">
+    Generating the configuration file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-multiple-configurations" class="md-nav__link">
+    Adding multiple configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hot-reloading" class="md-nav__link">
+    Hot Reloading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-worked-example" class="md-nav__link">
+    A worked example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-folders" class="md-nav__link">
+    Config folders
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Console-Commands/" class="md-nav__link">
+        Console Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Debugging-Your-Mods/" class="md-nav__link">
+        Debugging Your Mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hooking/" class="md-nav__link">
+        Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hot-Reloading/" class="md-nav__link">
+        Hot Reloading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IContentPackProvider/" class="md-nav__link">
+        IContentPackProvider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IL-Hooking/" class="md-nav__link">
+        IL Hooking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        Mod Compatibility: Soft Dependency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reflection-Crash-Course/" class="md-nav__link">
+        Reflection Crash Course
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unity-and-MonoBehaviour/" class="md-nav__link">
+        Unity and MonoBehaviour
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_13" type="checkbox" id="__nav_2_7_13" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_13">
+          Game Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Game Code" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_7_13">
+          <span class="md-nav__icon md-icon"></span>
+          Game Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        Common Components, Events and Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        Tips and Tricks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_14" type="checkbox" id="__nav_2_7_14" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_14">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/MiniRpcLib/" class="md-nav__link">
+        MiniRpcLib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        R2API.NetworkingAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        Server side and client side mods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/UNet/" class="md-nav__link">
+        UNet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Developer Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Addressables-Assets-Keys/" class="md-nav__link">
+        Addressables Assets Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Items-and-Equipments-Data/" class="md-nav__link">
+        Items and Equipments Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Layers-and-collisions/" class="md-nav__link">
+        Layers and collisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Prefabs/" class="md-nav__link">
+        Prefabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Scene-Names/" class="md-nav__link">
+        Scene Names
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Sound-%E2%80%90-Wwise-Events/" class="md-nav__link">
+        Sound - Wwise Events
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Style-Reference-Sheet/" class="md-nav__link">
+        Style Reference Sheet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/First-Mod/" class="md-nav__link">
+        First Mod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        So you want to mod Risk of Rain 2?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          IDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IDE" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          IDE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio-Code/" class="md-nav__link">
+        Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Visual Studio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Visual Studio" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Visual Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        Post Build Events
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/Testing-Multiplayer-Alone/" class="md-nav__link">
+        Testing Multiplayer Alone
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          ThunderKit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThunderKit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          ThunderKit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Crash-Course-and-Getting-Started/" class="md-nav__link">
+        ThunderKit - Crash course and Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        Upgrading your project to use R2API's Split Assemblies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Using-the-DOTS-framework-in-Modding/" class="md-nav__link">
+        Thunderkit - Using the DOTS framework in Modding
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_13">
+          Unity Editor Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unity Editor Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          Unity Editor Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/Editor-Scripts/" class="md-nav__link">
+        Editor Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/RoR2-Editor-Kit-Utilization/" class="md-nav__link">
+        RoR2 Editor Kit Utilization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Editor-Usage/Using-MonoBehaviour-Scripts-in-Editor/" class="md-nav__link">
+        Using MonoBehaviour Scripts in Editor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Playing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Playing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Playing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Getting-Started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        Running modded and unmodded game with shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Required‐Category
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Required‐Category" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Required‐Category
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Optional‐Sub‐Category
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optional‐Sub‐Category" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Optional‐Sub‐Category
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Required%E2%80%90Category/Optional%E2%80%90Sub%E2%80%90Category/Page%E2%80%90Name/" class="md-nav__link">
+        Page‐Name
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/BepInEx/" class="md-nav__link">
+        BepInEx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-the-configuration-file" class="md-nav__link">
+    Generating the configuration file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-multiple-configurations" class="md-nav__link">
+    Adding multiple configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hot-reloading" class="md-nav__link">
+    Hot Reloading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-worked-example" class="md-nav__link">
+    A worked example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-folders" class="md-nav__link">
+    Config folders
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_C%23-Programming_Configuration/_edit" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="configuration">Configuration</h1>
+<h2 id="getting-started">Getting Started</h2>
+<p>Often when making a mod you will have variables which you may want to change based on user preference.
+Such variables will also be able to be live edited if you add support for hot reloading. </p>
+<p>e.g. In a mod which gives a player money at the start of each stage it would be good to be able to set how much money you think you should receive each stage.</p>
+<p>This can easily be achieved by using configuration. We can automatically generate a configuration file by accessing the <code>Config</code> field of <code>BaseUnityPlugin</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">BaseUnityPlugin</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>        <span class="k">protected</span> <span class="nf">BaseUnityPlugin</span><span class="p">();</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">protected</span> <span class="n">ManualLogSource</span> <span class="n">Logger</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="k">protected</span> <span class="n">ConfigFile</span> <span class="n">Config</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span> <span class="c1">//This is the field we are interested in!</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>All mods that you create will <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance">inherit</a> from <code>BaseUnityPlugin</code> so we can do our configuration from there!</p>
+<p>If you want your config file to have a custom name to it you can make a new ConfigFile instance and give it the path that will contains the custom name, like this for example :</p>
+<p><code>private static ConfigFile CustomConfigFile { get; set; }</code>
+Then initialize it : </p>
+<p><code>CustomConfigFile = new ConfigFile(Paths.ConfigPath + "\\CustomNamedFile.cfg", true);</code></p>
+<p>The second parameter, if set to true, will create the file even if no ConfigWrapper are made.
+If you want to create a ConfigFile on a custom folder, refer to the final section of this guide.</p>
+<p>Before we do this though we should add a <code>ConfigEntry&lt;T&gt;</code>. This class can be found in the namespace <code>Bepinex.Configuration</code> and we use this as our main data holder for our configuration values. So we can start off by adding one of these to our project. ConfigEntries are always <code>public static ...</code> and they are always fields in a class inheriting from BaseUnityPlugin (as already mentioned above).</p>
+<p><code>public static ConfigEntry&lt;int&gt; MyConfigEntry { get; set; }</code>  </p>
+<p><em>NOTE: <code>T</code> is a <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/">generic type</a>. When we create a class with a <code>&lt;T&gt;</code> we tell Visual Studio what type we want this class to use. In this case we are using <code>int</code>.</em></p>
+<p>Currently, BepInEx supports the following Types for Configuration:
+* string
+* bool
+* byte
+* sbyte
+* short
+* ushort
+* int
+* uint
+* long
+* ulong
+* float
+* double
+* decimal
+* enum
+* Color
+* Vector2
+* Vector3
+* Vector4
+* Quaternion</p>
+<p>Now we have the ConfigEntry set up we must use the BaseUnityPlugin <code>Config.Bind&lt;T&gt;()</code> method in order to give our ConfigEntry values and tell the mod what to put in the configuration file.</p>
+<p>Config.Bind<T>() has a couple of overloads but the second one I find most useful. You will need:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">string</span> <span class="n">SectionName</span><span class="p">,</span> <span class="c1">//the name of the section of the configuration file this configuration will be stored (useful if you have multiple configurations)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">string</span> <span class="n">Key</span><span class="p">,</span>         <span class="c1">//this is the name of what you are going to be looking up in configuration</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">T</span> <span class="n">DefaultValue</span><span class="p">,</span>     <span class="c1">//default value for your configuration</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kt">string</span> <span class="n">Description</span>  <span class="c1">//optional field which you can add description of what this configuration does and what to put in it</span>
+</code></pre></div></p>
+<p>So in our case:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="na">[BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="na">[BepInPlugin(&quot;com.Tutorials.ConfigurationTutorial&quot;, &quot;ConfigurationTutorial&quot;, &quot;1.0.0&quot;)]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationTutorial</span> <span class="p">:</span> <span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="k">public</span> <span class="k">static</span> <span class="n">ConfigEntry</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">MyConfigEntry</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>        <span class="n">MyConfigEntry</span> <span class="p">=</span> <span class="n">Config</span><span class="p">.</span><span class="n">Bind</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>        <span class="s">&quot;MySection&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="s">&quot;MyKey&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>                <span class="m">10</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>        <span class="s">&quot;This is the description&quot;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>    <span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="p">}</span>
+</code></pre></div>
+If you use a custom named config file, be sure to .Bind on the actual instance we made !</p>
+<p>Now your configuration is set up, lastly what you need to do to get the value out of the ConfigEntry is call <code>MyConfigEntry.Value</code> at the place in your code where you need the value.</p>
+<h2 id="generating-the-configuration-file">Generating the configuration file</h2>
+<p>This is the easy bit. It is all done for you! Just build your mod and put it in <code>Bepinex\Plugins</code> as usual. After the first time you run the game you will get a configuration file in <code>Bepinex\config</code> with the name of your plugin.</p>
+<p>To edit the values you simply open the file in your favourite text editor, change the values and save the file. The next time you run the game your mod will use the new values.</p>
+<p>Configuration files will look something like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>[MySection]
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a># This is the description.
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>MyKey = 10
+</code></pre></div>
+<h2 id="adding-multiple-configurations">Adding multiple configurations</h2>
+<p>You need to have a unique ConfigEntry and call <code>Config.Bind</code> on each one for every configuration value your mod needs to use.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="na">[BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="na">[BepInPlugin(&quot;com.Tutorials.ConfigurationTutorial&quot;, &quot;ConfigurationTutorial&quot;, &quot;1.0.0&quot;)]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationTutorial</span> <span class="p">:</span> <span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="k">public</span> <span class="k">static</span> <span class="n">ConfigEntry</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">MyConfigEntry</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="k">public</span> <span class="k">static</span> <span class="n">ConfigEntry</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">MySecondConfigEntry</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="k">public</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>        <span class="n">MyConfigEntry</span> <span class="p">=</span> <span class="n">Config</span><span class="p">.</span><span class="n">Bind</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span class="s">&quot;MySection&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>        <span class="s">&quot;MyKey&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>                <span class="m">10</span><span class="p">,</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        <span class="s">&quot;This is the description&quot;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>            <span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        <span class="n">MySecondConfigEntry</span> <span class="p">=</span> <span class="n">Config</span><span class="p">.</span><span class="n">Bind</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>        <span class="s">&quot;MySection&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>        <span class="s">&quot;MySecondKey&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>                <span class="m">5</span><span class="p">,</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>        <span class="s">&quot;This is the description of the second thing&quot;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>        <span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>    <span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="p">}</span>
+</code></pre></div>
+<p>This will give a configuration file which looks something like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>[MySection]
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a># This is the description.
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>MyKey = 10
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a># This is the description of the second thing.
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>MySecondKey = 5
+</code></pre></div>
+<h2 id="hot-reloading">Hot Reloading</h2>
+<p>If you want to see the change made to the config file into the game without having to restart it, you can call the Reload() Method available in the BepinEx ConfigFile class.
+Here is a quick example with a console command :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>[ConCommand(commandName = &quot;mod_reload&quot;, flags = ConVarFlags.None, helpText = &quot;Reload the config file of the mod.&quot;)]
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>private static void CCReloadConfig(ConCommandArgs args)
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>{
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    ConfigFile.Reload();
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>}
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>Additionally `ConfigEntry`s have an event that triggers when they are changed, this can be used to get fine control over your mod at runtime.
+</code></pre></div></p>
+<h2 id="a-worked-example">A worked example</h2>
+<p>The following example will build on top of the <a href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Getting-Started/First-Mod/">First mod</a></p>
+<p>After finishing that tutorial you should have code which looks similar to below:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>    <span class="k">namespace</span> <span class="nn">ConfigurationTutorial</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="na">        [BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="na">        [BepInPlugin(&quot;com.Tutorials.ConfigurationTutorial&quot;, &quot;ConfigurationTutorial&quot;, &quot;1.0.0&quot;)]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>        <span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationTutorial</span> <span class="p">:</span> <span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>        <span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>            <span class="k">public</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>            <span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>                <span class="n">On</span><span class="p">.</span><span class="n">EntityStates</span><span class="p">.</span><span class="n">Huntress</span><span class="p">.</span><span class="n">ArrowRain</span><span class="p">.</span><span class="n">OnEnter</span> <span class="p">+=</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> <span class="p">=&gt;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>                <span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>                    <span class="n">Chat</span><span class="p">.</span><span class="n">AddMessage</span><span class="p">(</span><span class="s">&quot;This is our message!&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>                    <span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>                <span class="p">}</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>            <span class="p">}</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>        <span class="p">}</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>1) Make sure your project is set up correctly. All references are resolved, all necessary using statements are already entered at top of file. If you have any red underlines, as always, you can click on them then press <code>Ctrl + .</code> to see if Visual Studio can find a resolution to the error.</p>
+<p>2) Add ConfigEntry field to your mod.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>    <span class="k">namespace</span> <span class="nn">ConfigurationTutorial</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="na">        [BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="na">        [BepInPlugin(&quot;com.Tutorials.ConfigurationTutorial&quot;, &quot;ConfigurationTutorial&quot;, &quot;1.0.0&quot;)]</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>        <span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationTutorial</span> <span class="p">:</span> <span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>        <span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>            <span class="k">public</span> <span class="k">static</span> <span class="n">ConfigEntry</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">HuntressRainMessage</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>            <span class="k">public</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>            <span class="p">{</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>                <span class="n">On</span><span class="p">.</span><span class="n">EntityStates</span><span class="p">.</span><span class="n">Huntress</span><span class="p">.</span><span class="n">ArrowRain</span><span class="p">.</span><span class="n">OnEnter</span> <span class="p">+=</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> <span class="p">=&gt;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>                <span class="p">{</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>                    <span class="n">Chat</span><span class="p">.</span><span class="n">AddMessage</span><span class="p">(</span><span class="s">&quot;This is our message!&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>                    <span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>                <span class="p">}</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>            <span class="p">}</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>        <span class="p">}</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>3) Call <code>Config.Bind&lt;T&gt;()</code> in awake method and assign value to your ConfigWrapper</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>    <span class="k">namespace</span> <span class="nn">ConfigurationTutorial</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>    <span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="na">        [BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="na">        [BepInPlugin(&quot;com.Tutorials.ConfigurationTutorial&quot;, &quot;ConfigurationTutorial&quot;, &quot;1.0.0&quot;)]</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>        <span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationTutorial</span> <span class="p">:</span> <span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>        <span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>            <span class="k">public</span> <span class="k">static</span> <span class="n">ConfigEntry</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">HuntressRainMessage</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>            <span class="k">public</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>            <span class="p">{</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>                <span class="n">HuntressRainMessage</span> <span class="p">=</span> <span class="n">Config</span><span class="p">.</span><span class="n">Bind</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>                    <span class="s">&quot;Huntress&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>                    <span class="s">&quot;ArrowRainMessage&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>                    <span class="s">&quot;This is our message!&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>                    <span class="s">&quot;The message which is played when ArrowRain.OnEnter is called&quot;</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>                <span class="p">)</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>                <span class="n">On</span><span class="p">.</span><span class="n">EntityStates</span><span class="p">.</span><span class="n">Huntress</span><span class="p">.</span><span class="n">ArrowRain</span><span class="p">.</span><span class="n">OnEnter</span> <span class="p">+=</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> <span class="p">=&gt;</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>                <span class="p">{</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>                    <span class="n">Chat</span><span class="p">.</span><span class="n">AddMessage</span><span class="p">(</span><span class="s">&quot;This is our message!&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>                    <span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>                <span class="p">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a>            <span class="p">}</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a>        <span class="p">}</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>4) Now change in your hook methods where you want your Configuration value to be called.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>    <span class="k">namespace</span> <span class="nn">ConfigurationTutorial</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="na">        [BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="na">        [BepInPlugin(&quot;com.Tutorials.ConfigurationTutorial&quot;, &quot;ConfigurationTutorial&quot;, &quot;1.0.0&quot;)]</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>        <span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationTutorial</span> <span class="p">:</span> <span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>        <span class="p">{</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>            <span class="k">public</span> <span class="k">static</span> <span class="n">ConfigEntry</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">HuntressRainMessage</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>            <span class="k">public</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>            <span class="p">{</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>                <span class="n">HuntressRainMessage</span> <span class="p">=</span> <span class="n">Config</span><span class="p">.</span><span class="n">Bind</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>                    <span class="s">&quot;Huntress&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>                    <span class="s">&quot;ArrowRainMessage&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>                    <span class="s">&quot;This is our message!&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>                    <span class="s">&quot;The message which is played when ArrowRain.OnEnter is called&quot;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>                <span class="p">)</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>                <span class="n">On</span><span class="p">.</span><span class="n">EntityStates</span><span class="p">.</span><span class="n">Huntress</span><span class="p">.</span><span class="n">ArrowRain</span><span class="p">.</span><span class="n">OnEnter</span> <span class="p">+=</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> <span class="p">=&gt;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>                <span class="p">{</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>                    <span class="n">Chat</span><span class="p">.</span><span class="n">AddMessage</span><span class="p">(</span><span class="n">HuntressRainMessage</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>                    <span class="n">orig</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>                <span class="p">}</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a>            <span class="p">}</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a>        <span class="p">}</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>5) We are all done with the code now! Build your mod and add it to the plugins directory in Bepinex folder as per usual. After the first time you run the game you will get a configuration file appear in <code>\Bepinex\Configuration</code> which will be named after your mod (in this case <code>com.Tutorials.ConfigurationTutorial.cfg</code>)</p>
+<p>Open the configuration file in your favourite text editor and you can edit the value.</p>
+<p><em>NOTE: any changes you make to this file while the game is running is not guaranteed to make changes in the game. You should usually close the game before making any changes. For on-the-go configuration changes then I recommend looking at tutorial for <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Console-Commands">Console Commands</a>.</em></p>
+<h2 id="config-folders">Config folders</h2>
+<p>In case you need to create multiple configuration files, it may be a good idea to create a Folder for storing your config files, you can use System.IO's directory class for creating the directory for your configuration files.</p>
+<p>Here's an example of a class that has a method that creates 2 config files, and a folder to store them.</p>
+<div class="highlight"><pre><span></span><code>using BepInEx;
+using BepInEx.Configuration;
+using System.IO;
+
+public static class ConfigManager
+{
+    //Declare config files
+    private static ConfigFile configFileA;
+    private static ConfigFile configFileB;
+
+    //Nameof the folder where we&#39;ll store our config files.
+    private const string configFolderName = &quot;MyConfigFolder&quot;;
+    //A property that gets the absolute path of our config folder
+    //Paths is a static class from BepInEx that contains useful, absolute paths.
+    private static string ConfigFolderPath { get =&gt; Path.Combine(Paths.ConfigPath, configFolderName); }
+
+    private static void Init()
+    {
+    // Ensures that the config folder exists, if not, create it.
+    if (!Directory.Exists(ConfigFolderPath))
+            {
+                Directory.CreateDirectory(ConfigFolderPath);
+            }
+    //Create the config files, notice how we use Path.Combine for creating the new files.            
+            configFileA= new ConfigFile(Path.Combine(ConfigFolderPath, &quot;ConfigFileA.CFG&quot;), true);
+            configFileB = new ConfigFile(Path.Combine(ConfigFolderPath, &quot;ConfigFileB.CFG&quot;), true);
+    }
+}
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Code-Analysis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Code Analysis" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Code Analysis
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Console-Commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Console Commands" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Console Commands
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
