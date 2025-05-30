@@ -16,6 +16,10 @@ Getting the game YAML shaders from the game, which can then later be used on you
 
 - Go to Settings at the top and configure as follows.  
 Main things to note are Shader Export Format, and Script Export Format.
+
+- **Post-SOTS Shaders: Dummy Shaders**
+- Pre-SOTS Shaders: YAML Assets
+
 ![image](https://github.com/risk-of-thunder/R2Wiki/assets/53384824/ee6e01ed-3b46-45da-be5c-91d6cd755d93)
 
 - Go to Commands at the top, and enter the path to your Risk of Rain 2 folder in the field.  
