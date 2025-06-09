@@ -1,6 +1,6 @@
-# Core API Changelog 1.3.9 ‐ Memory Optimization Update
+# Core API Changelog 1.3.9
 
-# Memory Optimization
+# Memory Optimization Update
 
 ## Overview
 1.3.9 focuses on overarching memory optimizations for assets relating to:
