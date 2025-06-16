@@ -2,7 +2,7 @@
 
 Welcome to the Risk of Rain 2 modding cookbook, explore modding best practices with common code snippets. 
 
-==Refer to the Table of Contents to the right of the page to jump to a specific snippet.==
+***Refer to the Table of Contents to the right of the page to jump to a specific snippet.***
 
 ## Loading Assets
 After the Memory Optimization Update, modders now have an opt-in system to keep load times fast and keep your mod's memory usage in check. To use the `GameAssetPaths` you'll need a reference to the `RoR2BepInExPack` package in your `.csproj`. [Link to the latest version in the modding discord](https://discord.com/channels/562704639141740588/562704639569428506/1303101282894090240).
@@ -72,4 +72,17 @@ There are multiple parts of a skill, the actual definition (SkillDef), the Skill
       ContentAddition.AddSkillFamily(newFamily);
       ContentAddition.AddSkillDef(skillDef);
     }
+```
+## Getter Hooks
+HookGen doesn't generate `On` or `IL` hooks for getters, so if you want to hook a getter for extra you'll have to create it yourself. This example uses the `cost` attribute in the `DirectorCard` class which you can check using a decompiler (dnspy/ilspy)
+```
+// These go into your Awake function
+var target = typeof(DirectorCard).GetPropertyGetter(nameof(DirectorCard.cost));
+var hook = new Hook(target, OnCost);
+
+// if your method isn't public you'll get an error
+public int OnCost(Func<DirectorCard, int> orig, DirectorCard self)
+{
+  return orig(self);
+}
 ```
