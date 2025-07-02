@@ -18,6 +18,11 @@
 
     ![RenameTheEventNames](https://i.imgur.com/oJj1rvy.png)
 
+-   Do note the curve of the music volume in Music_System's RTPC, it should be like this (this was given to us by Gearbox). 
+
+![image](https://github.com/user-attachments/assets/807adbca-785f-424f-a8f9-5493634c08b1)
+
+
 -   The boilerplate already has 2 songs setup across 3 different states that will be played as :
 
     a boss track (in a stage), a gameplay track (in a stage) and the track that plays when in the logbook :
