@@ -20,12 +20,10 @@ The first thing you want to do is make sure your ItemDef tier is set to one of t
 
 ### Setting the ExpansionDef
 
-All void items should have their expansion def set to SurvivorsOfTheVoid. This solution needs to be done in code, and this line of code needs to be run after the ExpansionCatalog has been initialized, otherwise you will get a null reference exception. I just do this later when I hook onto the event to initialize the void transformations, however you can hook onto the initialization of ExpansionCatalog if you want to for this step.
-
-To set the expansion def, you can do this:
+All void items should have their expansion def set to SurvivorsOfTheVoid. To set the expansion def, you can do this:
 
 ```c#
-YourItemDef.requiredExpansion = ExpansionCatalog.expansionDefs.FirstorDefault(def => def.nameToken == "DLC1_NAME")
+YourItemDef.requiredExpansion = Addressable.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion();
 ```
 
 ## Creating the transformation(s)
