@@ -8,6 +8,8 @@ plugins:
   - ezlinks
   - mkdocs-video
   - mkdocs-fix-github-wiki-url-plugin
+  - awesome-nav
+
 repo_name: 'risk-of-thunder/R2Wiki'
 repo_url: 'https://github.com/risk-of-thunder/R2Wiki/wiki'
 theme:
