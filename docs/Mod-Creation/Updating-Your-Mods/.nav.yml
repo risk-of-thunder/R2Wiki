@@ -6,3 +6,5 @@ nav:
   - 1.3.9 Memory Optimization: 
     - Core API Changelog 1.3.9: Mod-Creation/Updating-Your-Mods/1.3.9-Memory-Optimization/Core-API-Changelog-1.3.9.md
     - Updating Guide: Mod-Creation/Updating-Your-Mods/1.3.9-Memory-Optimization/Updating-Guide.md
+  - "*/"
+  - "*.md"

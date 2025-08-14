@@ -3,6 +3,5 @@ nav:
   - Mod Creation: Mod-Creation
   - Playing: Playing
   - Tools: Tools
-  - Required-Category:
-    - Optional-Sub_Category:
-      - Page-Name: Required‐Category/Optional‐Sub‐Category/Page‐Name.md
+  - "*/"
+  - "*.md"

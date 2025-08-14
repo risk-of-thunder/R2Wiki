@@ -10,3 +10,5 @@ nav:
   - Unity Editor Usage: Unity-Editor-Usage
   - ThunderKit: ThunderKit
   - Updating Your Mods: Updating-Your-Mods
+  - "*/"
+  - "*.md"
