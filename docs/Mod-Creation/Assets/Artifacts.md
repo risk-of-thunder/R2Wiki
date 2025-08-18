@@ -59,15 +59,23 @@ Since this class is an **Abstract** class, it only works as a base. as such, jus
 Bellow is a detailed walkthrough on each variable and the methods.
 
 ArtifactName: The name of your Artifact.
+
 ArtifactLangTokenName: The lang token of your Artifact.
+
 ArtifactDescription: The Description of the Artifact when you hover over it.
+
 ArtifactEnabled: the icon of your Artifact when its enabled.
+
 ArtifactDisabled: the icon of your Artifact when its disabled.
+
 ArtifactDef: Your Artifact Def, Basically how the game identifies your Artifact.
+
 ArtifactEnabled: A bool that can be used to check if the run has your artifact enabled. Which is the backbone for making your Artifact do stuff.
 
 CreateLang(): Method that creates the lang tokens of your Artifact
+
 CreateArtifact(): Method that finishes the creation of your Artifact and Registers it to the game using ArtifactAPI.
+
 Hooks(): The hooks your artifact uses.
 
 Once you finish copying and Parting ArtifactBase, all thats left to do is create the class where you will fill in the information and the logic behind your Artifact. for this, we will take a look at ItemModCreationBoilerplate's [ExampleArtifact](https://github.com/KomradeSpectre/ItemModCreationBoilerplate/blob/master/ItemModCreationBoilerplate/Artifact/ExampleArtifact.cs)
