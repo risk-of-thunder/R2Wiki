@@ -269,6 +269,6 @@ ALTERNATE METHOD:
  5. Navigate to "profiles\X\BepInEx" (X will instead be the name of your profile).
  6. Drag or Copy+Paste(Ctrl+c > Ctrl+v) this into Discord.
 
-**If the files are too big for Discords 8mb limit then store the .txt/.log in a .zip archive(It is very good at compressing text file types) and send that**
+**If the files are too big for Discords 8mb limit then store the .txt/.log in a .zip archive (It is very good at compressing text file types) and send that**
 
 Once you have both of these things please use the #tech-support section of the [Official Risk of Rain 2 Modding Discord](https://discord.gg/TvM8H8E) or and @ the developer (assuming you have a suspicion it's their mod causing it) with these otherwise post it without the @ and wait for a helpful user to respond OR contact the mod developer directly instead.
