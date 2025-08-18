@@ -68,7 +68,7 @@ jobs:
           
       - name: MkDocs Deploy To GitHub Pages
         if: steps.prepare-publish.outputs.should-publish-new-doc == 'true'
-        uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: mkdocs.yml
