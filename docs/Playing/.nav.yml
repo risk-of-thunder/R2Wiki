@@ -1,0 +1,5 @@
+nav:
+  - Getting Started: Getting-Started.md
+  - FAQ: FAQ.md
+  - "*/"
+  - "*.md"
