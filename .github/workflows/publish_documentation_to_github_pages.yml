@@ -39,14 +39,32 @@ jobs:
           else
             echo "should-publish-new-doc=true" >> $GITHUB_OUTPUT;
             
+            # Backup .nav.yml files before clearing docs
+            mkdir -p nav_backup
+            rsync -am --include='*/' --include='.nav.yml' --exclude='*' docs/ nav_backup/ || true
+
+            # Rebuild docs
             rm -rf docs
-            
             cd R2Wiki.wiki
-            for file in *_*.md; do file_path=${file//_//}; file_name=${file##*_}; directory_path=${file_path%/*}; mkdir -p "../docs/$directory_path"; mv "$file" "../docs/$directory_path/$file_name"; done
-            for file in *.md; do mkdir -p "../docs/"; if [[ "$file" != "Home.md" ]]; then mv "$file" "../docs/$file"; fi; done
-            
+            for file in *_*.md; do 
+              file_path=${file//_//}
+              file_name=${file##*_}
+              directory_path=${file_path%/*}
+              mkdir -p "../docs/$directory_path"
+              mv "$file" "../docs/$directory_path/$file_name"
+            done
+            for file in *.md; do 
+              mkdir -p "../docs/"
+              if [[ "$file" != "Home.md" ]]; then 
+                mv "$file" "../docs/$file"
+              fi
+            done
             cd ..
             rm -rf R2Wiki.wiki
+
+            # Restore .nav.yml files
+            rsync -a nav_backup/ docs/
+            rm -rf nav_backup
             
             echo $current_commit_hash > $last_commit_hash_file
           
