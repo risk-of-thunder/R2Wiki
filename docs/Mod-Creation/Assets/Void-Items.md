@@ -42,4 +42,3 @@ The addressables can be found here https://xiaoxiao921.github.io/GithubActionCac
 ![{D967968C-E50C-42AF-98FA-2A554585E290}](https://github.com/user-attachments/assets/b43fa930-2409-40a6-9923-b7e50b6b9111)
 
 You can either manage your own ContentPack and add it to the `ContentPack.itemRelationshipProviders` array or use `R2API.ContentAddition.AddItemRelationshipProvider`.
-
