@@ -36,6 +36,7 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.top
+    - content.action.edit
 
 markdown_extensions:
   - pymdownx.highlight:
