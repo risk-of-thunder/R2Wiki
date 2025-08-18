@@ -5,7 +5,7 @@
 ## Connecting two local instances of the game
 
 1. Add the following line to the `Awake()` function of your `BaseUnityPlugin` subclass:
-    ```cs
+    ```csharp
     // Remove this line before publishing/releasing your mod!
     On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => {};
     ```
