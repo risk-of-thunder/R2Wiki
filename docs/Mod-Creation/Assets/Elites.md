@@ -26,6 +26,7 @@ Important thing to remember is that when setting up import setting in Unity for 
 
 
 Example elite ramp:
+
 ![texRampEliteVolatile](https://github.com/risk-of-thunder/R2Wiki/assets/15069763/5c901966-b824-47f8-b6f1-d3825917e620)
 
 Elder Lemurian:
