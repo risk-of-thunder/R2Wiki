@@ -1,10 +1,10 @@
 nav:
-  - For Survivors of the Void: Mod-Creation/Updating-Your-Mods/For-Survivors-of-the-Void.md
-  - For Seekers of the Storm: Mod-Creation/Updating-Your-Mods/For-Seekers-of-the-Storm.md
-  - Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2: Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.3.7.md
-  - Core API Changelog 1.3.8 - Seekers of the Storm 2.0 Phase 3: Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.3.8.md
+  - For Survivors of the Void: For-Survivors-of-the-Void.md
+  - For Seekers of the Storm: For-Seekers-of-the-Storm.md
+  - Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2: Updating-Core-API-Changelog-1.3.7.md
+  - Core API Changelog 1.3.8 - Seekers of the Storm 2.0 Phase 3: Updating-Core-API-Changelog-1.3.8.md
   - 1.3.9 Memory Optimization: 
-    - Core API Changelog 1.3.9: Mod-Creation/Updating-Your-Mods/1.3.9-Memory-Optimization/Core-API-Changelog-1.3.9.md
-    - Updating Guide: Mod-Creation/Updating-Your-Mods/1.3.9-Memory-Optimization/Updating-Guide.md
+    - Core API Changelog 1.3.9: 1.3.9-Memory-Optimization/Core-API-Changelog-1.3.9.md
+    - Updating Guide: 1.3.9-Memory-Optimization/Updating-Guide.md
   - "*/"
   - "*.md"
