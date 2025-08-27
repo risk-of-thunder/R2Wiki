@@ -86,3 +86,13 @@ public int OnCost(Func<DirectorCard, int> orig, DirectorCard self)
   return orig(self);
 }
 ```
+## Creating AssetBundles
+This is assuming you already have the Unity editor installed as well as a project created.
+- Install the `Addressables` package if it's not already installed (`Window -> Package Manager`)
+- You should now see a checkbox with `Addressables` next to it when inspecting a prefab
+- Check the box and rename it if you'd like
+- Press the `Select` button after checking the box or go to `Window -> Asset Management -> Addressables -> Groups` to access the addressables window
+- You should see the added content in the group, if everything looks good, press `Build -> New Build -> Default Build Script` to create your asset bundle
+- The bundle by default will be in `ProjectName -> Library -> com.unity.addressables -> aa -> Windows -> StandaloneWindows64` with a long name including "defaultlocalgroup", you can rename this bundle to use in your mod.
+
+For these steps along with example pictures, it's in the modding discord [here](https://discord.com/channels/562704639141740588/562704639569428506/1409744488762703983)
