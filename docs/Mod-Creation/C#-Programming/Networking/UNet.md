@@ -217,6 +217,185 @@ internal class MyNetworkComponent : NetworkBehaviour
 }
 ```
 
+### SyncVar
+
+Adding the `SyncVarAttribute` to a field makes it so that its value is synchronised with all the clients when the server changes it. While a client can change this value locally it does not trigger an update for everyone else. If a client wants to update a SyncVar for everyone, they should use a `Command` to let the server do it.
+
+The following types can be SyncVars:
+
+* Basic type (byte, int, float, string, UInt64, etc)
+* Built-in Unity math type (Vector3, Quaternion, etc)
+* Structs containing allowable types (NetworkInstanceId, etc)
+* GameObject with a NetworkIdentity component attached
+
+There are also some list variants, except that these are not attributes but actual types.
+
+* SyncListString
+* SyncListFloat
+* SyncListInt
+* SyncListUInt
+* SyncListBool
+* SyncListStruct\<T\>
+
+Note that a NetworkBehaviour can only support up to 32 SyncVars / SyncLists.
+
+#### Differences with ClientRpc
+
+A SyncVar is always updated to the current value when the networked object is spawned for a client that joins the session late. On the other hand a ClientRpc is only sent to clients that exist at its time of sending and any late joiners will miss it. As such, a ClientRpc is suitable for one-off events, such as an explosion, while a SyncVar for tracking game state, e.g., a character's health.
+
+#### SyncVar hook
+
+A hook is like an event that is fired every time a SyncVar is updated. Note that this method is only called for clients when they receive the updated value; **the server must call this manually**. Furthermore, since the hook is called instead of updating the value directly, the hook must also make sure to update the value.
+
+```cs
+public class SyncVarHookExample : NetworkBehaviour
+{
+    [SyncVar(hook = nameof(OnSyncTarget)]
+    private GameObject target;
+
+    // A component cannot be a SyncVar so we will update it ourselves
+    private CharacterBody targetBody;
+
+    [Server]
+    public void UpdateTarget(GameObject newTarget)
+    {
+        OnSyncTarget(target);
+    }
+
+    private void OnSyncTarget(GameObject newTarget)
+    {
+        // At this point in the code, we have access to both the old target
+        // and the new target in case we need to do any handing-off operations.
+
+        // Here we just want to update the value - DON'T OMIT THIS
+        target = newTarget;
+
+        // Any further logic
+        if (target)
+        {
+            targetBody = target.GetComponent<CharacterBody>();
+        }
+    }
+
+    public override void OnStartClient()  
+    {
+        base.OnStartClient();
+        // While a client is guaranteed to have received the up-to-date value before
+        // this point, SyncVar hooks are not called when data is deserialized during
+        // initialization. If the hook is something that you always want to run every
+        // time the value is assigned to something, it can be manually called here.
+        OnSyncTarget(target);
+    }
+}
+```
+
+### Manual serialization
+
+Each NetworkBehaviour has the uint property `syncVarDirtyBits` which encodes whether any of its 32 sync vars has just been updated. This value can be updated with `SetDirtyBit(uint dirtyBit)`, e.g., SetDirtyBit(16u). This value should be a power of 2, each corresponding to a unique object that needs to be synchronised. When the `NetworkIdentity` of a game object observes that any of its NetworkBehaviours has dirty bits, it serializes that information and sends it to the clients. This means that a game object sends a single message for any of its NetworkBehaviours that need updating, all concatenated one after the other. It is extremely important that deserialization is accurate since if a NetworkBehaviour reads more or fewer bytes than it is supposed to it, it will throw off deserialization for the remaining components.
+
+The actual serialization / deserialization is handled by overriding the `OnSerialize` and `OnDeserialize` methods. Weaver populates these automatically for you if the class has any SyncVar fields (along with creating appropriate messages for any Command / ClientRpc calls). If SyncVars cannot capture the complexity of the data that you need to serialize and you need to resort to a manual implementation, the SyncVarAttribute should not be used anywhere in the class.
+
+Generally the data packed for serialization has the structure `dirtyBits[dataForVariableA][dataForVariableB]`, where the dirty bits in essence act like a header that tell us how to read the remaining data. It is crucial that the written data is read in the same order and with the correct type each. Furthermore, `OnSerialize` returns a bool that signals whether all the dirty bits have been serialized so that the NetworkIdentity can call its `ClearAllDirtyBits()`.
+
+```cs
+class ManualSerializationExample : NetworkBehaviour
+{
+    // Manually defining the dirty bits
+    private const uint var1DirtyBit = 1u;
+    private const uint var2DirtyBit = 2u;
+
+    private int var1;      // this could have been a SyncVar, but we need to avoid it
+    private bool[] var2;   // something complex to serialize
+
+    [Server]
+    private void SetVar1(int newValue)
+    {
+        if (var1 != newValue)
+        {
+            var1 = newValue;
+            SetDirtyBit(var1DirtyBit);
+        }
+    }
+
+    [Server]
+    private SetVar2Value(int index, bool newValue)
+    {
+        if (index < var2.Length && var2[index] != newValue)
+        {
+            var2[index] = newValue;
+            SetDirtyBit(var2DirtyBit);   
+        }
+    }
+
+    private void SerializeVar2(NetworkWriter writer)
+    {
+        writer.WritePackedUInt32(var2.Length);
+        for (int i = 0; i < var2.Length; i++)
+        {
+            writer.Write(var2[i]);
+        }
+    }
+
+    private void DeserializeVar2(NetworkReader reader)
+    {
+        int count = (int)reader.ReadPackedUInt32();
+        for (int i = 0; i < count; i++)
+        {
+            var2[i] = reader.ReadBoolean();
+        }
+    }
+
+    public override bool OnSerialize(NetworkWriter writer, bool forceAll)
+    {
+        // This is used when a network object is to be spawned on the client
+        // so that all of the values are updated.
+        if (forceAll)
+        {
+            // Write(int) writes 4 bytes to the buffer. Most integers tend
+            // to not make use of all 4 bytes, in which case it will be more
+            // space efficient to use WritePackedUInt32(uint) since it does a
+            // bit of clever compression internally. However, if the value
+            // is greater than 16777215u, it will end up writing 5 bytes,
+            // in which case Write(int) is more preferred.
+            writer.WritePackedUInt32((uint)var1);
+            SerializeVar2(writer);
+            return true;
+        }
+
+        writer.WritePackedUInt32(syncVarDirtyBits);
+        if ((syncVarDirtyBits & var1DirtyBit) != 0u)
+        {
+            writer.WritePackedUInt32((uint)var1);
+        }
+        if ((syncVarDirtyBits & var2DirtyBit) != 0u)
+        {
+            SerializeVar2(writer);
+        }
+        return syncVarDirtyBits != 0u;
+    }
+
+    public override void OnDeserialize(NetworkReader reader, bool initialState)
+    {
+        if (initialState)
+        {
+            var1 = (int)reader.ReadPackedUInt32();
+            DeserializeVar2(reader);
+            return;
+        }
+
+        uint dirtyBits = reader.ReadPackedUInt32();
+        if (dirtyBits & var1DirtyBit) != 0u)
+        {
+            var1 = (int)reader.ReadPackedUInt32();
+        }
+        if (dirtyBits & var2DirtyBit) != 0u)
+        {
+            DeserializeVar2(reader);
+        }
+    }
+}
+```
+
 ### How to patch
 
 **As a PostBuild-Event**
