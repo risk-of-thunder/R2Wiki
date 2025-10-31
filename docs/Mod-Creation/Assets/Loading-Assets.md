@@ -50,7 +50,7 @@ public static class Asset
 	//You will load the assetbundle and assign it to here.
 	public static AssetBundle mainBundle;
 	//A constant of the AssetBundle's name.
-        // Remember this is a direct path, so if your extension is .bundle, call this thing mybundle.bundle
+	// Remember this is a direct path, so if your extension is .bundle, call this thing mybundle.bundle
 	public const string bundleName = "mybundle";
 	// Uncomment this if your assetbundle is in its own folder. Of course, make sure the name of the folder matches this.
 	// public const string assetBundleFolder = "AssetBundles";
