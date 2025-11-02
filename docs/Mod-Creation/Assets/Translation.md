@@ -284,7 +284,7 @@ Right click your solution and click `Open Folder in File Explorer`.
 
 Go to the folder, `bin`, `Debug`, `netstandard2.0`, and your `.dll` file should appear.
 
-To test it, in your mod amanger, go to `Settings`, `Browse profile folder`, and navigate over to `BepInEx`, `plugins`. Copy your `.dll` file into the `plugins` folder, then launch the game. Make sure your language is set correctly and check if the translation works.
+To test it, in your mod manager, go to `Settings`, `Browse profile folder`, and navigate over to `BepInEx`, `plugins`. Copy your `.dll` file into the `plugins` folder, then launch the game. Make sure your language is set correctly and check if the translation works.
 
 
 # Uploading the mod
