@@ -191,3 +191,9 @@
 
 - UnseenHandIndicator
   - Changed type for `pairs`
+
+- DotController
+  - Added `AddDot(GameObject attackerObject, float duration, HurtBox hitHurtBox, DotController.DotIndex dotIndex, float damageMultiplier, uint? maxStacksFromAttacker, float? totalDamage, DotController.DotIndex? preUpgradeDotIndex)` method and deprecated `AddDot(GameObject attackerObject, float duration, DotController.DotIndex dotIndex, float damageMultiplier, uint? maxStacksFromAttacker, float? totalDamage, DotController.DotIndex? preUpgradeDotIndex)` method
+
+- SkinDef.RuntimeSKin
+  - Added `ApplyAsync(GameObject modelObject, List<AssetReferenceT<Material>> loadedMaterials, List<AssetReferenceT<Mesh>> loadedMeshes, List<AssetReferenceT<GameObject>> loadedGameObjects, AsyncReferenceHandleUnloadType unloadType = AsyncReferenceHandleUnloadType.OnSceneUnload)` IEnumerator and deprecated `ApplyAsync(GameObject modelObject, List<AssetReferenceT<Material>> loadedMaterials, List<AssetReferenceT<Mesh>> loadedMeshes, AsyncReferenceHandleUnloadType unloadType = AsyncReferenceHandleUnloadType.OnSceneUnload)` IEnumerator
