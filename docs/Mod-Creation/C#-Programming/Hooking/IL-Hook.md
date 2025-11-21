@@ -1,11 +1,12 @@
-
-# What is CIL?
-
-[CIL](https://en.m.wikipedia.org/wiki/Common_Intermediate_Language) is the result of compiling readable C# code into another form, which can be universally processed by multiple architectures and converted into machine code targeting the current architecture at runtime, hence "intermediate language".
+# IL Hook
 
 IL Hooks can modify the set of instructions a method consists of in this form, thus allowing one to manipulate the method logic in ways that are not possible with [On Hooks](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/On-Hook).
 
-## The stack
+## What is CIL?
+
+[CIL](https://en.m.wikipedia.org/wiki/Common_Intermediate_Language) is the result of compiling readable C# code into another form, which can be universally processed by multiple architectures and converted into machine code targeting the current architecture at runtime, hence "intermediate language".
+
+### The stack
 
 A Stack is used at a low/intermediate level to process data. As explained by Wikipedia, only the value at the very top of the stack can be popped from the stack. Given a list of IL instructions, the processor will iterate its way through the operations, emitting values to the stack, and executing operations upon the stack as and when the instruction is executed. At the point of termination (return), the stack must be empty, with no more instructions or values remaining. If this is not the case, the stack is said to be unbalanced and the process will terminate with the error Invalid ILCode.
 
@@ -33,7 +34,7 @@ For the sake of argument let's also assume that `x = 3`. After the first 3 instr
 
 [ECMA-335, Partition III (Section 3)](https://download.microsoft.com/download/7/3/3/733ad403-90b2-4064-a81e-01035a7fe13c/ms%20partition%20iii.pdf) contains information about each OpCode, e.g., how many parameters each one pops from the stack, the ordering of the values, and the return type of the operation.
 
-# ILCursor
+## ILCursor
 
 The `ILCursor` is an implementation by MonoMod to facilitate traversal of the stack in a user friendly manner. Its documentation can be found [here](https://monomod.dev/api/MonoMod.Cil.ILCursor.html).
 
@@ -80,7 +81,7 @@ The main functionality of the cursor revolves around moving it to the right loca
 
 It is important to note that while `c.Remove()` and `c.RemoveRange()` are available resources to remove instructions, they should be avoided as much as possible because another instruction could be referencing a removed one, leading to issues. If you want to replace an instruction, do so from `c.Prev` / `c.Next` directly, while for skipping a range of instructions use [`Br`](#conditionals-and-branches).
 
-## Pattern matching
+### Pattern matching
 
 Using `c.Index` to directly go to the desired location in a set of IL instructions is a bad idea, since if another mod or another game update modifies any instruction prior to this, we will end up at the wrong place and any instruction manipulation will break the game. Instead, we match a certain set of instructions that mark out desired location and we let the cursor dynamically decide where that is, if it exists.
 
@@ -99,7 +100,7 @@ x.MatchLdfld<CharacterBody>(nameof(CharacterBody.bodyIndex));                  /
 
 Furthermore, for methods there is both `x.MatchCall` and `x.MatchCallvirt` which are used in different scenarios, but it is recommended to use `x.MatchCallOrCallvirt` instead so you don't have to worry about using the correct one.
 
-### Example 1: Simple matching and modifying a value
+#### Example 1: Simple matching and modifying a value
 
 Let's say we want to modify the Crowbar health threshold from 90% to 80%. This functionality is found in `HealthComponent.TakeDamageProcess`:
 
@@ -156,7 +157,7 @@ private void ModifyCrowbarThreshold(ILContext il)
 }
 ```
 
-### Example 2: Modifying a value with EmitDelegate
+#### Example 2: Modifying a value with EmitDelegate
 
 Sometimes the value we want to replace in an instruction can vary during runtime or the logic we need requires emiting very complex instructions, such as branching and multiple operations. In such a case, we place our cursor after the value we want to replace and emit a delegate which consumes this value and returns a similar one of the same type. The best part is that the code in the delegate is written in plain C#.
 
@@ -194,13 +195,13 @@ According to [jade](https://discordapp.com/channels/562704639141740588/562704639
 
 Action/Func don't support ref parameters so if the method you want to invoke includes one, define an actual method and then use it directly with `c.EmitDelegate(MyMethod)`.
 
-### Robust pattern matching
+#### Robust pattern matching
 
 You should not rely on the instructions you see when you decompile the game to be the same as those when modifying a method at runtime. This can be particularly true for frequently hooked methods, such as `CharacterBody.RecalculateStats`, `HealthComponent.TakeDamageProcess`, and `GlobalEventManager.ProcessHitEnemy`. But also hardcoding certain values can break a hook when the game updates.
 
 The following tips establish good practices to ensure the pattern matching is as dynamic as possible while failure due to mod conflicts are minimized.
 
-#### 1. Match as little as possible to uniquely identify the correct cursor index
+##### 1. Match as little as possible to uniquely identify the correct cursor index
 
 The more instructions that are included in your match, the more likely it is to hit a point where another mod has inserted their own instructions. For example, if you want to replace the value of a method call, just matching the call instruction should suffice. Assuming of course it does not occur multiple times in the hooked method.
 
@@ -230,7 +231,7 @@ if (c.TryGotoNext(
 }
 ```
 
-#### 2. Dynamically match the index of a local variable
+##### 2. Dynamically match the index of a local variable
 
 In a [previous example](#example-1-simple-matching-and-modifying-a-value) where we matched the formula for the Crowbar threshold, we hardcoded which local variable to load. This variable is assigned earlier in the method
 
@@ -255,7 +256,7 @@ if (c.TryGotoNext(
 }
 ```
 
-#### 3. Matching snippets of a pattern with gaps
+##### 3. Matching snippets of a pattern with gaps
 
 Let's say that in `EntityStates.GenericCharacterMain.ProcessJump(bool)` we want to cache the local variable index for the number of Wax Quail stacks.
 
@@ -280,7 +281,7 @@ if (c.TryGotoNext(x => x.MatchLdsfld(typeof(RoR2Content.Items), nameof(RoR2Conte
 }
 ```
 
-#### 4. Use c.Index++ with great care
+##### 4. Use c.Index++ with great care
 
 This follows from the previous example but it deserves its own section for added stress. It may seem convenient to match a short pattern and then manually move the cursor to also manipulate another nearby section, but **do not use `c.Index++` / `c.Index--` outside of matched blocks**. Doing so is considered undefined behavior because you cannot guarantee where a mod has injected new instructions.
 
@@ -336,7 +337,7 @@ if (c.TryGotoNext(
 }
 ```
 
-## Emitting instructions
+### Emitting instructions
 
 **Constants**
 
@@ -446,7 +447,7 @@ c.Emit(OpCodes.Ldarg_0); // push a CharacterBody instance on the stack
 c.Emit(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(CharacterBody), nameof(CharacterBody.footPosition)));
 ```
 
-### Conditionals and branches
+#### Conditionals and branches
 
 In CIL there is no concept of curly braces to specify what code belongs in an if-else block, instead the code flow is redirected with instruction jumps. `Brtrue` and `Brfalse` jump to the target instruction if the boolean at the top of the stack is true or false respectively, while `Br` jumps unconditionally.
 
@@ -526,7 +527,7 @@ IL_0324: brtrue.s IL_0329
 
 This `dup`-`pop` combo can be quite prevelant in cascading checks, e.g., `if (this.body && this.body.master && this.body.master.playerCharacterMasterController)`.
 
-#### Example 1: Put some code in an if block
+##### Example 1: Put some code in an if block
 
 `RoR2.Mecanim.ClearLayerWeight.OnStateEnter` executes the following code unconditionally.
 
@@ -569,7 +570,7 @@ if (c.TryGotoNext(
 }
 ```
 
-#### Example 2: Null check a statement to patch NRE errors
+##### Example 2: Null check a statement to patch NRE errors
 
 Assuming we have a method call or field access whose type instance could be null. This would be something like `variable.MyMethod()` and we'd want to convert it to `variable?.MyMethod()`. The original instructions would be something like
 
@@ -590,7 +591,7 @@ br IL_0002
 
 An example of this has already been covered [above](#4-use-cindex-with-great-care).
 
-#### Example 3: Add an else to an if
+##### Example 3: Add an else to an if
 
 Sometimes instead of modifying the code of an if-block, you want to extend it by adding an else-block for your own case. Let's assume we have the following code
 
@@ -654,7 +655,7 @@ if (c.TryGotoPrev(x => x.MatchBrfalse(out _))
 }
 ```
 
-# Hook chain
+## Hook chain
 
 Unlike On Hooks which are executed every time the hooked method is called, IL Hooks are executed only once when applied.
 
@@ -668,7 +669,7 @@ This also means that if some hook logs a message, we may observe it multiple tim
 
 Similarly, if some hook makes bad assumptions and emits invalid code, an error will be logged to the console. If this error is logged multiple times, you need to look for the first instance of it to find the offending hook.
 
-# Manual IL Hooks
+## Manual IL Hooks
 
 Manually applying an IL Hook works exactly in the same way as for [On Hooks](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/On-Hook#manual-on-hooks).
 
@@ -678,7 +679,7 @@ The only differences are
 * The `hookDelegate` always has the same (and simpler) signature of `void HookName(ILContext il)`
 * The hook config is `ILHookConfig` instead of `HookConfig`
 
-## Hooking a coroutine (IEnumerator)
+### Hooking a coroutine (IEnumerator)
 
 Let's take `RoR2.Console.AwakeCoroutine` for example. When we view its IL instructions, we see
 
@@ -721,7 +722,7 @@ MethodInfo targetMethod = AccessTools.Method(typeof(RoR2.Console), nameof(RoR2.C
 new ILHook(targetMethod.GetStateMachineTarget(), hookDelegate);
 ```
 
-# Old stuff that didn't fit anywhere else
+## Misc notes
 
 * Output the result IL of a delegate
   ```

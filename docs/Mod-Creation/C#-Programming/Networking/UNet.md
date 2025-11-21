@@ -3,9 +3,8 @@
  *A detailed tutorial on how to use the UNetWeaver Utility for networking properly your mods.*
 
 ---
-## UNetWeaver
 
-### What is this?
+## What is UNetWeaver?
 
 UNetWeaver is a patcher by the [Unity code repository](https://github.com/Unity-Technologies/UnityCsReference/blob/2018.3/Extensions/Networking/Weaver/) itself that injects code in any `NetworkBehaviour` components to ensure proper serialization and deserialization. Without it such components would fail to communicate across the server. This allows you to use the [usual networking stuff used by Unity users](https://docs.unity3d.com/2018.3/Documentation/Manual/UNetActions.html) outside the Unity Editor, such as [this class](https://gist.github.com/xiaoxiao921/2aed4cdac1352a41e087908a51cf27ec).
 
@@ -14,9 +13,9 @@ Why use UNetWeaver over alternatives:
 * No user-side dependencies. This means that users only have to install one file (your dll).
 * Native Unity tags, simply `using UnityEngine.Networking;` will get you everything you need.
 
-### Networking crash course
+## Networking crash course
 
-#### Communication
+### Communication
 
 The server is generally the authoritative figure for spawning objects, as well as sending messages to the clients and syncing variables. As such, when a client finds themselves in a position of having to execute some code that is only suitable from the server, they need to let the server know accordingly. There are mainly two ways of achieving this:
 
@@ -34,7 +33,7 @@ These attribute should be applied on non-static methods. Furthermore:
 * `TargetRpcAttribute` methods must start with the `Target` prefix
 * `ClientRpcAttribute` methods must start with the `Rpc` prefix
 
-#### Serializable types
+### Serializable types
 
 Any methods associated with the aforementioned attributes can contain only certain types of arguments which can be serialized across the network.
 
@@ -47,10 +46,10 @@ Any methods associated with the aforementioned attributes can contain only certa
 * NetworkHash128
 * GameObject with a NetworkIdentity component attached.
 
-### Example
+## Example
 The simplest example of networking is to simply send a message to the console of all users.
 
-#### Implementation with a console command
+### Implementation with a console command
 
 ```csharp
 using BepInEx;
@@ -140,7 +139,7 @@ Notably, this only works if the Host has this plugin installed, and any client w
 
 In order to send this command dynamically with code, use `Console.instance.SubmitCmd(NetworkUser.readOnlyLocalPlayersList[0], "debuglog_on_all Test message", false);`
 
-#### Implementation with CommandAttribute
+### Implementation with CommandAttribute
 
 ```csharp
 using BepInEx;
@@ -217,7 +216,7 @@ internal class MyNetworkComponent : NetworkBehaviour
 }
 ```
 
-### SyncVar
+## SyncVar
 
 Adding the `SyncVarAttribute` to a field makes it so that its value is synchronised with all the clients when the server changes it. While a client can change this value locally it does not trigger an update for everyone else. If a client wants to update a SyncVar for everyone, they should use a `Command` to let the server do it.
 
@@ -239,11 +238,11 @@ There are also some list variants, except that these are not attributes but actu
 
 Note that a NetworkBehaviour can only support up to 32 SyncVars / SyncLists.
 
-#### Differences with ClientRpc
+### Differences with ClientRpc
 
 A SyncVar is always updated to the current value when the networked object is spawned for a client that joins the session late. On the other hand a ClientRpc is only sent to clients that exist at its time of sending and any late joiners will miss it. As such, a ClientRpc is suitable for one-off events, such as an explosion, while a SyncVar for tracking game state, e.g., a character's health.
 
-#### SyncVar hook
+### SyncVar hook
 
 A hook is like an event that is fired every time a SyncVar is updated. Note that this method is only called for clients when they receive the updated value; **the server must call this manually**. Furthermore, since the hook is called instead of updating the value directly, the hook must also make sure to update the value.
 
@@ -289,11 +288,11 @@ public class SyncVarHookExample : NetworkBehaviour
 }
 ```
 
-### Manual serialization
+## Manual serialization
 
 Each NetworkBehaviour has the uint property `syncVarDirtyBits` which encodes whether any of its 32 sync vars has just been updated. This value can be updated with `SetDirtyBit(uint dirtyBit)`, e.g., SetDirtyBit(16u). This value should be a power of 2, each corresponding to a unique object that needs to be synchronised. When the `NetworkIdentity` of a game object observes that any of its NetworkBehaviours has dirty bits, it serializes that information and sends it to the clients. This means that a game object sends a single message for any of its NetworkBehaviours that need updating, all concatenated one after the other. It is extremely important that deserialization is accurate since if a NetworkBehaviour reads more or fewer bytes than it is supposed to it, it will throw off deserialization for the remaining components.
 
-The actual serialization / deserialization is handled by overriding the `OnSerialize` and `OnDeserialize` methods. Weaver populates these automatically for you if the class has any SyncVar fields (along with creating appropriate messages for any Command / ClientRpc calls). If SyncVars cannot capture the complexity of the data that you need to serialize and you need to resort to a manual implementation, the SyncVarAttribute should not be used anywhere in the class.
+The actual serialization / deserialization is handled by the `OnSerialize` and `OnDeserialize` methods. Weaver populates these automatically for you (along with creating appropriate messages for any Command / ClientRpc calls), but if it detects you have overriden them, this process will be skipped. At this point you are completely responsible for correctly serializing any data. This is something you have to do if simple SyncVars cannot capture the complexity of the data that you need to serialize and you need to resort to a manual implementation.
 
 Generally the data packed for serialization has the structure `dirtyBits[dataForVariableA][dataForVariableB]`, where the dirty bits in essence act like a header that tell us how to read the remaining data. It is crucial that the written data is read in the same order and with the correct type each. Furthermore, `OnSerialize` returns a bool that signals whether all the dirty bits have been serialized so that the NetworkIdentity can call its `ClearAllDirtyBits()`.
 
@@ -304,7 +303,7 @@ class ManualSerializationExample : NetworkBehaviour
     private const uint var1DirtyBit = 1u;
     private const uint var2DirtyBit = 2u;
 
-    private int var1;      // this could have been a SyncVar, but we need to avoid it
+    private int var1;      // this behaves like a simple SyncVar
     private bool[] var2;   // something complex to serialize
 
     [Server]
@@ -396,7 +395,7 @@ class ManualSerializationExample : NetworkBehaviour
 }
 ```
 
-### How to patch
+## How to patch
 
 **As a PostBuild-Event**
 

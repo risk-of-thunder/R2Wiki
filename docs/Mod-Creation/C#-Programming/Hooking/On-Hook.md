@@ -1,10 +1,10 @@
-# Introduction
+# On Hook
 
 An On Hook is a type of hook that allows to run code before and/or after a target method without modifying the target method itself. For modifying the method see [IL Hook](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/IL-Hook) instead.
 
-The hook is defined once, generally in the `Awake` of your `BaseUnityPlugin`, and it runs every time the original method is executed.
-
 ## How to use
+
+The hook is defined once, generally in the `Awake` of your `BaseUnityPlugin`, and it runs every time the original method is executed.
 
 Applying and undoing a hook looks very similar to how one subscribes and unsubscribes from events in C#, even though hooks are very different from events.
 
@@ -33,6 +33,7 @@ private void OnTakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthCo
     // code that will run after the original method
 }
 ```
+
 `orig` is the original method in the game. If you don't want to outright replace it, you need to call it at some point in your hook. There is rarely a reason to omit calling it and doing so in this case would break the game as nothing would take damage. Omitting `orig()` just so it can manually be rewritten can also lead to [interoperability issues](#hook-chain).
 
 `self` is the instance type calling the original method. You can use this to access member variables, e.g., in this case to check which `self.body` is taking damage. If the original method is static, there is no `self` argument.
@@ -55,9 +56,9 @@ Becomes
 
 If B does not call orig, regardless of whether A does, neither A nor vanilla will execute.
 
-# Examples
+## Examples
 
-## Modify an input parameter
+### Modify an input parameter
 
 Parameters can be intercepted prior to being passed to the original method. For example, we can intercept the arguments passed to the PickupController, and instead of dropping lunar coins, we can now drop goat hoofs.
 
@@ -72,7 +73,7 @@ private static void PickupDropletController_CreatePickupDroplet(On.RoR2.PickupDr
 }
 ```
 
-## Modify the result
+### Modify the result
 
 For methods that return a type, we can run our code after orig and then change the result. For example, if we have a reviving item, we want to modify the method that checks if we're out of extra lives to also take into account ours.
 
@@ -92,7 +93,7 @@ private static void CharacterMaster_IsDeadAndOutOfLivesServer(On.RoR2.CharacterM
 }
 ```
 
-## Hooking a coroutine (IEnumerator)
+### Hooking a coroutine (IEnumerator)
 
 Hooking a method that returns an enumerator is similar to a method that returns a value, except that instead of doing `return value` we do `yield return value`.
 
@@ -121,7 +122,7 @@ private IEnumerator RoR2Application_InitializeGameRoutine(On.RoR2.RoR2Applicatio
 }
 ```
 
-# Manual On Hooks
+## Manual On Hooks
 
 Sometimes you may need to create a custom hook, either because you're targeting a method in an assembly for which you don't have an `MMHOOK_X.dll` file, or because you want to target a property since MMHOOK does not provide hook shortcuts for those by default.
 
@@ -138,13 +139,14 @@ In order to construct the correct signature for the hook delegate method, simila
 For constructing `orig` we use a delegate of either `Action<TSelf, TArg1, TArg2, ...>` if the original method has no return type, or `Func<TSelf, TArg1, TArg2, ..., TResult>` if it does.
 
 Some examples for the orig pattern are:
-* `static void Original()` -> `Action`
-* `void Original()` -> `Action<TSelf>`
-* `static void Original(bool[], int)` -> `Action<bool[], int>`
-* `void Original(bool[], int)` -> `Action<TSelf, bool[], int>`
-* `static float Original()` -> `Func<float>`
-* `float Original()` -> `Func<TSelf, float>`
-* etc
+
+- `static void Original()` -> `Action`
+- `void Original()` -> `Action<TSelf>`
+- `static void Original(bool[], int)` -> `Action<bool[], int>`
+- `void Original(bool[], int)` -> `Action<TSelf, bool[], int>`
+- `static float Original()` -> `Func<float>`
+- `float Original()` -> `Func<TSelf, float>`
+- etc
 
 If the target method has a ref parameter, Action/Func cannot be used to construct orig. Instead, we need to use a delegate like so
 
@@ -162,7 +164,7 @@ private int MyHook(origDelegate orig, GenericSkill self, ref GenericSkill.SkillO
 }
 ```
 
-## Example 1: Hooking a property getter
+### Example 1: Hooking a property getter
 
 ___Note___: Property getters and setters are methods under the hood.
 
@@ -186,7 +188,7 @@ private uint OnGetGoldReward(Func<DeathRewards, uint> orig, DeathRewards self)
 }
 ```
 
-## Example 2: Hooking a method from another mod
+### Example 2: Hooking a method from another mod
 
 Hooking a method from another assembly requires adding it as a package reference in your project.
 
@@ -202,11 +204,11 @@ A [publicized](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Progra
 
 Then getting the method info can be achieved with `AccessTools.Method(typeof(ModName.ClassName), nameof(ModName.ClassName.MethodName))`.
 
-## HookConfig
+### HookConfig
 
 The `HookConfig` is an optional 3rd parameter when defining a manual hook that provides some further customization.
 
-### Manually apply and undo a hook
+#### Manually apply and undo a hook
 
 When calling `new Hook()` the hook is enabled automatically. If you wish to control when a hook is applied, it can be done like so:
 
@@ -239,7 +241,7 @@ private void OnDisable()
 }
 ```
 
-### Set hook priority
+#### Set hook priority
 
 The default hook order is [LIFO](#hook-chain), but it is also possible to override this with an explicit hook priority.
 
@@ -263,10 +265,10 @@ The order in which they will be executed is
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |3|1|1|0|0|-2|
 
-# General advice
+## General advice
 
-* Make sure to null check everything. If your hook crashes, it can bring the whole chain down, including orig, which affects vanilla. `master.body`, `body.master `, `body.inventory `, and `damageInfo.attacker` are some of the most frequent sources of null errors in hooks.
-* There is generally no reason to undo a hook. They are expensive to toggle at runtime, while fully disabling your mod may be an exercise in futility. Especially when you have also modified any prefabs or catalogs. In order to temporarily disable a hook, use a boolean instead to determine whether to execute the hook's logic.
+- Make sure to null check everything. If your hook crashes, it can bring the whole chain down, including orig, which affects vanilla. `master.body`, `body.master `, `body.inventory `, and `damageInfo.attacker` are some of the most frequent sources of null errors in hooks.
+- There is generally no reason to undo a hook. They are expensive to toggle at runtime, while fully disabling your mod may be an exercise in futility. Especially when you have also modified any prefabs or catalogs. In order to temporarily disable a hook, use a boolean instead to determine whether to execute the hook's logic.
 
   ```cs
   bool runHook;
@@ -284,4 +286,4 @@ The order in which they will be executed is
   }
   ```
 
-* If vanilla provides an event that runs in the method you want to hook, it is more preferable using that instead of making a hook, e.g. subscribing to `GlobalEventManager.onCharacterDeath` instead of hooking `On.RoR2.GlobalEventManager.OnCharacterDeath`.
+- If vanilla provides an event that runs in the method you want to hook, it is more preferable using that instead of making a hook, e.g. subscribing to `GlobalEventManager.onCharacterDeath` instead of hooking `On.RoR2.GlobalEventManager.OnCharacterDeath`.
