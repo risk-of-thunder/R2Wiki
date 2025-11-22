@@ -7,8 +7,9 @@ When you debug your app, it usually means that you are running your application 
 
 ## [General Setup](#general-setup)
 1. [Install BepInEx from thunderstore](https://thunderstore.io/package/bbepis/BepInExPack/)
-
-4. Open the `doorstop_config.ini`
+2. On your selected profile for R2ModMan/Thunderstore, go to `Settings`,
+3. In the `Settings` tab, click the option with the name `Browse profile folder`
+4. Open the `doorstop_config.ini` found 
 You can set the config like this
 ```
 # If true, Mono debugger server will be enabled

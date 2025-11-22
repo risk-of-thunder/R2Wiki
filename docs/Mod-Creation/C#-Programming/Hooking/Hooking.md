@@ -19,7 +19,7 @@ The HookGen tool by MonoMod can also be used to generate an MMHOOK file for any 
 
 Harmony does not rely on a generated file and as such has no dependency issues. Instead it uses attributes that mark the methods containing the patching code. However, this means that unlike MonoMod, one cannot conveniently autocomplete the patching signature and has to write it manually.
 
-# Types of hooks
+## Types of hooks
 
 There are two types of hooks.
 
