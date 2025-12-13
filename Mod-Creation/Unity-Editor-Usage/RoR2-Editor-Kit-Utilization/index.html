@@ -1,0 +1,4448 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Editor-Usage/RoR2-Editor-Kit-Utilization/">
+      
+      
+        <link rel="prev" href="../Editor-Scripts/">
+      
+      
+        <link rel="next" href="../Using-MonoBehaviour-Scripts-in-Editor/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>RoR2 Editor Kit Utilization - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ror2-editor-kit-utilization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RoR2 Editor Kit Utilization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/risk-of-thunder/R2Wiki/wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/risk-of-thunder/R2Wiki/wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to the Risk of Rain 2 Modding Wiki!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mod Creation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Mod Creation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/First-Mod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    First Mod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    So you want to mod Risk of Rain 2?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    IDE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            IDE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio-Code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Visual Studio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Post Build Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C# Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            C# Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Assembly-References/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assembly References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Code-Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Console-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Debugging-Your-Mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging Your Mods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hooking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hot-Reloading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hot Reloading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/IContentPackProvider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IContentPackProvider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/IL-Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IL Hooking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mod Compatibility: Soft Dependency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Reflection-Crash-Course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reflection Crash Course
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Unity-and-MonoBehaviour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity and MonoBehaviour
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_13" id="__nav_2_3_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Game Code
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            Game Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Components, Events and Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tips and Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_14" id="__nav_2_3_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hooking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Hooking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hooking/Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Hooking?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hooking/IL-Hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IL Hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Hooking/On-Hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    On Hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_15" id="__nav_2_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/MiniRpcLib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MiniRpcLib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R2API.NetworkingAPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server side and client side mods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23-Programming/Networking/UNet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UNet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Testing/Testing-Multiplayer-Alone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Multiplayer Alone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cookbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Addressables-Assets-Keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Addressables Assets Keys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Items-and-Equipments-Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Items and Equipments Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Layers-and-collisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layers and collisions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Prefabs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prefabs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Scene-Names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scene Names
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Sound-%E2%80%90-Wwise-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sound - Wwise Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developer-Reference/Style-Reference-Sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Style Reference Sheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Assets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Character/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Difficulty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Difficulty
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Elites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating an Elite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Extraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extraction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Icons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Icons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Interactables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interactables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Loading-Assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loading Assets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Localization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Merging-Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Merging Materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skills
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/UI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Void-Items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Void Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_17" id="__nav_2_7_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Items
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_17">
+            <span class="md-nav__icon md-icon"></span>
+            Items
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the RoR2CreateItemTemplate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_18" id="__nav_2_7_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shaders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_18">
+            <span class="md-nav__icon md-icon"></span>
+            Shaders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HG Triplanar Terrain Blend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Shaders outside of an AssetRipper project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_19" id="__nav_2_7_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Skins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_19">
+            <span class="md-nav__icon md-icon"></span>
+            Skins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating skin for vanilla characters with custom model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_20" id="__nav_2_7_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sounds
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_20">
+            <span class="md-nav__icon md-icon"></span>
+            Sounds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_20_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_20_1" id="__nav_2_7_20_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    WWise
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_20_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_20_1">
+            <span class="md-nav__icon md-icon"></span>
+            WWise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Custom-Music/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Music
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assets/Sounds/WWise/Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unity-Version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Version
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unity Editor Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Unity Editor Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Editor-Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editor Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    RoR2 Editor Kit Utilization
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    RoR2 Editor Kit Utilization
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkits-base-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit's base Editors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RoR2EditorKit&#39;s base Editors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspector-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspector> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptableobjectinspector-t-scriptableobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ScriptableObjectInspector> (T : ScriptableObject)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ScriptableObjectInspector&gt; (T : ScriptableObject)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguiscriptableobjectinspector-t-scriptableobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIScriptableObjectInspector> (T : ScriptableObject)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementscriptableobjectinspector-t-scriptableobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementScriptableObjectInspector> (T: ScriptableObject)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentinspector-t-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentInspector> (T : Component)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ComponentInspector&gt; (T : Component)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguicomponentinspector-t-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIComponentInspector> (T : Component)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementcomponentinspector-t-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementComponentInspector> (T : Component)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkits-base-property-drawers" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit's base Property Drawers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RoR2EditorKit&#39;s base Property Drawers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extendedpropertydrawer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExtendedPropertyDrawer>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ExtendedPropertyDrawer&gt;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguipropertydrawer" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIPropertyDrawer>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementpropertydrawer" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementPropertyDrawer>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkits-base-editorwindows" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit's base EditorWindows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RoR2EditorKit&#39;s base EditorWindows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extendededitorwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExtendedEditorWindow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecteditingeditorwindow-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectEditingEditorWindow> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ObjectEditingEditorWindow&gt; (T : UnityEngine.Object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguiobjecteditingeditorwindow-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIObjectEditingEditorWindow> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementobjecteditingeditorwindow-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementObjectEditingEditorWindow> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editorwizardwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      EditorWizardWindow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-editor-setting-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Editor Setting system
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Editor Setting system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editorsettingcollection" class="md-nav__link">
+    <span class="md-ellipsis">
+      EditorSettingCollection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieditorsettingprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEditorSettingProvider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor-setting-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor Setting Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-a-custom-editorsettingprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing a custom EditorSettingProvider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-an-ui-for-a-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing an UI for a provider
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkit-useful-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit Useful Classes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using-MonoBehaviour-Scripts-in-Editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using MonoBehaviour Scripts in Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ThunderKit
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            ThunderKit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Crash-Course-and-Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ThunderKit - Crash course and Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upgrading your project to use R2API's Split Assemblies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThunderKit/Using-the-DOTS-framework-in-Modding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Thunderkit - Using the DOTS framework in Modding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Updating Your Mods
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            Updating Your Mods
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/For-Survivors-of-the-Void/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For Survivors of the Void
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/For-Seekers-of-the-Storm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For Seekers of the Storm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/Updating-Core-API-Changelog-1.3.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/Updating-Core-API-Changelog-1.3.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.8 - Seekers of the Storm 2.0 Phase 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11_5" id="__nav_2_11_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1.3.9 Memory Optimization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_11_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11_5">
+            <span class="md-nav__icon md-icon"></span>
+            1.3.9 Memory Optimization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/1.3.9-Memory-Optimization/Core-API-Changelog-1.3.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/1.3.9-Memory-Optimization/Updating-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Updating Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/Updating-Core-API-Changelog-1.4.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.4.0 - Alloy Collective
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Your-Mods/Updating-Core-API-Changelog-1.4.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.4.1 - Alloyed Collective Patch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Playing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Playing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Playing/Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running modded and unmodded game with shortcuts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/BepInEx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BepInEx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Source-Code-Diff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Source Code Diff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Custom-Character-Creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Item-%26-Equipment-IDs-and-Names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkits-base-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit's base Editors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RoR2EditorKit&#39;s base Editors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspector-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspector> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptableobjectinspector-t-scriptableobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ScriptableObjectInspector> (T : ScriptableObject)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ScriptableObjectInspector&gt; (T : ScriptableObject)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguiscriptableobjectinspector-t-scriptableobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIScriptableObjectInspector> (T : ScriptableObject)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementscriptableobjectinspector-t-scriptableobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementScriptableObjectInspector> (T: ScriptableObject)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentinspector-t-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentInspector> (T : Component)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ComponentInspector&gt; (T : Component)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguicomponentinspector-t-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIComponentInspector> (T : Component)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementcomponentinspector-t-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementComponentInspector> (T : Component)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkits-base-property-drawers" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit's base Property Drawers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RoR2EditorKit&#39;s base Property Drawers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extendedpropertydrawer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExtendedPropertyDrawer>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ExtendedPropertyDrawer&gt;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguipropertydrawer" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIPropertyDrawer>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementpropertydrawer" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementPropertyDrawer>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkits-base-editorwindows" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit's base EditorWindows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RoR2EditorKit&#39;s base EditorWindows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extendededitorwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExtendedEditorWindow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecteditingeditorwindow-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectEditingEditorWindow> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ObjectEditingEditorWindow&gt; (T : UnityEngine.Object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imguiobjecteditingeditorwindow-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMGUIObjectEditingEditorWindow> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualelementobjecteditingeditorwindow-t-unityengineobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElementObjectEditingEditorWindow> (T : UnityEngine.Object)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editorwizardwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      EditorWizardWindow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-editor-setting-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Editor Setting system
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Editor Setting system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editorsettingcollection" class="md-nav__link">
+    <span class="md-ellipsis">
+      EditorSettingCollection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieditorsettingprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEditorSettingProvider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor-setting-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor Setting Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-a-custom-editorsettingprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing a custom EditorSettingProvider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-an-ui-for-a-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing an UI for a provider
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ror2editorkit-useful-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      RoR2EditorKit Useful Classes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_Unity-Editor-Usage_RoR2-Editor-Kit-Utilization/_edit" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="ror2-editor-kit-utilization">RoR2 Editor Kit Utilization</h1>
+<p><a href="https://github.com/risk-of-thunder/RoR2EditorKit/tree/main">RoR2EditorKit</a> is a powerful package maintained by the community that contains a robust API and utilities for helping the development of Editor related scripts. Thanks to its 5.0.0 update, RoR2EditorKit's core assembly which contains its API and main functionality does not require RoR2 to be within the editor nor ThunderKit to be installed, as such, it can be used in virtually any scenario to help your development of editor scripts.</p>
+<p>This guide will cover common utilizations and tips with working with the API for your editor scripts.</p>
+<p><img alt="R2EKIcon" src="https://github.com/user-attachments/assets/3b97807e-fb6c-4665-b32b-980dda90729b" /></p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Go to <code>Window/Package Manager</code> to open the Unity Package Manager</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/46ac15bd-6def-4221-a3dc-f6df50c74ade" /></p>
+<ol>
+<li>Go to the <a href="https://github.com/risk-of-thunder/RoR2EditorKit/tree/main">RoR2EditorKit Repository</a>. Taking a look at the website you can see a big green <code>&lt;&gt; Code</code> button. Clicking it and then clicking the copy url button will copy the link to the repository.</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/704878e1-f077-4559-bc93-92b8cbbe6229" /></p>
+<ol>
+<li>On the Package Manager window, hit the <code>+</code> button, and click the <code>Add package from Git URL...</code> option</li>
+</ol>
+<p><img alt="image" src="https://github.com/user-attachments/assets/7562cea9-2d0a-4bc1-84e7-2f4ba00d2159" /></p>
+<ol>
+<li>Paste the git URL copied beforehand. As a side note, it is recommeneded to install only the latest tagged release from the repository. To install a specific release tag, append the Tag's name preceded by a <code>#</code> character.</li>
+</ol>
+<p>For example, to download the version 5.4.0 of RoR2EditorKit to your project, you must use the git url <code>https://github.com/risk-of-thunder/RoR2EditorKit.git#5.4.0</code></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/0c4bfd53-5105-4a07-89a4-72a31e28c23a" /></p>
+<h2 id="assembly-structure">Assembly structure</h2>
+<p>The RoR2EditorKit package consists of 4 main assemblies.</p>
+<table>
+<thead>
+<tr>
+<th>Assembly Name</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core</td>
+<td>The core RoR2EditorKit assembly, it contains all the infrasturcture, framework and APIs for developing editor scripts, this assembly has no dependencies outside of the Editor Coroutines dependency, which gets installed atuomatically when you first install RoR2EditorKit.</td>
+</tr>
+<tr>
+<td>R2API Support</td>
+<td>A smaller assembly that contains editor related utilities when specific R2API assemblies are installed, such as support for proper DirectorAPI stage serialization and the AddressReferencedAsset system</td>
+</tr>
+<tr>
+<td>RoR2</td>
+<td>The secondary assembly which contains all editor related utilities for RoR2 specifically, It mainly features inspectors, property drawers and windows.</td>
+</tr>
+<tr>
+<td>ThunderKit</td>
+<td>A smaller assembly that contains editor related utilities when ThunderKit is installed.</td>
+</tr>
+</tbody>
+</table>
+<p>Due to the nature of these assemblies, they only get enabled and compiled when specific requirements are met (IE: the ThunderKit assembly only enables if ThunderKit is Installed)</p>
+<h2 id="ror2editorkits-base-editors">RoR2EditorKit's base Editors</h2>
+<p>RoR2EditorKit comes bundled with a total of 7 inspector subclasses. These are the inspectors sorted in a hierarchy</p>
+<h3 id="inspector-t-unityengineobject">Inspector<T\<T>> (T : UnityEngine.Object)</h3>
+<p>The <code>Inspector&lt;T&gt;</code> is the base class for any and all of RoR2EditorKit's editors, the package uses the word "Inspector" to refer to any <code>UnityEditor.Editor</code> for distinction purposes.</p>
+<p>Features:</p>
+<ul>
+<li>Access to a EditorSettingCollection for the inspector for both Project and Preference settings</li>
+<li>A way to both enable and disable said inspector, enabling and disabling inspectors is one of the key features of RoR2EditorKit. When an inspector is disabled it uses the default inspector.</li>
+<li>Generic callbacks when the inspector is enabled or disabled</li>
+<li>Easy access to a root VisualElement</li>
+<li>Access to the edited object, casted to <T></li>
+<li>Easy access for creating and setting Editor Settings.</li>
+</ul>
+<p>If youre going to inherit from the Inspector class, you'll need to implement a way for the end user to enable or disable your custom inspector. alongside implementing your own UI utilizing the <code>CreateInspectorUI</code></p>
+<h3 id="scriptableobjectinspector-t-scriptableobject">ScriptableObjectInspector<T\<T>> (T : ScriptableObject)</h3>
+<p>The <code>ScriptableObjectInspector&lt;T&gt;</code> inherits from <code>Inspector&lt;T&gt;</code> and its used for creating an Inspector for a Scriptable Object.</p>
+<p>Features:</p>
+<ul>
+<li>Implements a toggle for enabling and disabling the inspector, this toggle is placed on the Header of the inspector.</li>
+</ul>
+<p>You'll still need to implement your UI manually, or alternatively, inherit from either of the 2 following inspector types.</p>
+<h4 id="imguiscriptableobjectinspector-t-scriptableobject">IMGUIScriptableObjectInspector<T\<T>> (T : ScriptableObject)</h4>
+<p>The <code>IMGUIScriptableObjectInspector&lt;T&gt;</code> inherits from <code>ScriptableObjectInspector&lt;T&gt;</code> and its used for creating an Inspector for a ScriptableObject using IMGUI.</p>
+<p>Features:</p>
+<ul>
+<li>Handles the creation of an IMGUIContainer which will be used to render your UI</li>
+</ul>
+<p>You can implement your IMGUI UI inside the <code>DrawIMGUI()</code> method.</p>
+<h4 id="visualelementscriptableobjectinspector-t-scriptableobject">VisualElementScriptableObjectInspector<T\<T>> (T: ScriptableObject)</h4>
+<p>The <code>VisualElementScriptableObjectInspector&lt;T&gt;</code> inherits from <code>ScriptableObjectInspector&lt;T&gt;</code> and its used for creating an Inspector for a ScriptableObject using Visual Elements.</p>
+<p>Features:</p>
+<ul>
+<li>Automatically obtains an UXML instance based off the inspector's name, this UXML instance will be used as the actual UI, which then the inspector passes to an abstract method for initialization.</li>
+<li>A method that you can override to validate if a specified path corresponds to your inspector.</li>
+</ul>
+<h3 id="componentinspector-t-component">ComponentInspector<T\<T>> (T : Component)</h3>
+<p>The <code>ComponentInspector&lt;T&gt;</code> inherits from <code>Inspector&lt;T&gt;</code> and its used for creating an Inspector for a Component or MonoBehaviour.</p>
+<p>Features:</p>
+<ul>
+<li>Implements a toggle for enabling and disabling the inspector, this toggle is placed right at the beginning of the component's inspector UI</li>
+</ul>
+<p>You'll still need to implement your UI manually, or alternatively, inherit from either of the 2 following inspector types.</p>
+<h4 id="imguicomponentinspector-t-component">IMGUIComponentInspector<T\<T>> (T : Component)</h4>
+<p>The <code>IMGUIComponentInspector&lt;T&gt;</code> inherits from <code>ComponentInspector&lt;T&gt;</code> and its used for creating an Inspector for a Component or MonoBehaviour using IMGUI.</p>
+<p>Features:</p>
+<ul>
+<li>Handles the creation of an IMGUIContainer which will be used to render your UI</li>
+</ul>
+<p>You can implement your IMGUI UI inside the <code>DrawIMGUI()</code> method.</p>
+<h4 id="visualelementcomponentinspector-t-component">VisualElementComponentInspector<T\<T>> (T : Component)</h4>
+<p>The <code>VisualElementComponentInspector&lt;T&gt;</code> inherits from <code>ComponentInspector&lt;T&gt;</code> and its used for creating an Inspector for a Component or MonoBehaviour using Visual Elements.</p>
+<p>Features:</p>
+<ul>
+<li>Automatically obtains an UXML instance based off the inspector's name, this UXML instance will be used as the actual UI, which then the inspector passes to an abstract method for initialization.</li>
+<li>A method that you can override to validate if a specified path corresponds to your inspector.</li>
+</ul>
+<h2 id="ror2editorkits-base-property-drawers">RoR2EditorKit's base Property Drawers</h2>
+<p>RoR2EditorKit comes bundled with a total of 3 PropertyDrawer subclasses. These are the PropertyDrawer sorted in a hierarchy</p>
+<h3 id="extendedpropertydrawer">ExtendedPropertyDrawer<T\<T>></h3>
+<p>The <code>ExtendedPropertyDrawer&lt;T&gt;</code> is the base class for any and all of RoR2EditorKit's PropertyDrawers.</p>
+<p>The TypeParam <T> can be used to specify what kind of value this PropertyDrawer is Drawing. For example, you can use <SkillDef.Variant> to specify that the Property drawer draws a Variant Skill Def. Or you can use <SomePropertyAttribute> to specify the PropertyDrawer is used for drawing a PropertyAttribute (IE: [Range])</p>
+<p>Features:</p>
+<ul>
+<li>Access to a EditorSettingCollection for the PropertyDrawer for both Project and Preference settings</li>
+<li>Easy access to the Data youre drawing by using the <code>propertyDrawerData</code> property.</li>
+<li>Easy access for creating and setting Editor Settings.</li>
+</ul>
+<h4 id="imguipropertydrawer">IMGUIPropertyDrawer<T\<T>></h4>
+<p>The <code>IMGUIPropertyDrawer&lt;T&gt;</code> inherits from <code>ExtendedPropertyDrawer&lt;T&gt;</code>and its used for drawing Property Drawers using IMGUI.</p>
+<p>Features:</p>
+<ul>
+<li>Utility methods for drawing properties using the non automatic layout GUI system</li>
+</ul>
+<p>Due to the nature of IMGUI in PropertyDrawers, you cannot use <code>EditorGUILayout</code> for drawing IMGUI, you'll need to use <code>EditorGUI</code> instead.</p>
+<h4 id="visualelementpropertydrawer">VisualElementPropertyDrawer<T\<T>></h4>
+<p>The <code>VisualElementPropertyDrawer&lt;T&gt;</code> inherits from <code>ExtendedPropertyDrawer&lt;T&gt;</code> and its used for creating a PropertyDrawer using Visual Elements</p>
+<p>Features:</p>
+<ul>
+<li>Automatically obtains an UXML instance based off the PropertyDrawer's name, this UXML instance will be used as the actual UI, which then the PropertyDrawer passes to an abstract method for initialization.</li>
+<li>A method that you can override to validate if a specified path corresponds to your PropertyDrawer.</li>
+</ul>
+<h2 id="ror2editorkits-base-editorwindows">RoR2EditorKit's base EditorWindows</h2>
+<p>RoR2EditorKit comes bundled with a total of 5 EditorWindow subclasses. These are the EditorWindow  sorted in a hierarchy</p>
+<h3 id="extendededitorwindow">ExtendedEditorWindow</h3>
+<p>The <code>ExtendedEditorWindow</code> is the base class for any and all of RoR2EditorKit's Editor Windows.</p>
+<p>Features:</p>
+<ul>
+<li>Access to a EditorSettingCollection for the Window for both Project and Preference settings</li>
+<li>Implementation of Serialized Object binding for ease of creation of UI</li>
+<li>Generic callbacks for Serialized Object manipulation</li>
+<li>Custom Open method for assigning the Serialized Object</li>
+<li>Easy access for creating and setting Editor Settings.</li>
+</ul>
+<p>If youre going to inherit from the ExtendedEditorWindow class, you'll need to implement your own UI utilizing the <code>CreateGUI</code> method</p>
+<h3 id="objecteditingeditorwindow-t-unityengineobject">ObjectEditingEditorWindow<T\<T>> (T : UnityEngine.Object)</h3>
+<p>The <code>ObjectEditingEditorWindow&lt;T&gt;</code> inherits from <code>ExtendedEditorWindow&lt;T&gt;</code> and it's used for creating an Editor Window for editing a single object.</p>
+<p>This type is especially useful for creating a complex UI for editing the specified object and making said editing experience better for the end user</p>
+<p>Features:
+* Direct access to the editing object by using the <code>targetType</code> attribute.</p>
+<h4 id="imguiobjecteditingeditorwindow-t-unityengineobject">IMGUIObjectEditingEditorWindow<T\<T>> (T : UnityEngine.Object)</h4>
+<p>The <code>IMGUIObjectEditingEditorWindow&lt;T&gt;</code> inherits from <code>ObjectEditingEditorWindow&lt;T&gt;</code> and it's used for creating an Editor Window for editing a single object using IMGUI</p>
+<p>Features:</p>
+<ul>
+<li>Allows the creation of the UI using only IMGUI</li>
+</ul>
+<h4 id="visualelementobjecteditingeditorwindow-t-unityengineobject">VisualElementObjectEditingEditorWindow<T\<T>> (T : UnityEngine.Object)</h4>
+<p>The <code>VisualElementObjectEditingEditorWindow&lt;T&gt;</code> inherits from <code>ObjectEditingEditorWindow&lt;T&gt;</code> and it's used for creating an Editor Window for editing a single object using Visual Elements</p>
+<p>Features:</p>
+<ul>
+<li>Automatically obtains an UXML instance based off the EditorWindow's name, this UXML instance will be used as the actual UI, which then the EditorWindow passes to an abstract method for initialization.</li>
+<li>A method that you can override to validate if a specified path corresponds to your EditorWindow.</li>
+</ul>
+<h3 id="editorwizardwindow">EditorWizardWindow</h3>
+<p>The <code>EditorWizardWindow</code> inherits from <code>ExtendedEditorWindow</code> and its used for creating complex wizard setups for aiding the end user in development of assets in a semi-asynchronous fashion utilizing Coroutines.</p>
+<p>Unlike <code>ObjectEditingEditorWindow</code>s, an EditorWizardWindow works exclusively with Visual Elements, albeit IMGUI can still be used by using <code>IMGUIContainers</code></p>
+<p>Features:</p>
+<ul>
+<li>A Header, Center and Footer pre-created by RoR2EditorKit that displays the wizard's name, your UI content, and buttons for closing and running the wizard</li>
+<li>A Progress bar that can be used to accurately display the progress of the wizard</li>
+<li>Automatically obtains an UXML instance based off the EditorWizardWindow's name, this UXML instance will be used as the actual UI, which then the EditorWizardWindow passes to an abstract method for initialization.</li>
+<li>Robust implementation of asynchronous code utilizing Coroutines thanks to the <code>EditorCoroutines</code> package.</li>
+</ul>
+<p>Alongside the EditorWizardWindow, RoR2EditorKit comes with the WizardCoroutineHelper, which is used to maintain complex, step-based wizard setups (Coroutine for writing text to a file, then a secondary step that does something with said file)</p>
+<h2 id="the-editor-setting-system">The Editor Setting system</h2>
+<p>One of the Key Features of RoR2EditorKit is its robust Settings system, the Editor Setting System allows you to save metadata to specific files that contains settings related to misc Types within the editor. Thanks to a powerful string based serialization system, the Editor Settings system can serialize a multitude of types, such as Strings, integer, chars, colours, animation curves, etc.</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/4ce52a1c-171c-4465-94e8-89cd8254c2d4" /></p>
+<p>All of the previously mentioned systems (Inspectors, Editor Windows and PropertyDrawers) have access to the EditorSetting system by either using the properties <code>xProjectSettings</code> or <code>xPreferenceSettings</code></p>
+<p>By default, RoR2 Editor Kit comes with 2 types of Editor Settings.</p>
+<table>
+<thead>
+<tr>
+<th>Editor Setting Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project Settings</td>
+<td>Located within your specified project, these settings are bound exclusively within the project itself, and are not shared between project instances.</td>
+</tr>
+<tr>
+<td>Preference Settings</td>
+<td>These settings are bound to your machine, and are used across different instances of RoR2EditorKit, a key example is that inspectors being enabled or disabled are considered a "Preference" setting, this way, user A can have the inspector enabled while user B can have it disabled.</td>
+</tr>
+</tbody>
+</table>
+<p>The Editor Settings system is split in 4 key types.</p>
+<h3 id="editorsettingcollection">EditorSettingCollection</h3>
+<p>The <code>EditorSettingCollection</code> is a serializable class which as the name suggests, represents a collection of Editor Settings for a specified Type.
+A SettingCollection will always have an owner variable which is obtained from the <code>System.Type</code> that requested the creation of it, albeit in some scenarios the Type could not exist in the project (IE: Its a preference setting from a type thats not present in the current project)</p>
+<p>It contains methods for Obtaining or Creating new settings utilizing <code>GetOrCreateSetting</code>, alongside simply assigning setting values and saving the settings.</p>
+<p>Editor Setting Collections are stored in what are called <code>IEditorSettingProvider</code>s.</p>
+<h3 id="ieditorsettingprovider">IEditorSettingProvider</h3>
+<p>The <code>IEditorSettingProvider</code> is an interface that can be implemented in an object to mark it as a provider of Editor Settings. It contains the following members to implement:</p>
+<ul>
+<li>A <code>List&lt;EditorSettingCollection&gt;</code>, which are the actual settings stored by the provider.</li>
+<li>A <code>string</code> property, which is used to represent the provider with a unique identifier name.</li>
+<li>A <code>void SaveSettings()</code> method, which is used to save the settings for the provider to disk.</li>
+</ul>
+<p>RoR2EditorKit comes bundled with two providers, the Project and Preference settings. These are ScriptableSingletons. for more information on scriptable singletons, refer to <a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/ScriptableSingleton_1.html">this</a> page.</p>
+<p>IEditorSettingProviders can be obtained by using the <code>EditorSettingManager</code></p>
+<h3 id="editor-setting-manager">Editor Setting Manager</h3>
+<p>The <code>EditorSettingManager</code>is a static class that manages providers and works as a front-end for obtaining <code>EditorSettingCollection</code>s.</p>
+<p>It contains methods for getting or creating new instances of EditorSettingCollections for specified <code>System.Type</code> and can be stored in specified Providers. Providers can be specified by either an Enum to represent the default Providers that come bundled with RoR2EditorKit, or via a string for custom providers.</p>
+<p>The manager also exposes methods for Resetting and Removing entire editor setting collections, or even resetting entire providers. Careful utilization of these methods must be used as you can easily wipe preference settings by mistake.</p>
+<h3 id="implementing-a-custom-editorsettingprovider">Implementing a custom EditorSettingProvider</h3>
+<p>This part will cover how to implement your own EditorSettingProvider to the manager. below is an example of one using a ScriptableSingleton.</p>
+<div class="highlight"><pre><span></span><code>public sealed class CustomEditorSettings : ScriptableSingleton&lt;CustomEditorSettings &gt;, EditorSettingManager.IEditorSettingProvider
+{
+    [SerializeField]
+    private List&lt;EditorSettingCollection&gt; _projectSettings = new List&lt;EditorSettingCollection&gt;();
+
+    List&lt;EditorSettingCollection&gt; EditorSettingManager.IEditorSettingProvider.editorSettings =&gt; _projectSettings;
+    string EditorSettingManager.IEditorSettingProvider.providerName =&gt; nameof(CustomEditorSettings);
+    public void SaveSettings() =&gt; Save(true);
+
+    private void Awake()
+    {
+        EditorApplication.quitting += EditorApplication_quitting;
+    }
+
+    private void EditorApplication_quitting()
+    {
+        Save(true);
+    }
+
+    private void OnDestroy()
+    {
+        EditorApplication.quitting -= EditorApplication_quitting;
+    }
+
+    [InitializeOnLoadMethod]
+    private static void Init()
+    {
+        EditorSettingManager.RegisterProvider(instance, () =&gt; instance);
+    }
+}
+</code></pre></div>
+<p>Some things to note:</p>
+<ul>
+<li>The InitializeOnLoad decorated attribute is used for initializing and adding the instance of the ScriptableSingleton to the EditorSettingManager. which is how you can expose your provider to the system.</li>
+<li>For a ScriptableSingleton to work properly in the editor you need to decorate the class with a <code>[FilePath]</code> attribute, more information about this attribute can be found <a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/FilePathAttribute.html">here</a></li>
+</ul>
+<h3 id="implementing-an-ui-for-a-provider">Implementing an UI for a provider</h3>
+<p>You can utilize the <code>EditorSettingsElement</code> to expose a provider's editor settings, this can be achieved by using the following constructor</p>
+<p><code>new EditorSettingsElement((EditorSettingManager.IEditorSettingProvider)settings));</code></p>
+<p>Afterwards adding the element to any Visual Element will display the provider's settings in a UI</p>
+<h2 id="ror2editorkit-useful-classes">RoR2EditorKit Useful Classes</h2>
+<p>The core library of RoR2EditorKit comes bundled with multiple classes that can aid in the development of editor scripts.</p>
+<table>
+<thead>
+<tr>
+<th>Class Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AssetDatabaseUtil</td>
+<td>Contains utility methods for interacting with the AssetDatabase, such as directly obtaining an asset's guid, directly loading an asset via its GUID, Finding Assets</td>
+</tr>
+<tr>
+<td>AssetGUID<T></td>
+<td>A struct that is used for encapsulating an Asset via its GUID, useful for keeping constants of assets. these assets can then be loaded using the implicit casting operators.</td>
+</tr>
+<tr>
+<td>ElementContextMenuHelper</td>
+<td>A static class that works as an extension for Visual Elements, it allows you to easily add context menus to any element that are visible via an icon that's added alongside the element.</td>
+</tr>
+<tr>
+<td>IMGUIUtil</td>
+<td>A static class that contains methods for drawing controls using IMGUI in an automatic layout context, it contains methods like drawing a property with a check system, and drawing field based on their type. It also exposes a method for drawing a field for an EditorSetting inside a collection.</td>
+</tr>
+<tr>
+<td>IOUtils</td>
+<td>Contains utility methods for interacting with Paths, such as ensuring directories, obtaining currently selected directories and manipulating paths.</td>
+</tr>
+<tr>
+<td>R2EKMath</td>
+<td>A simple math class used for arithmetic operations, including the ability to round vectors to the nearest grid value rounding vectors and a remap function</td>
+</tr>
+<tr>
+<td>ReflectionUtils</td>
+<td>A static class which contains reflection utilities.</td>
+</tr>
+<tr>
+<td>SerializableShaderWrapper</td>
+<td>A class used for serializing Shader objects as shader name or guid.</td>
+</tr>
+<tr>
+<td>SerializationMediator</td>
+<td>A front-end facade for the Serialization system within RoR2EditorKit, it can be used to match the game's serialization methods for usage on runtime solutions. An optional safety bypass exists as a sub-class which should only be used for Editor related solutions.</td>
+</tr>
+<tr>
+<td>VisualoElementEditorSettingHelper</td>
+<td>A static class that works as an extension for Visual Elements, it allows you to directly connect a VisualElement to an Editor Setting. When the value of the Visual Element changes, the value within the editor setting changes as well.</td>
+</tr>
+<tr>
+<td>VisualElementTemplateDictionary</td>
+<td>A ScriptableSingleton that contains a dictionary of string to Visual Element Tempaltes, you can use this to find a UXML Template by name</td>
+</tr>
+<tr>
+<td>VisualElementUtil</td>
+<td>A static class containing a plethora of extension utilities used for Visual Elements</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
