@@ -1,0 +1,4152 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Playing/Getting-Started/">
+      
+      
+        <link rel="prev" href="../../Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.4.1/">
+      
+      
+        <link rel="next" href="../FAQ/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Getting Started - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/risk-of-thunder/R2Wiki/wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/risk-of-thunder/R2Wiki/wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to the Risk of Rain 2 Modding Wiki!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mod Creation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Mod Creation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Getting-Started/First-Mod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    First Mod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    So you want to mod Risk of Rain 2?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    IDE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            IDE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/IDE/Visual-Studio-Code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Visual Studio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Post Build Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C# Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            C# Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Assembly-References/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assembly References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Code-Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Console-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Debugging-Your-Mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging Your Mods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hooking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Hot-Reloading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hot Reloading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/IContentPackProvider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IContentPackProvider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/IL-Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IL Hooking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mod Compatibility: Soft Dependency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Reflection-Crash-Course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reflection Crash Course
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Unity-and-MonoBehaviour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity and MonoBehaviour
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_13" id="__nav_2_3_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Game Code
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            Game Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Components, Events and Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tips and Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_14" id="__nav_2_3_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hooking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Hooking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Hooking/Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Hooking?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Hooking/IL-Hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IL Hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Hooking/On-Hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    On Hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_15" id="__nav_2_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Networking/MiniRpcLib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MiniRpcLib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R2API.NetworkingAPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server side and client side mods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/C%23-Programming/Networking/UNet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UNet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Testing/Testing-Multiplayer-Alone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Multiplayer Alone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Cookbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cookbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Addressables-Assets-Keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Addressables Assets Keys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Items-and-Equipments-Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Items and Equipments Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Layers-and-collisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layers and collisions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Prefabs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prefabs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Scene-Names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scene Names
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Sound-%E2%80%90-Wwise-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sound - Wwise Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Developer-Reference/Style-Reference-Sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Style Reference Sheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Assets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Character/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Difficulty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Difficulty
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Elites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating an Elite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Extraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extraction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Icons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Icons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Interactables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interactables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Loading-Assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loading Assets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Localization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Merging-Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Merging Materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skills
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/UI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Void-Items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Void Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_17" id="__nav_2_7_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Items
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_17">
+            <span class="md-nav__icon md-icon"></span>
+            Items
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the RoR2CreateItemTemplate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_18" id="__nav_2_7_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shaders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_18">
+            <span class="md-nav__icon md-icon"></span>
+            Shaders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HG Triplanar Terrain Blend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Shaders outside of an AssetRipper project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_19" id="__nav_2_7_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Skins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_19">
+            <span class="md-nav__icon md-icon"></span>
+            Skins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating skin for vanilla characters with custom model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_20" id="__nav_2_7_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sounds
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_20">
+            <span class="md-nav__icon md-icon"></span>
+            Sounds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_20_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_20_1" id="__nav_2_7_20_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    WWise
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_20_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_20_1">
+            <span class="md-nav__icon md-icon"></span>
+            WWise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Sounds/WWise/Custom-Music/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Music
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Assets/Sounds/WWise/Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Unity-Version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Version
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unity Editor Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Unity Editor Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Unity-Editor-Usage/Editor-Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editor Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Unity-Editor-Usage/RoR2-Editor-Kit-Utilization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RoR2 Editor Kit Utilization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Unity-Editor-Usage/Using-MonoBehaviour-Scripts-in-Editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using MonoBehaviour Scripts in Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ThunderKit
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            ThunderKit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/ThunderKit/Crash-Course-and-Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ThunderKit - Crash course and Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/ThunderKit/Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upgrading your project to use R2API's Split Assemblies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/ThunderKit/Using-the-DOTS-framework-in-Modding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Thunderkit - Using the DOTS framework in Modding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Updating Your Mods
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            Updating Your Mods
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/For-Survivors-of-the-Void/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For Survivors of the Void
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/For-Seekers-of-the-Storm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For Seekers of the Storm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.3.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.3.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.8 - Seekers of the Storm 2.0 Phase 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11_5" id="__nav_2_11_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1.3.9 Memory Optimization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_11_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11_5">
+            <span class="md-nav__icon md-icon"></span>
+            1.3.9 Memory Optimization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/1.3.9-Memory-Optimization/Core-API-Changelog-1.3.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/1.3.9-Memory-Optimization/Updating-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Updating Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.4.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.4.0 - Alloy Collective
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod-Creation/Updating-Your-Mods/Updating-Core-API-Changelog-1.4.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.4.1 - Alloyed Collective Patch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Playing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Playing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mod-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mod Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r2modman-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      R2MODMAN - Recommended
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R2MODMAN - Recommended">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-your-mod-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sharing your Mod List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switching-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switching Profiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#othermiscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other/Miscellaneous
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation-not-recommended-average-user-please-use-a-mod-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation - Not Recommended - Average user please use a mod manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Installation - Not Recommended - Average user please use a mod manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bepinex" class="md-nav__link">
+    <span class="md-ellipsis">
+      BepInEx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BepInEx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2api" class="md-nav__link">
+    <span class="md-ellipsis">
+      R2API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mod-installation-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mod Installation &amp; Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mod-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mod Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-bugs-for-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporting Bugs for Mods
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running modded and unmodded game with shortcuts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/BepInEx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BepInEx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/Source-Code-Diff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Source Code Diff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Custom-Character-Creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Item-%26-Equipment-IDs-and-Names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mod-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mod Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r2modman-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      R2MODMAN - Recommended
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R2MODMAN - Recommended">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-your-mod-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sharing your Mod List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switching-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switching Profiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#othermiscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other/Miscellaneous
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation-not-recommended-average-user-please-use-a-mod-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation - Not Recommended - Average user please use a mod manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Installation - Not Recommended - Average user please use a mod manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bepinex" class="md-nav__link">
+    <span class="md-ellipsis">
+      BepInEx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BepInEx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2api" class="md-nav__link">
+    <span class="md-ellipsis">
+      R2API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mod-installation-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mod Installation &amp; Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling Mods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mod-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mod Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-bugs-for-mods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporting Bugs for Mods
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Playing_Getting-Started/_edit" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="mod-manager">Mod Manager</h2>
+<p>There are four managers that you can choose from currently. Three are for windows and one is for Linux. For now we will focus on <a href="https://thunderstore.io/package/ebkr/r2modman/">r2modman</a>, if you use Overwolf, you can use <a href="https://www.overwolf.com/app/Thunderstore-Thunderstore_Mod_Manager">TMM</a></p>
+<p>For linux based systems you can use either <a href="https://github.com/ebkr/r2modmanPlus/releases">r2modman</a> or <a href="https://thunderstore.io/package/Foldex/r2mod_cli/">r2mod_cli</a></p>
+<h2 id="r2modman-recommended">R2MODMAN - Recommended</h2>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>Go to the <a href="https://thunderstore.io/package/ebkr/r2modman/">Thunderstore download page</a>.</li>
+<li>
+<p>Click "Manual Download"
+<img alt="image" src="https://user-images.githubusercontent.com/72328339/163709493-60331866-158f-406d-a395-965744cd8753.png" /></p>
+</li>
+<li>
+<p>Extract the contents of the downloaded .zip file.</p>
+</li>
+<li>Run the "r2modman Setup X.X.X.exe" (The "X.X.X" is representative of the version number e.g. v1.1.1) and follow the steps in the installer (<strong>Do not install r2modman inside the Risk of Rain 2 folder.</strong>).</li>
+</ol>
+<h3 id="updating">Updating</h3>
+<p>r2modman will automatically download any available updates during use.
+If an update has been downloaded, it will be installed once you have closed the application.</p>
+<hr />
+<h3 id="installing-mods">Installing Mods</h3>
+<p>Installing mods on r2modman is very simple once you have created and selected a profile you can:</p>
+<ul>
+<li>Click "Online" then browse the mods that have appeared(I recommend sorting by "Last Updated"), click on a mod, click download, confirm "Download with dependencies" and you're done.</li>
+</ul>
+<p>OR</p>
+<ul>
+<li>Browse <a href="https://thunderstore.io/">Thunderstore</a> and click "Install with Mod Manager", confirm "open r2modman?" (Tick the box for always allow if you never want to see the prompt again) and you're done.</li>
+</ul>
+<p>"A dependency in programming is an essential functionality, library or piece of code that's essential for a different part of the code to work. For example, a specific library that a given line of code depends on."<sup><a href="https://airfocus.com/glossary/what-is-a-dependency/">source</a></sup> All mods are dependent on BepInEx (allows execution of custom code). An example would be a mod that adds a skin for a modded character, it would have to have the dependency on the modded character, otherwise the code wouldn't be able to run properly.</p>
+<hr />
+<h3 id="updating-mods">Updating Mods</h3>
+<p>Updating is once again very simple and can be done in two ways.</p>
+<p>One by one:</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/72328339/163709755-d4491ec6-efef-4022-9b06-a250fdfd1da5.png" /></p>
+<ol>
+<li>Open the profile for which mods you wish to update.</li>
+<li>Click "Installed" if it is not already open.</li>
+<li>Click on the mod you wish to update (Mods with updates available will be indicated by a cloud icon).</li>
+<li>Click "Update"</li>
+<li>Confirm "Download with dependencies"</li>
+</ol>
+<p>Alternatively, you can click on the cloud icon to update the mod without expanding the info.</p>
+<p>OR</p>
+<p>All at once:</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/72328339/163709686-ca686707-a21d-4be0-ad38-9d0d165c0275.png" /></p>
+<ol>
+<li>Open the profile for which mods you wish to update.</li>
+<li>Click "Settings"</li>
+<li>Scroll down to the bottom of the "All" tab.</li>
+<li>Click "Update all mods" </li>
+<li>Confirm "Update all"</li>
+</ol>
+<p><strong>It is recommended you update one by one so you can confirm which mods are being updated, mod changes and for general security.</strong></p>
+<hr />
+<h3 id="configuring-mods">Configuring Mods</h3>
+<p>While some mods may have configuration in-game most have configuration files stored in "\BepInEx\config", You can alter the settings in these files by:</p>
+<p><strong>r2modman Config Editor</strong>
+1. Select the Profile whos mod settings you wish to configure.
+2. Click on "Config editor". <img alt="image" src="https://user-images.githubusercontent.com/72328339/163709779-652afcd8-3a6b-4642-baee-1d06cd291878.png" />
+3. Click on the mod you wish to configure.
+4. Confirm "Edit Config"</p>
+<p>Remember to "Save changes" when you are done.</p>
+<p><strong>Directly</strong>
+1. Select the Profile whos mod settings you wish to configure.
+2. Click on "Settings".
+3. Click on the "Locations" tab.
+4. Click "Browse profile folder"
+5. Navigate to "\BepInEx\config"
+6. Open the appropriate config for the mod you wish to configure with any text editor.</p>
+<p>Remember to save when you are done.</p>
+<hr />
+<h3 id="playing">Playing</h3>
+<p>Simple:</p>
+<ol>
+<li>Open the profile you wish to use.</li>
+<li>Click "Start modded"</li>
+<li>Wait a short while until the title screen appears.</li>
+<li>Play!</li>
+</ol>
+<hr />
+<h3 id="sharing-your-mod-list">Sharing your Mod List</h3>
+<p>Do you wish to share your list of mods and the configuration tweaks you've done for each one without laboriously telling your friends what to do? Well here is how:</p>
+<p>What you do:</p>
+<ol>
+<li>Select a Profile.</li>
+<li>Click on "Settings".</li>
+<li>Click on the "Profile" tab.</li>
+<li>Click "Export profile as a code".</li>
+<li>Share the code with your friend; Ctrl+v.</li>
+</ol>
+<p>What they do:</p>
+<p>If they are currently on their profile screen, they can go to Settings &gt; Profile &gt; Change profile
+<img alt="image" src="https://user-images.githubusercontent.com/72328339/163709841-0714ce4c-73b9-4c12-9271-e7123cb28aa4.png" /></p>
+<ol>
+<li>Click "Import"</li>
+<li>Click "From code"</li>
+<li>Enter the code provided and confirm "Import"</li>
+<li>Wait for the mods and configs to download and you're done.</li>
+</ol>
+<p><strong>The code will only last for an hour, if you desire to have a longer lasting way to share then use the file option instead</strong></p>
+<hr />
+<h3 id="switching-profiles">Switching Profiles</h3>
+<p><strong>Help, I'm trapped in the purgatory of this profile I selected!</strong></p>
+<p>Don't worry, you change profile easily.
+1. Click on "Settings".
+2. Click on the "Profile" tab.
+3. Click "Change profile" and you're free.</p>
+<hr />
+<h3 id="othermiscellaneous">Other/Miscellaneous</h3>
+<p><strong>Dark Mode</strong></p>
+<p>This very bright UI hurts my eyes make it stop!
+1. Select a Profile.
+2. Click on "Settings".
+3. Click on the "Other" tab.
+4. Click "Switch theme".</p>
+<hr />
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p><a href="https://github.com/ebkr/r2modmanPlus/wiki/Why-aren%27t-my-mods-working%3F">If you are facing any errors with r2modman check here.</a></p>
+<p><strong>I have previously installed mods manually before using r2modman</strong></p>
+<p>This will likely cause problems, I highly recommend you use r2modman with a clean Risk of Rain 2 install, so delete your "steamapps\common\Risk of Rain 2" folder and verify your game files by:
+1. Navigate to "\steamapps\common".
+2. Delete your "Risk of Rain 2" folder.
+3. Open Steam.
+4. Click the "LIBRARY" tab.
+5. Find and right click "Risk of Rain 2".
+6. Click "Properties".
+7. Click on the "LOCAL FILES" tab.
+8. Click "VERIFY INTEGRITY OF GAME FILES...".
+9. Wait and you're done, you can go back to r2modman now.</p>
+<p><strong>Nothing works</strong></p>
+<p>If issues persist and all the solutions fail:
+1. Select the Profile you're experiencing producing problems with.
+2. Click on "Settings". <code>Settings -&gt; Debugging -&gt; Toggle download cache</code>
+3. Go back to profile selection and delete all your profiles so you can start over fresh.
+4. In your first new profile repeat steps 2-3 then click "Clean mod cache".
+5. Continue as normal with installing mods.
+6. If everything is now working repeat steps 2-4, the cache should be fine now.</p>
+<h2 id="manual-installation-not-recommended-average-user-please-use-a-mod-manager">Manual Installation - Not Recommended - Average user please use a <a href="./#Mod-Manager">mod manager</a></h2>
+<p>You can install mods manually but it will cause you and developers great pain in the long run so for the sake of everyone's sanity we implore you to use a mod manager instead.</p>
+<p>If you happen to get issues with mods while you are doing a manual install and that you request for help in the <a href="https://discord.gg/5MbXZvd">modding discord</a>, people will most likely to use a mod manager instead and come back only if you have issues while using one.</p>
+<p>This guide assumes that you are familiar with basic Windows OS use such as the file and folder systems and with the file system of your own computer. It also assumes you know how to download and install programs and unzip archive files.</p>
+<p>Most mods require <a href="https://thunderstore.io/package/bbepis/BepInExPack/">BepInEx (The Modloader)</a> and <a href="https://thunderstore.io/package/tristanmcpherson/R2API/">R2API</a> typically, both of which can be found on the <a href="https://thunderstore.io/">Thunderstore</a>.</p>
+<p>Some mods might require other mods or libraries to work which can be seen in the "This mod requires the following mods to function" section of <a href="https://thunderstore.io/">Thunderstore</a> but we shall focus on these two for your manual installation.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/72328339/163709400-1f5b6523-c443-4777-863f-f0f515514455.png" /></p>
+<h3 id="bepinex">BepInEx</h3>
+<ol>
+<li>Go to the <a href="https://thunderstore.io/package/bbepis/BepInExPack">Thunderstore download page</a>.</li>
+<li>Click "Manual Download"</li>
+<li>Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2".</li>
+<li>Extract the contents of the downloaded .zip to the "Risk of Rain 2" folder.</li>
+</ol>
+<h4 id="linux">Linux</h4>
+<p>If you are installing on Linux, the usage of a mod manager like <a href="https://github.com/ebkr/r2modmanPlus/releases">r2modman</a> or <a href="https://thunderstore.io/package/Foldex/r2mod_cli/">r2mod_cli</a> is <strong>EXTREMELY</strong> recommended as you need to modify a file so that doorstop (the software that makes BepInEx correctly initialize on game start) works properly.</p>
+<p><a href="https://docs.bepinex.dev/articles/advanced/proton_wine.html">You can either use proton tricks</a> or do it fully manually like below:</p>
+<p>You'll need to locate the user registry file that proton use. The issue is that depending on your linux based system it might not be always the same location, this is why using a mod manager is better as it takes care of that completly, if you still somehow want to do that manually, you can use the following <code>find</code> command for trying to find it:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>find<span class="w"> </span>/<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;user.reg&quot;</span><span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/steamapps/compatdata/632360/pfx/*&quot;</span>
+</code></pre></div></p>
+<p>Once you found it, open it and look for the <code>[Software\\Wine\\DllOverrides]</code>, right under it, add the following line: <code>"winhttp"="native,builtin"</code>
+</details></p>
+<h3 id="r2api">R2API</h3>
+<ol>
+<li>Go to the <a href="https://thunderstore.io/package/tristanmcpherson/R2API/">Thunderstore download page</a>.</li>
+<li>Click "Manual Download"</li>
+<li>Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2\BepEx".</li>
+<li>Extract the contents of the downloaded .zip to the "BepInEx" folder.</li>
+</ol>
+<h3 id="mod-installation-updating">Mod Installation &amp; Updating</h3>
+<p><strong>Installation</strong></p>
+<ol>
+<li>Firstly check the "This mod requires the following mods to function" section of the mods Thunderstore page and ensure you have all the required mods, if not then download those in addition to the mod.</li>
+<li>Navigate to "SteamLibrary\steamapps\common\Risk of Rain 2\BepEx\Plugins".</li>
+<li>Extract contents of the downloaded mods .zip to the "Plugins" folder (If the mod's README.md/Thunderstore page contains instructions for a different install location please install there instead).</li>
+</ol>
+<p><strong>Updating</strong></p>
+<p>For updating mods repeat the same process as Installation and overwrite the existing files.</p>
+<h3 id="disabling-mods">Disabling Mods</h3>
+<p>To disable a single mod you must remove the .dll from the Plugins folder.</p>
+<p>To disable all your mods rename the winhttp.dll in your Risk Of Rain 2 folder to winhttp.dll.dis. Should you want the mods back, you just rename the file back to winhttp.dll.</p>
+<p><a href="https://risk-of-thunder.github.io/R2Wiki/Playing/Running-modded-and-unmodded-game-with-shortcuts/">You can set up steam shortcuts to play both vanilla and modded by following this Guide!</a>.</p>
+<h3 id="mod-configuration">Mod Configuration</h3>
+<p>While some mods may have configuration in-game most have configuration files stored in "\BepInEx\config", You can alter the settings in these files with any text editor.</p>
+<h2 id="reporting-bugs-for-mods">Reporting Bugs for Mods</h2>
+<p><strong>Before you do anything check the "Configuring Mods" section; Your mod(s) may have settings you can change to solve your problems</strong></p>
+<p>In order for someone to help you with your problem they will require:</p>
+<ul>
+<li>A clear and concise description of what you were doing and what happened. You may additionally provide a screenshot, gif or video clip if you think this will help.</li>
+<li>
+<p>A "LogOutput.log" file:</p>
+</li>
+<li>
+<p>Select the Profile you are experiences bugs or problems with.</p>
+</li>
+<li>Click on "Settings".</li>
+<li>Click on the "Debug" tab</li>
+<li>Click "Copy LogOutput contents to clipboard"</li>
+<li>Pasting(Ctrl+v) this directly into Discord or a .txt file then send that in Discord.</li>
+</ul>
+<p>ALTERNATE METHOD:</p>
+<ol>
+<li>Select the Profile you are experiences bugs or problems with.</li>
+<li>Click on "Settings".</li>
+<li>Click on the "Locations" tab.</li>
+<li>Click "Browse profile folder"</li>
+<li>Navigate to "profiles\X\BepInEx" (X will instead be the name of your profile).</li>
+<li>Drag or Copy+Paste(Ctrl+c &gt; Ctrl+v) this into Discord.</li>
+</ol>
+<p><strong>If the files are too big for Discords 8mb limit then store the .txt/.log in a .zip archive (It is very good at compressing text file types) and send that</strong></p>
+<p>Once you have both of these things please use the #tech-support section of the <a href="https://discord.gg/TvM8H8E">Official Risk of Rain 2 Modding Discord</a> or and @ the developer (assuming you have a suspicion it's their mod causing it) with these otherwise post it without the @ and wait for a helpful user to respond OR contact the mod developer directly instead.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "content.action.edit"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

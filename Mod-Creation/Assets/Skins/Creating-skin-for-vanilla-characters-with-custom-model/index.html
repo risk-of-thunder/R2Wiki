@@ -1,0 +1,4168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This wiki contains information and other resources to aid with modding Risk of Rain 2.">
+      
+      
+        <meta name="author" content="Risk of Rain 2 Modding Community">
+      
+      
+        <link rel="canonical" href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Skins/Creating-skin-for-vanilla-characters-with-custom-model/">
+      
+      
+        <link rel="prev" href="../../Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/">
+      
+      
+        <link rel="next" href="../../Sounds/WWise/Custom-Music/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Creating skin for vanilla characters with custom model - Risk of Rain 2 Modding Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-skin-for-vanilla-characters-with-custom-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Risk of Rain 2 Modding Wiki" class="md-header__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Risk of Rain 2 Modding Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Creating skin for vanilla characters with custom model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/risk-of-thunder/R2Wiki/wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Risk of Rain 2 Modding Wiki" class="md-nav__button md-logo" aria-label="Risk of Rain 2 Modding Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Risk of Rain 2 Modding Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/risk-of-thunder/R2Wiki/wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    risk-of-thunder/R2Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to the Risk of Rain 2 Modding Wiki!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mod Creation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Mod Creation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting-Started/First-Mod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    First Mod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Getting-Started/So-you-want-to-mod-Risk-of-Rain-2%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    So you want to mod Risk of Rain 2?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    IDE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            IDE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IDE/Visual-Studio-Code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Visual Studio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IDE/Visual-Studio/Post-Build-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Post Build Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C# Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            C# Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Assembly-References/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assembly References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Code-Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Console-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Debugging-Your-Mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging Your Mods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hooking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Hot-Reloading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hot Reloading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/IContentPackProvider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IContentPackProvider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/IL-Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IL Hooking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Mod-Compatibility%3A-Soft-Dependency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mod Compatibility: Soft Dependency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Reflection-Crash-Course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reflection Crash Course
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Unity-and-MonoBehaviour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity and MonoBehaviour
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_13" id="__nav_2_3_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Game Code
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            Game Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Game-Code/Common-Components%2C-Events-and-Methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Components, Events and Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Game-Code/Tips-and-Tricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tips and Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_14" id="__nav_2_3_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hooking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Hooking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Hooking/Hooking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Hooking?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Hooking/IL-Hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IL Hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Hooking/On-Hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    On Hook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_15" id="__nav_2_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Networking/MiniRpcLib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MiniRpcLib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Networking/R2API.NetworkingAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R2API.NetworkingAPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Networking/Server-side-and-client-side-mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server side and client side mods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%23-Programming/Networking/UNet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UNet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Testing/Testing-Multiplayer-Alone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Multiplayer Alone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Cookbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cookbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Addressables-Assets-Keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Addressables Assets Keys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Items-and-Equipments-Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Items and Equipments Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Layers-and-collisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layers and collisions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Prefabs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prefabs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Scene-Names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scene Names
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Sound-%E2%80%90-Wwise-Events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sound - Wwise Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Developer-Reference/Style-Reference-Sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Style Reference Sheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Assets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Character/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Difficulty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Difficulty
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Elites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating an Elite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extraction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Icons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Icons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interactables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interactables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Loading-Assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loading Assets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Localization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Merging-Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Merging Materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skills
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Void-Items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Void Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_17" id="__nav_2_7_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Items
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_17">
+            <span class="md-nav__icon md-icon"></span>
+            Items
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Items/Using-the-RoR2CreateItemTemplate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the RoR2CreateItemTemplate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_18" id="__nav_2_7_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shaders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_18">
+            <span class="md-nav__icon md-icon"></span>
+            Shaders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shaders/HG-Triplanar-Terrain-Blend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HG Triplanar Terrain Blend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shaders/Working-Shaders-outside-of-an-AssetRipper-Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Shaders outside of an AssetRipper project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_19" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_19" id="__nav_2_7_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Skins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_19_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7_19">
+            <span class="md-nav__icon md-icon"></span>
+            Skins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Creating skin for vanilla characters with custom model
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating skin for vanilla characters with custom model
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Video Tutorial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      WARNING
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripping-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ripping Assets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ripping Assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blender" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blender
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kebs-skin-builder-non-programming-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      KEB's Skin Builder (Non-programming Route)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KEB&#39;s Skin Builder (Non-programming Route)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-the-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing the package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-your-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing your assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Materials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skin-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skin Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parts-of-the-skindefinition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parts of the SkinDefinition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skin-mod-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skin Mod Info
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-programming-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Programming route
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-this-is-copied-from-an-older-version-of-the-skin-creation-wiki-pretty-much-verbatim-and-may-not-work-correctly-proceed-with-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual studio
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_20" id="__nav_2_7_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sounds
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_20">
+            <span class="md-nav__icon md-icon"></span>
+            Sounds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_20_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_20_1" id="__nav_2_7_20_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    WWise
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_20_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_20_1">
+            <span class="md-nav__icon md-icon"></span>
+            WWise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sounds/WWise/Custom-Music/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Music
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sounds/WWise/Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unity-Version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Version
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unity Editor Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Unity Editor Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unity-Editor-Usage/Editor-Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editor Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unity-Editor-Usage/RoR2-Editor-Kit-Utilization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RoR2 Editor Kit Utilization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unity-Editor-Usage/Using-MonoBehaviour-Scripts-in-Editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using MonoBehaviour Scripts in Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ThunderKit
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            ThunderKit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ThunderKit/Crash-Course-and-Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ThunderKit - Crash course and Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ThunderKit/Upgrading-your-project-to-use-R2API%27s-Split-Assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upgrading your project to use R2API's Split Assemblies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ThunderKit/Using-the-DOTS-framework-in-Modding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Thunderkit - Using the DOTS framework in Modding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Updating Your Mods
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            Updating Your Mods
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/For-Survivors-of-the-Void/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For Survivors of the Void
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/For-Seekers-of-the-Storm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For Seekers of the Storm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/Updating-Core-API-Changelog-1.3.7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.7 - Seekers of the Storm 2.0 Phase 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/Updating-Core-API-Changelog-1.3.8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.8 - Seekers of the Storm 2.0 Phase 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11_5" id="__nav_2_11_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1.3.9 Memory Optimization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_11_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11_5">
+            <span class="md-nav__icon md-icon"></span>
+            1.3.9 Memory Optimization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/1.3.9-Memory-Optimization/Core-API-Changelog-1.3.9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.3.9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/1.3.9-Memory-Optimization/Updating-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Updating Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/Updating-Core-API-Changelog-1.4.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.4.0 - Alloy Collective
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Updating-Your-Mods/Updating-Core-API-Changelog-1.4.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core API Changelog 1.4.1 - Alloyed Collective Patch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Playing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Playing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Playing/Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Playing/FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Playing/Running-modded-and-unmodded-game-with-shortcuts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running modded and unmodded game with shortcuts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/BepInEx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BepInEx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/Source-Code-Diff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Source Code Diff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Custom-Character-Creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Item-%26-Equipment-IDs-and-Names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Video Tutorial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      WARNING
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripping-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ripping Assets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ripping Assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blender" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blender
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kebs-skin-builder-non-programming-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      KEB's Skin Builder (Non-programming Route)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KEB&#39;s Skin Builder (Non-programming Route)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-the-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing the package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-your-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing your assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Materials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skin-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skin Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parts-of-the-skindefinition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parts of the SkinDefinition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skin-mod-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skin Mod Info
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-programming-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Programming route
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-this-is-copied-from-an-older-version-of-the-skin-creation-wiki-pretty-much-verbatim-and-may-not-work-correctly-proceed-with-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual studio
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_Assets_Skins_Creating-skin-for-vanilla-characters-with-custom-model/_edit" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="creating-skin-for-vanilla-characters-with-custom-model">Creating skin for vanilla characters with custom model</h1>
+<p>This guide will go over the process for creating a mod that will add a skin with a custom model into <code>Risk of Rain 2</code>.</p>
+<p>We will be going over two different ways to create this mod.</p>
+<p>One will require little to no coding knowledge while the other will be the completely programmatic way.</p>
+<p>These are the tools you'll need to make a skin:</p>
+<ul>
+<li>
+<p>Blender (2.9 or 3.X work, I personally use 2.93)</p>
+</li>
+<li>
+<p><a href="https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Unity-Version">Unity</a></p>
+</li>
+<li>
+<p>Asset Studio GUI (See Ripping Assets)</p>
+</li>
+</ul>
+<p>It is recommended that you be familiar with how to use Blender before attempting either method of creating skins. Unity Experience is also recommended, though not required.</p>
+<h3 id="video-tutorial">Video Tutorial</h3>
+<p>There is an old video tutorial of KingEnderBrine's Skin Builder (the non-programmer path to creating skins), but a large portion of it it is now outdated.</p>
+<p><a href="https://www.youtube.com/watch?v=NzrVKDw-vq4">The tutorial is located here</a></p>
+<p>The parts of the video tutorial that are still accurate are:</p>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=NzrVKDw-vq4&amp;t=133s">Blender. Creating a skin model</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=NzrVKDw-vq4&amp;t=486s">Unity. Creating skin</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=NzrVKDw-vq4&amp;t=770s">VisualStudio. Optional code</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=NzrVKDw-vq4&amp;t=910s">Risk of Rain 2. Testing</a></p>
+</li>
+</ul>
+<p>You can likely supplement the missing portions of the video with this text tutorial, or use the video tutorial as a visual aid to help walk through parts of the text tutorial</p>
+<h3 id="warning">WARNING</h3>
+<p>Before making a skin mod it is recommended to backup your profile. There were some cases where people's logbook was wiped out during the development process.</p>
+<h2 id="ripping-assets">Ripping Assets</h2>
+<p>First of all, you need to import a character asset from the game to Blender. You can read about how to do that <a href="https://github.com/RuneFox237/RoR2SotVBlenderScripts/wiki/Ripping-Characters-for-skins-from-RoR2-Post-SotV">here</a>.</p>
+<h3 id="blender">Blender</h3>
+<p>Once you've imported the ripped survivor to Blender, you create/import the model that you want to be a skin.</p>
+<p>If you're importing a model to create your skin you'll need to pose and scale it so that it matches as close to the survivor armature as possible.</p>
+<p>This is easy if your imported model has it's own skeleton, though more difficult if it does not.</p>
+<p>It is possible to move the survivor armature to match your imported model.</p>
+<p>But it is very likely to cause distortions in the final product.</p>
+<p>If you have to move the survivor armature.</p>
+<p>Try to only rotate the bones as this is the least likely to cause distortions compared to moving and scaling the bones.</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/243be837-cc36-4ebc-8d4c-2e17fdbd589f" /></p>
+<p>When you have the armature and mesh matching as close as possible it's now time to parent the mesh to the armature.</p>
+<p>For our example we'll be doing this the simple way with automatic weights.</p>
+<p>Though if you have more blender experience, it is recommended to do this in the way that works for you.</p>
+<p>To automatically apply weights make sure you're in Object mode then select the mesh followed by the armature.</p>
+<p>Press ctrl+p and select 'with automatic weights'.</p>
+<p>If this worked correctly, you should be able to go to pose mode and move the bones around, the mesh should follow the bones.</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/2d568ece-eae3-4c3d-a862-85649ec41237" /></p>
+<p>Now we need to manage the materials and meshes of the model so that they will work in RoR2.</p>
+<p>RoR2's shader can only support one material per mesh, and each character only has a limited number of meshes.</p>
+<p>When possible try to merge all of your meshes into a single mesh.</p>
+<p>In order to merge meshes and materials, it is recommended to do this via blender addons like Material Combiner, or through third party programs like SubstancePainter + TextureSetCombiner.</p>
+<p>When you have your model finalized you can now export it to FBX, no special export options are needed.</p>
+<p>If you're using a blender version older than blender 3.0, you may be able to just drag the blend file into unity without exporting it to fbx.</p>
+<p>This is where the guide diverges based on the whether or not you want to go the programming or non-programming route.</p>
+<p>Both routes require you to create a unity project though, so make a project using the unity version listed top of the page. This project can be used for not just your current skin mod, but any additional skin mods you want to make in the future.</p>
+<h2 id="kebs-skin-builder-non-programming-route">KEB's Skin Builder (Non-programming Route)</h2>
+<p>This is the guide for making a skin mod using King EnderBrine's Skin Builder. This requires little to no programming knowledge in order to build the mod. </p>
+<h3 id="unity">Unity</h3>
+<h4 id="importing-the-package">Importing the package</h4>
+<p>After creating your unity project and opening it up. Go to Window-&gt;"Package Manager" on the toolbar at the top of the unity window. In the window that appears hit the "+" in the top left and select "Add package from Git URL".</p>
+<p><img alt="HIdQ9Ju" src="https://github.com/user-attachments/assets/c90149f5-ca55-4208-a107-fd3c80f1b92f" /></p>
+<p>Copy and Paste the link below into the field and hit 'add'</p>
+<p><code>https://github.com/KingEnderBrine/RoRSkinBuilder.git</code></p>
+<p>This will import the skin builder package. There will likely be a popup asking if you've backed up your project. It is safe to hit proceed on this popup.</p>
+<h3 id="importing-your-assets">Importing your assets</h3>
+<p>You can import your mesh and textures now by dragging and dropping them into the unity project's assets folder. If you're model file is an fbx, select it in the unity Explorer and uncheck the "Convert Units" check box and then scroll down and hit Apply. This should keep the model's scale the same.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/8129796/171987507-fca260d1-4848-4292-8b61-f3dd05555eb9.png" /></p>
+<h3 id="creating-the-materials">Creating the Materials</h3>
+<p>You will need to create materials using Hopoo's shaders for your mesh. Create a new material in unity each material you need. To do this, in the projects window in unity, Right Click -&gt; Create -&gt; Material. In each material, make sure the Shader is set to "Fake RoR/Hopoo Games/Deferred/Standard" and assign your textures to the relevant areas.</p>
+<p>TODO: add a link to a tutorial going over how Hopoo shader works.</p>
+<h3 id="skin-definition">Skin Definition</h3>
+<p>For each skin in your mod you're going to need to make a Skin Defenition. Right Click in the project window and select "Create-&gt;RoR Skins-&gt;SkinDefinition"</p>
+<p>You'll need to fill out all the fields of the SkinDef that you'll need for your skin. Descriptions of all the fields are located below.
+For all text fields, DO NOT start your text with a numerical number 0-9 i.e. (text numbers like one are fine though) or special characters(!, @, $, etc.) unless otherwise stated as this will cause errors in the build process. </p>
+<h3 id="parts-of-the-skindefinition">Parts of the SkinDefinition</h3>
+<p><em><strong>Mod Dependency</strong></em>: add this if your mod requires another mod also be installed for it to work correctly. i.e. if your skin mod is for a custom modded character. <strong>Value</strong> is the mod dependency that you can find by looking at the mod's thunderstore page. <strong>Type</strong> can be either hard or soft. Hard means the mod in value is required, while soft means that the mod is not required but some functionality of your skin mod may require it.</p>
+<p><em><strong>Generate Enable Config</strong></em>: When Checked, this allows the mod to generate a config that allows the skins in the mod to be disabled/enabled</p>
+<p><em><strong>Body Name</strong></em>: This is the name of the suvivor body that the skin is for. This is the internal name for the survivor and usually the name of the survivor mesh when it's originally extracted from the game. i.e. Acrid's survivor body is CrocoBody, Rex is TreebotBody, etc.</p>
+<p><em><strong>Name Token Localization</strong></em>: This is a list of localization tokens. Input the number of languages you want to localize for in the size field. Each expandable element in the list has a <strong>language</strong> field that and a <strong>value </strong>field. The <strong>Language </strong>field takes ISO 2-letter language codes, like EN for English. The <strong>Value </strong>field is the translated name that you want your skin to display when highlighted in-game.</p>
+<p><em><strong>Icon</strong></em>: This is the icon that represents the skin in the skins list in-game. You can specify a sprite or check the "Create from Colors" and build one from the color picker there.</p>
+<p><em><strong>Unlockable Name</strong></em>: Name of the achievement that you want the skin to be locked behind. Useful for mastery skins and hooking into special acheviments.</p>
+<p><em><strong>Base Skins</strong></em>: The Base Skins that the skin will use for meshes and materials that are not replaced. These skins can be referenced by Index or Name. </p>
+<p><em><strong>Renderers Source</strong></em>: Source of the renderers for the renderers collection, mouse over the text in unity for more details. I would suggest leaving it on "All Render Components"</p>
+<p><em><strong>Mesh Replacements</strong></em>: This list is where you add the meshes you want to replace the base survivor meshes with. Size is the size of the list. You can also add/remove elements by right clicking on an element in the list and selecting duplicate or delete respectively. Each element in the list has:
+* a <strong>Mesh</strong> field - This is where you can add a mesh from your custom model. To do so you can target symbol on the right side of the field and select your mesh from the window that appears.
+* a <strong>Renderer Reference</strong> field - This is the renderer that contains the mesh the mod will be trying to replace with the mesh in the mesh field. To find this renderer refer to <a href="https://github.com/RuneFox237/RoR2SotVBlenderScripts/blob/main/RoR2_SotV%20Blender%20Scripts/SotVSurvivorRenderIndexes.txt">this txt file</a> which contains the indexes and names of all the renderers for all vanilla survivors. Find your survivor's BodyName in the list, you'll want to replace the mesh in one of the SkinnedMeshRenderers so use either the index or the name of the skinnedMeshRenderer, make sure to switch the Access Type to the one you want. <strong>You cannot use the same Renderer for multiple meshes. Each Renderer can only support one mesh</strong></p>
+<p><em><strong>Game Object Activations</strong></em>: This list is used to make sure certain Renderer Game Objects are active/inactive. Each element in the list has:
+* a Render Index field - See the Render Reference field in Mesh Replacements above for more info. 
+* a "Should Activate" toggle - Checking this makes sure this game object is activated when the skin is equipped. Leaving it Unchecked makes sure this game object is deactivated when the skin is equipped. Deactivating a game object also disables any renderers that are components of this object. Useful for disabling meshes that you aren't using/replacing and particle systems that don't match your skin.</p>
+<p><em><strong>Render Infos</strong></em>: This list is used to replace the materials in the renderers with materials of your choosing, if a renderer is not included in this list, it will use the material provided by the base skin. Each element in this list has:
+* A Default Material field - This is the material you want the mod to replace the base material with. i.e. this should be one of the custom materials you set up earlier.
+* Default Shadow Casting Mode - The way this renderer/mesh generates shadows. See the Cast Shadows field in the <a href="https://docs.unity3d.com/510/Documentation/Manual/class-MeshRenderer.html">official unity documentation</a> for more info.
+* Ignore Overlays - Whether or not overlays in-game are applied to this renderer/mesh. i.e. things like Personal Shield Generator or some other buff effects.
+* Render Reference - See Render Reference in Mesh Replacements for more info.</p>
+<p><em><strong>Minion Skin Replacements</strong></em>: This list is for replacing minions like the Engineers Turrets. Each minion needs it's own SkinDefinition. Each element in the list has:
+* BodyName: This is the name of the body that the skin is for. i.e. regular Engineer turrets are EngiTurretBody and walkers are EngiWalkerTurretBody.
+* Find Skin By Reference: Check this if your skin uses turret skins from the base game/other mods. Then you set the skin similar to how you set Base Skin
+* Skin Definition: The skin def of the minion skin you want to use.</p>
+<p><em><strong>Projectile Ghost Replacements</strong></em>: List used to replace the projectile ghosts of a character. TODO: add a tutorial on how to do this.</p>
+<h3 id="skin-mod-info">Skin Mod Info</h3>
+<p>Your mod will need a Mod Info in order for it to be created. Right Click in the project window and select "Create-&gt;RoR Skins-&gt;SkinModInfo"</p>
+<p>You'll need to fill out most of the fields of the ModInfo in order to build your mod. Descriptions of all the fields are located below.
+For all text fields, DO NOT start your text with a numerical number 0-9 i.e. (text numbers like one are fine though) or special characters(!, @, $, etc.) unless otherwise stated as this will cause errors in the build process. </p>
+<p>Parts of the Skin Mod Info</p>
+<p><em><strong>Mod Name</strong></em>: The name of your mod</p>
+<p><em><strong>Author</strong></em>: The name of the author of the mod (You!)</p>
+<p><em><strong>Version</strong></em>: Version number of the mod. Follows semantic version format i.e. 1.0.0.</p>
+<p><em><strong>Skins</strong></em>: This is the list of skins you want to include in your mod. Set the size and assign the skins by clicking the target on the right of each element and selecting the skin. If one of your skins has minion replacement(s) with corresponding skin(s) make sure you include them as well.</p>
+<p><em><strong>Additional Resources</strong></em>: A list where you can specify additional resources to the asset bundle built for the mod. You can leave this alone unless you know you need to add additional resources. Materials and meshes assigned in skindefs are automatically added to the bundle and DO NOT need to be added here.</p>
+<p><em><strong>Regenerate Code</strong></em>: This toggle when checked regenerates the code that is generated by the builder when the build button is pressed. Keep this checked if you made any changes to skindefs or additional resources. Only toggle this off if you want to make edits to the autogenerated code.</p>
+<p><em><strong>Regenerate Assembly Definition</strong></em>: This toggle when checked regenerates the assembly definition generated by the builder when the build button is pressed. Only toggle this off if you want to manually make edits to the Assembly Definition.</p>
+<p><em><strong>Build Button</strong></em>: Hit this when you want to build your mod. A progress bar pop-up may appear and Unity will likely freeze for a moment. If the mod builds with no errors then a separate windows explorer window will appear with your mod dll inside it. If there are errors an error sound will play and the window will not appear. Check the unity console for errors, fix them and try again.</p>
+<h2 id="manual-programming-route">Manual Programming route</h2>
+<h2 id="note-this-is-copied-from-an-older-version-of-the-skin-creation-wiki-pretty-much-verbatim-and-may-not-work-correctly-proceed-with-caution">Note: This is copied from an older version of the skin creation wiki pretty much verbatim and may not work correctly. Proceed with caution</h2>
+<h3 id="unity_1">Unity</h3>
+<p>First of all, you need to use the right version of Unity (available top of the page), otherwise, the game will not be able to load your Assetundle.</p>
+<p>Create a new Unity project, drag the Blender file into assets. Open the imported asset, select mesh, and press ctrl+d it will duplicate mesh into its asset, so you can build AssetBundle without excessive things from the Blender file. You can do the same thing with the material, or create new in Unity.
+Should be looking something like this</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/38945127-9a73-4b37-b93b-386f4e8369d9" /></p>
+<p>Now install <code>AssetBundle Browser</code> package (In top panel: Window -&gt; Package Manager), and open <code>AssetBundles</code> window (In top panel: Window -&gt; AssetBundle Browser).
+Select what you need for AssetBundle and drag it to the AssetBundles window, create 1 AssetBundle</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/23253cd1-60ff-46eb-8b4e-02d26753cbee" /></p>
+<p>Switch to the <code>Build</code> tab and press the build button. This will create AssetBundle in <code>{YourUnityProject}\AssetBundles\StandaloneWindows</code> folder.</p>
+<h2 id="visual-studio">Visual studio</h2>
+<p>Create/<a href="https://github.com/risk-of-thunder/R2Wiki/wiki/Baby's-First-Mod">use a boilerplate</a> visual studio project.
+Drag and drop your AssetBundle file into the project.</p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/706089456855154778/742381035773231184/ImportAssetBundle.jpg" /></p>
+<p>Then select this file and set <code>Build Action</code> property to <code>Embedded resource</code></p>
+<p><img alt="" src="https://cdn.discordapp.com/attachments/706089456855154778/742381030589071420/EmbeddedResource.jpg" /></p>
+<p>I will provide the code snippet for how to add the skin with some commentaries.</p>
+<h1 id="renderers">Renderers</h1>
+<p>In the example code, there is an array of renderers. The render indices for vanilla survivors can be seen <a href="https://github.com/RuneFox237/RoR2SotVBlenderScripts/blob/main/RoR2_SotV%20Blender%20Scripts/SotVSurvivorRenderIndexes.txt">here</a></p>
+<h1 id="example-code">Example code</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">BepInEx</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">R2API</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">R2API.Utils</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">RoR2</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Reflection</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">//Change `SkinTest` to your project name</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">SkinTest</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="c1">//Marks mod as client-side</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="na">[NetworkCompatibility(CompatibilityLevel.NoNeedForSync)]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="c1">//Requests `R2API` submodules</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="na">[R2APISubmoduleDependency(nameof(PrefabAPI), nameof(LoadoutAPI), nameof(SurvivorAPI), nameof(ResourcesAPI), nameof(LanguageAPI))]</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="c1">//Adds dependency to `R2API`</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="na">[BepInDependency(&quot;com.bepis.r2api&quot;)]</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="c1">//Definition of a mod</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="na">[BepInPlugin(</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="na">        //The GUID should be a unique ID for this plugin, which is human readable (as it is used in places like the config). Java package notation is commonly used, which is &quot;com.[your name here]</span><span class="p">.[</span><span class="n">your</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">here</span><span class="p">]</span><span class="s">&quot;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="s">&quot;com.MyName.IHerebyGrantPermissionToDeprecateMyModFromThunderstoreBecauseIHaveNotChangedTheName&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="c1">//The name is the name of the plugin that&#39;s displayed on load</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="s">&quot;IHerebyGrantPermissionToDeprecateMyModFromThunderstoreBecauseIHaveNotChangedTheName&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="c1">//The version number just specifies what version the plugin is.</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="s">&quot;1.0.0&quot;</span><span class="p">)]</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="c1">//Rename `SkinTest` to match your .cs file name</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SkinTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">BaseUnityPlugin</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">            </span><span class="c1">//Loading AssetBundle with a model. String value is &quot;{ProjectName}.{AssetBundleFileName}&quot;</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">            </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">assetStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assembly</span><span class="p">.</span><span class="n">GetExecutingAssembly</span><span class="p">().</span><span class="n">GetManifestResourceStream</span><span class="p">(</span><span class="s">&quot;SkinTest.lumberjackskin&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">MainAssetBundle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetBundle</span><span class="p">.</span><span class="n">LoadFromStream</span><span class="p">(</span><span class="n">assetStream</span><span class="p">);</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">                </span><span class="c1">//This string value will be used as a part of resource path. Replace `@SkinTest` with your name prefferably it should be `@{mod name}`</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">                </span><span class="n">ResourcesAPI</span><span class="p">.</span><span class="n">AddProvider</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AssetBundleResourcesProvider</span><span class="p">(</span><span class="s">&quot;@SkinTest&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MainAssetBundle</span><span class="p">));</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">            </span><span class="c1">//Adding our skill after all characters were loaded</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">            </span><span class="n">On</span><span class="p">.</span><span class="n">RoR2</span><span class="p">.</span><span class="n">SurvivorCatalog</span><span class="p">.</span><span class="n">Init</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">orig</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">                </span><span class="n">orig</span><span class="p">();</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">                </span><span class="n">AddLumberJackSkin</span><span class="p">();</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">            </span><span class="p">};</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">            </span><span class="c1">//Adding language token, so every time game sees `LUMBERJACK_SKIN` it will be replaced with `Lumberjack`</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">            </span><span class="c1">//You can also use `LanguageAPI.Add(&quot;TOKEN&quot;, &quot;Value&quot;, &quot;Language&quot;)` to add localization for specific language</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">            </span><span class="c1">//For example `LanguageAPI.Add(&quot;LUMBERJACK_SKIN&quot;, &quot;Дровосек&quot;, &quot;RU&quot;)`</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">            </span><span class="n">LanguageAPI</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;LUMBERJACK_SKIN&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lumberjack&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddLumberJackSkin</span><span class="p">()</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">            </span><span class="c1">//Getting character&#39;s prefab</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">survivorDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SurvivorCatalog</span><span class="p">.</span><span class="n">GetSurvivorDef</span><span class="p">(</span><span class="n">SurvivorIndex</span><span class="p">.</span><span class="n">Commando</span><span class="p">);</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">bodyPrefab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survivorDef</span><span class="p">.</span><span class="n">bodyPrefab</span><span class="p">;</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">            </span><span class="c1">//Getting necessary components</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">renderers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bodyPrefab</span><span class="p">.</span><span class="n">GetComponentsInChildren</span><span class="o">&lt;</span><span class="n">Renderer</span><span class="o">&gt;</span><span class="p">(</span><span class="k">true</span><span class="p">);</span><span class="w">            </span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">skinController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bodyPrefab</span><span class="p">.</span><span class="n">GetComponentInChildren</span><span class="o">&lt;</span><span class="n">ModelSkinController</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">mdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skinController</span><span class="p">.</span><span class="n">gameObject</span><span class="p">;</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">skin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoadoutAPI</span><span class="p">.</span><span class="n">SkinDefInfo</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">                </span><span class="c1">//Icon for your skin in the game, it can be any image, or you can use `LoadoutAPI.CreateSkinIcon` to easily create an icon that looks similar to the icons in the game.</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">                </span><span class="n">Icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadoutAPI</span><span class="p">.</span><span class="n">CreateSkinIcon</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">black</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="mf">0.5F</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3F</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">),</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">                </span><span class="c1">//Replace `LumberJackCommando` with your skin name that can be used to access it through the code</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">                </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LumberJackCommando&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">                </span><span class="c1">//Replace `LUMBERJACK_SKIN` with your token</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">                </span><span class="n">NameToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LUMBERJACK_SKIN&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">                </span><span class="n">RootObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mdl</span><span class="p">,</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">                </span><span class="c1">//Defining skins that will be applyed before our.</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">                </span><span class="c1">//Default skin index - 0, Monsoon skin index - 1</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">                </span><span class="c1">//Or you can use `BaseSkins = Array.Empty&lt;SkinDef&gt;(),` if you don&#39;t want to add base skin</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">                </span><span class="c1">//Because we will replace only Commando mesh, but not his pistols we have to use base skin.</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">                </span><span class="n">BaseSkins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SkinDef</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">skinController</span><span class="p">.</span><span class="n">skins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">                </span><span class="c1">//Name of achievement after which skin will be unlocked</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">                </span><span class="c1">//Leave that field empty if you want skin to be always available </span>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="w">                </span><span class="n">UnlockableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">                </span><span class="c1">//This is used to disable/enable some gameobjects in body prefab.</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">                </span><span class="n">GameObjectActivations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SkinDef</span><span class="p">.</span><span class="n">GameObjectActivation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">                </span><span class="c1">//This is used to define which material should be used on a specific renderer.</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">                </span><span class="c1">//Only one material per renderer(mesh) is can be used</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">                </span><span class="n">RendererInfos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CharacterModel</span><span class="p">.</span><span class="n">RendererInfo</span><span class="p">[]</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">                    </span><span class="c1">//To add another material replacement simply copy past this block right after and add `,` after the first one.</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">CharacterModel</span><span class="p">.</span><span class="n">RendererInfo</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="w">                        </span><span class="c1">//Loading material from AssetBundle replace &quot;@SkinTest:Assets/Resources/matLumberJack.mat&quot; with your value.</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="w">                        </span><span class="c1">//It should be in this format `{provider name}:{path to asset in unity}`</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="w">                        </span><span class="c1">//To get path to asset you can right click on your asset in Unity and select `Copy path` option</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">                        </span><span class="n">defaultMaterial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span><span class="o">&lt;</span><span class="n">Material</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;@SkinTest:Assets/Resources/matLumberJack.mat&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="w">                        </span><span class="c1">//Should mesh cast shadows</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="w">                        </span><span class="n">defaultShadowCastingMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UnityEngine</span><span class="p">.</span><span class="n">Rendering</span><span class="p">.</span><span class="n">ShadowCastingMode</span><span class="p">.</span><span class="n">On</span><span class="p">,</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">                        </span><span class="c1">//Should mesh be ignored by overlays. For example shield outline from `Personal Shield Generator`</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="w">                        </span><span class="n">ignoreOverlays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">,</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="w">                        </span><span class="c1">//Which renderer(mesh) to replace.</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="w">                        </span><span class="c1">//Index you need can be found here: https://github.com/risk-of-thunder/R2Wiki/wiki/Creating-skin-for-vanilla-characters-with-custom-model#renderers</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a><span class="w">                        </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="w">                </span><span class="p">},</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a><span class="w">                </span><span class="c1">//This is used to define which mesh should be used on a specific renderer.</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a><span class="w">                </span><span class="n">MeshReplacements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SkinDef</span><span class="p">.</span><span class="n">MeshReplacement</span><span class="p">[]</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a><span class="w">                    </span><span class="c1">//To add another mesh replacement simply copy past this block right after and add `,` after the first one.</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">SkinDef</span><span class="p">.</span><span class="n">MeshReplacement</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110" href="#__codelineno-0-110"></a><span class="w">                        </span><span class="c1">//Loading mesh from AssetBundle look at material replacement commentary to learn about how value should be changed.</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111" href="#__codelineno-0-111"></a><span class="w">                        </span><span class="n">mesh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span><span class="o">&lt;</span><span class="n">Mesh</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;@SkinTest:Assets/Resources/LumberJack.mesh&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a><span class="w">                        </span><span class="c1">//Index you need can be found here: https://github.com/risk-of-thunder/R2Wiki/wiki/Creating-skin-for-vanilla-characters-with-custom-model#renderers</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a><span class="w">                        </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114" href="#__codelineno-0-114"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a><span class="w">                </span><span class="p">},</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116" href="#__codelineno-0-116"></a><span class="w">                </span><span class="c1">//You probably don&#39;t need to touch this line</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117" href="#__codelineno-0-117"></a><span class="w">                </span><span class="n">ProjectileGhostReplacements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SkinDef</span><span class="p">.</span><span class="n">ProjectileGhostReplacement</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118" href="#__codelineno-0-118"></a><span class="w">                </span><span class="c1">//This is used to add skins for minions e.g. EngiTurrets</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119" href="#__codelineno-0-119"></a><span class="w">                </span><span class="n">MinionSkinReplacements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SkinDef</span><span class="p">.</span><span class="n">MinionSkinReplacement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120" href="#__codelineno-0-120"></a><span class="w">            </span><span class="p">};</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121" href="#__codelineno-0-121"></a>
+<a id="__codelineno-0-122" name="__codelineno-0-122" href="#__codelineno-0-122"></a><span class="w">            </span><span class="c1">//Adding new skin to a character&#39;s skin controller</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123" href="#__codelineno-0-123"></a><span class="w">            </span><span class="n">Array</span><span class="p">.</span><span class="n">Resize</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">skinController</span><span class="p">.</span><span class="n">skins</span><span class="p">,</span><span class="w"> </span><span class="n">skinController</span><span class="p">.</span><span class="n">skins</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124" href="#__codelineno-0-124"></a><span class="w">            </span><span class="n">skinController</span><span class="p">.</span><span class="n">skins</span><span class="p">[</span><span class="n">skinController</span><span class="p">.</span><span class="n">skins</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadoutAPI</span><span class="p">.</span><span class="n">CreateNewSkinDef</span><span class="p">(</span><span class="n">skin</span><span class="p">);</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125" href="#__codelineno-0-125"></a>
+<a id="__codelineno-0-126" name="__codelineno-0-126" href="#__codelineno-0-126"></a><span class="w">            </span><span class="c1">//Adding new skin into BodyCatalog</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127" href="#__codelineno-0-127"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">skinsField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Reflection</span><span class="p">.</span><span class="n">GetFieldValue</span><span class="o">&lt;</span><span class="n">SkinDef</span><span class="p">[][]</span><span class="o">&gt;</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">BodyCatalog</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;skins&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128" href="#__codelineno-0-128"></a><span class="w">            </span><span class="n">skinsField</span><span class="p">[</span><span class="n">BodyCatalog</span><span class="p">.</span><span class="n">FindBodyIndex</span><span class="p">(</span><span class="n">bodyPrefab</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skinController</span><span class="p">.</span><span class="n">skins</span><span class="p">;</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129" href="#__codelineno-0-129"></a><span class="w">            </span><span class="n">Reflection</span><span class="p">.</span><span class="n">SetFieldValue</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">BodyCatalog</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;skins&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">skinsField</span><span class="p">);</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130" href="#__codelineno-0-130"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131" href="#__codelineno-0-131"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132" href="#__codelineno-0-132"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="result">Result</h2>
+<p><img alt="image" src="https://github.com/user-attachments/assets/1e40df06-748f-4cde-aa91-10d28f3f81a9" /></p>
+<p>You can check out how it looks in motion: https://youtu.be/N5WPOxIErI0</p>
+<h2 id="testing-your-mod">Testing your mod</h2>
+<p>Once you have a dll of your mod, you can drop it into your bepinex plugins folder and launch your modded RoR2.</p>
+<p>If everything is working, you should be able to select your skin in the character select screen.</p>
+<p>TODO: Create a list of Common issues and solutions that appear when building skins.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
