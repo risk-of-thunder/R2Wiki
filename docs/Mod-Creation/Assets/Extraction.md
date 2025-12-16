@@ -30,10 +30,9 @@ Main things to note are Shader Export Format, and Script Export Format.
 ![image](https://github.com/risk-of-thunder/R2Wiki/assets/53384824/ca4e8daf-5d57-4295-b290-dbb32a793057)
 
 ### After Extracting
-Chances are if you try to open this project in Unity (make sure you have the right version), it will crash on startup.
+Make sure you open the extracted project with the correct Unity version (currently 2021.3.33.23082 for Alloyed Collective).
 
-- Go to your exported folder, navigate to ExportedProject\Assets\LightingDataAsset and delete this whole folder.
-- Back to your exported folder, navigate to AuxiliaryFiles\GameAssemblies, find UnityEngine.UI.dll, and copy this to ExportedProject\Assets\Plugins.
+Expect the project to take a **very long time** to load the first time you open it! Do not be dismayed if the progress bar seems stuck. But, if you see no progress for more than ten minutes then something has likely gone wrong.
 
 ## Version 0.3.4.0 and older:
 - Open AssetRipper.exe
