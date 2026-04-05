@@ -209,7 +209,7 @@ Switch to the `Build` tab and press the build button. This will create AssetBund
 
 ## Visual studio
 
-Create/[use a boilerplate](https://github.com/risk-of-thunder/R2Wiki/wiki/Baby's-First-Mod) visual studio project.
+Create/[use the example plugin](https://github.com/risk-of-thunder/R2Wiki/wiki/Mod-Creation_Getting-Started_First-Mod) visual studio project.
 Drag and drop your AssetBundle file into the project.
 
 ![](https://cdn.discordapp.com/attachments/706089456855154778/742381035773231184/ImportAssetBundle.jpg)

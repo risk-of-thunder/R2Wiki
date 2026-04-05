@@ -14,7 +14,7 @@ Warning: Some parts of this tutorial are outdated:
 
 ---
 
-The [boilerplate mod](https://github.com/risk-of-thunder/r2boilerplate) implements a very simple item, so using it as a reference point is useful.
+The [example plugin](https://github.com/risk-of-thunder/ExamplePlugin) implements a very simple item, so using it as a reference point is useful.
 
 ## [ItemAPI](https://github.com/risk-of-thunder/R2API/tree/master/R2API.Items)
 

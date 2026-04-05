@@ -40,7 +40,7 @@ You also need _HookGenPatcher_, it allow us to generate a dll assembly (Name is 
 
 ### R2API
 
-The boilerplate mod uses some _R2API_ modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
+The example plugin mod uses some _R2API_ modules as dependencies, it provides helper methods to quickly integrate custom additions into the game.
 
 - **r2modman**:
 
@@ -62,13 +62,13 @@ Manual Install Only: For installing them just drop the dll files into `BepInEx/p
 
 ***
 
-## Getting the boilerplate
+## Getting the Example Plugin
 
-Download the boilerplate [from here](https://github.com/risk-of-thunder/R2Boilerplate/archive/master.zip).
+Download the example plugin [from here](https://github.com/risk-of-thunder/ExamplePlugin/archive/master.zip).
 
 Extract it.
 
-## Building the Boilerplate
+## Building the Example Plugin
 
 Open the `.sln` solution file with Visual Studio.
 
@@ -108,7 +108,7 @@ If it's your first time ever launching the game with the latest BepInEx Pack, yo
 
 The console overall is very useful for debugging your code alongside the Visual Studio debugger if you follow this [tutorial](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Debugging-Your-Mods/)
 
-When logging stuff to the console, don't forget to use the dedicated `Log` class available in the boilerplate!
+When logging stuff to the console, don't forget to use the dedicated `Log` class available in the example plugin!
 
 Once the game launched:
 
