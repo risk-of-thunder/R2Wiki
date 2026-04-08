@@ -12,7 +12,7 @@
     - Alternatively, you can install the mod [***Nuxlar-MultiplayerModTesting***](https://thunderstore.io/package/Nuxlar/MultiplayerModTesting/source/) instead *(read the README for usage)*
         - ***Note**: only the host mod profile should have this mod enabled. Otherwise, clients will be spawned in as Commando(??)*
 2. Launch [two instances](#create-an-executable-shortcut-for-modded-profiles) of the game
-3. Host a private lobby with one instance
+3. Host a private lobby and enter character select with one instance
 4. Open the console on the other instance and input `connect localhost:7777`
 
 ## Create an executable shortcut for modded profiles
