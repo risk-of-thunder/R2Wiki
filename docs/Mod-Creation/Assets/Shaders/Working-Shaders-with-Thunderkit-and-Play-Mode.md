@@ -1,6 +1,10 @@
 ## Prerequisites
 * Working [Thunderkit](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/ThunderKit/Crash-Course-and-Getting-Started/) project
 * [Stubbed Shaders](https://github.com/risk-of-thunder/RoR2StubbedShaders)
+
+## Warning
+This makes the project fairly unstable after exiting Play mode, it can and will crash, sooner or later. Crashes can be avoider by occasionality restarting the project. My advice is to do edits in bulk, where you adjust all materials during the same Play mode session, quit it and restart the project. My assumption it has to do with severe memory leaks but that's the price we pay for dealing with Unity. The project will behave normally if you don't enter Play mode and those crashes don't corrupt anything, just be sure to save the scene often.
+
 ## The Sause
 The gist of it is that we use Addressables to load game's shaders and replace stubbed shaders with game's version in editor's play mode, which allows us to use up to date game shaders with zero chances of accidentally shipping them in our mod (which can and will break some stuff on top of it being a copyright infringement). Of course the method is not ideal and the tutorial will go through some downsides as they come up.
 
@@ -79,7 +83,7 @@ The script requires your assembly definition to have `Unity.Addressables` and `U
 Add an empty object to your scene, either drag your script to it or add the script via `Add Component` button and you are basically done. Now press the Play button at the top of your window. However your editor might crash. 
 
 ### Fixing Play Mode Crash
-This is a thing introduced with Alloyed Collective, Gearbox added `Unity.Burst` to RoR2 and obviously we import it together with the rest of the libraries. However, shipped `Burst` dlls are not compatible with Editor and causes crashes. To fix it, first go to `Packages\Risk of Rain 2`, find `Unity.Burst.dll` and `Unity.Burst.Unsafe.dll` and delete them. After that go to `Packages` folder of your project, open `manifest.json` and add the following line to your dependencies
+This is a thing introduced with Alloyed Collective, Gearbox added `Unity.Burst` to RoR2 and obviously we import it together with the rest of the libraries. However, shipped `Burst` dlls are not compatible with Editor and causes crashes. To fix it, first go to `Packages\Risk of Rain 2` of your project, find `Unity.Burst.dll` and `Unity.Burst.Unsafe.dll` and delete them. After that go to `Packages` folder of your project, open `manifest.json` and add the following line to your dependencies
 
 `"com.unity.burst": "1.8.21",`
 
