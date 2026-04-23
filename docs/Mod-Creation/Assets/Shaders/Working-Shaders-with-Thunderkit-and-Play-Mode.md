@@ -87,7 +87,7 @@ This is a thing introduced with Alloyed Collective, Gearbox added `Unity.Burst` 
 
 `"com.unity.burst": "1.8.21",`
 
-Save the file and go back to the project, it should reload and import the Burst library from the package manager. With that you should have Play mode now working.
+Do note: if you are adding this as the last line of the manifest file then remove the coma, otherwise unity won't be able to parse the file and you will get an error. Save the file and go back to the project, it should reload and import the Burst library from the package manager. With that you should have Play mode now working.
 
 ### Play Mode Material Editing
 We are now in Play mode. I would recommend instantly pressing Pause to not waste your PC's power since chances are you are not running any game's logic anyway. Do note that **nothing you do on the scene is saved in Play mode.** This is normal Unity behaviour and it plays to our advantage. Since nothing is saved, the fact that we load and replace shaders for each instance of material on the scene does not affect our assets and we have basically zero chance of our project bricking or losing references like it could happen if you were to actually try and reference game's assets via fields (this is a real thing but do not try this if you do not want your project to brick on restart). 
