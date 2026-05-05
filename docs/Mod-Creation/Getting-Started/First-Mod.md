@@ -3,7 +3,7 @@
 ## What you need
 
 - Risk of Rain 2
-- <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16" target="_blank">Visual Studio 2022 Community</a>
+- [Visual Studio 2026 Community](https://visualstudio.microsoft.com/downloads/)
 - Make sure that when installing Visual Studio that the **.NET desktop development** workload is ticked. In the case you already have VS installed you can get back to the window below by opening the Visual Studio Installer and clicking on the Modify button.
 
 ![netstandard2.0 visual studio installer](https://github.com/user-attachments/assets/7cfd1cf3-d3bd-4be7-abf1-493f05c31071)
