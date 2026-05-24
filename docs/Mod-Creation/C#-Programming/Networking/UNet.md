@@ -249,7 +249,7 @@ A hook is like an event that is fired every time a SyncVar is updated. Note that
 ```cs
 public class SyncVarHookExample : NetworkBehaviour
 {
-    [SyncVar(hook = nameof(OnSyncTarget)]
+    [SyncVar(hook = nameof(OnSyncTarget))]
     private GameObject target;
 
     // A component cannot be a SyncVar so we will update it ourselves
@@ -270,10 +270,7 @@ public class SyncVarHookExample : NetworkBehaviour
         target = newTarget;
 
         // Any further logic
-        if (target)
-        {
-            targetBody = target.GetComponent<CharacterBody>();
-        }
+        targetBody = target ? target.GetComponent<CharacterBody>() : null;
     }
 
     public override void OnStartClient()  
