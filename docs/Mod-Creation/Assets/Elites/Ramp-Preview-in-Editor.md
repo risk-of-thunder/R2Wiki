@@ -1,19 +1,19 @@
-## Creating and previewing elite ramps in Editor
+# Creating and previewing elite ramps in Editor
 
 This guide will go through creating and previewing elite ramps in Editor, without the need of external tools, like graphics editors. Explanation of how elite ramps actually work can be found [here](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Elites/).
 
-# Prerequisites
+## Prerequisites
 
 * Way to have shaders in the editor. You have two options:
 
-  * Export Devotion version of the game via AssetRipper. You can download Devotion version via [RoR2VersionSelector](https://github.com/risk-of-thunder/RoR2VersionSelector) and export by following [this guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Extraction/).
-  * [Setup Thunderkit project](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/ThunderKit/Crash-Course-and-Getting-Started/) and use [this guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Shaders/Working-Shaders-with-Thunderkit-and-Play-Mode/) to get working shaders with Play mode.
+    * Export Devotion version of the game via AssetRipper. You can download Devotion version via [RoR2VersionSelector](https://github.com/risk-of-thunder/RoR2VersionSelector) and export by following [this guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Extraction/).
+    * [Setup Thunderkit project](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/ThunderKit/Crash-Course-and-Getting-Started/) and use [this guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Shaders/Working-Shaders-with-Thunderkit-and-Play-Mode/) to get working shaders with Play mode.
 * A model to preview ramp on. This guide will use Sand Crab from EnemiesReturns.
 * [GradientTexture](https://github.com/mitay-walle/com.mitay-walle.gradient-texture) package. Despite it being marked as abandoned and repo suggesting to use ProceduralTexture this package is simpler and only gives us what we need. And it works with RoR2 Unity version, both Devotion and current at the time of writing (Alloyed Collective version 1.4.1) version, so no reason to update it.
 
 This guide will not go into explanation on how to create the Thunderkit project, how to use ReplaceShaders script with Play mode or how to install Unity package. Use the links above to get started.
 
-# The Sause
+## The Sause
 
 First of all, we need the `EliteRampPreview` script.
 
@@ -87,7 +87,7 @@ Now drag the gradient onto the `Elite Ramp` field of `Elite Ramp Preview` compon
 
 <img width="481" height="121" alt="image" src="https://github.com/user-attachments/assets/23d45d20-1d3e-4461-8d6a-67d4b4b3cde5" />
 
-Now you can press Play, wait for it to load and you will have a working elite ramp preview in Editor. You can live edit the gradient in the component and it will reflect changes in real time.
+Now you can press Play, wait for it to load and you will have a working elite ramp preview in Editor. You can live edit the gradient in the asset and it will reflect changes in real time.
 
 <img width="910" height="512" alt="2026-05-25 13-47-59- 00 02 190-00 15 840" src="https://github.com/user-attachments/assets/9db4821b-d188-43c3-a085-f2b89871c52b" />
 
@@ -101,7 +101,7 @@ Now clone your model on the scene (either by dragging a new one or pressing `Ctr
 
 And once you are done I recommend removing `EliteRampPreview` from the model. While it basically won't do anything in game since all of the code is gated by UNITY_EDITOR it is still a useless component during runtime.
 
-# FAQ
+## FAQ
 
 *Q: My model is basically solid color when previewing.*
 
