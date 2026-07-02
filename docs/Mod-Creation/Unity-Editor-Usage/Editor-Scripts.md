@@ -163,27 +163,31 @@ You may stumble into the necesity of running Editor related code in a regular, r
 
 Take for example, this OnValidate method that needs to save the asset after its been modified by some user.
 
-    private void OnValidate()
+```csharp
+private void OnValidate()
+{
+    if(someCondition)
     {
-        if(someCondition)
-        {
-            _hidenInInspectorValue = 0.4f;
-            //Find a way to save the above change somehow
-        }
+        _hidenInInspectorValue = 0.4f;
+        //Find a way to save the above change somehow
     }
+}
+```
 
-To ensure proper saving of our modified asset, we can utilize ``EditorUtility.SetDirty``. To properly utilize this method without causing issues at build time we can encapsulate the statement inside an ``#if UNITY_EDITOR`` pre-processor, and fully qualify the type name ``EditorUtility``
+To ensure proper saving of our modified asset, we can utilize `EditorUtility.SetDirty`. To properly utilize this method without causing issues at build time we can encapsulate the statement inside an `#if UNITY_EDITOR` pre-processor, and fully qualify the type name `EditorUtility`
 
-    private void OnValidate()
+```csharp
+private void OnValidate()
+{
+    if(someCondition)
     {
-        if(someCondition)
-        {
-            _hidenInInspectorValue = 0.4f;
-    #if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(this);
-    #endif
-        }
+        _hidenInInspectorValue = 0.4f;
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
     }
+}
+```
 
 Of course, it is worth mentioning that any code encapsulated by the ``#if UNITY_EDITOR`` statement will not be present in builds of your content.
 
@@ -193,14 +197,16 @@ Sometimes you may encounter the need to utilize IMGUI inside an UI created with 
 
 For situations like this, you can utilize the ``IMGUIContainer`` element, which is a special VisualElement that can be used to draw UI using IMGUI.
 
-    public void SetupElement(VisualElement rootElement)
-    {
-        rootElement.Add(new IMGUIContainer(MyIMGUIMethod);
-    }
+```csharp
+public void SetupElement(VisualElement rootElement)
+{
+    rootElement.Add(new IMGUIContainer(MyIMGUIMethod);
+}
 
-    private void MyIMGUIMethod()
-    {
-        EditorGUILayout.LabelField("This label was written using IMGUI!");
-    }
+private void MyIMGUIMethod()
+{
+    EditorGUILayout.LabelField("This label was written using IMGUI!");
+}
+```
 
-Due to limitations, you cannot use Visual Elements in an IMGUI UI
+Due to limitations, you cannot use Visual Elements in an IMGUI UI.
