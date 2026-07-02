@@ -55,7 +55,9 @@ jobs:
             done
             for file in *.md; do 
               mkdir -p "../docs/"
-              if [[ "$file" != "Home.md" ]]; then 
+              if [[ "$file" == "Home.md" ]]; then 
+                cp "$file" "../docs/index.md"
+              else
                 mv "$file" "../docs/$file"
               fi
             done
