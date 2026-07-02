@@ -24,6 +24,7 @@ All mods that you create will [inherit](https://docs.microsoft.com/en-us/dotnet/
 If you want your config file to have a custom name to it you can make a new ConfigFile instance and give it the path that will contains the custom name, like this for example :
 
 `private static ConfigFile CustomConfigFile { get; set; }`
+
 Then initialize it : 
 
 `CustomConfigFile = new ConfigFile(Paths.ConfigPath + "\\CustomNamedFile.cfg", true);`
