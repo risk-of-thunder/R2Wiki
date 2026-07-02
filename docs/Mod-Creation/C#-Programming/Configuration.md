@@ -11,12 +11,13 @@ This can easily be achieved by using configuration. We can automatically generat
 
 ```csharp
 public abstract class BaseUnityPlugin : MonoBehaviour
-    {
-        protected BaseUnityPlugin();
+{
+    protected BaseUnityPlugin();
 
-        protected ManualLogSource Logger { get; }
-        protected ConfigFile Config { get; } //This is the field we are interested in!
-    }
+    protected ManualLogSource Logger { get; }
+
+    protected ConfigFile Config { get; } // This is the field we are interested in!
+}
 ```
 
 All mods that you create will [inherit](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance) from `BaseUnityPlugin` so we can do our configuration from there!
