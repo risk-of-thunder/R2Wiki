@@ -376,3 +376,57 @@ Basically, this tells thunderkit to use the specified constant string (in this c
 ![image](https://github.com/user-attachments/assets/b128d114-0ee2-4d5f-8000-29c739d19030)
 ![image](https://github.com/user-attachments/assets/852353ed-6322-4d20-8d19-fefeea1a85aa)
 ![image](https://github.com/user-attachments/assets/92eeb417-910d-49ed-a312-6c218f54a77b)
+
+## Linux Issues
+Thunderkit on linux tends to run into some issues, but once setup works just as well as on Windows. 
+
+### No usable verison of libssl was found
+
+![Error in Unity](https://github.com/user-attachments/assets/f326a692-b516-4807-8070-61976efcf6a6)
+
+This is a general unity error that occurs *typically* due to libssl being too new (see [this Stack Overflow post for more details](https://stackoverflow.com/questions/72108697/when-i-open-unity-and-make-something-project-then-the-error-is-coming-that-no)). To fix this you need to install an older version of libssl, which should be fixed with the following (stolen from said Stack Overflow error):
+```
+sudo add-apt-repository ppa:rael-gc/rvm
+sudo apt-get update
+sudo apt install libssl1.0-dev
+``` 
+
+### "Access Denied" errors
+These can happen from incorrectly setup permissions, try running ``chmod 770 (path to file)`` on affected files to give them executable permissions.
+
+### GetBitness isn't compatible with non-windows operating systems
+Simply uncheck ``Get Bitness`` from the ThunderKit Import Configuration window and the import process should work. 
+
+### Unity stuck loading (Initial Asset Database Refresh) before doing anything in the project
+Refer to [this Unity Discussions post](https://discussions.unity.com/t/linux-editor-stuck-on-loading-because-of-bee_backend-w-workaround/854480) for more info, but essentially:
+- Go to your **Editor's** Data directory (typically located in ``~/Unity/Hub/Editor/2021.3.33f1/Editor/Data/``) and rename the file **bee_backend** to **bee_backend_real**
+- Create a new file named **bee_backend** and make it executable (``chmod 770 bee_backend``) with the following as its contents:
+```
+#! /bin/bash
+
+args=("$@")
+for ((i=0; i<"${#args[@]}"; ++i))
+do
+    case ${args[i]} in
+        --stdin-canary)
+            unset args[i];
+            break;;
+    esac
+done
+${0}_real "${args[@]}"
+```
+Your editor should now open the project successfully.
+
+If you end up with an error inside the editor similar to ``Internal build system error. Backend exited with code 255``, make sure your ``bee_backend`` file is the exact same as listed and the file is marked as executable.
+
+### MMHook Generator not creating MMHOOK_RoR2.dll (Unable to access On.RoR2)
+This is typically due to MMHook silently failing from DOTNET_BUNDLE_EXTRACT_BASE_DIR being the regular linux user's cache, leading to an error similar to ``Failed to create directory [Assets\ThunderKitSettings\hookgen\/home/USER/.cache/dotnet_bundle_extract\] for extracting bundled files.``You can also verify if this happened by checking ``Project/Packages/mmhook-assemblies/`` and making sure ``MMHOOK_RoR2.dll`` exists.
+
+Download [this zip](https://github.com/user-attachments/files/30443317/ThunderKitHelpers.zip) and export it somewhere in your unity project, then in the ThunderKit Import Configuration tab, switch the ``N Strip Executable`` and ``Hook Gen Executable`` fields to their lowercase versions from the extracted zip (``nstrip.sh`` and ``hookgen.sh`` respectively). Once complete, it should look something similar to this: 
+
+![ThunderKit Import panel](https://github.com/user-attachments/assets/5708630a-74ad-4a58-931c-166d695b1e24)
+
+### Mod wizard failing during .cs creation process
+This happens due to a small section of code located within ``Project/Library/PackageCache/riskofthunder-ror2editorkit@(git hash)/Editor/Core/CodeGen/CodeGeneratorValidator.cs`` in the ``CheckOutCoroutine`` function. Simply comment out the code replacing the path variable like so, and the wizard should (temporarily) now work properly.
+
+![Commented out code in function](https://github.com/user-attachments/assets/73a25084-aa9b-4079-aef0-a076df79b969)
