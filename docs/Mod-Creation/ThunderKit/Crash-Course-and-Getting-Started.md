@@ -380,27 +380,13 @@ Basically, this tells thunderkit to use the specified constant string (in this c
 ## Linux Issues
 Thunderkit on linux tends to run into some issues, but once setup works just as well as on Windows. 
 
-### No usable verison of libssl was found
-
-![Error in Unity](https://github.com/user-attachments/assets/f326a692-b516-4807-8070-61976efcf6a6)
-
-This is a general unity error that occurs *typically* due to libssl being too new (see [this Stack Overflow post for more details](https://stackoverflow.com/questions/72108697/when-i-open-unity-and-make-something-project-then-the-error-is-coming-that-no)). To fix this you need to install an older version of libssl, which should be fixed with the following (stolen from said Stack Overflow error):
-```
-sudo add-apt-repository ppa:rael-gc/rvm
-sudo apt-get update
-sudo apt install libssl1.0-dev
-``` 
-
-### "Access Denied" errors
-These can happen from incorrectly setup permissions, try running ``chmod 770 (path to file)`` on affected files to give them executable permissions.
-
-### GetBitness isn't compatible with non-windows operating systems
-Simply uncheck ``Get Bitness`` from the ThunderKit Import Configuration window and the import process should work. 
-
 ### Unity stuck loading (Initial Asset Database Refresh) before doing anything in the project
 Refer to [this Unity Discussions post](https://discussions.unity.com/t/linux-editor-stuck-on-loading-because-of-bee_backend-w-workaround/854480) for more info, but essentially:
-- Go to your **Editor's** Data directory (typically located in ``~/Unity/Hub/Editor/2021.3.33f1/Editor/Data/``) and rename the file **bee_backend** to **bee_backend_real**
+
+- Go to your Editor's Data directory (typically located in ``~/Unity/Hub/Editor/2021.3.33f1/Editor/Data/``) and rename the file ``bee_backend`` to ``bee_backend_real``
+
 - Create a new file named **bee_backend** and make it executable (``chmod 770 bee_backend``) with the following as its contents:
+
 ```
 #! /bin/bash
 
@@ -419,10 +405,31 @@ Your editor should now open the project successfully.
 
 If you end up with an error inside the editor similar to ``Internal build system error. Backend exited with code 255``, make sure your ``bee_backend`` file is the exact same as listed and the file is marked as executable.
 
-### MMHook Generator not creating MMHOOK_RoR2.dll (Unable to access On.RoR2)
-This is typically due to MMHook silently failing from DOTNET_BUNDLE_EXTRACT_BASE_DIR being the regular linux user's cache, leading to an error similar to ``Failed to create directory [Assets\ThunderKitSettings\hookgen\/home/USER/.cache/dotnet_bundle_extract\] for extracting bundled files.``You can also verify if this happened by checking ``Project/Packages/mmhook-assemblies/`` and making sure ``MMHOOK_RoR2.dll`` exists.
+### No usable verison of libssl was found
 
-Download [this zip](https://github.com/user-attachments/files/30443317/ThunderKitHelpers.zip) and export it somewhere in your unity project, then in the ThunderKit Import Configuration tab, switch the ``N Strip Executable`` and ``Hook Gen Executable`` fields to their lowercase versions from the extracted zip (``nstrip.sh`` and ``hookgen.sh`` respectively). Once complete, it should look something similar to this: 
+![Error in Unity](https://github.com/user-attachments/assets/f326a692-b516-4807-8070-61976efcf6a6)
+
+This is a general unity error that occurs due to libssl being too new (see [this Stack Overflow post for more details](https://stackoverflow.com/questions/72108697/when-i-open-unity-and-make-something-project-then-the-error-is-coming-that-no)). To fix this you need to install an older version of libssl, which can be done with the following on a debian based distro (stolen from said Stack Overflow post):
+```
+sudo add-apt-repository ppa:rael-gc/rvm
+sudo apt-get update
+sudo apt install libssl1.0-dev
+``` 
+If you are on an arch based distro, you can also download the [openssl-1.1](https://aur.archlinux.org/packages/openssl-1.1) package off the AUR.
+
+### The type or namespace name (type) could not be found
+This can happen due to ``RoR2.dll`` and ``KinematicCharacterController.dll`` not being properly copied over by ThunderKit during the Import Assemblies process. If said dll files don't exist in ``Project/Packages/Risk of Rain 2``, manually copying them over from your game's ``Risk of Rain 2_Data/Managed`` folder should fix it. 
+
+### "Access Denied" errors
+These can happen from incorrectly setup permissions, try running ``chmod 770 (path to file)`` on affected files to give them executable permissions.
+
+### GetBitness isn't compatible with non-windows operating systems
+Simply uncheck ``Get Bitness`` from the ThunderKit Import Configuration window and the import process should work. 
+
+### MMHook Generator not creating MMHOOK_RoR2.dll (Unable to access On.RoR2)
+This is typically due to MMHook silently failing from DOTNET_BUNDLE_EXTRACT_BASE_DIR being the regular linux user's cache, leading to an error similar to ``Failed to create directory [Assets\ThunderKitSettings\hookgen\/home/USER/.cache/dotnet_bundle_extract\] for extracting bundled files.`` You can verify whether this happened by checking if ``MMHOOK_RoR2.dll`` exists in ``Project/Packages/mmhook-assemblies/``.
+
+To fix this, download [this zip](https://github.com/user-attachments/files/30443317/ThunderKitHelpers.zip) and export it somewhere in your unity project, then in the ThunderKit Import Configuration tab, switch the ``N Strip Executable`` and ``Hook Gen Executable`` fields to their lowercase versions from the extracted zip (``nstrip.sh`` and ``hookgen.sh`` respectively). Once complete, it should look something similar to this: 
 
 ![ThunderKit Import panel](https://github.com/user-attachments/assets/5708630a-74ad-4a58-931c-166d695b1e24)
 
