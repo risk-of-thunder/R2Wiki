@@ -1,8 +1,8 @@
 # Unity Version
 
-As of February 2026, the properties of Risk of Rain 2's exe indicate a File Version of [2021.3.33.23082](https://unity.com/releases/editor/whats-new/2021.3.33#installs)
+As of October 2026, the properties of Risk of Rain 2's exe indicate a File Version of [2021.3.45.63631](https://unity.com/releases/editor/whats-new/2021.3.45#installs)
 
-The Product Version field reads as "2021.3.33f1 (ee5a2aa03ab2)"
+The Product Version field reads as "2021.3.45f2 (88f88f591b2e)"
 
 Note: A significant security vulnerability CVE-2025-59489 was identified in September 2025 affecting nearly all Unity games built from 2017 onwards.
 
