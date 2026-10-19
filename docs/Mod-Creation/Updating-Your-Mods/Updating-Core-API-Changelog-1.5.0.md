@@ -10,6 +10,34 @@
 
 This content pack only loads `ItemDef`, `EquipmentDef`, `BuffDef`, and `EliteDef` types. Everything else is not registered in catalogs, e.g., bodies, projectiles, entity states, etc. If you're making use of such assets, there will be issues. There is currently a discussion in the community for how to resolve this moving forward.
 
+### Projectile Ghosts
+
+Vanilla Projectiles have moved their `ProjectileController.GhostPrefab` direct reference to an address instead in `ProjectileController.GhostPrefabAddress`.
+
+If you were loading a vanilla projectile such as
+```cs
+GameObject projectile = Addressables.LoadAssetAsync<GameObject>("path/to/projectile").WaitForCompletion();
+ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
+GameObject ghostPrefab = projectileController.ghostPrefab;
+//do modify ghost prefab
+//plug it into our projectile 
+```
+That ghost prefab is going to be null.  
+You can change it to
+```cs
+GameObject ghostPrefab = projectileController.ghostPrefabAddress.LoadAssetAsync().WaitForCompletion();
+```
+
+If you were simply using the ghost prefab wholesale, you simply change
+```cs
+myProjectileController.ghostPrefab = loadedProjectile.ghostPrefab
+```
+
+to
+```cs
+myProjectileController.ghostPrefabAddress = loadedProjectile.ghostPrefabAddress
+```
+
 ## ItemTag shift
 
 The following item tags have shifted their values:
