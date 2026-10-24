@@ -8,7 +8,11 @@
 
 ### JunkContent
 
-This content pack only loads `ItemDef`, `EquipmentDef`, `BuffDef`, and `EliteDef` types. Everything else is not registered in catalogs, e.g., bodies, projectiles, entity states, etc. If you're making use of such assets, there will be issues. There is currently a discussion in the community for how to resolve this moving forward.
+This content pack only loads `ItemDef`, `EquipmentDef`, `BuffDef`, and `EliteDef` types. Everything else is not registered in catalogs, e.g., bodies, projectiles, entity states, scenes, etc. While in code it has been set to load all content when `RoR2Application.isModded`, in order to preserve vanilla compatibility, BepInExPack overrides this to respect the ignored types. If you want to make use of such content, and effectively restore how JunkContent used to be, simply add the following line to the Awake of your plugin.
+
+```cs
+RoR2BepInExPack.RoR2BepInExPack.LoadJunkContent();
+```
 
 ### Projectile Ghosts
 

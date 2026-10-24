@@ -1,8 +1,8 @@
 # Style Reference Sheet
 
-This page just serves as a quick reference sheet for people who are using custom items/artifacts/whatever & would like to see what the preset Style tags are and what they look like.
+This page just serves as a quick reference sheet for people who are using custom items/artifacts/whatever & would like to see what the preset Style tags are and what they look like. Style tags can be used with <style=StyleTag>text</style>, and sprites can be used with <sprite name=\"SpriteName\">.
 
-At present (28/09/2020) the style list sheet is this:
+The current style list sheet as of Hallowed Concepts is:
 
 - Damage = cIsDamage
 
@@ -32,9 +32,25 @@ At present (28/09/2020) the style list sheet is this:
 
 - Shrine = cShrine
 
+- Lunar Objective = cLunarObjective
+
+- Human Objective = cHumanObjective
+
+- Void = cIsVoid
+
+- Lunar = cIsLunar
+
+- Boss = cIsTierBoss
+
+- Cursed = cIsCursed
+
+- Temporary = cIsTemporary
+
+- Rental = cIsRental
+
 And they looks like this:
 
-![Style Reference Sheet](https://github.com/user-attachments/assets/66385743-3734-437b-99c0-a6f39f963178)
+![Style Reference Sheet](https://github.com/user-attachments/assets/5e617ebc-552a-48f0-9873-5adb2666871e)
 
 There are also a set of sprites that can be used inline with text. They are:
 
@@ -52,6 +68,10 @@ There are also a set of sprites that can be used inline with text. They are:
 
 - VoidCoin
 
-This [link](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) showcases the Rich Text from TextMesh Pro, it shows every other form of customization available to the Developer and you are not limited to the preset Styles Hopoo created.
+And look like this:
 
-You can also see live previews in your browser here: [https://xuerian.github.io/RoR2LanguageEditor/](https://xuerian.github.io/RoR2LanguageEditor/)
+![Style Reference Sheet](https://github.com/user-attachments/assets/54109672-5204-45fe-aa3a-f9eb6500e75c)
+
+Further documentation on TextMeshPro can be found [here](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/index.html).
+
+You can also see live previews in your browser here [https://xuerian.github.io/RoR2LanguageEditor/](https://xuerian.github.io/RoR2LanguageEditor/) or here [https://icebro.party/ror2helper/](https://icebro.party/ror2helper)

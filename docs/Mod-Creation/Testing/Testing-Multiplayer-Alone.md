@@ -43,3 +43,13 @@ You can create a shortcut that points to the Risk of Rain 2 executable that, whe
     # after
     "C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2\Risk of Rain 2.exe" --doorstop-enabled true --doorstop-target-assembly "C:\Users\user\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\Default\BepInEx\core\BepInEx.Preloader.dll
     ```
+
+## Local Multiplayer Testing on Linux
+
+1. Either add the code above or use [***Nuxlar-MultiplayerModTesting***](https://thunderstore.io/package/Nuxlar/MultiplayerModTesting/source/) with it's config enabled.
+2. Make sure protontricks is installed on the system and run the command below, with ``/path/to/Risk of Rain 2.exe`` and ``/path/to/profile/`` replaced with their proper paths. **Ensure that the game is set to use a Proton version 10 or below as higher Proton versions will have issues once two instances are running.**
+```
+STEAM_RUNTIME=1 protontricks-launch  --appid 632360 "/path/to/Risk of Rain 2.exe" "-applaunch" "632360" "--doorstop-enabled" "true" "--doorstop-target-assembly" "/path/to/profile/BepInEx/core/BepInEx.Preloader.dll" 
+```
+3. Host a private lobby and enter character select with one instance
+4. Open the console on the other instance and input `connect localhost:7777`
