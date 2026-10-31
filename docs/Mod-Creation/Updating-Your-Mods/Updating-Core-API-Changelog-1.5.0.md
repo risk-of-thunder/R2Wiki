@@ -4,7 +4,22 @@
 
 ### IDRS
 
-**WIP**
+For vanilla characters, Item Displays are no longer held as direct references in the character's `ItemDisplayRuleSet`
+```cs
+//still exists and works, but is not used by vanilla bodies
+public GameObject followerPrefab;
+//now used instead of direct reference to the prefab
+public AssetReferenceGameObject followerPrefabAddress;
+```
+Item displays loaded the old way (that depended on vanilla bodies) should be migrated to [IDRSJsonLoader by KingEnderBrine](https://thunderstore.io/c/riskofrain2/p/KingEnderBrine/IDRSJsonLoader/)
+
+If your modded survivor was based on the Henry template, see [this guide on updating](https://github.com/ArcPh1r3/HenryTutorial/wiki/Updating:-1.5.0-Hallowed-Concepts-item-displays).
+
+#### Do not just use CharacterFixer
+CharacterFixer is a mod that destroys your game load times in order to fix old survivors by immediately loading all items and display prefabs into memory so they can be used the old way. Again, this is terrible for game load times, and we should very much move past that item display method.
+
+Only download it if you are playing an older survivor that is not maintained anymore.  
+For the love of all that is good do not just rely on CharacterFixer if you are a mod dev.
 
 ### JunkContent
 
